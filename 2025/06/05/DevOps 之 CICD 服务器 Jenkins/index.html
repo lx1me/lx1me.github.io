@@ -1,24 +1,24 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
 
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lx1me.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="DevOps 之 CICD 服务器 JenkinsJenkins 部署与基本配置1234567891011121314151617Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。Jenkins 只">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
@@ -32,276 +32,610 @@
 <meta property="article:published_time" content="2025-06-05T01:52:55.083Z">
 <meta property="article:modified_time" content="2025-04-22T12:53:32.390Z">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="e:\biji\image\image-20250422142607063.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="https://lx1me.github.io/2025/06/05/DevOps%20%E4%B9%8B%20CICD%20%E6%9C%8D%E5%8A%A1%E5%99%A8%20Jenkins/">
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lx1me.github.io/2025/06/05/DevOps%20%E4%B9%8B%20CICD%20%E6%9C%8D%E5%8A%A1%E5%99%A8%20Jenkins/","path":"2025/06/05/DevOps 之 CICD 服务器 Jenkins/","title":""}</script>
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Hexo</title>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
-
-
-
-
-
-
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
+<body>
+  
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+  <header>
+    
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Hexo</p>
-      <i class="logo-line"></i>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-
-
-
-
-
-
-</header>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
       </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DevOps-%E4%B9%8B-CICD-%E6%9C%8D%E5%8A%A1%E5%99%A8-Jenkins"><span class="nav-number">1.</span> <span class="nav-text">DevOps 之 CICD 服务器 Jenkins</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins-%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Jenkins 部署与基本配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">Jenkins 安装和启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins-%E5%AE%9E%E7%8E%B0-CICD"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Jenkins 实现 CICD</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Jenkins-%E5%AE%9E%E7%8E%B0%E4%BC%A0%E7%BB%9F%E7%9A%84-CICD-%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.0.3.0.1.</span> <span class="nav-text">Jenkins 实现传统的 CICD 流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Jenkins-%E6%9E%B6%E6%9E%84"><span class="nav-number">1.0.0.3.0.2.</span> <span class="nav-text">Jenkins 架构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Freestyle-%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%BB%E5%8A%A1-Job"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">创建 Freestyle 风格的任务 Job</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Freestyle-%E9%A3%8E%E6%A0%BC%E4%BB%BB%E5%8A%A1%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">Freestyle 风格任务构建流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins-%E6%9E%84%E5%BB%BA%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">Jenkins 构建的环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenkins-%E5%86%85%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">Jenkins 内置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">自定义环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.0.0.8.1.</span> <span class="nav-text">创建环境变量</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">13</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
     </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-05 09:52" pubdate>
+          June 5, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k words
+        
+      </span>
+    
 
     
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="DevOps-之-CICD-服务器-Jenkins"><a href="#DevOps-之-CICD-服务器-Jenkins" class="headerlink" title="DevOps 之 CICD 服务器 Jenkins"></a>DevOps 之 CICD 服务器 Jenkins</h1><h4 id="Jenkins-部署与基本配置"><a href="#Jenkins-部署与基本配置" class="headerlink" title="Jenkins 部署与基本配置"></a>Jenkins 部署与基本配置</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。<br>Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。<br>Jenkins 只是一个调度平台,其本身并不能完成项目的构建部署<br>Jenkins 需要安装各种插件,可能还需要编写Shell,python脚本等才能调用和集成众多的组件来实现复杂的构建部署功能<br><br>主要用途：<br>持续、自动地构建/测试软件项目<br>监控一些定时执行的任务<br><br>Jenkins特点：<br>开源免费<br>跨平台，支持所有的平台<br>master/slave支持分布式的build<br>web形式的可视化的管理页面<br>安装配置简单<br>及时快速的提示和帮助<br>已有的<span class="hljs-number">1800</span>+插件<br></code></pre></td></tr></table></figure>
+
+<h4 id="Jenkins-安装和启动"><a href="#Jenkins-安装和启动" class="headerlink" title="Jenkins 安装和启动"></a>Jenkins 安装和启动</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 支持多种部署和运行方式<br>Jenkins支持多种安装方法<br>包安装<br>JAVA的WAR文件<br>容器运行<br></code></pre></td></tr></table></figure>
+
+<h4 id="Jenkins-实现-CICD"><a href="#Jenkins-实现-CICD" class="headerlink" title="Jenkins 实现 CICD"></a>Jenkins 实现 CICD</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">任务中构建将程序源码转换成一个可用的目标Target的过程，该过程可能会包括获取下载源码、解决依赖、编译和打包等环节<br>目标可以包括库、可执行文件及生成的脚本等，该类文件即是所谓的“制品”,它们通常应该存储于制品库,Nexus就是著名的制品库服务之一<br>程序员可以在本地进行构建，但基于有标准、统一构建环境的构建系统完成应用程序的构建，能有效确保制品质量<br>Jenkins虽然可以为构建服务器，但自身并未提供构建工具<br>Jenkins可以集成用户所需要的大部分主流构建工具来实现完整的构建过程<br>构建工具与源程序的编程语言及工程工具有密切关系,因而,在Jenkins服务器中具体需要安装和集成的构建工具,取决于用户的实际需要<br><br>Maven: Java<br>Go: Golang<br>Gradle: Java,Groovey和Kotlin等<br>SBT: Scala<br>Babel、Browserify、Weboack、Grunt及Gulp等: javascript<br></code></pre></td></tr></table></figure>
+
+<h6 id="Jenkins-实现传统的-CICD-流程"><a href="#Jenkins-实现传统的-CICD-流程" class="headerlink" title="Jenkins 实现传统的 CICD 流程"></a>Jenkins 实现传统的 CICD 流程</h6><p><img src="E:\biji\image\image-20250422142607063.png" srcset="/img/loading.gif" lazyload alt="image-20250422142607063"></p>
+<h6 id="Jenkins-架构"><a href="#Jenkins-架构" class="headerlink" title="Jenkins 架构"></a>Jenkins 架构</h6><p><img src="E:\biji\image\image-20250422142631313.png" srcset="/img/loading.gif" lazyload alt="image-20250422142631313"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins根据业务场景的不同,提供了多种风格的任务，默认是自由风格任务，通过安装插件，还可以支持其它风格的插件<br>Job的风格分类<br>自由风格freestyle：支持实现各种开发语言的不同场景的风格，以Shell为主要技术，内部有各种灵活的配置属性，默认只有此类型<br>流水线 pipeline：重点掌握的风格，使用专用语法<br>Maven 项目：仅适用于 JAVA 项目<br></code></pre></td></tr></table></figure>
+
+<h4 id="创建-Freestyle-风格的任务-Job"><a href="#创建-Freestyle-风格的任务-Job" class="headerlink" title="创建 Freestyle 风格的任务 Job"></a>创建 Freestyle 风格的任务 Job</h4><p><img src="E:\biji\image\image-20250422142733146.png" srcset="/img/loading.gif" lazyload alt="image-20250422142733146"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">自由风格的任务提供了下面的组成<br>通用配置：当前任务的基本配置，历史记录、存储数据、认证、存储目录等<br>源码管理：指定当前任务依赖的代码仓库地址(仓库的分支)<br>构建触发器：在什么情况下，才会自动执行当前的任务<br>构建环境：构建过程中，依赖的环境变量等<br>构建：当前的代码构建操作，实现CICD核心步骤<br>构建后动作：构建任务成功后，我们可以做的事情，发送邮件、提交代码标签、触发其他任务、等等<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="Freestyle-风格任务构建流程"><a href="#Freestyle-风格任务构建流程" class="headerlink" title="Freestyle 风格任务构建流程"></a>Freestyle 风格任务构建流程</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs powershell">新建任务<br>输入任务名<br>选择自由风格的软件项目<br>描述该任务的作用<br><br>设置丢弃旧的构建<br>丢弃旧的构建：构建后的产物，保留多久<br>条件<span class="hljs-number">1</span>：保持构建的天数：当前项目构建的产物最多保留多少天<br>条件<span class="hljs-number">2</span>：保持构建的最大个数：当前项目最多保留多少构建产物，多出的自动删除<br><br>源码管理<br>从gitlab等仓库下载源码<br><br>构建触发器<br>定义自动构建的触发器<br><br>构建<br>构建项目的具体过程,比如: 编译,打包,部署等<br><br>构建后操作<br><br>晴雨表主要是针对一个任务的整体执行成功比例来算的。<span class="hljs-number">80</span>%成功表示太阳。<br>构建完成后可以执行的操作,比如,通知或执行其它任务<br></code></pre></td></tr></table></figure>
+
+<h4 id="Jenkins-构建的环境变量"><a href="#Jenkins-构建的环境变量" class="headerlink" title="Jenkins 构建的环境变量"></a>Jenkins 构建的环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">构建时，Jenkins 支持使用变量,从而增强了任务的灵活性<br>环境变量有内置和自定义两种<br>在自由风格的的shell中可以使用<span class="hljs-variable">$</span>&#123;VAR_NAME&#125;引用变量<br><br>Pipeline 中引用全局环境<br>Jenkins内置的全局环境变量可被所有的pipeline引用，它们以“env.”为前缀<br>在pipeline中引用全局环境变量格式有三种：<br><span class="hljs-variable">$</span>&#123;env.&lt;ENV_VAR_NAME&gt;&#125; 不支持在shell 中引用<br><span class="hljs-variable">$env</span>.&lt;ENV_VAR_NAME&gt; 不支持 shell 中引用<br><span class="hljs-variable">$</span>&#123;ENV_VAR_NAME&#125; 支持在shell 中引用<br></code></pre></td></tr></table></figure>
+
+<h4 id="Jenkins-内置环境变量"><a href="#Jenkins-内置环境变量" class="headerlink" title="Jenkins 内置环境变量"></a>Jenkins 内置环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 提供了很多内置的变量<br><br>Jenkins内置的常用的环境变量<br>JENKINS_HOME：Jenkins的家目录<br>JENKINS_URL：Jenkins服务的URL<br>JOB_NAME：当前作业的名称<br>BUILD_NUMBER：构建号，递增的整数值；打包时，经常用作制品名称的一部分<br>BRANCH_NAME：在多分支pipeline中，需要根据不同的分支施加不同的操作时较为常用<br>BUILD_URL：当前构建页面的URL，常用于邮件通知中<br>GIT_BRANCH：基于git拉取的源码进行构建时使用该变量<br></code></pre></td></tr></table></figure>
+
+<h4 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">变量的优先级顺序：<br>任务中的自定义的变量 &gt; Jenkins 的自定义环境量 &gt; Jenkins 内置的环境变量<br></code></pre></td></tr></table></figure>
+
+<h5 id="创建环境变量"><a href="#创建环境变量" class="headerlink" title="创建环境变量"></a>创建环境变量</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">自定义变量可以在系统管理<span class="hljs-literal">--</span>配置系统<span class="hljs-literal">--</span>全局属性<span class="hljs-literal">--</span> 环境变量 定义<br>注意：如果自定义环境变量与内置全局环境变量同名时，内置全局环境变量将被自定义环境变量覆盖<br>这可能会引起错误，必要时，可为自定义环境变量使用固定的前缀，例如“_ _”等<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://lx1me.github.io/2025/06/05/DevOps 之 CICD 服务器 Jenkins/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 5, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/05/Ansible%E5%9F%BA%E7%A1%80/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
   </aside>
 
 
     </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2025/06/05/DevOps%20%E4%B9%8B%20CICD%20%E6%9C%8D%E5%8A%A1%E5%99%A8%20Jenkins/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-06-05 09:52:55" itemprop="dateCreated datePublished" datetime="2025-06-05T09:52:55+08:00">2025-06-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-22 20:53:32" itemprop="dateModified" datetime="2025-04-22T20:53:32+08:00">2025-04-22</time>
-    </span>
-
-  
+  </div>
 </div>
 
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><h1 id="DevOps-之-CICD-服务器-Jenkins"><a href="#DevOps-之-CICD-服务器-Jenkins" class="headerlink" title="DevOps 之 CICD 服务器 Jenkins"></a>DevOps 之 CICD 服务器 Jenkins</h1><h4 id="Jenkins-部署与基本配置"><a href="#Jenkins-部署与基本配置" class="headerlink" title="Jenkins 部署与基本配置"></a>Jenkins 部署与基本配置</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。</span><br><span class="line">Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。</span><br><span class="line">Jenkins 只是一个调度平台,其本身并不能完成项目的构建部署</span><br><span class="line">Jenkins 需要安装各种插件,可能还需要编写Shell,python脚本等才能调用和集成众多的组件来实现复杂的构建部署功能</span><br><span class="line"></span><br><span class="line">主要用途：</span><br><span class="line">持续、自动地构建/测试软件项目</span><br><span class="line">监控一些定时执行的任务</span><br><span class="line"></span><br><span class="line">Jenkins特点：</span><br><span class="line">开源免费</span><br><span class="line">跨平台，支持所有的平台</span><br><span class="line">master/slave支持分布式的build</span><br><span class="line">web形式的可视化的管理页面</span><br><span class="line">安装配置简单</span><br><span class="line">及时快速的提示和帮助</span><br><span class="line">已有的<span class="number">1800</span>+插件</span><br></pre></td></tr></table></figure>
-
-<h4 id="Jenkins-安装和启动"><a href="#Jenkins-安装和启动" class="headerlink" title="Jenkins 安装和启动"></a>Jenkins 安装和启动</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jenkins 支持多种部署和运行方式</span><br><span class="line">Jenkins支持多种安装方法</span><br><span class="line">包安装</span><br><span class="line">JAVA的WAR文件</span><br><span class="line">容器运行</span><br></pre></td></tr></table></figure>
-
-<h4 id="Jenkins-实现-CICD"><a href="#Jenkins-实现-CICD" class="headerlink" title="Jenkins 实现 CICD"></a>Jenkins 实现 CICD</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">任务中构建将程序源码转换成一个可用的目标Target的过程，该过程可能会包括获取下载源码、解决依赖、编译和打包等环节</span><br><span class="line">目标可以包括库、可执行文件及生成的脚本等，该类文件即是所谓的“制品”,它们通常应该存储于制品库,Nexus就是著名的制品库服务之一</span><br><span class="line">程序员可以在本地进行构建，但基于有标准、统一构建环境的构建系统完成应用程序的构建，能有效确保制品质量</span><br><span class="line">Jenkins虽然可以为构建服务器，但自身并未提供构建工具</span><br><span class="line">Jenkins可以集成用户所需要的大部分主流构建工具来实现完整的构建过程</span><br><span class="line">构建工具与源程序的编程语言及工程工具有密切关系,因而,在Jenkins服务器中具体需要安装和集成的构建工具,取决于用户的实际需要</span><br><span class="line"></span><br><span class="line">Maven: Java</span><br><span class="line">Go: Golang</span><br><span class="line">Gradle: Java,Groovey和Kotlin等</span><br><span class="line">SBT: Scala</span><br><span class="line">Babel、Browserify、Weboack、Grunt及Gulp等: javascript</span><br></pre></td></tr></table></figure>
-
-<h6 id="Jenkins-实现传统的-CICD-流程"><a href="#Jenkins-实现传统的-CICD-流程" class="headerlink" title="Jenkins 实现传统的 CICD 流程"></a>Jenkins 实现传统的 CICD 流程</h6><p><img src="E:\biji\image\image-20250422142607063.png" alt="image-20250422142607063"></p>
-<h6 id="Jenkins-架构"><a href="#Jenkins-架构" class="headerlink" title="Jenkins 架构"></a>Jenkins 架构</h6><p><img src="E:\biji\image\image-20250422142631313.png" alt="image-20250422142631313"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jenkins根据业务场景的不同,提供了多种风格的任务，默认是自由风格任务，通过安装插件，还可以支持其它风格的插件</span><br><span class="line">Job的风格分类</span><br><span class="line">自由风格freestyle：支持实现各种开发语言的不同场景的风格，以Shell为主要技术，内部有各种灵活的配置属性，默认只有此类型</span><br><span class="line">流水线 pipeline：重点掌握的风格，使用专用语法</span><br><span class="line">Maven 项目：仅适用于 JAVA 项目</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建-Freestyle-风格的任务-Job"><a href="#创建-Freestyle-风格的任务-Job" class="headerlink" title="创建 Freestyle 风格的任务 Job"></a>创建 Freestyle 风格的任务 Job</h4><p><img src="E:\biji\image\image-20250422142733146.png" alt="image-20250422142733146"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">自由风格的任务提供了下面的组成</span><br><span class="line">通用配置：当前任务的基本配置，历史记录、存储数据、认证、存储目录等</span><br><span class="line">源码管理：指定当前任务依赖的代码仓库地址(仓库的分支)</span><br><span class="line">构建触发器：在什么情况下，才会自动执行当前的任务</span><br><span class="line">构建环境：构建过程中，依赖的环境变量等</span><br><span class="line">构建：当前的代码构建操作，实现CICD核心步骤</span><br><span class="line">构建后动作：构建任务成功后，我们可以做的事情，发送邮件、提交代码标签、触发其他任务、等等</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Freestyle-风格任务构建流程"><a href="#Freestyle-风格任务构建流程" class="headerlink" title="Freestyle 风格任务构建流程"></a>Freestyle 风格任务构建流程</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">新建任务</span><br><span class="line">输入任务名</span><br><span class="line">选择自由风格的软件项目</span><br><span class="line">描述该任务的作用</span><br><span class="line"></span><br><span class="line">设置丢弃旧的构建</span><br><span class="line">丢弃旧的构建：构建后的产物，保留多久</span><br><span class="line">条件<span class="number">1</span>：保持构建的天数：当前项目构建的产物最多保留多少天</span><br><span class="line">条件<span class="number">2</span>：保持构建的最大个数：当前项目最多保留多少构建产物，多出的自动删除</span><br><span class="line"></span><br><span class="line">源码管理</span><br><span class="line">从gitlab等仓库下载源码</span><br><span class="line"></span><br><span class="line">构建触发器</span><br><span class="line">定义自动构建的触发器</span><br><span class="line"></span><br><span class="line">构建</span><br><span class="line">构建项目的具体过程,比如: 编译,打包,部署等</span><br><span class="line"></span><br><span class="line">构建后操作</span><br><span class="line"></span><br><span class="line">晴雨表主要是针对一个任务的整体执行成功比例来算的。<span class="number">80</span>%成功表示太阳。</span><br><span class="line">构建完成后可以执行的操作,比如,通知或执行其它任务</span><br></pre></td></tr></table></figure>
-
-<h4 id="Jenkins-构建的环境变量"><a href="#Jenkins-构建的环境变量" class="headerlink" title="Jenkins 构建的环境变量"></a>Jenkins 构建的环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">构建时，Jenkins 支持使用变量,从而增强了任务的灵活性</span><br><span class="line">环境变量有内置和自定义两种</span><br><span class="line">在自由风格的的shell中可以使用<span class="variable">$</span>&#123;VAR_NAME&#125;引用变量</span><br><span class="line"></span><br><span class="line">Pipeline 中引用全局环境</span><br><span class="line">Jenkins内置的全局环境变量可被所有的pipeline引用，它们以“env.”为前缀</span><br><span class="line">在pipeline中引用全局环境变量格式有三种：</span><br><span class="line"><span class="variable">$</span>&#123;env.&lt;ENV_VAR_NAME&gt;&#125; 不支持在shell 中引用</span><br><span class="line"><span class="variable">$env</span>.&lt;ENV_VAR_NAME&gt; 不支持 shell 中引用</span><br><span class="line"><span class="variable">$</span>&#123;ENV_VAR_NAME&#125; 支持在shell 中引用</span><br></pre></td></tr></table></figure>
-
-<h4 id="Jenkins-内置环境变量"><a href="#Jenkins-内置环境变量" class="headerlink" title="Jenkins 内置环境变量"></a>Jenkins 内置环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Jenkins 提供了很多内置的变量</span><br><span class="line"></span><br><span class="line">Jenkins内置的常用的环境变量</span><br><span class="line">JENKINS_HOME：Jenkins的家目录</span><br><span class="line">JENKINS_URL：Jenkins服务的URL</span><br><span class="line">JOB_NAME：当前作业的名称</span><br><span class="line">BUILD_NUMBER：构建号，递增的整数值；打包时，经常用作制品名称的一部分</span><br><span class="line">BRANCH_NAME：在多分支pipeline中，需要根据不同的分支施加不同的操作时较为常用</span><br><span class="line">BUILD_URL：当前构建页面的URL，常用于邮件通知中</span><br><span class="line">GIT_BRANCH：基于git拉取的源码进行构建时使用该变量</span><br></pre></td></tr></table></figure>
-
-<h4 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量的优先级顺序：</span><br><span class="line">任务中的自定义的变量 &gt; Jenkins 的自定义环境量 &gt; Jenkins 内置的环境变量</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建环境变量"><a href="#创建环境变量" class="headerlink" title="创建环境变量"></a>创建环境变量</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">自定义变量可以在系统管理<span class="literal">--</span>配置系统<span class="literal">--</span>全局属性<span class="literal">--</span> 环境变量 定义</span><br><span class="line">注意：如果自定义环境变量与内置全局环境变量同名时，内置全局环境变量将被自定义环境变量覆盖</span><br><span class="line">这可能会引起错误，必要时，可为自定义环境变量使用固定的前缀，例如“_ _”等</span><br></pre></td></tr></table></figure>
-
-
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-            </div>
-            <div class="post-nav-item">
-                <a href="/2025/06/05/Ansible%E5%9F%BA%E7%A1%80/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+  </div>
 </div>
 
+    
 
-
-
-
-
-</div>
+    
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
-  </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
