@@ -19,18 +19,18 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="高可用集群Keepalived集群简介!!!    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单点">
+    <meta name="description" content="高可用集群Keepalived集群简介!!!!    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于">
 <meta property="og:url" content="https://lx1me.github.io/2024/05/10/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="高可用集群Keepalived集群简介!!!    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单点">
+<meta property="og:description" content="高可用集群Keepalived集群简介!!!!    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lx1me.github.io/image/image-20250321113325305.png">
 <meta property="og:image" content="https://lx1me.github.io/image/image-20250321113635027.png">
 <meta property="og:image" content="https://lx1me.github.io/image/image-20250321113724019.png">
 <meta property="article:published_time" content="2024-05-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-09T03:53:27.599Z">
+<meta property="article:modified_time" content="2025-06-09T03:58:34.105Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="随笔">
 <meta property="article:tag" content="记录">
@@ -320,7 +320,7 @@
 
 <article class="about-content page-content mt-5">
   <div class="markdown-body">
-    <h1 id="高可用集群Keepalived"><a href="#高可用集群Keepalived" class="headerlink" title="高可用集群Keepalived"></a>高可用集群Keepalived</h1><h4 id="集群简介"><a href="#集群简介" class="headerlink" title="集群简介"></a>集群简介</h4><p>!!!<img src="/../image/image-20250321113325305.png" srcset="/img/loading.gif" lazyload></p>
+    <h1 id="高可用集群Keepalived"><a href="#高可用集群Keepalived" class="headerlink" title="高可用集群Keepalived"></a>高可用集群Keepalived</h1><h4 id="集群简介"><a href="#集群简介" class="headerlink" title="集群简介"></a>集群简介</h4><p>!!!!<img src="/../image/image-20250321113325305.png" srcset="/img/loading.gif" lazyload></p>
 <table>
 <thead>
 <tr>
@@ -386,10 +386,10 @@
 </tbody></table>
 <h4 id="恢复能力"><a href="#恢复能力" class="headerlink" title="恢复能力"></a>恢复能力</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">所谓的恢复能力，指的是一个网站从发生故障到故障修复这个过程的能力，而这个能力涉及到两个子内容：数据恢复能力和业务恢复能力。<br>数据恢复能力 RPO(Recovery Point Obejective)<br> 是指业务系统所允许的在灾难过程中的最大数据丢失量，用来衡量高可用系统的数据冗余备份能力。<br> 例如，恢复到灾难发生前最后一次数据备份的数据状态。<br> <br>系统恢复能力 RTO(Recovery Time Objective)<br> 是指应用系统从灾难状态恢复到物理系统环境可运行状态所需的时间，用来衡量高可用系统的恢复能力。<br> 例如，服务器重启、数据库重启、数据恢复、应用回归正常运行。<br> <br>网络恢复能力 NRO(Network Recovery Objective)<br> 是指网络系统从灾难状态恢复到网络可连接状态所需的时间，用来衡量高可用系统的网络恢复能力。<br> 例如，用户在灾难后可以连接到灾备中心的时间。<br> <br>业务恢复能力 RAO(Recovery Access Objective)<br> 是指业务系统从灾难状态恢复到可运行状态所需的时间，用来衡量高可用系统的业务恢复能力。<br> 例如，用户在灾难后，可以感受到灾难前的业务应用状态。<br></code></pre></td></tr></table></figure>
 
-<p>!!!<img src="/../image/image-20250321113635027.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/image-20250321113635027.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="高可用方式"><a href="#高可用方式" class="headerlink" title="高可用方式"></a>高可用方式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">对于集群来说，高可用的最主要的目的就是保证网站接入口的稳定性，通过一个虚拟的接入口，将真实的请求转发到不同地址(一般是两个)的真实接入口出，进而将请求转发到后续高扩展集群主机中。<br>这个虚拟的接入口，我们一般称之为VIP，这个VIP一般附加在后端的真实接入口，二这两个接入口一个做主一个做从，共同负担起VIP传输过来的信息。<br>做主的接口主机我们一般称之为Master或者Active，做备的接口主机我们一般称之为Slave或者Passive。<br></code></pre></td></tr></table></figure>
 
-<p>!!!<img src="/../image/image-20250321113724019.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/image-20250321113724019.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="集群模式"><a href="#集群模式" class="headerlink" title="集群模式"></a>集群模式</h4><table>
 <thead>
 <tr>
