@@ -1,3 +1,0 @@
-var posts=["2025/06/05/DevOps 之 CICD 服务器 Jenkins/","2025/06/05/Ansible基础/","2025/06/05/MySQL 数据库-1/","2025/06/05/企业级堡垒机 JumpServer/","2025/06/05/企业级 NoSQL 数据库 Redis/","2025/06/05/MySQL 数据库/","2025/06/05/企业级容器技术 Docker/","2025/06/05/企业级监控系统 ZABBIX/","2025/06/05/毕业设计进度/","2025/06/05/网络安全技术基础/","2025/06/05/版本管理系统 Git 和 GitLab/","2025/06/05/企业级调度器LVS/","2025/06/05/高可用集群Keepalived/"];function toRandomPost(){
-    pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
-  };

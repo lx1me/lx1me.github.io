@@ -1,214 +1,306 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Hexo | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="application-name" content="Hexo"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/index.html"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="版本管理系统 Git 和 GitLabDevOps 简介软件开发生命周期12345678910111213141516软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成阶段1: 计划和需求分析 (Planning"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="John Doe"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="版本管理系统 Git 和 GitLabDevOps 简介软件开发生命周期12345678910111213141516软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成阶段1: 计划和需求分析 (Planning"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  linkPageTop: undefined,
-  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
-  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
-  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
-  LA51: undefined,
-  greetingBox: undefined,
-  twikooEnvId: '',
-  commentBarrageConfig:undefined,
-  music_page_default: "nav_music",
-  root: '/',
-  preloader: {"source":3},
-  friends_vue_info: undefined,
-  navMusic: true,
-  mainTone: undefined,
-  authorStatus: undefined,
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    simplehomepage: true,
-    post: false
-  },
-  runtime: '天',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: John Doe","link":"链接: ","source":"来源: Hexo","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
-      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="版本管理系统 Git 和 GitLabDevOps 简介软件开发生命周期12345678910111213141516软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成阶段1: 计划和需求分析 (Planning and Requirement Analysis)每个软件开发生命周期模型都从分析开始，过程的利益相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="版本管理系统 Git 和 GitLabDevOps 简介软件开发生命周期12345678910111213141516软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成阶段1: 计划和需求分析 (Planning and Requirement Analysis)每个软件开发生命周期模型都从分析开始，过程的利益相">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:\biji\image\image-20250419091050092.png">
+<meta property="og:image" content="e:\biji\image\image-20250419091231420.png">
+<meta property="og:image" content="e:\biji\image\image-20250419091550881.png">
+<meta property="og:image" content="e:\biji\image\image-20250419091508872.png">
+<meta property="og:image" content="e:\biji\image\image-20250419091807419.png">
+<meta property="og:image" content="e:\biji\image\image-20250419100744098.png">
+<meta property="og:image" content="e:\biji\image\image-20250419101327917.png">
+<meta property="og:image" content="e:\biji\image\image-20250419101906101.png">
+<meta property="og:image" content="e:\biji\image\image-20250419102239034.png">
+<meta property="og:image" content="e:\biji\image\image-20250419102419650.png">
+<meta property="og:image" content="e:\biji\image\image-20250419102554252.png">
+<meta property="og:image" content="e:\biji\image\image-20250419113319864.png">
+<meta property="og:image" content="e:\biji\image\image-20250419135734948.png">
+<meta property="og:image" content="e:\biji\image\image-20250419135803736.png">
+<meta property="article:published_time" content="2025-06-05T01:52:55.093Z">
+<meta property="article:modified_time" content="2025-04-19T05:58:16.989Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="e:\biji\image\image-20250419091050092.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isAnchor: false,
-  shortcutKey: undefined,
-  autoDarkmode: true
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  configTitle: 'Hexo',
-  title: 'Hexo',
-  postAI: '',
-  pageFillDescription: '版本管理系统 Git 和 GitLab, DevOps 简介, 软件开发生命周期, 瀑布模型, V 形模型, 敏捷开发, DevOps 介绍, 持续集成、持续交付和持续部署 CICD, 版本控制系统 VCS, 版本控制系统分类, 集中式版本控制系统, 分布式版本控制系统, Git, 常见的软件部署模式, 蓝绿部署 Blue-green Deployments, 金丝雀(灰度)发布 Canary Deployment, 滚动发布(更新), Ax2FB测试 Ax2FB Testing, 版本控制系统 Git, Git 相关概念和原理, Git 文件的状态变化周期版本管理系统和简介软件开发生命周期软件开发生命周期由计划分析设计实现测试集成和维护组成阶段计划和需求分析每个软件开发生命周期模型都从分析开始过程的利益相关者讨论对最终产品的要求此阶段的目标是系统要求的详细定义此外还需要确保所有流程参与者都清楚地了解任务以及每个需求将如何实施通常讨论涉及质量保证专家如果有必要他们甚至可以在开发阶段干预过程中的添加阶段设计项目架构在软件开发生命周期的第二阶段开发人员实际上正在设计架构所有利益相关者包括客户都会讨论此阶段可能出现的所有不同技术问题此外还定义了项目中使用的技术团队负载限制时间范围和预算最合适的项目决策是根据定义的要求做出的阶段开发和编程在批准要求后该过程进入下一阶段实际开发程序员从这里开始编写源代码同时牢记先前定义的需求系统管理员调整软件环境前端程序员开发程序的用户界面以及与服务器交互的逻辑编程本身一般会用四个阶段算法开发源代码编写编译测试和调试阶段测试测试阶段包括调试过程开发过程中遗漏的所有代码缺陷都会在此处检测到记录下来并传回给开发人员进行修复重复测试过程直到删除所有关键问题并且软件工作流程稳定阶段部署当程序最终确定并且没有关键问题时是时候为最终用户启动它了新程序版本发布后技术支持团队加入该部门提供用户反馈在利用期间咨询和支持用户此外此阶段还包括所选组件的更新以确保软件是最新的并且不会受到安全漏洞的影响瀑布模型该模型包括完全逐步执行每个阶段该过程严格记录并预定义具有该软件开发生命周期模型的每个阶段所期望的功能类似工厂中流水线的传送带加工的产品只能按照一道一道的工序向下不断前进不能后退优点缺点简单易用和理解各个阶段的划分完全固定阶段之间产生大量的文档极大地增加了工作量当前一阶段完成后只需要去关注后续阶段由于开发模型是线性的用户只有等到整个过程的末期才能见到开发成果从而增加了开发风险为项目提供了按阶段划分的检查节点不适应用户需求的变化形模型敏捷开发敏捷开发的核心是迭代开发与增量迭代开发对于大型软件项目传统的开发方式是采用一个大周期比如一年或数年进行开发整个过程就是一次大开发迭代开发的方式则不一样它将开发过程拆分成多个小周期即一次大开发变成多次小开发每次小开发都是同样的流程所以看上去就好像重复在做同样的步骤增量开发软件的每个版本都会新增一个可以被用户感知到的完整功能也就是说按照新增功能来划分迭代介绍即开发和运维的缩写持续集成持续交付和持续部署持续集成持续集成是指多名开发者在开发不同功能代码的过程当中可以频繁的将代码行合并到一起并切相互不影响工作很多情况下每天都要进行几次主要目的是尽早发现集成错误使团队更加紧密结合更好地协作持续集成强调开发人员提交了新代码之后立刻进行构建单元测试持续交付持续交付的目标是拥有一个可随时部署到生产环境的代码库持续交付完成了构建和测试过程细致的自动化但是如何发布以及发布什么仍然是需要人工操作持续部署可以改变这一点持续部署持续部署可以自动将应用发布到生产环境版本控制系统版本控制是维护工程蓝图的标准做法能追踪工程蓝图从诞生一直到定案的过程版本控制也是一种软件工程技巧借此能在软件开发的过程中确保由不同人所编辑的同一程序文件都得到同步软件工程师常利用版本控制来跟踪维护原始码文档以及配置文件等的改动软件版本控制的方法最简单的情况下软件设计师可以自己保留一个程序的许多不同版本并且为它们做适当的编号这种简单的方法曾被用在很多大型的软件项目中虽然可行但效率较低必须同时维护很多几乎一样的原始码备份而且极度依赖软件设计师的自我修养与开发纪律使用版本控制系统实现部分或全部版本控制工作的自动化版本控制系统是一种软件可以帮助软件团队的开发人员协同工作并存档他们工作的完整历史记录为什么使用在实际开发过程中经常会有这种需求或问题代码可能被破坏比如误删除等希望还能找回代码出现了严重的希望回滚至数周前的旧代码需要在已经发布的程序中添加新的功能如果测试验证后没有问题才会使用新的代码而在测试验证期间不能影响原来的代码同一个软件需要有多个版本并行开发满足不同的应用需求实际项目开发基本都是多个人合作完成在多个人同时修改同一个源代码文件时可能会发生冲突如何跟踪记录这些冲突异地源代码备份使用时需要创建一个的远程实例以在开发人员之间共享更改这个远程实例可以由值得信赖的第三方如进行异地托管然后它就会成为安全的异地备份版本控制系统分类本地版本单机版控制系统第一代版本控制系统被称为本地版本控制系统通过加锁将并发执行转换成顺序执行一次只能有一个人处理文件集中式版本控制系统想要完成任何提交和回滚都依赖于连接集中的代码服务器才能实现如果无法连接至代码的服务器比如下班回家后将无法提交代码此外此集中式服务器还存在单点问题在集中式实例的不可用期间开发人员就无法推送合并或回滚代码此方式可以更好的实现软件仓库的安全访问限制和控制分布式版本控制系统在每个用户都有一个完整的服务器用于保存软件的完整版本然后再部署一个中央服务器用户可以先将代码提交到本地没有网络也可以先提交到本地然后在有网络的时候再提交到中央服务器这样就大大方便了开发者相比集中式的版本控制系统工作的时候需要先从中央服务器获取最新的代码改完之后需要提交如果是一个比较大的文件则需要足够快的网络才能快速提交完成而使用分布式的版本控制系统每个用户都是一个完整的版本库即使没有中央服务器也可以提交代码或者回滚最终再把改好的代码提交至中央服务器进行合并即可此方式不容易实现软件仓库的安全访问限制和控制重要特性在本地就可以完成提交因此不需要网络提交完成后可以有网络环境时再同步到远程仓库服务器优点缺点适合分布式开发强调个体不符合常规思维公共服务器压力和数据量都不会太大学习难度大学习周期相对较长速度快灵活代码保密性差一旦开发者把整个库克隆下来就可以完全公开所有代码和版本信息任意两个开发者之间可以很容易地解决冲突无力支持大型二进制文件支持离线工作具有大量历史记录的超大型存储库会降低交互速度网站和软件官方网站的优势开源免费搭建简单维护成本较低可适用于中小型公司内部项目使用权限管理功能强大灵活能实现代码对部分人可见确保项目的安全性支持离线提交基于实现可以不在实时依赖网络环境进行代码提交常见的软件部署模式蓝绿部署蓝绿部署指的是不停止老版本代码不影响上一个版本访问而是在另外一套环境部署新版本然后进行测试测试通过后将用户流量切到新版本其特点为业务无中断升级风险相对较小但本方式成本较高一般小公司较少使用蓝绿色部署是一种部署策略利用两种相同的环境即蓝色又名预发布环境和绿色又名生产环境具有不同版本的应用程序或服务质量保证和用户接受度测试通常在承载新版本或更改的蓝色环境中进行一旦蓝色环境中测试并接受新的变化用户流量就会从绿色环境切换为蓝色环境然后一旦部署成功您可以切换到新环境具体过程当前版本业务正常访问在另外一套环境部署新代码版本代码可能是增加了功能或者是修复了某些测试通过之后将用户请求流量切到新版本环境观察一段时间如有异常直接切换旧版本下次升级将旧版本升级到新版本蓝绿部署适用的场景不停止老版本额外部署一套新版本等测试确认新版本正常后才将用户请求切换至新版本如果有问题切换回老版本蓝绿发布是一种用于升级与更新的发布策略部署的最小维度是容器而发布的最小维度是应用蓝绿发布对于增量升级有比较好的支持但是对于涉及数据表结构变更等等不可逆转的升级并不完全合适用蓝绿发布来实现需要结合一些业务的逻辑以及数据迁移与回滚的策略才可以完全满足需求金丝雀灰度发布金丝雀发布也叫灰度发布是指在黑与白之间能够平滑过渡的一种发布方式灰度发布是增量发布例如进行更新的一种类型灰度发布是在原有版本可用的情况下同时部署一个新版本应用作为金丝雀小白鼠测试新版本的性能和表现以保障整体系统稳定的情况下尽早发现调整问题因此灰度发布可以保证整体系统的稳定在初始灰度的时候就可以发现调整问题以保证其影响度此方式在实际生产中使用较为普遍金丝雀灰度发布步骤组成准备好部署各个阶段的工件包括构建组件测试脚本配置文件和部署清单文件从负载均衡列表中移除掉金丝雀服务器选择全部服务器中的一部分升级金丝雀应用排掉原有流量并进行部署对应用进行自动化测试将金丝雀服务器重新添加到负载均衡列表中连通性和健康检查如果金丝雀在线使用测试成功升级剩余的其他服务器否则就回滚回旧版本金丝雀灰度发布部署适用的场景不停止老版本额外搞一套新版本不同版本应用共存灰度发布中常常按照用户设置路由权重例如的用户维持使用老版本的用户尝鲜新版本经常与测试一起使用用于测试选择多种方案灰度发布可以在发布新版本应用时自定义控制新版本应用流量比重渐进式完成新版本应用的全量上线最大限度地控制新版本发布带来的业务风险降低故障带来的影响同时支持快速回滚滚动发布更新红色正在更新的实例正在升级过程中间状态蓝色更新完成并加入集群的实例升级完成的新版本绿色正在运行的实例升级前的旧版本滚动发布即逐步升级服务中的节点滚动发布是指每次只升级一个或多个服务实例升级完成后加入生产环境不断执行这个过程直到集群中的全部旧版本升级新版本滚动发布过程先升级个服务实例主要做部署验证每次升级个服务实例自动从上摘掉升级成功后自动加入集群事先需要有自动更新策略分为若干次每次数量百分比可配置回滚是发布的逆过程先从摘掉新版本再升级老版本这个过程一般时间比较长自动化要求高测试测试即同时对外提供两个运行环境这和蓝绿部署的同时只有一个版本在线是不同的测试是用来测试应用功能表现的方法例如可用性受欢迎程度可见性等等蓝绿部署和测试是不同的蓝绿部署的目的是安全稳定地发布新版本应用并在必要时回滚即蓝绿部署是同一时间只有一套正式环境在线而测试是两套正式环境同时在线一般用于多个产品竟争时使用版本控制系统相关概念和原理的数据存储从物理上分为当前项目目录和当前项目目录下的隐藏子目录分别称为工作区和版本库版本库逻辑上又分为暂存区和本地仓库工作区工作区是你当前正在编辑和修改文件的地方它是你的项目目录通常是对应于项目目录在这里你可以添加修改或删除文件工作区中的文件可以是已被跟踪的文件也可以是未被跟踪的文件工作区中的文件的变更不受的跟踪和管理无法实现版本回滚等功能需要将工作的的变更通过命令加入暂存区后才可纳入的版本管理控制的范畴暂存区也称为索引区缓存区用于存储在工作区中对代码进行修改后的文件所保存的地方只有放入此区的文件才能被进行管理使用添加对应为项目目录文件暂存区主要用于临时保存文件少量变更类似于邮件中的草稿箱当变更累积到一定阶段希望生成里程碑式的结果时会使用将暂存区的变更一次性的批量提交到本地仓库本地仓库用于存储在工作区和暂存区中改过并提交的文件地方使用提交对应于项目目录每一次会生成一个唯一的通常用于表示一个阶段性的新的版本命令执行了同命令相反的操作它将版本中存储的所代表着的某个版本恢复至工作区中命令完成后工作区中的文件内容与其检出的提交那一刻的状态相同若工作区中存储此前未被提交的新文件这些文件的未被提交的新的更改会被存储仓库的旧内容覆盖当然用户也可以暂存这些新文件并将带有新文件的工作区提交到版本库中这将是新的暂存和提交循环远程仓库多个开发人员共同协作提交代码的仓库即私有服务器或公有云网站等利用远程仓库可以实现异地备份和远程协作文件的状态变化周期在工作目录下创建的新文件这个时候本地仓库不知道不能对其进行版本跟踪管理添加到暂存区的文件未修改把文件从暂存区推动到本地仓库已经添加到暂存区的文件在本地工作区的文件被修改了需要重新添加至暂存区文件添加到了暂存区已被跟踪的工作区的文件发生更新但还没有存入暂存区中',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2025-04-19 13:58:16',
-  postMainColor: '',
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
 
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
 
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
-  endLoading: () => {
-    document.getElementById('loading-box').classList.add("loaded");
-  },
-  initLoading: () => {
-    document.getElementById('loading-box').classList.remove("loaded")
-  }
-}
-window.addEventListener('load',()=> { preloader.endLoading() })
-setTimeout(function(){preloader.endLoading();},10000)
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-05 09:52" pubdate>
+          2025年6月5日 上午
+        </time>
+      </span>
+    
+  </div>
 
-if (true) {
-  document.addEventListener('pjax:send', () => { preloader.initLoading() })
-  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Hexo</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">13</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-06-05T01:52:55.093Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-04-19T05:58:16.989Z" title="更新于 2025-04-19 13:58:16">2025-04-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/"><header><h1 id="CrawlerTitle" itemprop="name headline">无题</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">John Doe</span><time itemprop="dateCreated datePublished" datetime="2025-06-05T01:52:55.093Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time><time itemprop="dateCreated datePublished" datetime="2025-04-19T05:58:16.989Z" title="更新于 2025-04-19 13:58:16">2025-04-19</time></header><h1 id="版本管理系统-Git-和-GitLab"><a href="#版本管理系统-Git-和-GitLab" class="headerlink" title="版本管理系统 Git 和 GitLab"></a>版本管理系统 Git 和 GitLab</h1><h3 id="DevOps-简介"><a href="#DevOps-简介" class="headerlink" title="DevOps 简介"></a>DevOps 简介</h3><h4 id="软件开发生命周期"><a href="#软件开发生命周期" class="headerlink" title="软件开发生命周期"></a>软件开发生命周期</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成</span><br><span class="line"></span><br><span class="line">阶段<span class="number">1</span>: 计划和需求分析 (Planning and Requirement Analysis)</span><br><span class="line">每个软件开发生命周期模型都从分析开始，过程的利益相关者讨论对最终产品的要求。此阶段的目标是系统要求的详细定义。此外，还需要确保所有流程参与者都清楚地了解任务以及每个需求将如何实施。通常，讨论涉及质量保证专家，如果有必要，他们甚至可以在开发阶段干预过程中的添加。</span><br><span class="line"></span><br><span class="line">阶段<span class="number">2</span>: 设计项目架构 (Project Architecture)</span><br><span class="line">在软件开发生命周期的第二阶段，开发人员实际上正在设计架构。所有利益相关者（包括客户）都会讨论此阶段可能出现的所有不同技术问题。此外，还定义了项目中使用的技术，团队负载，限制，时间范围和预算。最合适的项目决策是根据定义的要求做出的。</span><br><span class="line"></span><br><span class="line">阶段<span class="number">3</span>: 开发和编程 (Development and Coding)</span><br><span class="line">在批准要求后，该过程进入下一阶段 - 实际开发。程序员从这里开始编写源代码，同时牢记先前定义的需求。系统管理员调整软件环境，前端程序员开发程序的用户界面以及与服务器交互的逻辑。编程本身一般会用四个阶段:算法开发,源代码编写,编译,测试和调试</span><br><span class="line"></span><br><span class="line">阶段<span class="number">4</span>: 测试 (Testing)</span><br><span class="line">测试阶段包括调试过程。开发过程中遗漏的所有代码缺陷都会在此处检测到，记录下来并传回给开发人员进行修复。重复测试过程，直到删除所有关键问题并且软件工作流程稳定。</span><br><span class="line"></span><br><span class="line">阶段<span class="number">5</span>: 部署 (Deployment)</span><br><span class="line">当程序最终确定并且没有关键问题时 - 是时候为最终用户启动它了。新程序版本发布后，技术支持团队加入。该部门提供用户反馈; 在利用期间咨询和支持用户。此外，此阶段还包括所选组件的更新，以确保软件是最新的，并且不会受到安全漏洞的影响。</span><br></pre></td></tr></table></figure>
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419091050092.png" alt="image-20250419091050092"></p>
-<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">该SDLC模型包括完全逐步执行每个阶段。该过程严格记录并预定义，具有该软件开发生命周期模型的每个阶段所期望的功能。</span><br><span class="line">类似工厂中流水线的传送带，加工的产品只能按照一道一道的工序向下不断前进，不能后退。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419091231420.png" alt="image-20250419091231420"></p>
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="版本管理系统-Git-和-GitLab"><a href="#版本管理系统-Git-和-GitLab" class="headerlink" title="版本管理系统 Git 和 GitLab"></a>版本管理系统 Git 和 GitLab</h1><h3 id="DevOps-简介"><a href="#DevOps-简介" class="headerlink" title="DevOps 简介"></a>DevOps 简介</h3><h4 id="软件开发生命周期"><a href="#软件开发生命周期" class="headerlink" title="软件开发生命周期"></a>软件开发生命周期</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">软件开发生命周期SDLC (Software Development Life Cycle)由计划,分析,设计,实现,测试集成和维护组成<br><br>阶段<span class="hljs-number">1</span>: 计划和需求分析 (Planning and Requirement Analysis)<br>每个软件开发生命周期模型都从分析开始，过程的利益相关者讨论对最终产品的要求。此阶段的目标是系统要求的详细定义。此外，还需要确保所有流程参与者都清楚地了解任务以及每个需求将如何实施。通常，讨论涉及质量保证专家，如果有必要，他们甚至可以在开发阶段干预过程中的添加。<br><br>阶段<span class="hljs-number">2</span>: 设计项目架构 (Project Architecture)<br>在软件开发生命周期的第二阶段，开发人员实际上正在设计架构。所有利益相关者（包括客户）都会讨论此阶段可能出现的所有不同技术问题。此外，还定义了项目中使用的技术，团队负载，限制，时间范围和预算。最合适的项目决策是根据定义的要求做出的。<br><br>阶段<span class="hljs-number">3</span>: 开发和编程 (Development and Coding)<br>在批准要求后，该过程进入下一阶段 - 实际开发。程序员从这里开始编写源代码，同时牢记先前定义的需求。系统管理员调整软件环境，前端程序员开发程序的用户界面以及与服务器交互的逻辑。编程本身一般会用四个阶段:算法开发,源代码编写,编译,测试和调试<br><br>阶段<span class="hljs-number">4</span>: 测试 (Testing)<br>测试阶段包括调试过程。开发过程中遗漏的所有代码缺陷都会在此处检测到，记录下来并传回给开发人员进行修复。重复测试过程，直到删除所有关键问题并且软件工作流程稳定。<br><br>阶段<span class="hljs-number">5</span>: 部署 (Deployment)<br>当程序最终确定并且没有关键问题时 - 是时候为最终用户启动它了。新程序版本发布后，技术支持团队加入。该部门提供用户反馈; 在利用期间咨询和支持用户。此外，此阶段还包括所选组件的更新，以确保软件是最新的，并且不会受到安全漏洞的影响。<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250419091050092.png" srcset="/img/loading.gif" lazyload alt="image-20250419091050092"></p>
+<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">该SDLC模型包括完全逐步执行每个阶段。该过程严格记录并预定义，具有该软件开发生命周期模型的每个阶段所期望的功能。<br>类似工厂中流水线的传送带，加工的产品只能按照一道一道的工序向下不断前进，不能后退。<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250419091231420.png" srcset="/img/loading.gif" lazyload alt="image-20250419091231420"></p>
 <table>
 <thead>
 <tr>
@@ -229,28 +321,28 @@ if (true) {
 <td>不适应用户需求的变化</td>
 </tr>
 </tbody></table>
-<h4 id="V-形模型"><a href="#V-形模型" class="headerlink" title="V 形模型"></a>V 形模型</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419091550881.png" alt="image-20250419091550881"></p>
-<h4 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Agile Model 敏捷开发的核心是迭代开发(lterative Development)与增量(IncrementalDevelopment) </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="V-形模型"><a href="#V-形模型" class="headerlink" title="V 形模型"></a>V 形模型</h4><p><img src="E:\biji\image\image-20250419091550881.png" srcset="/img/loading.gif" lazyload alt="image-20250419091550881"></p>
+<h4 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Agile Model 敏捷开发的核心是迭代开发(lterative Development)与增量(IncrementalDevelopment) <br><br><br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419091508872.png" alt="image-20250419091508872"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">迭代开发:</span><br><span class="line">对于大型软件项目，传统的开发方式是采用一个大周期(比如一年或数年)进行开发，整个过程就是一次<span class="string">&quot;大开发&quot;</span></span><br><span class="line">迭代开发的方式则不一样，它将开发过程拆分成多个小周期，即一次<span class="string">&quot;大开发&quot;</span>变成多次<span class="string">&quot;小开发&quot;</span>，每次小开发都是同样的流程，所以看上去就好像重复在做同样的步骤</span><br><span class="line"></span><br><span class="line">增量开发:</span><br><span class="line">软件的每个版本，都会新增一个可以被用户感知到的完整功能。也就是说，按照新增功能来划分迭代。</span><br></pre></td></tr></table></figure>
+<p><img src="E:\biji\image\image-20250419091508872.png" srcset="/img/loading.gif" lazyload alt="image-20250419091508872"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">迭代开发:<br>对于大型软件项目，传统的开发方式是采用一个大周期(比如一年或数年)进行开发，整个过程就是一次<span class="hljs-string">&quot;大开发&quot;</span><br>迭代开发的方式则不一样，它将开发过程拆分成多个小周期，即一次<span class="hljs-string">&quot;大开发&quot;</span>变成多次<span class="hljs-string">&quot;小开发&quot;</span>，每次小开发都是同样的流程，所以看上去就好像重复在做同样的步骤<br><br>增量开发:<br>软件的每个版本，都会新增一个可以被用户感知到的完整功能。也就是说，按照新增功能来划分迭代。<br></code></pre></td></tr></table></figure>
 
-<h4 id="DevOps-介绍"><a href="#DevOps-介绍" class="headerlink" title="DevOps 介绍"></a>DevOps 介绍</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DevOps 即开发 Development 和 Operations运维的缩写。</span><br></pre></td></tr></table></figure>
+<h4 id="DevOps-介绍"><a href="#DevOps-介绍" class="headerlink" title="DevOps 介绍"></a>DevOps 介绍</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">DevOps 即开发 Development 和 Operations运维的缩写。<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419091807419.png" alt="image-20250419091807419"></p>
-<h4 id="持续集成、持续交付和持续部署-CICD"><a href="#持续集成、持续交付和持续部署-CICD" class="headerlink" title="持续集成、持续交付和持续部署 CICD"></a>持续集成、持续交付和持续部署 CICD</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">持续集成 (CI<span class="literal">-Continuous</span> Integration)</span><br><span class="line">持续集成是指多名开发者在开发不同功能代码的过程当中，可以频繁的将代码行合并到一起并切相互不影响工作。很多情况下每天都要进行几次，主要目的是尽早发现集成错误，使团队更加紧密结合，更好地协作。</span><br><span class="line">持续集成强调开发人员提交了新代码之后，立刻进行构建、（单元）测试。</span><br><span class="line"></span><br><span class="line">持续交付(<span class="built_in">CD</span><span class="literal">-Continuous</span> Delivery)</span><br><span class="line">持续交付的目标是拥有一个可随时部署到生产环境的代码库。</span><br><span class="line">持续交付完成了构建和测试过程细致的自动化，但是如何发布以及发布什么仍然是需要人工操作，持续部署可以改变这一点。</span><br><span class="line"></span><br><span class="line">持续部署(<span class="built_in">CD</span><span class="literal">-Continuous</span> Deployment)</span><br><span class="line">持续部署可以自动将应用发布到生产环境</span><br></pre></td></tr></table></figure>
+<p><img src="E:\biji\image\image-20250419091807419.png" srcset="/img/loading.gif" lazyload alt="image-20250419091807419"></p>
+<h4 id="持续集成、持续交付和持续部署-CICD"><a href="#持续集成、持续交付和持续部署-CICD" class="headerlink" title="持续集成、持续交付和持续部署 CICD"></a>持续集成、持续交付和持续部署 CICD</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">持续集成 (CI<span class="hljs-literal">-Continuous</span> Integration)<br>持续集成是指多名开发者在开发不同功能代码的过程当中，可以频繁的将代码行合并到一起并切相互不影响工作。很多情况下每天都要进行几次，主要目的是尽早发现集成错误，使团队更加紧密结合，更好地协作。<br>持续集成强调开发人员提交了新代码之后，立刻进行构建、（单元）测试。<br><br>持续交付(<span class="hljs-built_in">CD</span><span class="hljs-literal">-Continuous</span> Delivery)<br>持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>持续交付完成了构建和测试过程细致的自动化，但是如何发布以及发布什么仍然是需要人工操作，持续部署可以改变这一点。<br><br>持续部署(<span class="hljs-built_in">CD</span><span class="hljs-literal">-Continuous</span> Deployment)<br>持续部署可以自动将应用发布到生产环境<br></code></pre></td></tr></table></figure>
 
-<h4 id="版本控制系统-VCS"><a href="#版本控制系统-VCS" class="headerlink" title="版本控制系统 VCS"></a>版本控制系统 VCS</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">版本控制（Version control）是维护工程蓝图的标准做法，能追踪工程蓝图从诞生一直到定案的过程</span><br><span class="line">版本控制也是一种软件工程技巧，借此能在软件开发的过程中，确保由不同人所编辑的同一程序文件都得到同步</span><br><span class="line">软件工程师常利用版本控制来跟踪、维护原始码、文档以及配置文件等的改动</span><br><span class="line"></span><br><span class="line">软件版本控制的方法</span><br><span class="line">最简单的情况下，软件设计师可以自己保留一个程序的许多不同版本，并且为它们做适当的编号</span><br><span class="line">这种简单的方法曾被用在很多大型的软件项目中</span><br><span class="line">虽然可行，但效率较低</span><br><span class="line">必须同时维护很多几乎一样的原始码备份，而且极度依赖软件设计师的自我修养与开发纪律</span><br><span class="line">使用版本控制系统（Version Control System，VCS），实现部分或全部版本控制工作的自动化，版本控制系统是一种软件，可以帮助软件团队的开发人员协同工作，并存档他们工作的完整历史记录。</span><br><span class="line"></span><br><span class="line">为什么使用 VCS ?</span><br><span class="line">在实际开发过程中，经常会有这种需求或问题</span><br><span class="line">代码可能被破坏,比如误删除等,希望还能找回</span><br><span class="line">代码出现了严重的Bug,希望回滚至数周前的旧代码</span><br><span class="line">需要在已经发布的程序中添加新的功能，如果测试验证后没有问题，才会使用新的代码，而在测试验证期间，不能影响原来的代码</span><br><span class="line">同一个软件需要有多个版本并行开发,满足不同的应用需求</span><br><span class="line">实际项目开发基本都是多个人合作完成，在多个人同时修改同一个源代码文件时可能会发生冲突，如何跟踪记录这些冲突</span><br><span class="line">异地源代码备份，使用 VCS 时，需要创建一个 VCS 的远程实例，以在开发人员之间共享更改，这个远程 VCS 实例可以由值得信赖的第三方（如GitHub）进行异地托管；然后，它就会成为安全的异地备份</span><br></pre></td></tr></table></figure>
+<h4 id="版本控制系统-VCS"><a href="#版本控制系统-VCS" class="headerlink" title="版本控制系统 VCS"></a>版本控制系统 VCS</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs powershell">版本控制（Version control）是维护工程蓝图的标准做法，能追踪工程蓝图从诞生一直到定案的过程<br>版本控制也是一种软件工程技巧，借此能在软件开发的过程中，确保由不同人所编辑的同一程序文件都得到同步<br>软件工程师常利用版本控制来跟踪、维护原始码、文档以及配置文件等的改动<br><br>软件版本控制的方法<br>最简单的情况下，软件设计师可以自己保留一个程序的许多不同版本，并且为它们做适当的编号<br>这种简单的方法曾被用在很多大型的软件项目中<br>虽然可行，但效率较低<br>必须同时维护很多几乎一样的原始码备份，而且极度依赖软件设计师的自我修养与开发纪律<br>使用版本控制系统（Version Control System，VCS），实现部分或全部版本控制工作的自动化，版本控制系统是一种软件，可以帮助软件团队的开发人员协同工作，并存档他们工作的完整历史记录。<br><br>为什么使用 VCS ?<br>在实际开发过程中，经常会有这种需求或问题<br>代码可能被破坏,比如误删除等,希望还能找回<br>代码出现了严重的Bug,希望回滚至数周前的旧代码<br>需要在已经发布的程序中添加新的功能，如果测试验证后没有问题，才会使用新的代码，而在测试验证期间，不能影响原来的代码<br>同一个软件需要有多个版本并行开发,满足不同的应用需求<br>实际项目开发基本都是多个人合作完成，在多个人同时修改同一个源代码文件时可能会发生冲突，如何跟踪记录这些冲突<br>异地源代码备份，使用 VCS 时，需要创建一个 VCS 的远程实例，以在开发人员之间共享更改，这个远程 VCS 实例可以由值得信赖的第三方（如GitHub）进行异地托管；然后，它就会成为安全的异地备份<br></code></pre></td></tr></table></figure>
 
-<h4 id="版本控制系统分类"><a href="#版本控制系统分类" class="headerlink" title="版本控制系统分类"></a>版本控制系统分类</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本地版本(单机版)控制系统</span><br><span class="line">第一代版本控制系统被称为本地版本控制系统。通过加锁将并发执行转换成顺序执行。 一次只能有一个人处理文件。</span><br></pre></td></tr></table></figure>
+<h4 id="版本控制系统分类"><a href="#版本控制系统分类" class="headerlink" title="版本控制系统分类"></a>版本控制系统分类</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">本地版本(单机版)控制系统<br>第一代版本控制系统被称为本地版本控制系统。通过加锁将并发执行转换成顺序执行。 一次只能有一个人处理文件。<br></code></pre></td></tr></table></figure>
 
-<h6 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419100744098.png" alt="image-20250419100744098"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">想要完成任何提交和回滚都依赖于连接集中的代码服务器才能实现,如果无法连接至代码的服务器,比如下班回家后将无法提交代码</span><br><span class="line">此外此集中式服务器还存在单点问题，在集中式实例的不可用期间，开发人员就无法推送、合并或回滚代码</span><br><span class="line">此方式可以更好的实现软件仓库的安全访问限制和控制</span><br></pre></td></tr></table></figure>
+<h6 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h6><p><img src="E:\biji\image\image-20250419100744098.png" srcset="/img/loading.gif" lazyload alt="image-20250419100744098"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">想要完成任何提交和回滚都依赖于连接集中的代码服务器才能实现,如果无法连接至代码的服务器,比如下班回家后将无法提交代码<br>此外此集中式服务器还存在单点问题，在集中式实例的不可用期间，开发人员就无法推送、合并或回滚代码<br>此方式可以更好的实现软件仓库的安全访问限制和控制<br></code></pre></td></tr></table></figure>
 
-<h6 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419101327917.png" alt="image-20250419101327917"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在每个用户都有一个完整的服务器，用于保存软件的完整版本，然后再部署一个中央服务器用户可以先将代码提交到本地，没有网络也可以先提交到本地，然后在有网络的时候再提交到中央服务器，这样就大大方便了开发者</span><br><span class="line">相比集中式的版本控制系统，工作的时候需要先从中央服务器获取最新的代码，改完之后需要提交，如果是一个比较大的文件则需要足够快的网络才能快速提交完成</span><br><span class="line">而使用分布式的版本控制系统，每个用户都是一个完整的版本库，即使没有中央服务器也可以提交代码或者回滚，最终再把改好的代码提交至中央服务器进行合并即可。</span><br><span class="line">此方式不容易实现软件仓库的安全访问限制和控制 </span><br></pre></td></tr></table></figure>
+<h6 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h6><p><img src="E:\biji\image\image-20250419101327917.png" srcset="/img/loading.gif" lazyload alt="image-20250419101327917"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">在每个用户都有一个完整的服务器，用于保存软件的完整版本，然后再部署一个中央服务器用户可以先将代码提交到本地，没有网络也可以先提交到本地，然后在有网络的时候再提交到中央服务器，这样就大大方便了开发者<br>相比集中式的版本控制系统，工作的时候需要先从中央服务器获取最新的代码，改完之后需要提交，如果是一个比较大的文件则需要足够快的网络才能快速提交完成<br>而使用分布式的版本控制系统，每个用户都是一个完整的版本库，即使没有中央服务器也可以提交代码或者回滚，最终再把改好的代码提交至中央服务器进行合并即可。<br>此方式不容易实现软件仓库的安全访问限制和控制 <br></code></pre></td></tr></table></figure>
 
-<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git 重要特性:</span><br><span class="line">在本地就可以完成提交,因此不需要网络,提交完成后,可以有网络环境时,再同步到远程仓库服务器</span><br></pre></td></tr></table></figure>
+<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Git 重要特性:<br>在本地就可以完成提交,因此不需要网络,提交完成后,可以有网络环境时,再同步到远程仓库服务器<br></code></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -281,186 +373,389 @@ if (true) {
 </tr>
 </tbody></table>
 <p>GitLab 网站和软件</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GitLab 官方网站: https://about.gitlab.com/</span><br><span class="line"></span><br><span class="line">Gitlab 的优势</span><br><span class="line">开源免费，搭建简单、维护成本较低、可适用于中小型公司内部项目使用。</span><br><span class="line">权限管理功能强大灵活，能实现代码对部分人可见，确保项目的安全性。</span><br><span class="line">支持离线提交，基于git实现,可以不在实时依赖网络环境进行代码提交。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">GitLab 官方网站: https://about.gitlab.com/<br><br>Gitlab 的优势<br>开源免费，搭建简单、维护成本较低、可适用于中小型公司内部项目使用。<br>权限管理功能强大灵活，能实现代码对部分人可见，确保项目的安全性。<br>支持离线提交，基于git实现,可以不在实时依赖网络环境进行代码提交。<br></code></pre></td></tr></table></figure>
 
-<h4 id="常见的软件部署模式"><a href="#常见的软件部署模式" class="headerlink" title="常见的软件部署模式"></a>常见的软件部署模式</h4><h6 id="蓝绿部署-Blue-green-Deployments"><a href="#蓝绿部署-Blue-green-Deployments" class="headerlink" title="蓝绿部署 Blue-green Deployments"></a>蓝绿部署 Blue-green Deployments</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419101906101.png" alt="image-20250419101906101"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">蓝绿部署指的是不停止老版本代码(不影响上一个版本访问)，而是在另外一套环境部署新版本然后进行测试，测试通过后将用户流量切到新版本，其特点为业务无中断，升级风险相对较小。但本方式成本较高,一般小公司较少使用</span><br><span class="line"></span><br><span class="line">蓝绿色部署是一种部署策略，利用两种相同的环境，即<span class="string">&quot;蓝色&quot;</span>（又名预发布）环境和<span class="string">&quot;绿色&quot;</span>（又名生产）环境，具有不同版本的应用程序或服务。质量保证和用户接受度测试通常在承载新版本或更改的蓝色环境中进行。一旦蓝色环境中测试并接受新的变化，用户流量就会从绿色环境切换为蓝色环境。然后，一旦部署成功，您可以切换到新环境。</span><br></pre></td></tr></table></figure>
+<h4 id="常见的软件部署模式"><a href="#常见的软件部署模式" class="headerlink" title="常见的软件部署模式"></a>常见的软件部署模式</h4><h6 id="蓝绿部署-Blue-green-Deployments"><a href="#蓝绿部署-Blue-green-Deployments" class="headerlink" title="蓝绿部署 Blue-green Deployments"></a>蓝绿部署 Blue-green Deployments</h6><p><img src="E:\biji\image\image-20250419101906101.png" srcset="/img/loading.gif" lazyload alt="image-20250419101906101"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">蓝绿部署指的是不停止老版本代码(不影响上一个版本访问)，而是在另外一套环境部署新版本然后进行测试，测试通过后将用户流量切到新版本，其特点为业务无中断，升级风险相对较小。但本方式成本较高,一般小公司较少使用<br><br>蓝绿色部署是一种部署策略，利用两种相同的环境，即<span class="hljs-string">&quot;蓝色&quot;</span>（又名预发布）环境和<span class="hljs-string">&quot;绿色&quot;</span>（又名生产）环境，具有不同版本的应用程序或服务。质量保证和用户接受度测试通常在承载新版本或更改的蓝色环境中进行。一旦蓝色环境中测试并接受新的变化，用户流量就会从绿色环境切换为蓝色环境。然后，一旦部署成功，您可以切换到新环境。<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">具体过程：</span><br><span class="line"><span class="number">1</span>、当前版本(V1)业务正常访问</span><br><span class="line"><span class="number">2</span>、在另外一套环境部署新代码版本(V2)，代码可能是增加了功能或者是修复了某些bug</span><br><span class="line"><span class="number">3</span>、测试通过之后将用户请求流量切到新版本环境</span><br><span class="line"><span class="number">4</span>、观察一段时间，如有异常直接切换旧版本</span><br><span class="line"><span class="number">5</span>、下次升级，将旧版本(V2)升级到新版本(V3)</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">具体过程：<br><span class="hljs-number">1</span>、当前版本(V1)业务正常访问<br><span class="hljs-number">2</span>、在另外一套环境部署新代码版本(V2)，代码可能是增加了功能或者是修复了某些bug<br><span class="hljs-number">3</span>、测试通过之后将用户请求流量切到新版本环境<br><span class="hljs-number">4</span>、观察一段时间，如有异常直接切换旧版本<br><span class="hljs-number">5</span>、下次升级，将旧版本(V2)升级到新版本(V3)<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">蓝绿部署适用的场景：</span><br><span class="line"><span class="number">1</span>、不停止老版本，额外部署一套新版本，等测试确认新版本正常后，才将用户请求切换至新版本，如果有问题，切换回老版本</span><br><span class="line"><span class="number">2</span>、蓝绿发布是一种用于升级与更新的发布策略，部署的最小维度是容器，而发布的最小维度是应用。</span><br><span class="line"><span class="number">3</span>、蓝绿发布对于增量升级有比较好的支持，但是对于涉及数据表结构变更等等不可逆转的升级，并不完全合适用蓝绿发布来实现，需要结合一些业务的逻辑以及数据迁移与回滚的策略才可以完全满足需求。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">蓝绿部署适用的场景：<br><span class="hljs-number">1</span>、不停止老版本，额外部署一套新版本，等测试确认新版本正常后，才将用户请求切换至新版本，如果有问题，切换回老版本<br><span class="hljs-number">2</span>、蓝绿发布是一种用于升级与更新的发布策略，部署的最小维度是容器，而发布的最小维度是应用。<br><span class="hljs-number">3</span>、蓝绿发布对于增量升级有比较好的支持，但是对于涉及数据表结构变更等等不可逆转的升级，并不完全合适用蓝绿发布来实现，需要结合一些业务的逻辑以及数据迁移与回滚的策略才可以完全满足需求。<br></code></pre></td></tr></table></figure>
 
-<h6 id="金丝雀-灰度-发布-Canary-Deployment"><a href="#金丝雀-灰度-发布-Canary-Deployment" class="headerlink" title="金丝雀(灰度)发布 Canary Deployment"></a>金丝雀(灰度)发布 Canary Deployment</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419102239034.png" alt="image-20250419102239034"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">金丝雀发布也叫灰度发布，是指在黑与白之间，能够平滑过渡的一种发布方式，灰度发布是增量发布（例如：<span class="number">2</span>%、<span class="number">25</span>%、<span class="number">75</span>%、<span class="number">100</span>%）进行更新)的一种类型，灰度发布是在原有版本可用的情况下，同时部署一个新版本应用作为“金丝雀”(小白鼠)，测试新版本的性能和表现，以保障整体系统稳定的情况下，尽早发现、调整问题。因此，灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。</span><br><span class="line">此方式在实际生产中使用较为普遍</span><br></pre></td></tr></table></figure>
+<h6 id="金丝雀-灰度-发布-Canary-Deployment"><a href="#金丝雀-灰度-发布-Canary-Deployment" class="headerlink" title="金丝雀(灰度)发布 Canary Deployment"></a>金丝雀(灰度)发布 Canary Deployment</h6><p><img src="E:\biji\image\image-20250419102239034.png" srcset="/img/loading.gif" lazyload alt="image-20250419102239034"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">金丝雀发布也叫灰度发布，是指在黑与白之间，能够平滑过渡的一种发布方式，灰度发布是增量发布（例如：<span class="hljs-number">2</span>%、<span class="hljs-number">25</span>%、<span class="hljs-number">75</span>%、<span class="hljs-number">100</span>%）进行更新)的一种类型，灰度发布是在原有版本可用的情况下，同时部署一个新版本应用作为“金丝雀”(小白鼠)，测试新版本的性能和表现，以保障整体系统稳定的情况下，尽早发现、调整问题。因此，灰度发布可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。<br>此方式在实际生产中使用较为普遍<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">金丝雀/灰度发布步骤组成：</span><br><span class="line"><span class="number">1</span>、准备好部署各个阶段的工件，包括：构建组件，测试脚本，配置文件和部署清单文件。</span><br><span class="line"><span class="number">2</span>、从负载均衡列表中移除掉“金丝雀”服务器（选择全部服务器中的一部分）。</span><br><span class="line"><span class="number">3</span>、升级“金丝雀”应用（排掉原有流量并进行部署）。</span><br><span class="line"><span class="number">4</span>、对应用进行自动化测试。</span><br><span class="line"><span class="number">5</span>、将“金丝雀”服务器重新添加到负载均衡列表中（连通性和健康检查）。</span><br><span class="line"><span class="number">6</span>、如果“金丝雀”在线使用测试成功，升级剩余的其他服务器。否则就回滚回旧版本</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">金丝雀/灰度发布步骤组成：<br><span class="hljs-number">1</span>、准备好部署各个阶段的工件，包括：构建组件，测试脚本，配置文件和部署清单文件。<br><span class="hljs-number">2</span>、从负载均衡列表中移除掉“金丝雀”服务器（选择全部服务器中的一部分）。<br><span class="hljs-number">3</span>、升级“金丝雀”应用（排掉原有流量并进行部署）。<br><span class="hljs-number">4</span>、对应用进行自动化测试。<br><span class="hljs-number">5</span>、将“金丝雀”服务器重新添加到负载均衡列表中（连通性和健康检查）。<br><span class="hljs-number">6</span>、如果“金丝雀”在线使用测试成功，升级剩余的其他服务器。否则就回滚回旧版本<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">金丝雀/灰度发布部署适用的场景：</span><br><span class="line"><span class="number">1</span>、不停止老版本，额外搞一套新版本，不同版本应用共存。</span><br><span class="line"><span class="number">2</span>、灰度发布中，常常按照用户设置路由权重，例如<span class="number">90</span>%的用户维持使用老版本，<span class="number">10</span>%的用户尝鲜新版本。</span><br><span class="line"><span class="number">3</span>、经常与A/B测试一起使用，用于测试选择多种方案。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">金丝雀/灰度发布部署适用的场景：<br><span class="hljs-number">1</span>、不停止老版本，额外搞一套新版本，不同版本应用共存。<br><span class="hljs-number">2</span>、灰度发布中，常常按照用户设置路由权重，例如<span class="hljs-number">90</span>%的用户维持使用老版本，<span class="hljs-number">10</span>%的用户尝鲜新版本。<br><span class="hljs-number">3</span>、经常与A/B测试一起使用，用于测试选择多种方案。<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">灰度发布可以在发布新版本应用时:</span><br><span class="line">自定义控制新版本应用流量比重</span><br><span class="line">渐进式完成新版本应用的全量上线</span><br><span class="line">最大限度地控制新版本发布带来的业务风险</span><br><span class="line">降低故障带来的影响</span><br><span class="line">同时支持快速回滚</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">灰度发布可以在发布新版本应用时:<br>自定义控制新版本应用流量比重<br>渐进式完成新版本应用的全量上线<br>最大限度地控制新版本发布带来的业务风险<br>降低故障带来的影响<br>同时支持快速回滚<br></code></pre></td></tr></table></figure>
 
-<h6 id="滚动发布-更新"><a href="#滚动发布-更新" class="headerlink" title="滚动发布(更新)"></a>滚动发布(更新)</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419102419650.png" alt="image-20250419102419650"></p>
+<h6 id="滚动发布-更新"><a href="#滚动发布-更新" class="headerlink" title="滚动发布(更新)"></a>滚动发布(更新)</h6><p><img src="E:\biji\image\image-20250419102419650.png" srcset="/img/loading.gif" lazyload alt="image-20250419102419650"></p>
 <p>红色：正在更新的实例，正在升级过程中间状态<br>蓝色：更新完成并加入集群的实例,升级完成的新版本<br>绿色：正在运行的实例，升级前的旧版本</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">滚动发布即逐步升级服务中的节点</span><br><span class="line">滚动发布是指每次只升级一个或多个服务实例，升级完成后加入生产环境，不断执行这个过程，直到集群中的全部旧版本升级新版本。</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">滚动发布即逐步升级服务中的节点<br>滚动发布是指每次只升级一个或多个服务实例，升级完成后加入生产环境，不断执行这个过程，直到集群中的全部旧版本升级新版本。<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">滚动发布过程</span><br><span class="line"><span class="number">1</span>. 先升级<span class="number">1</span>个服务实例，主要做部署验证</span><br><span class="line"><span class="number">2</span>. 每次升级<span class="number">1</span>个服务实例，自动从LB上摘掉，升级成功后自动加入集群</span><br><span class="line"><span class="number">3</span>. 事先需要有自动更新策略，分为若干次，每次数量/百分比可配置</span><br><span class="line"><span class="number">4</span>. 回滚是发布的逆过程，先从LB摘掉新版本，再升级老版本，这个过程一般时间比较长</span><br><span class="line"><span class="number">5</span>. 自动化要求高</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">滚动发布过程<br><span class="hljs-number">1</span>. 先升级<span class="hljs-number">1</span>个服务实例，主要做部署验证<br><span class="hljs-number">2</span>. 每次升级<span class="hljs-number">1</span>个服务实例，自动从LB上摘掉，升级成功后自动加入集群<br><span class="hljs-number">3</span>. 事先需要有自动更新策略，分为若干次，每次数量/百分比可配置<br><span class="hljs-number">4</span>. 回滚是发布的逆过程，先从LB摘掉新版本，再升级老版本，这个过程一般时间比较长<br><span class="hljs-number">5</span>. 自动化要求高<br></code></pre></td></tr></table></figure>
 
-<h6 id="A-B测试-A-B-Testing"><a href="#A-B测试-A-B-Testing" class="headerlink" title="A&#x2F;B测试 A&#x2F;B Testing"></a>A&#x2F;B测试 A&#x2F;B Testing</h6><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419102554252.png" alt="image-20250419102554252"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A/B测试即同时对外提供两个APP运行环境，这和蓝绿部署的同时只有一个版本在线是不同的</span><br><span class="line">A/B 测试是用来测试应用功能表现的方法，例如可用性、受欢迎程度、可见性等等</span><br><span class="line">蓝绿部署和A/B测试是不同的,蓝绿部署的目的是安全稳定地发布新版本应用，并在必要时回滚</span><br><span class="line">即蓝绿部署是同一时间只有一套正式环境在线，而A/B测试是两套正式环境同时在线，一般用于多个产品竟争时使用</span><br></pre></td></tr></table></figure>
+<h6 id="A-B测试-A-B-Testing"><a href="#A-B测试-A-B-Testing" class="headerlink" title="A&#x2F;B测试 A&#x2F;B Testing"></a>A&#x2F;B测试 A&#x2F;B Testing</h6><p><img src="E:\biji\image\image-20250419102554252.png" srcset="/img/loading.gif" lazyload alt="image-20250419102554252"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">A/B测试即同时对外提供两个APP运行环境，这和蓝绿部署的同时只有一个版本在线是不同的<br>A/B 测试是用来测试应用功能表现的方法，例如可用性、受欢迎程度、可见性等等<br>蓝绿部署和A/B测试是不同的,蓝绿部署的目的是安全稳定地发布新版本应用，并在必要时回滚<br>即蓝绿部署是同一时间只有一套正式环境在线，而A/B测试是两套正式环境同时在线，一般用于多个产品竟争时使用<br></code></pre></td></tr></table></figure>
 
-<h4 id="版本控制系统-Git"><a href="#版本控制系统-Git" class="headerlink" title="版本控制系统 Git"></a>版本控制系统 Git</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="版本控制系统-Git"><a href="#版本控制系统-Git" class="headerlink" title="版本控制系统 Git"></a>版本控制系统 Git</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><br></code></pre></td></tr></table></figure>
 
-<h5 id="Git-相关概念和原理"><a href="#Git-相关概念和原理" class="headerlink" title="Git 相关概念和原理"></a>Git 相关概念和原理</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git 的数据存储从物理上分为当前项目目录和当前项目目录下的隐藏子目录.git，分别称为工作区和版本库</span><br><span class="line">Git 版本库逻辑上又分为暂存区和本地仓库</span><br></pre></td></tr></table></figure>
+<h5 id="Git-相关概念和原理"><a href="#Git-相关概念和原理" class="headerlink" title="Git 相关概念和原理"></a>Git 相关概念和原理</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Git 的数据存储从物理上分为当前项目目录和当前项目目录下的隐藏子目录.git，分别称为工作区和版本库<br>Git 版本库逻辑上又分为暂存区和本地仓库<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419113319864.png" alt="image-20250419113319864"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">工作区 Workspace：</span><br><span class="line">工作区是你当前正在编辑和修改文件的地方。它是你的项目目录 ，通常是对应于&lt;项目目录&gt;在这里你可以添加、修改或删除文件。工作区中的文件可以是已被Git跟踪的文件，也可以是未被跟踪的文件。</span><br><span class="line">工作区中的文件的变更不受Git的跟踪和管理，无法实现版本回滚等功能</span><br><span class="line">需要将工作的的变更，通过 git add 命令加入暂存区后，才可纳入Git 的版本管理控制的范畴</span><br><span class="line"></span><br><span class="line">暂存区 Staging Area/Index/Cached：</span><br><span class="line">也称为索引区,缓存区，用于存储在工作区中对代码进行修改后的文件所保存的地方，只有放入此区的文件才能被git进行管理,使用 git add添加,对应为&lt;项目目录&gt;/.git/index文件</span><br><span class="line">暂存区主要用于临时保存文件少量变更，类似于邮件中的草稿箱</span><br><span class="line">当变更累积到一定阶段，希望生成里程碑式的结果时，会使用commit，将暂存区的变更一次性的批量提交到本地仓库</span><br><span class="line"></span><br><span class="line">本地仓库 Local Repository：</span><br><span class="line">用于存储在工作区和暂存区中改过并提交的文件地方，使用 git commit 提交,对应于/&lt;项目目录&gt;/.git/</span><br><span class="line">每一次commit 会生成一个唯一的ID，通常用于表示一个阶段性的新的版本</span><br><span class="line">checkout命令执行了同commit命令相反的操作，它将版本中存储的commit所代表着的某个版本恢复至工作区中</span><br><span class="line">checkout命令完成后，工作区中的文件内容与其检出的提交那一刻的状态相同</span><br><span class="line">若工作区中存储此前未被提交的新文件，这些文件的未被提交的新的更改会被存储仓库的旧内容覆盖</span><br><span class="line">当然，用户也可以暂存这些新文件，并将带有新文件的工作区提交到版本库中，这将是新的暂存和提交循环</span><br><span class="line"></span><br><span class="line">远程仓库 Remote Repository ：</span><br><span class="line">多个开发人员共同协作提交代码的仓库，即私有 gitlab 服务器或公有云github,gitee网站等</span><br><span class="line">利用远程仓库，可以实现异地备份和远程协作</span><br></pre></td></tr></table></figure>
+<p><img src="E:\biji\image\image-20250419113319864.png" srcset="/img/loading.gif" lazyload alt="image-20250419113319864"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs powershell">工作区 Workspace：<br>工作区是你当前正在编辑和修改文件的地方。它是你的项目目录 ，通常是对应于&lt;项目目录&gt;在这里你可以添加、修改或删除文件。工作区中的文件可以是已被Git跟踪的文件，也可以是未被跟踪的文件。<br>工作区中的文件的变更不受Git的跟踪和管理，无法实现版本回滚等功能<br>需要将工作的的变更，通过 git add 命令加入暂存区后，才可纳入Git 的版本管理控制的范畴<br><br>暂存区 Staging Area/Index/Cached：<br>也称为索引区,缓存区，用于存储在工作区中对代码进行修改后的文件所保存的地方，只有放入此区的文件才能被git进行管理,使用 git add添加,对应为&lt;项目目录&gt;/.git/index文件<br>暂存区主要用于临时保存文件少量变更，类似于邮件中的草稿箱<br>当变更累积到一定阶段，希望生成里程碑式的结果时，会使用commit，将暂存区的变更一次性的批量提交到本地仓库<br><br>本地仓库 Local Repository：<br>用于存储在工作区和暂存区中改过并提交的文件地方，使用 git commit 提交,对应于/&lt;项目目录&gt;/.git/<br>每一次commit 会生成一个唯一的ID，通常用于表示一个阶段性的新的版本<br>checkout命令执行了同commit命令相反的操作，它将版本中存储的commit所代表着的某个版本恢复至工作区中<br>checkout命令完成后，工作区中的文件内容与其检出的提交那一刻的状态相同<br>若工作区中存储此前未被提交的新文件，这些文件的未被提交的新的更改会被存储仓库的旧内容覆盖<br>当然，用户也可以暂存这些新文件，并将带有新文件的工作区提交到版本库中，这将是新的暂存和提交循环<br><br>远程仓库 Remote Repository ：<br>多个开发人员共同协作提交代码的仓库，即私有 gitlab 服务器或公有云github,gitee网站等<br>利用远程仓库，可以实现异地备份和远程协作<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419135734948.png" alt="image-20250419135734948"></p>
-<h4 id="Git-文件的状态变化周期"><a href="#Git-文件的状态变化周期" class="headerlink" title="Git 文件的状态变化周期"></a>Git 文件的状态变化周期</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250419135803736.png" alt="image-20250419135803736"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">untracked: 在工作目录下创建的新文件，这个时候本地git仓库不知道,不能对其进行版本跟踪管理</span><br><span class="line">unmodified: 添加到暂存区的文件未修改,把文件从暂存区推动到本地仓库</span><br><span class="line">modified: 已经添加到暂存区的文件,在本地工作区的文件被修改了 ,需要重新添加至暂存区</span><br><span class="line">staged: 文件添加到了暂存区</span><br><span class="line">unstaged: 已被跟踪的工作区的文件发生更新，但还没有存入暂存区中</span><br></pre></td></tr></table></figure>
+<p><img src="E:\biji\image\image-20250419135734948.png" srcset="/img/loading.gif" lazyload alt="image-20250419135734948"></p>
+<h4 id="Git-文件的状态变化周期"><a href="#Git-文件的状态变化周期" class="headerlink" title="Git 文件的状态变化周期"></a>Git 文件的状态变化周期</h4><p><img src="E:\biji\image\image-20250419135803736.png" srcset="/img/loading.gif" lazyload alt="image-20250419135803736"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">untracked: 在工作目录下创建的新文件，这个时候本地git仓库不知道,不能对其进行版本跟踪管理<br>unmodified: 添加到暂存区的文件未修改,把文件从暂存区推动到本地仓库<br>modified: 已经添加到暂存区的文件,在本地工作区的文件被修改了 ,需要重新添加至暂存区<br>staged: 文件添加到了暂存区<br>unstaged: 已被跟踪的工作区的文件发生更新，但还没有存入暂存区中<br></code></pre></td></tr></table></figure>
 
-</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">John Doe</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/')">Hexo</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Hexo&amp;url=https://lx1me.github.io/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
-  var currentPageUrl = window.location.href;
-  var input = document.createElement("input");
-  input.setAttribute("value", currentPageUrl);
-  document.body.appendChild(input);
-  input.select();
-  input.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  document.body.removeChild(input);
-}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lx1me.github.io" target="_blank">Hexo</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/05/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/06/05/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E8%BF%9B%E5%BA%A6/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-Git-%E5%92%8C-GitLab"><span class="toc-number">1.</span> <span class="toc-text">版本管理系统 Git 和 GitLab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DevOps-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">DevOps 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">软件开发生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">瀑布模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#V-%E5%BD%A2%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">V 形模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">敏捷开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DevOps-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">DevOps 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2-CICD"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">持续集成、持续交付和持续部署 CICD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F-VCS"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">版本控制系统 VCS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB"><span class="toc-number">1.0.1.8.</span> <span class="toc-text">版本控制系统分类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.0.1.8.0.1.</span> <span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.0.1.8.0.2.</span> <span class="toc-text">分布式版本控制系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git"><span class="toc-number">1.0.1.9.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.1.10.</span> <span class="toc-text">常见的软件部署模式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%93%9D%E7%BB%BF%E9%83%A8%E7%BD%B2-Blue-green-Deployments"><span class="toc-number">1.0.1.10.0.1.</span> <span class="toc-text">蓝绿部署 Blue-green Deployments</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%87%91%E4%B8%9D%E9%9B%80-%E7%81%B0%E5%BA%A6-%E5%8F%91%E5%B8%83-Canary-Deployment"><span class="toc-number">1.0.1.10.0.2.</span> <span class="toc-text">金丝雀(灰度)发布 Canary Deployment</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%BB%9A%E5%8A%A8%E5%8F%91%E5%B8%83-%E6%9B%B4%E6%96%B0"><span class="toc-number">1.0.1.10.0.3.</span> <span class="toc-text">滚动发布(更新)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#A-B%E6%B5%8B%E8%AF%95-A-B-Testing"><span class="toc-number">1.0.1.10.0.4.</span> <span class="toc-text">A&#x2F;B测试 A&#x2F;B Testing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F-Git"><span class="toc-number">1.0.1.11.</span> <span class="toc-text">版本控制系统 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Git-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.1.11.1.</span> <span class="toc-text">Git 相关概念和原理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.1.12.</span> <span class="toc-text">Git 文件的状态变化周期</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.118Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%20Docker/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.113Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%20ZABBIX/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.113Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%A0%A1%E5%9E%92%E6%9C%BA%20JumpServer/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.108Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.108Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="John Doe" target="_blank">John Doe</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">0</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
-var HoldLog = console.log;
-console.log = function () {};
-let now1 = new Date();
-queueMicrotask(() => {
-  const Log = function () {
-    HoldLog.apply(console, arguments);
-  }; //在恢复前输出日志
-  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
-  now1.setTime(now1.getTime() + 250);
-  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
-  const dnum = Math.floor(days);
-  const ascll = [
-    `欢迎使用安知鱼!`,
-    `生活明朗, 万物可爱`,
-    `
-        
-       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
-      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
-      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
-      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
-      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
-      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
-        
-        `,
-    "已上线",
-    dnum,
-    "天",
-    "©2020 By 安知鱼 V1.6.14",
-  ];
-  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
-  setTimeout(
-    Log.bind(
-      console,
-      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      ""
-    )
-  );
-  setTimeout(
-    Log.bind(
-      console,
-      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
-      "color:white; background-color:#4fd953",
-      "",
-      "",
-      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(
-      console,
-      "%c ⚡ Powered by 安知鱼 %c 你正在访问 John Doe 的博客.",
-      "color:white; background-color:#f0ad4e",
-      ""
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
-  );
-});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
-</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-  // removeEventListener scroll 
-  anzhiyu.removeGlobalFnEvent('pjax')
-  anzhiyu.removeGlobalFnEvent('themeChange')
-
-  document.getElementById('rightside').classList.remove('rightside-show')
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://lx1me.github.io/2025/06/05/版本管理系统 Git 和 GitLab/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/05/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E8%BF%9B%E5%BA%A6/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/05/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  }
 
-  typeof typed === 'object' && typed.destroy()
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
-})
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
+  <script>Fluid.plugins.codeWidget();</script>
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  typeof panguInit === 'function' && panguInit()
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
 
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
 
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,209 +1,290 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Hexo | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="application-name" content="Hexo"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/index.html"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="高可用集群Keepalived集群简介    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta property="article:author" content="John Doe"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg"><meta name="description" content="高可用集群Keepalived集群简介    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  linkPageTop: undefined,
-  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
-  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
-  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
-  LA51: undefined,
-  greetingBox: undefined,
-  twikooEnvId: '',
-  commentBarrageConfig:undefined,
-  music_page_default: "nav_music",
-  root: '/',
-  preloader: {"source":3},
-  friends_vue_info: undefined,
-  navMusic: true,
-  mainTone: undefined,
-  authorStatus: undefined,
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    simplehomepage: true,
-    post: false
-  },
-  runtime: '天',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: John Doe","link":"链接: ","source":"来源: Hexo","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
-      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="高可用集群Keepalived集群简介    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单点故障">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="高可用集群Keepalived集群简介    类型 解析    高扩展集群 在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。   高可用集群 将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了解决单点故障">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:\biji\image\image-20250321113325305.png">
+<meta property="og:image" content="e:\biji\image\image-20250321113635027.png">
+<meta property="og:image" content="e:\biji\image\image-20250321113724019.png">
+<meta property="article:published_time" content="2025-06-05T01:52:55.103Z">
+<meta property="article:modified_time" content="2025-03-21T09:55:23.691Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="e:\biji\image\image-20250321113325305.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isAnchor: false,
-  shortcutKey: undefined,
-  autoDarkmode: true
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  configTitle: 'Hexo',
-  title: 'Hexo',
-  postAI: '',
-  pageFillDescription: '高可用集群Keepalived, 集群简介, 高可用指标, 恢复能力, 高可用方式, 集群模式, 关键技术, Keepalived基础, vrrp, 工作模式, 非抢占模式, nopreempt****属性解析, 非抢占延迟模式, 消息传播高可用集群集群简介类型解析高扩展集群在当前业务环境集群中所有的主机节点都处于正常的工作活动状态它们共同承担起用户的请求带来的工作负载压力保证用户的正常访问高可用集群将核心业务使用多台一般是台主机共同工作支撑并保障核心业务的正常运行尤其是业务的对外不间断的对外提供服务核心特点就是冗余它存在的目的就是为了解决单点故障问题高性能集群基于前两种技术实现的集群基础上高效利用这些主机资源结合某些特有的技术方案提供强大的计算能力从而实现特定用户大型任务的高复杂度数据处理功能比如生物计算大场景模拟计算预测计算等高可用指标高可用集群是基于高扩展基础上的一个更高层次的网站稳定性解决方案网站的稳定性体现在两个方面网站可用性和恢复能力序号描述简称可用性级别年度停机时间基本的可用性个小时较高的可用性个小时故障自动恢复的可用性个分钟极高可用性个分钟恢复能力所谓的恢复能力指的是一个网站从发生故障到故障修复这个过程的能力而这个能力涉及到两个子内容数据恢复能力和业务恢复能力数据恢复能力是指业务系统所允许的在灾难过程中的最大数据丢失量用来衡量高可用系统的数据冗余备份能力例如恢复到灾难发生前最后一次数据备份的数据状态系统恢复能力是指应用系统从灾难状态恢复到物理系统环境可运行状态所需的时间用来衡量高可用系统的恢复能力例如服务器重启数据库重启数据恢复应用回归正常运行网络恢复能力是指网络系统从灾难状态恢复到网络可连接状态所需的时间用来衡量高可用系统的网络恢复能力例如用户在灾难后可以连接到灾备中心的时间业务恢复能力是指业务系统从灾难状态恢复到可运行状态所需的时间用来衡量高可用系统的业务恢复能力例如用户在灾难后可以感受到灾难前的业务应用状态高可用方式对于集群来说高可用的最主要的目的就是保证网站接入口的稳定性通过一个虚拟的接入口将真实的请求转发到不同地址一般是两个的真实接入口出进而将请求转发到后续高扩展集群主机中这个虚拟的接入口我们一般称之为这个一般附加在后端的真实接入口二这两个接入口一个做主一个做从共同负担起传输过来的信息做主的接口主机我们一般称之为或者做备的接口主机我们一般称之为或者集群模式模式名称模式解析主备模式后端的高可用结点运行一致的服务实例正常情况下配置在主节点上只有作为主的结点响应用户的请求当主节点故障备用结点自动接管一切当主节点恢复后通过自动或者手动方式用户的请求重新有主节点来接管整个过程用户感受不到任何影响双主模式后端的高可用结点运行各自的服务实例都可以正常接收用户访问请求当结点故障他会将访问请求自动转移到正常运行的结点上从而保证不对用户产生影响但是有可能在节点出现异常的时候有可能导致节点因为负载的因素导致整体崩溃集群模式在这种模式下当主节点故障时候后备结点主机会通过某些策略从中选择一个结点作为临时主节点接管所有请求原来的主节点恢复的时候通过多种策略来响应关键技术为了实现高可用的效果后端的高可用结点需要如下几种技术来保证时间同步和心跳检测时间同步作为一个集群他们彼此间进行信息通信的一个前提是时间状态必须一致如果出现一个主机在年一个在年这种情况下集群的通信肯定会出现问题甚至不会传输信息我们一般会采用时间协议从一个专用的时间服务器上获取时间从而保证同一个集群中的所有主机时间都是一致的这个协议我们一般使用协议心跳检测对于高可用集群的各种模式来说有一个关键的点就是主节点故障了从节点接管一切这就涉及到了一种场景高可用集群节点间需要知道彼此的状态就类似于我们要知道一个人是否是活的就看他有没有心跳所以我们需要通过一种专用的技术来时刻了解集群节点间的状态我们一般称这种技术为心跳检测常见的软件有基础属于网络层的一种协议工作流程部署在多台主机上一般是两台服务启动后会加载专用的配置文件调用内核的服务以创建虚拟服务器并根据配置启用对外的统一访问接口并且基于相关插件脚本对服务进行监控为了保证服务对外的统一接口的高可用协议将物理进行统一管理并创建一个虚拟路由地址作为外网的统一出口物理内部通过机制进行内部通信保证虚拟路由地址永远可用通过我们对软件的结构和官方的介绍我们可以知道其实就是通过整合和加强和软件从而得到的一套适用于高扩展和高可用的软件整合解决方案根据软件的简单结构我们可以了解到我们要实现的功能需要在用户空间安装相应的软件才可以虚拟路由冗余协议简称是由提出的解决局域网中配置静态网关出现单点故障现象的路由协议其本质上是一种路由容错协议将局域网内的一组路由器虚拟为单个路由器我们称该路由器组为备份组它根据优先级选择一个主路由器承担网关功能其他路由器称为从路由器基于虚拟出来是路由我们称之为虚拟路由该虚拟路由有独立的地址工作模式主备单个虚拟路由器主主主备虚拟路由器备主虚拟路由器局域网内主机不知道后端真实的路由器的地址仅仅知道这个虚拟路由的地址让后将设定为其数据包的出网地址通过该虚拟路由与外部的其他网络进行通信在整个过程中如果路由器发生故障时取代继续履行网关职责从而保证网络呢内的主机不间断地与外部网络进行通信虚拟路由器虚拟路由器标识唯一标识虚拟路由器物理路由器主设备备用设备优先级通告心跳优先级等周期性工作方式抢占式非抢占式安全认证无认证互相通信的时候不需要任何认证信息简单字符认证预共享密钥通信双方使用简单字符进行基本的认证通信双方使用的方式传输认证信息工作模式主备单个虚拟路由器主主主备虚拟路由器备主虚拟路由器工作模式是一个基于协议的实现高可用的软件在中抢占式和非抢占式是两种重要的工作模式抢占式工作原理在抢占式模式下优先级最高的主服务器会一直处于状态只要它处于正常运行状态且网络连接正常当主服务器出现故障或网络问题时备份服务器会接管其工作成为状态一旦主服务器恢复正常它会立即抢占回角色重新接管工作优缺点快速恢复主服务器恢复后能迅速重新承担主要工作确保服务的连续性和稳定性资源利用高效高优先级的服务器能及时获取控制权充分发挥其性能优势缺点频繁的抢占可能会导致网络抖动或服务短暂中断对一些对稳定性要求极高的服务可能产生一定影响适用场景适用于对主服务器性能要求较高且能容忍短暂服务中断的场景如一些非关键业务的负载均衡场景非抢占式工作原理在非抢占式模式下当主服务器出现故障时备份服务器会接管成为状态即使主服务器恢复正常它也不会主动抢占角色而是继续由备份服务器提供服务直到备份服务器出现故障或其他异常情况主服务器才会再次成为优缺点优点稳定性高避免了频繁抢占带来的网络抖动和服务中断风险能保持服务的稳定运行减少切换次数减少了服务器角色的切换频率有利于延长服务器硬件的使用寿命缺点主服务器恢复后不能及时发挥作用可能造成资源浪费特别是当主服务器性能远高于备份服务器适用场景适用于对服务稳定性要求极高不容许有任何短暂中断的关键业务场景如金融交易系统大型数据库系统等非抢占模式注意要关闭抢占必须将各服务器配置为属性解析在配置文件的实例部分使用参数就是明确将该实例设置为非抢占式模式在这种模式下如果主服务器具有较高优先级的设备出现故障备份服务器会接管并承担起主服务器的工作转变为状态来提供服务当原本的主服务器恢复正常后由于的设置它不会主动抢占回角色而是继续让备份服务器当前的提供服务直到备份服务器出现故障或其他异常情况原主服务器才会再次成为的主要目的是为了保持服务的稳定性和连续性避免由于主服务器的频繁恢复和抢占导致的服务中断和网络抖动应用场景通常应用于对服务连续性和稳定性要求极高的场景如金融交易系统大型数据库系统电信核心网等关键业务领域在这些场景中任何短暂的服务中断都可能导致严重的后果因此采用非抢占式模式可以确保在主服务器故障恢复后不会因为抢占操作而引发潜在的服务中断风险从而保障业务的稳定运行非抢占延迟模式工作原理在非抢占延时模式下当主服务器出现故障时备份服务器会在等待一个特定的延时时间后才会接管成为状态来提供服务同样当主服务器恢复正常后它也不会立即抢占角色而是要等待一段预先设置好的延时时间确认当前的即原备份服务器确实出现异常或故障或者经过延时后网络状况等条件满足切换要求才会重新成为这个延时时间可以通过配置参数来设定一般以秒为单位优缺点优点增强稳定性进一步减少了不必要的切换操作避免因网络瞬间波动或主服务器短暂故障恢复等情况导致的频繁切换使系统更加稳定避免资源浪费可以防止备份服务器在主服务器只是短暂故障很快就能恢复的情况下不必要地接管服务从而避免了资源的浪费和可能出现的服务质量下降缺点响应速度相对较慢由于增加了延时等待在主服务器出现故障时备份服务器不能立即接管服务可能会导致服务中断时间相对较长配置复杂需要合理设置延时时间若设置不当可能无法达到预期效果甚至可能影响系统的正常运行适用场景适用于对稳定性要求极高且能容忍一定服务中断时间的场景例如大型数据中心的核心服务数据同步和一致性要求很高不希望因为偶尔的网络波动或服务器小故障就进行切换通过设置非抢占延时模式可以在确保服务稳定的前提下减少不必要的切换带来的风险和数据不一致问题还有一些工业控制系统对可靠性要求高但对实时性要求不是特别苛刻也可以采用这种模式来保证系统的稳定运行消息传播单播和多播单播是一种点到点的通信方式数据从发送方发送到特定的一个接收方就像打电话时通话双方是一对一的关系信息只在这两者之间传递多播是一种点到多点的通信方式数据从发送方发送到一组特定的接收方这些接收方构成一个多播组类似于在一个群组通话中说话者的声音可以同时被群组中的多个成员听到地址类型单播使用单播地址来标识网络中的单个主机每个主机都有唯一的单播地址如或地址数据根据目标单播地址进行精确传输多播使用多播地址来标识一组接收者多播地址是一个特殊的地址范围用于标识不同的多播组发送到多播地址的数据会被该组内的所有成员接收网络资源占用单播当需要向多个目标发送相同数据时发送方需要为每个目标单独发送一份数据会占用较多的网络带宽和服务器资源比如服务器向个客户端发送相同的文件就需要发送次多播发送方只需发送一份数据网络中的路由器会根据多播组的成员信息在必要的节点处对数据进行复制和转发从而节省了网络带宽和服务器资源同样是服务器向个客户端发送相同文件采用多播只需发送一次数据应用场景单播适用于需要一对一精确通信的场景如远程登录文件传输视频点播等这些应用需要确保数据准确无误地传输到特定的接收方多播适用于一对多或多对多的通信场景如在线直播视频会议网络游戏中的多人对战网络电视等这些应用需要将相同的数据同时发送给多个接收方',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2025-03-21 17:55:23',
-  postMainColor: '',
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
 
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
 
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
-  endLoading: () => {
-    document.getElementById('loading-box').classList.add("loaded");
-  },
-  initLoading: () => {
-    document.getElementById('loading-box').classList.remove("loaded")
-  }
-}
-window.addEventListener('load',()=> { preloader.endLoading() })
-setTimeout(function(){preloader.endLoading();},10000)
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-if (true) {
-  document.addEventListener('pjax:send', () => { preloader.initLoading() })
-  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Hexo</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">六月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">13</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"></span></div></div><h1 class="post-title" itemprop="name headline">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-06-05T01:52:55.103Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-03-21T09:55:23.691Z" title="更新于 2025-03-21 17:55:23">2025-03-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/"><header><h1 id="CrawlerTitle" itemprop="name headline">无题</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">John Doe</span><time itemprop="dateCreated datePublished" datetime="2025-06-05T01:52:55.103Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time><time itemprop="dateCreated datePublished" datetime="2025-03-21T09:55:23.691Z" title="更新于 2025-03-21 17:55:23">2025-03-21</time></header><h1 id="高可用集群Keepalived"><a href="#高可用集群Keepalived" class="headerlink" title="高可用集群Keepalived"></a>高可用集群Keepalived</h1><h4 id="集群简介"><a href="#集群简介" class="headerlink" title="集群简介"></a>集群简介</h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250321113325305.png" alt="image-20250321113325305"></p>
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-05 09:52" pubdate>
+          2025年6月5日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="高可用集群Keepalived"><a href="#高可用集群Keepalived" class="headerlink" title="高可用集群Keepalived"></a>高可用集群Keepalived</h1><h4 id="集群简介"><a href="#集群简介" class="headerlink" title="集群简介"></a>集群简介</h4><p><img src="E:\biji\image\image-20250321113325305.png" srcset="/img/loading.gif" lazyload alt="image-20250321113325305"></p>
 <table>
 <thead>
 <tr>
@@ -224,7 +305,7 @@ if (true) {
 <td>基于前两种技术实现的集群基础上，高效利用这些主机资源，结合某些特有的技术方案，提供强大的计算能力，从而实现特定用户大型任务的高复杂度数据处理功能，比如生物计算、大场景模拟计算、预测计算等。</td>
 </tr>
 </tbody></table>
-<h4 id="高可用指标"><a href="#高可用指标" class="headerlink" title="高可用指标"></a>高可用指标</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">高可用集群是基于高扩展基础上的一个更高层次的网站稳定性解决方案。网站的稳定性体现在两个方面：网站可用性和恢复能力</span><br></pre></td></tr></table></figure>
+<h4 id="高可用指标"><a href="#高可用指标" class="headerlink" title="高可用指标"></a>高可用指标</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">高可用集群是基于高扩展基础上的一个更高层次的网站稳定性解决方案。网站的稳定性体现在两个方面：网站可用性和恢复能力<br></code></pre></td></tr></table></figure>
 
 
 
@@ -267,12 +348,12 @@ if (true) {
 <td>5 分钟</td>
 </tr>
 </tbody></table>
-<h4 id="恢复能力"><a href="#恢复能力" class="headerlink" title="恢复能力"></a>恢复能力</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">所谓的恢复能力，指的是一个网站从发生故障到故障修复这个过程的能力，而这个能力涉及到两个子内容：数据恢复能力和业务恢复能力。</span><br><span class="line">数据恢复能力 RPO(Recovery Point Obejective)</span><br><span class="line"> 是指业务系统所允许的在灾难过程中的最大数据丢失量，用来衡量高可用系统的数据冗余备份能力。</span><br><span class="line"> 例如，恢复到灾难发生前最后一次数据备份的数据状态。</span><br><span class="line"> </span><br><span class="line">系统恢复能力 RTO(Recovery Time Objective)</span><br><span class="line"> 是指应用系统从灾难状态恢复到物理系统环境可运行状态所需的时间，用来衡量高可用系统的恢复能力。</span><br><span class="line"> 例如，服务器重启、数据库重启、数据恢复、应用回归正常运行。</span><br><span class="line"> </span><br><span class="line">网络恢复能力 NRO(Network Recovery Objective)</span><br><span class="line"> 是指网络系统从灾难状态恢复到网络可连接状态所需的时间，用来衡量高可用系统的网络恢复能力。</span><br><span class="line"> 例如，用户在灾难后可以连接到灾备中心的时间。</span><br><span class="line"> </span><br><span class="line">业务恢复能力 RAO(Recovery Access Objective)</span><br><span class="line"> 是指业务系统从灾难状态恢复到可运行状态所需的时间，用来衡量高可用系统的业务恢复能力。</span><br><span class="line"> 例如，用户在灾难后，可以感受到灾难前的业务应用状态。</span><br></pre></td></tr></table></figure>
+<h4 id="恢复能力"><a href="#恢复能力" class="headerlink" title="恢复能力"></a>恢复能力</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">所谓的恢复能力，指的是一个网站从发生故障到故障修复这个过程的能力，而这个能力涉及到两个子内容：数据恢复能力和业务恢复能力。<br>数据恢复能力 RPO(Recovery Point Obejective)<br> 是指业务系统所允许的在灾难过程中的最大数据丢失量，用来衡量高可用系统的数据冗余备份能力。<br> 例如，恢复到灾难发生前最后一次数据备份的数据状态。<br> <br>系统恢复能力 RTO(Recovery Time Objective)<br> 是指应用系统从灾难状态恢复到物理系统环境可运行状态所需的时间，用来衡量高可用系统的恢复能力。<br> 例如，服务器重启、数据库重启、数据恢复、应用回归正常运行。<br> <br>网络恢复能力 NRO(Network Recovery Objective)<br> 是指网络系统从灾难状态恢复到网络可连接状态所需的时间，用来衡量高可用系统的网络恢复能力。<br> 例如，用户在灾难后可以连接到灾备中心的时间。<br> <br>业务恢复能力 RAO(Recovery Access Objective)<br> 是指业务系统从灾难状态恢复到可运行状态所需的时间，用来衡量高可用系统的业务恢复能力。<br> 例如，用户在灾难后，可以感受到灾难前的业务应用状态。<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250321113635027.png" alt="image-20250321113635027"></p>
-<h4 id="高可用方式"><a href="#高可用方式" class="headerlink" title="高可用方式"></a>高可用方式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于集群来说，高可用的最主要的目的就是保证网站接入口的稳定性，通过一个虚拟的接入口，将真实的请求转发到不同地址(一般是两个)的真实接入口出，进而将请求转发到后续高扩展集群主机中。</span><br><span class="line">这个虚拟的接入口，我们一般称之为VIP，这个VIP一般附加在后端的真实接入口，二这两个接入口一个做主一个做从，共同负担起VIP传输过来的信息。</span><br><span class="line">做主的接口主机我们一般称之为Master或者Active，做备的接口主机我们一般称之为Slave或者Passive。</span><br></pre></td></tr></table></figure>
+<p><img src="E:\biji\image\image-20250321113635027.png" srcset="/img/loading.gif" lazyload alt="image-20250321113635027"></p>
+<h4 id="高可用方式"><a href="#高可用方式" class="headerlink" title="高可用方式"></a>高可用方式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">对于集群来说，高可用的最主要的目的就是保证网站接入口的稳定性，通过一个虚拟的接入口，将真实的请求转发到不同地址(一般是两个)的真实接入口出，进而将请求转发到后续高扩展集群主机中。<br>这个虚拟的接入口，我们一般称之为VIP，这个VIP一般附加在后端的真实接入口，二这两个接入口一个做主一个做从，共同负担起VIP传输过来的信息。<br>做主的接口主机我们一般称之为Master或者Active，做备的接口主机我们一般称之为Slave或者Passive。<br></code></pre></td></tr></table></figure>
 
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="E:\biji\image\image-20250321113724019.png" alt="image-20250321113724019"></p>
+<p><img src="E:\biji\image\image-20250321113724019.png" srcset="/img/loading.gif" lazyload alt="image-20250321113724019"></p>
 <h4 id="集群模式"><a href="#集群模式" class="headerlink" title="集群模式"></a>集群模式</h4><table>
 <thead>
 <tr>
@@ -293,7 +374,7 @@ if (true) {
 <td>在这种模式下，当主节点故障时候，后备结点主机会通过某些策略，从中选择一个结点，作为临时主节点，接管所有请求。原来的主节点恢复的时候，通过多种策略来响应。</td>
 </tr>
 </tbody></table>
-<h4 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">为了实现高可用的效果，后端的高可用结点需要如下几种技术来保证：</span><br><span class="line"> 时间同步 和 心跳检测</span><br><span class="line"> </span><br><span class="line">时间同步</span><br><span class="line">   作为一个集群，他们彼此间进行信息通信的一个前提是，时间状态必须一致，如果出现一个主机在<span class="number">2018</span>年，一个在<span class="number">2020</span>年，这种情况下，集群的通信肯定会出现问题，甚至不会传输信息。</span><br><span class="line">    我们一般会采用时间协议，从一个专用的时间服务器上获取时间，从而保证同一个集群中的所有主机时间都是一致的，这个协议我们一般使用ntp协议。</span><br><span class="line">    </span><br><span class="line">心跳检测</span><br><span class="line">   对于高可用集群的各种模式来说，有一个关键的点就是：主节点故障了，从节点接管一切。这就涉及到了一种场景：高可用集群节点间需要知道彼此的状态，就类似于我们要知道一个人是否是活的，就看他有没有心跳。</span><br><span class="line">    所以我们需要通过一种专用的技术来时刻了解集群节点间的状态，我们一般称这种技术为<span class="string">&quot;心跳检测&quot;</span>，常见的软件有VRRP。</span><br></pre></td></tr></table></figure>
+<h4 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">为了实现高可用的效果，后端的高可用结点需要如下几种技术来保证：<br> 时间同步 和 心跳检测<br> <br>时间同步<br>   作为一个集群，他们彼此间进行信息通信的一个前提是，时间状态必须一致，如果出现一个主机在<span class="hljs-number">2018</span>年，一个在<span class="hljs-number">2020</span>年，这种情况下，集群的通信肯定会出现问题，甚至不会传输信息。<br>    我们一般会采用时间协议，从一个专用的时间服务器上获取时间，从而保证同一个集群中的所有主机时间都是一致的，这个协议我们一般使用ntp协议。<br>    <br>心跳检测<br>   对于高可用集群的各种模式来说，有一个关键的点就是：主节点故障了，从节点接管一切。这就涉及到了一种场景：高可用集群节点间需要知道彼此的状态，就类似于我们要知道一个人是否是活的，就看他有没有心跳。<br>    所以我们需要通过一种专用的技术来时刻了解集群节点间的状态，我们一般称这种技术为<span class="hljs-string">&quot;心跳检测&quot;</span>，常见的软件有VRRP。<br></code></pre></td></tr></table></figure>
 
 
 
@@ -301,162 +382,365 @@ if (true) {
 
 
 
-<h2 id="Keepalived基础"><a href="#Keepalived基础" class="headerlink" title="Keepalived基础"></a><strong>Keepalived</strong>基础</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vrrp 属于 网络层的一种 协议。</span><br><span class="line"></span><br><span class="line">工作流程</span><br><span class="line">keepalived部署在多台主机上(一般是两台)，keepalived服务启动后，会加载专用的配置文件，调用内核的LVS服务以创建虚拟服务器，并根据配置启用对外的统一访问接口，并且基于相关插件脚本对服务进行监控。</span><br><span class="line"> 为了保证服务对外的统一接口的高可用，VRRP协议将物理Router进行统一管理，并创建一个虚拟路由地址，作为外网的统一出口，物理Router内部通过VRRP机制进行内部通信，保证虚拟路由地址永远可用。</span><br><span class="line"> </span><br><span class="line">通过我们对keepalived软件的结构和官方的介绍，我们可以知道，Keepalived其实就是通过整合和加</span><br><span class="line">强LVS和VRRP软件，从而得到的一套适用于高扩展和高可用的软件整合解决方案。</span><br><span class="line"> 根据Keepalived软件的简单结构，我们可以了解到，我们要实现Keepalived的功能，需要在用户空间</span><br><span class="line">安装相应的软件才可以。</span><br></pre></td></tr></table></figure>
+<h2 id="Keepalived基础"><a href="#Keepalived基础" class="headerlink" title="Keepalived基础"></a><strong>Keepalived</strong>基础</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">vrrp 属于 网络层的一种 协议。<br><br>工作流程<br>keepalived部署在多台主机上(一般是两台)，keepalived服务启动后，会加载专用的配置文件，调用内核的LVS服务以创建虚拟服务器，并根据配置启用对外的统一访问接口，并且基于相关插件脚本对服务进行监控。<br> 为了保证服务对外的统一接口的高可用，VRRP协议将物理Router进行统一管理，并创建一个虚拟路由地址，作为外网的统一出口，物理Router内部通过VRRP机制进行内部通信，保证虚拟路由地址永远可用。<br> <br>通过我们对keepalived软件的结构和官方的介绍，我们可以知道，Keepalived其实就是通过整合和加<br>强LVS和VRRP软件，从而得到的一套适用于高扩展和高可用的软件整合解决方案。<br> 根据Keepalived软件的简单结构，我们可以了解到，我们要实现Keepalived的功能，需要在用户空间<br>安装相应的软件才可以。<br></code></pre></td></tr></table></figure>
 
-<h4 id="vrrp"><a href="#vrrp" class="headerlink" title="vrrp"></a>vrrp</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">虚拟路由冗余协议(Virtual Router Redundancy Protocol，简称VRRP)是由IETF提出的解决局域网中配置静态网关出现单点故障现象的路由协议，其本质上是一种路由容错协议。</span><br><span class="line"></span><br><span class="line">VRRP将局域网内的一组路由器虚拟为单个路由器。我们称该路由器组为VRRP备份组，它根据 <span class="string">&quot;优先级&quot;</span>选择一个Master主路由器，承担网关功能，其他路由器称为Backup从路由器。基于VRRP虚拟出来是路由我们称之为虚拟路由，该虚拟路由有独立的IP地址(VIP)。</span><br><span class="line"></span><br><span class="line">工作模式：</span><br><span class="line"> 主/备：单个虚拟路由器</span><br><span class="line"> 主/主：主/备（虚拟路由器<span class="number">1</span>），备/主（虚拟路由器<span class="number">2</span>）</span><br><span class="line"> </span><br><span class="line"> 局域网内主机不知道后端真实的路由器的ip地址，仅仅知道这个虚拟路由的ip地址，让后将VIP设定为其数据包的出网地址，通过该虚拟路由与外部的其他网络进行通信。</span><br><span class="line">    在整个过程中，如果Master路由器发生故障时，Backup取代Master继续履行网关职责，从而保证网络呢·`内的主机不间断地与外部网络进行通信。</span><br><span class="line">    </span><br><span class="line">虚拟路由器：Virtual Router </span><br><span class="line">虚拟路由器标识：VRID(<span class="number">0</span><span class="literal">-255</span>)，唯一标识虚拟路由器</span><br><span class="line">VIP：Virtual IP </span><br><span class="line">VMAC：Virutal MAC (<span class="number">00</span><span class="literal">-00-5e-00-01-VRID</span>)</span><br><span class="line">物理路由器：</span><br><span class="line">    master：主设备</span><br><span class="line">    backup：备用设备</span><br><span class="line">    priority：优先级</span><br><span class="line">    </span><br><span class="line">通告：心跳，优先级等；周期性</span><br><span class="line">工作方式：抢占式，非抢占式</span><br><span class="line">安全认证：</span><br><span class="line">    无认证 - 互相通信的时候，不需要任何认证信息</span><br><span class="line">    简单字符认证：预共享密钥，通信双方使用简单字符进行基本的认证</span><br><span class="line"> MD5：通信双方使用md5的方式传输认证信息。</span><br><span class="line">工作模式：</span><br><span class="line">    主/备：单个虚拟路由器</span><br><span class="line">    主/主：主/备（虚拟路由器<span class="number">1</span>），备/主（虚拟路由器<span class="number">2</span>）</span><br></pre></td></tr></table></figure>
+<h4 id="vrrp"><a href="#vrrp" class="headerlink" title="vrrp"></a>vrrp</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs powershell">虚拟路由冗余协议(Virtual Router Redundancy Protocol，简称VRRP)是由IETF提出的解决局域网中配置静态网关出现单点故障现象的路由协议，其本质上是一种路由容错协议。<br><br>VRRP将局域网内的一组路由器虚拟为单个路由器。我们称该路由器组为VRRP备份组，它根据 <span class="hljs-string">&quot;优先级&quot;</span>选择一个Master主路由器，承担网关功能，其他路由器称为Backup从路由器。基于VRRP虚拟出来是路由我们称之为虚拟路由，该虚拟路由有独立的IP地址(VIP)。<br><br>工作模式：<br> 主/备：单个虚拟路由器<br> 主/主：主/备（虚拟路由器<span class="hljs-number">1</span>），备/主（虚拟路由器<span class="hljs-number">2</span>）<br> <br> 局域网内主机不知道后端真实的路由器的ip地址，仅仅知道这个虚拟路由的ip地址，让后将VIP设定为其数据包的出网地址，通过该虚拟路由与外部的其他网络进行通信。<br>    在整个过程中，如果Master路由器发生故障时，Backup取代Master继续履行网关职责，从而保证网络呢·`内的主机不间断地与外部网络进行通信。<br>    <br>虚拟路由器：Virtual Router <br>虚拟路由器标识：VRID(<span class="hljs-number">0</span><span class="hljs-literal">-255</span>)，唯一标识虚拟路由器<br>VIP：Virtual IP <br>VMAC：Virutal MAC (<span class="hljs-number">00</span><span class="hljs-literal">-00-5e-00-01-VRID</span>)<br>物理路由器：<br>    master：主设备<br>    backup：备用设备<br>    priority：优先级<br>    <br>通告：心跳，优先级等；周期性<br>工作方式：抢占式，非抢占式<br>安全认证：<br>    无认证 - 互相通信的时候，不需要任何认证信息<br>    简单字符认证：预共享密钥，通信双方使用简单字符进行基本的认证<br> MD5：通信双方使用md5的方式传输认证信息。<br>工作模式：<br>    主/备：单个虚拟路由器<br>    主/主：主/备（虚拟路由器<span class="hljs-number">1</span>），备/主（虚拟路由器<span class="hljs-number">2</span>）<br></code></pre></td></tr></table></figure>
 
-<h4 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Keepalived 是一个基于 VRRP 协议的实现高可用的软件，在 Keepalived 中，抢占式和非抢占式是两种重要的工作模式</span><br><span class="line"></span><br><span class="line">抢占式</span><br><span class="line">工作原理</span><br><span class="line">在抢占式模式下，优先级最高的主服务器会一直处于 Master 状态，只要它处于正常运行状态且网络连接正常。当主服务器出现故障或网络问题时，备份服务器会接管其工作，成为 Master 状态。一旦主服务器恢复正常，它会立即抢占回 Master 角色，重新接管工作。</span><br><span class="line"></span><br><span class="line">优缺点</span><br><span class="line">快速恢复：主服务器恢复后能迅速重新承担主要工作，确保服务的连续性和稳定性。</span><br><span class="line">    资源利用高效：高优先级的服务器能及时获取控制权，充分发挥其性能优势。</span><br><span class="line">缺点：</span><br><span class="line"> 频繁的抢占可能会导致网络抖动或服务短暂中断，对一些对稳定性要求极高的服务可能产生一定影响。</span><br><span class="line"> </span><br><span class="line">适用场景</span><br><span class="line">适用于对主服务器性能要求较高，且能容忍短暂服务中断的场景，如一些非关键业务的负载均衡场景。</span><br><span class="line"></span><br><span class="line">非抢占式</span><br><span class="line">工作原理</span><br><span class="line">在非抢占式模式下，当主服务器出现故障时，备份服务器会接管成为 Master 状态。即使主服务器恢复正常，它也不会主动抢占 Master 角色，而是继续由备份服务器提供服务，直到备份服务器出现故障或其他异常情况，主服务器才会再次成为 Master。</span><br><span class="line"></span><br><span class="line">优缺点</span><br><span class="line">优点</span><br><span class="line">    稳定性高：避免了频繁抢占带来的网络抖动和服务中断风险，能保持服务的稳定运行。</span><br><span class="line">    减少切换次数：减少了服务器角色的切换频率，有利于延长服务器硬件的使用寿命。</span><br><span class="line">缺点：</span><br><span class="line">    主服务器恢复后不能及时发挥作用，可能造成资源浪费，特别是当主服务器性能远高于备份服务器</span><br><span class="line">    </span><br><span class="line">适用场景</span><br><span class="line">  适用于对服务稳定性要求极高，不容许有任何短暂中断的关键业务场景，如金融交易系统、大型数据库系统等。</span><br></pre></td></tr></table></figure>
+<h4 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Keepalived 是一个基于 VRRP 协议的实现高可用的软件，在 Keepalived 中，抢占式和非抢占式是两种重要的工作模式<br><br>抢占式<br>工作原理<br>在抢占式模式下，优先级最高的主服务器会一直处于 Master 状态，只要它处于正常运行状态且网络连接正常。当主服务器出现故障或网络问题时，备份服务器会接管其工作，成为 Master 状态。一旦主服务器恢复正常，它会立即抢占回 Master 角色，重新接管工作。<br><br>优缺点<br>快速恢复：主服务器恢复后能迅速重新承担主要工作，确保服务的连续性和稳定性。<br>    资源利用高效：高优先级的服务器能及时获取控制权，充分发挥其性能优势。<br>缺点：<br> 频繁的抢占可能会导致网络抖动或服务短暂中断，对一些对稳定性要求极高的服务可能产生一定影响。<br> <br>适用场景<br>适用于对主服务器性能要求较高，且能容忍短暂服务中断的场景，如一些非关键业务的负载均衡场景。<br><br>非抢占式<br>工作原理<br>在非抢占式模式下，当主服务器出现故障时，备份服务器会接管成为 Master 状态。即使主服务器恢复正常，它也不会主动抢占 Master 角色，而是继续由备份服务器提供服务，直到备份服务器出现故障或其他异常情况，主服务器才会再次成为 Master。<br><br>优缺点<br>优点<br>    稳定性高：避免了频繁抢占带来的网络抖动和服务中断风险，能保持服务的稳定运行。<br>    减少切换次数：减少了服务器角色的切换频率，有利于延长服务器硬件的使用寿命。<br>缺点：<br>    主服务器恢复后不能及时发挥作用，可能造成资源浪费，特别是当主服务器性能远高于备份服务器<br>    <br>适用场景<br>  适用于对服务稳定性要求极高，不容许有任何短暂中断的关键业务场景，如金融交易系统、大型数据库系统等。<br></code></pre></td></tr></table></figure>
 
-<h4 id="非抢占模式"><a href="#非抢占模式" class="headerlink" title="非抢占模式"></a>非抢占模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：要关闭 VIP抢占，必须将各 Keepalived 服务器 state 配置为 BACKUP</span><br></pre></td></tr></table></figure>
+<h4 id="非抢占模式"><a href="#非抢占模式" class="headerlink" title="非抢占模式"></a>非抢占模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">注意：要关闭 VIP抢占，必须将各 Keepalived 服务器 state 配置为 BACKUP<br></code></pre></td></tr></table></figure>
 
-<h4 id="nopreempt-属性解析"><a href="#nopreempt-属性解析" class="headerlink" title="nopreempt****属性解析"></a><strong>nopreempt****属性解析</strong></h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在 Keepalived 配置文件的 VRRP 实例部分使用nopreempt参数，就是明确将该 VRRP 实例设置为非抢占式模式。在这种模式下，如果主服务器（具有较高优先级的设备）出现故障，备份服务器会接管并承担起主服务器的工作，转变为 Master 状态来提供服务。</span><br><span class="line"> 当原本的主服务器恢复正常后，由于nopreempt的设置，它不会主动抢占回 Master 角色，而是继续让备份服务器（当前的 Master）提供服务，直到备份服务器出现故障或其他异常情况，原主服务器才会再次成为 Master。</span><br><span class="line"> nopreempt的主要目的是为了保持服务的稳定性和连续性，避免由于主服务器的频繁恢复和抢占导致的</span><br><span class="line">服务中断和网络抖动。</span><br><span class="line"> 应用场景</span><br><span class="line">nopreempt通常应用于对服务连续性和稳定性要求极高的场景，如金融交易系统、大型数据库系统、电信核心网等关键业务领域。在这些场景中，任何短暂的服务中断都可能导致严重的后果，因此采用非抢占式模式可以确保在主服务器故障恢复后，不会因为抢占操作而引发潜在的服务中断风险，从而保障业务的稳定运行。 </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="nopreempt-属性解析"><a href="#nopreempt-属性解析" class="headerlink" title="nopreempt****属性解析"></a><strong>nopreempt****属性解析</strong></h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">在 Keepalived 配置文件的 VRRP 实例部分使用nopreempt参数，就是明确将该 VRRP 实例设置为非抢占式模式。在这种模式下，如果主服务器（具有较高优先级的设备）出现故障，备份服务器会接管并承担起主服务器的工作，转变为 Master 状态来提供服务。<br> 当原本的主服务器恢复正常后，由于nopreempt的设置，它不会主动抢占回 Master 角色，而是继续让备份服务器（当前的 Master）提供服务，直到备份服务器出现故障或其他异常情况，原主服务器才会再次成为 Master。<br> nopreempt的主要目的是为了保持服务的稳定性和连续性，避免由于主服务器的频繁恢复和抢占导致的<br>服务中断和网络抖动。<br> 应用场景<br>nopreempt通常应用于对服务连续性和稳定性要求极高的场景，如金融交易系统、大型数据库系统、电信核心网等关键业务领域。在这些场景中，任何短暂的服务中断都可能导致严重的后果，因此采用非抢占式模式可以确保在主服务器故障恢复后，不会因为抢占操作而引发潜在的服务中断风险，从而保障业务的稳定运行。 <br><br><br></code></pre></td></tr></table></figure>
 
-<h4 id="非抢占延迟模式"><a href="#非抢占延迟模式" class="headerlink" title="非抢占延迟模式"></a>非抢占延迟模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">工作原理</span><br><span class="line">在非抢占延时模式下，当主服务器出现故障时，备份服务器会在等待一个特定的延时时间后，才会接管成为 Master 状态来提供服务。</span><br><span class="line"> 同样，当主服务器恢复正常后，它也不会立即抢占 Master 角色，而是要等待一段预先设置好的延时时间，确认当前的 Master（即原备份服务器）确实出现异常或故障，或者经过延时后网络状况等条件满足切换要求，才会重新成为 Master。这个延时时间可以通过配置参数来设定，一般以秒为单位。</span><br><span class="line"> </span><br><span class="line">优缺点</span><br><span class="line">优点:</span><br><span class="line">    增强稳定性：进一步减少了不必要的切换操作，避免因网络瞬间波动或主服务器短暂故障恢复等情况导致的频繁切换，使系统更加稳定。</span><br><span class="line">    避免资源浪费：可以防止备份服务器在主服务器只是短暂故障，很快就能恢复的情况下，不必要地接管服务，从而避免了资源的浪费和可能出现的服务质量下降。</span><br><span class="line">缺点:</span><br><span class="line">    响应速度相对较慢：由于增加了延时等待，在主服务器出现故障时，备份服务器不能立即接管服务，可能会导致服务中断时间相对较长。</span><br><span class="line">    配置复杂：需要合理设置延时时间，若设置不当，可能无法达到预期效果，甚至可能影响系统的正常运行。</span><br><span class="line">    </span><br><span class="line">适用场景</span><br><span class="line">适用于对稳定性要求极高，且能容忍一定服务中断时间的场景。例如大型数据中心的核心服务，数据同步和一致性要求很高，不希望因为偶尔的网络波动或服务器小故障就进行切换，通过设置非抢占延时模式，可以在确保服务稳定的前提下，减少不必要的切换带来的风险和数据不一致问题。还有一些工业控制系统，对可靠性要求高，但对实时性要求不是特别苛刻，也可以采用这种模式来保证系统的稳定运行。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="非抢占延迟模式"><a href="#非抢占延迟模式" class="headerlink" title="非抢占延迟模式"></a>非抢占延迟模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs powershell">工作原理<br>在非抢占延时模式下，当主服务器出现故障时，备份服务器会在等待一个特定的延时时间后，才会接管成为 Master 状态来提供服务。<br> 同样，当主服务器恢复正常后，它也不会立即抢占 Master 角色，而是要等待一段预先设置好的延时时间，确认当前的 Master（即原备份服务器）确实出现异常或故障，或者经过延时后网络状况等条件满足切换要求，才会重新成为 Master。这个延时时间可以通过配置参数来设定，一般以秒为单位。<br> <br>优缺点<br>优点:<br>    增强稳定性：进一步减少了不必要的切换操作，避免因网络瞬间波动或主服务器短暂故障恢复等情况导致的频繁切换，使系统更加稳定。<br>    避免资源浪费：可以防止备份服务器在主服务器只是短暂故障，很快就能恢复的情况下，不必要地接管服务，从而避免了资源的浪费和可能出现的服务质量下降。<br>缺点:<br>    响应速度相对较慢：由于增加了延时等待，在主服务器出现故障时，备份服务器不能立即接管服务，可能会导致服务中断时间相对较长。<br>    配置复杂：需要合理设置延时时间，若设置不当，可能无法达到预期效果，甚至可能影响系统的正常运行。<br>    <br>适用场景<br>适用于对稳定性要求极高，且能容忍一定服务中断时间的场景。例如大型数据中心的核心服务，数据同步和一致性要求很高，不希望因为偶尔的网络波动或服务器小故障就进行切换，通过设置非抢占延时模式，可以在确保服务稳定的前提下，减少不必要的切换带来的风险和数据不一致问题。还有一些工业控制系统，对可靠性要求高，但对实时性要求不是特别苛刻，也可以采用这种模式来保证系统的稳定运行。<br><br></code></pre></td></tr></table></figure>
 
-<h4 id="消息传播"><a href="#消息传播" class="headerlink" title="消息传播"></a>消息传播</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">单播和多播</span><br><span class="line">单播：</span><br><span class="line"> 是一种点到点的通信方式，数据从发送方发送到特定的一个接收方。就像打电话时，通话双方是一对一的关系，信息只在这两者之间传递。</span><br><span class="line">多播：</span><br><span class="line"> 是一种点到多点的通信方式，数据从发送方发送到一组特定的接收方，这些接收方构成一个多播组。类似于在一个群组通话中，说话者的声音可以同时被群组中的多个成员听到。</span><br><span class="line"> </span><br><span class="line">地址类型</span><br><span class="line">单播：</span><br><span class="line"> 使用单播地址来标识网络中的单个主机。每个主机都有唯一的单播地址，如 IPv4 或 IPv6 地址，数据根据目标单播地址进行精确传输。 </span><br><span class="line">多播：</span><br><span class="line"> 使用多播地址来标识一组接收者。多播地址是一个特殊的地址范围，用于标识不同的多播组，发送到多播地址的数据会被该组内的所有成员接收。</span><br><span class="line"> </span><br><span class="line">网络资源占用</span><br><span class="line">单播：</span><br><span class="line"> 当需要向多个目标发送相同数据时，发送方需要为每个目标单独发送一份数据，会占用较多的网络带宽和服务器资源。比如服务器向 <span class="number">10</span> 个客户端发送相同的文件，就需要发送 <span class="number">10</span> 次。</span><br><span class="line">多播：</span><br><span class="line"> 发送方只需发送一份数据，网络中的路由器会根据多播组的成员信息，在必要的节点处对数据进行复制和转发，从而节省了网络带宽和服务器资源。同样是服务器向 <span class="number">10</span> 个客户端发送相同文件，采用多播只需发送一次数据。</span><br><span class="line"> </span><br><span class="line">应用场景</span><br><span class="line">单播：</span><br><span class="line"> 适用于需要一对一精确通信的场景，如远程登录、文件传输、视频点播等，这些应用需要确保数据准确无误地传输到特定的接收方。 </span><br><span class="line">多播：</span><br><span class="line"> 适用于一对多或多对多的通信场景，如在线直播、视频会议、网络游戏中的多人对战、网络电视等，这些应用需要将相同的数据同时发送给多个接收方</span><br></pre></td></tr></table></figure>
+<h4 id="消息传播"><a href="#消息传播" class="headerlink" title="消息传播"></a>消息传播</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs powershell">单播和多播<br>单播：<br> 是一种点到点的通信方式，数据从发送方发送到特定的一个接收方。就像打电话时，通话双方是一对一的关系，信息只在这两者之间传递。<br>多播：<br> 是一种点到多点的通信方式，数据从发送方发送到一组特定的接收方，这些接收方构成一个多播组。类似于在一个群组通话中，说话者的声音可以同时被群组中的多个成员听到。<br> <br>地址类型<br>单播：<br> 使用单播地址来标识网络中的单个主机。每个主机都有唯一的单播地址，如 IPv4 或 IPv6 地址，数据根据目标单播地址进行精确传输。 <br>多播：<br> 使用多播地址来标识一组接收者。多播地址是一个特殊的地址范围，用于标识不同的多播组，发送到多播地址的数据会被该组内的所有成员接收。<br> <br>网络资源占用<br>单播：<br> 当需要向多个目标发送相同数据时，发送方需要为每个目标单独发送一份数据，会占用较多的网络带宽和服务器资源。比如服务器向 <span class="hljs-number">10</span> 个客户端发送相同的文件，就需要发送 <span class="hljs-number">10</span> 次。<br>多播：<br> 发送方只需发送一份数据，网络中的路由器会根据多播组的成员信息，在必要的节点处对数据进行复制和转发，从而节省了网络带宽和服务器资源。同样是服务器向 <span class="hljs-number">10</span> 个客户端发送相同文件，采用多播只需发送一次数据。<br> <br>应用场景<br>单播：<br> 适用于需要一对一精确通信的场景，如远程登录、文件传输、视频点播等，这些应用需要确保数据准确无误地传输到特定的接收方。 <br>多播：<br> 适用于一对多或多对多的通信场景，如在线直播、视频会议、网络游戏中的多人对战、网络电视等，这些应用需要将相同的数据同时发送给多个接收方<br></code></pre></td></tr></table></figure>
 
-</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">John Doe</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/')">Hexo</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Hexo&amp;url=https://lx1me.github.io/2025/06/05/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
-  var currentPageUrl = window.location.href;
-  var input = document.createElement("input");
-  input.setAttribute("value", currentPageUrl);
-  document.body.appendChild(input);
-  input.select();
-  input.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  document.body.removeChild(input);
-}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lx1me.github.io" target="_blank">Hexo</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"></div></div></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/05/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E8%BF%9B%E5%BA%A6/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%20NoSQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%20Redis/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived"><span class="toc-number">1.</span> <span class="toc-text">高可用集群Keepalived</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">集群简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E6%8C%87%E6%A0%87"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">高可用指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E8%83%BD%E5%8A%9B"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">恢复能力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">高可用方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">集群模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">关键技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keepalived%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">Keepalived基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vrrp"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">vrrp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E6%8A%A2%E5%8D%A0%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">非抢占模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nopreempt-%E5%B1%9E%E6%80%A7%E8%A7%A3%E6%9E%90"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">nopreempt****属性解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E6%8A%A2%E5%8D%A0%E5%BB%B6%E8%BF%9F%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">非抢占延迟模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E4%BC%A0%E6%92%AD"><span class="toc-number">1.1.0.6.</span> <span class="toc-text">消息传播</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.118Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%20Docker/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.113Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%20ZABBIX/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.113Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%A0%A1%E5%9E%92%E6%9C%BA%20JumpServer/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.108Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/" title="无题">无题</a><time datetime="2025-06-05T01:52:55.108Z" title="发表于 2025-06-05 09:52:55">2025-06-05</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="John Doe" target="_blank">John Doe</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">0</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><span class="sidebar-menu-item-title">标签</span></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
-var HoldLog = console.log;
-console.log = function () {};
-let now1 = new Date();
-queueMicrotask(() => {
-  const Log = function () {
-    HoldLog.apply(console, arguments);
-  }; //在恢复前输出日志
-  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
-  now1.setTime(now1.getTime() + 250);
-  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
-  const dnum = Math.floor(days);
-  const ascll = [
-    `欢迎使用安知鱼!`,
-    `生活明朗, 万物可爱`,
-    `
-        
-       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
-      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
-      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
-      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
-      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
-      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
-        
-        `,
-    "已上线",
-    dnum,
-    "天",
-    "©2020 By 安知鱼 V1.6.14",
-  ];
-  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
 
-  setTimeout(
-    Log.bind(
-      console,
-      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      ""
-    )
-  );
-  setTimeout(
-    Log.bind(
-      console,
-      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
-      "color:white; background-color:#4fd953",
-      "",
-      "",
-      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(
-      console,
-      "%c ⚡ Powered by 安知鱼 %c 你正在访问 John Doe 的博客.",
-      "color:white; background-color:#f0ad4e",
-      ""
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
-  );
-});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
-</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-  // removeEventListener scroll 
-  anzhiyu.removeGlobalFnEvent('pjax')
-  anzhiyu.removeGlobalFnEvent('themeChange')
-
-  document.getElementById('rightside').classList.remove('rightside-show')
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://lx1me.github.io/2025/06/05/高可用集群Keepalived/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%20NoSQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%20Redis/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/05/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E8%BF%9B%E5%BA%A6/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  }
 
-  typeof typed === 'object' && typed.destroy()
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
-})
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
+  <script>Fluid.plugins.codeWidget();</script>
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-  typeof panguInit === 'function' && panguInit()
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
 
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
 
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
 
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
