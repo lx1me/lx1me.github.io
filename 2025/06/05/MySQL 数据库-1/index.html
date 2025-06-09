@@ -21,19 +21,19 @@
   
     <meta name="description" content="MySQL 数据库-1MySQL 架构和性能优化123456789101112131415161718192021222324252627282930313233343536373839mysql的查询过程1 客户端发送查询请求：  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。2 服务器接收并处理连接：  MySQL服务器通过连接器接收客户端的连接请求，并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="关于">
 <meta property="og:url" content="https://lx1me.github.io/2025/06/05/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="MySQL 数据库-1MySQL 架构和性能优化123456789101112131415161718192021222324252627282930313233343536373839mysql的查询过程1 客户端发送查询请求：  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。2 服务器接收并处理连接：  MySQL服务器通过连接器接收客户端的连接请求，并">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-05T01:52:55.088Z">
-<meta property="article:modified_time" content="2025-03-17T11:18:59.625Z">
+<meta property="article:modified_time" content="2025-06-09T02:29:36.439Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>关于 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -98,7 +98,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+<div class="header-inner" style="height: 60vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="关于"></span>
           
         </div>
 
@@ -264,23 +264,57 @@
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
       
-
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
     </div>
+  </div>
+</div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="MySQL-数据库-1"><a href="#MySQL-数据库-1" class="headerlink" title="MySQL 数据库-1"></a><strong>MySQL</strong> <strong>数据库</strong>-1</h1><h2 id="MySQL-架构和性能优化"><a href="#MySQL-架构和性能优化" class="headerlink" title="MySQL 架构和性能优化"></a><strong>MySQL</strong> <strong>架构和性能优化</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs powershell">mysql的查询过程<br><span class="hljs-number">1</span> 客户端发送查询请求：<br>  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。<br><br><span class="hljs-number">2</span> 服务器接收并处理连接：<br>  MySQL服务器通过连接器接收客户端的连接请求，并进行身份认证和权限验证。<br>  如果验证成功，服务器为客户端分配一个独立的线程来处理后续的查询请求。<br><br><span class="hljs-number">3</span> 查询缓存（MySQL <span class="hljs-number">8.0</span>后已移除该功能）：<br>  在早期版本的MySQL中，服务器会检查查询缓存，看是否存在已经执行过且结果未过期的相同查询。<br>  如果缓存命中，则直接返回缓存的结果，跳过后续的解析和执行步骤。<br>注意：<br>  由于查询缓存的局限性（如更新操作会导致缓存失效），在MySQL <span class="hljs-number">8.0</span>及以后版本中，查询缓存功能已被移除。<br> 原因：<br>  维护成本高：在早期版本中，每当数据发生变化，如执行插入、更新或删除操作时，相关的查询缓存就可能会失效，需要进行清理或更新。随着数据量和更新频率的增加，这种维护操作的开销会变得非常大，甚至可能超过查询缓存带来的性能提升。<br>  缓存命中率不稳定：查询缓存的效果依赖于查询的重复性和数据的稳定性。在实际应用中，如果查询语句变化多样，或者数据更新频繁，查询缓存的命中率可能会很低，导致查询缓存占用了内存资源却不能有效提高性能。<br>  内存管理复杂：管理查询缓存需要额外的内存空间，并且要解决内存碎片等问题。在高并发环境下，内存管理的复杂性会进一步增加，可能导致性能问题和内存泄漏等风险。<br><br><span class="hljs-number">4</span> SQL解析：<br>    服务器对接收到的SQL查询语句进行解析，生成解析树（或称为语法树）。<br>    解析过程包括词法分析和语法分析，确保SQL语句的语法正确，并识别出SQL语句中的关键字、表名、列名等。<br>    随后进行语义分析，检查表名、列名是否存在，以及用户是否有相应的权限。<br><br><span class="hljs-number">5</span> 查询优化optimizer：<br>    优化器对解析后的查询语句进行优化，生成最优的执行计划。<br>    优化过程包括选择最佳的索引、确定表的连接顺序、重写查询等，以提高查询效率。<br>    优化器会计算不同执行计划的预测成本值，并选择成本最小的计划作为最终执行计划。<br><br><span class="hljs-number">6</span> 执行计划生成：<br>    根据优化器生成的执行计划，服务器确定具体的查询执行步骤。<br>    执行计划包括选择索引、读取顺序、数据过滤、排序、聚合等操作。<br><br><span class="hljs-number">7</span> 执行查询并返回结果：<br>    执行器根据执行计划调用存储引擎的API来执行查询操作。<br>    存储引擎负责具体的数据存储和读取操作，根据执行计划读取数据并返回给执行器。<br>    执行器对读取到的数据进行处理（如过滤、排序、聚合等），然后生成结果集。<br><br>最终，服务器将处理后的结果集返回给客户端。<br><br></code></pre></td></tr></table></figure>
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="MySQL-数据库-1"><a href="#MySQL-数据库-1" class="headerlink" title="MySQL 数据库-1"></a><strong>MySQL</strong> <strong>数据库</strong>-1</h1><h2 id="MySQL-架构和性能优化"><a href="#MySQL-架构和性能优化" class="headerlink" title="MySQL 架构和性能优化"></a><strong>MySQL</strong> <strong>架构和性能优化</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs powershell">mysql的查询过程<br><span class="hljs-number">1</span> 客户端发送查询请求：<br>  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。<br><br><span class="hljs-number">2</span> 服务器接收并处理连接：<br>  MySQL服务器通过连接器接收客户端的连接请求，并进行身份认证和权限验证。<br>  如果验证成功，服务器为客户端分配一个独立的线程来处理后续的查询请求。<br><br><span class="hljs-number">3</span> 查询缓存（MySQL <span class="hljs-number">8.0</span>后已移除该功能）：<br>  在早期版本的MySQL中，服务器会检查查询缓存，看是否存在已经执行过且结果未过期的相同查询。<br>  如果缓存命中，则直接返回缓存的结果，跳过后续的解析和执行步骤。<br>注意：<br>  由于查询缓存的局限性（如更新操作会导致缓存失效），在MySQL <span class="hljs-number">8.0</span>及以后版本中，查询缓存功能已被移除。<br> 原因：<br>  维护成本高：在早期版本中，每当数据发生变化，如执行插入、更新或删除操作时，相关的查询缓存就可能会失效，需要进行清理或更新。随着数据量和更新频率的增加，这种维护操作的开销会变得非常大，甚至可能超过查询缓存带来的性能提升。<br>  缓存命中率不稳定：查询缓存的效果依赖于查询的重复性和数据的稳定性。在实际应用中，如果查询语句变化多样，或者数据更新频繁，查询缓存的命中率可能会很低，导致查询缓存占用了内存资源却不能有效提高性能。<br>  内存管理复杂：管理查询缓存需要额外的内存空间，并且要解决内存碎片等问题。在高并发环境下，内存管理的复杂性会进一步增加，可能导致性能问题和内存泄漏等风险。<br><br><span class="hljs-number">4</span> SQL解析：<br>    服务器对接收到的SQL查询语句进行解析，生成解析树（或称为语法树）。<br>    解析过程包括词法分析和语法分析，确保SQL语句的语法正确，并识别出SQL语句中的关键字、表名、列名等。<br>    随后进行语义分析，检查表名、列名是否存在，以及用户是否有相应的权限。<br><br><span class="hljs-number">5</span> 查询优化optimizer：<br>    优化器对解析后的查询语句进行优化，生成最优的执行计划。<br>    优化过程包括选择最佳的索引、确定表的连接顺序、重写查询等，以提高查询效率。<br>    优化器会计算不同执行计划的预测成本值，并选择成本最小的计划作为最终执行计划。<br><br><span class="hljs-number">6</span> 执行计划生成：<br>    根据优化器生成的执行计划，服务器确定具体的查询执行步骤。<br>    执行计划包括选择索引、读取顺序、数据过滤、排序、聚合等操作。<br><br><span class="hljs-number">7</span> 执行查询并返回结果：<br>    执行器根据执行计划调用存储引擎的API来执行查询操作。<br>    存储引擎负责具体的数据存储和读取操作，根据执行计划读取数据并返回给执行器。<br>    执行器对读取到的数据进行处理（如过滤、排序、聚合等），然后生成结果集。<br><br>最终，服务器将处理后的结果集返回给客户端。<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="mysql组件"><a href="#mysql组件" class="headerlink" title="mysql组件"></a>mysql组件</h2><h4 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">连接器对  Native，JDBC，ODBC，NET，PHP，Perl，Python，Ruby，Cobol 等客户端工具或编程语言的 API 对MySQL 的连接功能进行管理。连接器是 Server 端的第一个模块。<br> 每种编程语言软件几乎都有适合自己的连接器软件插件。<br></code></pre></td></tr></table></figure>
 
@@ -637,113 +671,20 @@
 <h4 id="查看二进制文件"><a href="#查看二进制文件" class="headerlink" title="查看二进制文件"></a>查看二进制文件</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">MariaDB [<span class="hljs-type">db2</span>]&gt; <span class="hljs-built_in">select</span> <span class="hljs-selector-tag">@</span>@binlog_format;<br>+<span class="hljs-literal">-----------------</span>+<br>| <span class="hljs-selector-tag">@</span>@binlog_format |<br>+<span class="hljs-literal">-----------------</span>+<br>| MIXED           |<br>+<span class="hljs-literal">-----------------</span>+<br><span class="hljs-number">1</span> row <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (<span class="hljs-number">0.000</span> sec)<br><br>查看当前服务的二进制文件列表<br>SHOW &#123;BINARY | MASTER&#125; LOGS<br>查看正在使用的二进制文件<br>SHOW MASTER STATUS<br></code></pre></td></tr></table></figure>
 
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div></div>
-      <div>https://lx1me.github.io/2025/06/05/MySQL 数据库-1/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>John Doe</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2025年6月5日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
   </div>
 
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2025/06/05/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%20Git%20%E5%92%8C%20GitLab/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2025/06/05/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93/" title="">
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+      
+        
+      
+      
 
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
+    </article>
+  
+</article>
 
 
 
@@ -766,8 +707,6 @@
 
 
   
-
-
 
 
 
@@ -864,46 +803,6 @@
   
 
 
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>

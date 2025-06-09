@@ -21,19 +21,19 @@
   
     <meta name="description" content="DevOps 之 CICD 服务器 JenkinsJenkins 部署与基本配置1234567891011121314151617Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。Jenkins 只">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="关于">
 <meta property="og:url" content="https://lx1me.github.io/2025/06/05/DevOps%20%E4%B9%8B%20CICD%20%E6%9C%8D%E5%8A%A1%E5%99%A8%20Jenkins/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="DevOps 之 CICD 服务器 JenkinsJenkins 部署与基本配置1234567891011121314151617Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。Jenkins 只">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-05T01:52:55.083Z">
-<meta property="article:modified_time" content="2025-06-05T02:50:23.069Z">
+<meta property="article:modified_time" content="2025-06-09T02:29:36.437Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>关于 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -98,7 +98,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+<div class="header-inner" style="height: 60vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="关于"></span>
           
         </div>
 
@@ -264,23 +264,57 @@
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
       
-
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
     </div>
+  </div>
+</div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="DevOps-之-CICD-服务器-Jenkins"><a href="#DevOps-之-CICD-服务器-Jenkins" class="headerlink" title="DevOps 之 CICD 服务器 Jenkins"></a>DevOps 之 CICD 服务器 Jenkins</h1><h4 id="Jenkins-部署与基本配置"><a href="#Jenkins-部署与基本配置" class="headerlink" title="Jenkins 部署与基本配置"></a>Jenkins 部署与基本配置</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。<br>Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。<br>Jenkins 只是一个调度平台,其本身并不能完成项目的构建部署<br>Jenkins 需要安装各种插件,可能还需要编写Shell,python脚本等才能调用和集成众多的组件来实现复杂的构建部署功能<br><br>主要用途：<br>持续、自动地构建/测试软件项目<br>监控一些定时执行的任务<br><br>Jenkins特点：<br>开源免费<br>跨平台，支持所有的平台<br>master/slave支持分布式的build<br>web形式的可视化的管理页面<br>安装配置简单<br>及时快速的提示和帮助<br>已有的<span class="hljs-number">1800</span>+插件<br></code></pre></td></tr></table></figure>
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="DevOps-之-CICD-服务器-Jenkins"><a href="#DevOps-之-CICD-服务器-Jenkins" class="headerlink" title="DevOps 之 CICD 服务器 Jenkins"></a>DevOps 之 CICD 服务器 Jenkins</h1><h4 id="Jenkins-部署与基本配置"><a href="#Jenkins-部署与基本配置" class="headerlink" title="Jenkins 部署与基本配置"></a>Jenkins 部署与基本配置</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。可用于自动化各种任务，如构建，测试和部署软件。<br>Jenkins 作为一个可扩展的自动化服务器，可以用作简单的 CI 服务器，或者变成任何项目的持续交付中心。<br>Jenkins 只是一个调度平台,其本身并不能完成项目的构建部署<br>Jenkins 需要安装各种插件,可能还需要编写Shell,python脚本等才能调用和集成众多的组件来实现复杂的构建部署功能<br><br>主要用途：<br>持续、自动地构建/测试软件项目<br>监控一些定时执行的任务<br><br>Jenkins特点：<br>开源免费<br>跨平台，支持所有的平台<br>master/slave支持分布式的build<br>web形式的可视化的管理页面<br>安装配置简单<br>及时快速的提示和帮助<br>已有的<span class="hljs-number">1800</span>+插件<br></code></pre></td></tr></table></figure>
 
 <h4 id="Jenkins-安装和启动"><a href="#Jenkins-安装和启动" class="headerlink" title="Jenkins 安装和启动"></a>Jenkins 安装和启动</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Jenkins 支持多种部署和运行方式<br>Jenkins支持多种安装方法<br>包安装<br>JAVA的WAR文件<br>容器运行<br></code></pre></td></tr></table></figure>
 
@@ -306,107 +340,20 @@
 <h5 id="创建环境变量"><a href="#创建环境变量" class="headerlink" title="创建环境变量"></a>创建环境变量</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">自定义变量可以在系统管理<span class="hljs-literal">--</span>配置系统<span class="hljs-literal">--</span>全局属性<span class="hljs-literal">--</span> 环境变量 定义<br>注意：如果自定义环境变量与内置全局环境变量同名时，内置全局环境变量将被自定义环境变量覆盖<br>这可能会引起错误，必要时，可为自定义环境变量使用固定的前缀，例如“_ _”等<br></code></pre></td></tr></table></figure>
 
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div></div>
-      <div>https://lx1me.github.io/2025/06/05/DevOps 之 CICD 服务器 Jenkins/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>John Doe</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2025年6月5日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
   </div>
 
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2025/06/05/Ansible%E5%9F%BA%E7%A1%80/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+      
+        
+      
+      
 
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
+    </article>
+  
+</article>
 
 
 
@@ -429,8 +376,6 @@
 
 
   
-
-
 
 
 
@@ -527,46 +472,6 @@
   
 
 
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
 
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
