@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="磁盘存储和文件管理1. 磁盘存储12345678910磁盘存储： 1. 磁盘数据存储：      -- 包括分区和格式化 2. 磁盘数据的使用：      - 挂载存储类型：  - 块存储  - 文件系统存储  - 对象存储   2. MBR &amp; ZBR12345678MBR（Master Boot Record）：  - 作用：硬盘的第一个扇区（0道0头1扇区），包含主引导程序和分区表。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2024/06/30/%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E5%92%8C%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="磁盘存储和文件管理1. 磁盘存储12345678910磁盘存储： 1. 磁盘数据存储：      -- 包括分区和格式化 2. 磁盘数据的使用：      - 挂载存储类型：  - 块存储  - 文件系统存储  - 对象存储   2. MBR &amp; ZBR12345678MBR（Master Boot Record）：  - 作用：硬盘的第一个扇区（0道0头1扇区），包含主引导程序和分区表。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lx1me.github.io/image/image_-3PZ7YOTVD.png">
+<meta property="og:image" content="https://lx1me.github.io/image/image_l8vyMLtCAP.png">
+<meta property="og:image" content="https://lx1me.github.io/image/image_NtaHy_Y62a.png">
+<meta property="og:image" content="https://lx1me.github.io/image/image_D7lAmYgQMQ.png">
+<meta property="og:image" content="https://lx1me.github.io/image/image_Nx4U0U1Ths.png">
+<meta property="article:published_time" content="2024-06-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T02:45:04.391Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lx1me.github.io/image/image_-3PZ7YOTVD.png">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-30 00:00" pubdate>
+          2024年6月30日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="磁盘存储和文件管理"><a href="#磁盘存储和文件管理" class="headerlink" title="磁盘存储和文件管理"></a>磁盘存储和文件管理</h1><h2 id="1-磁盘存储"><a href="#1-磁盘存储" class="headerlink" title="1. 磁盘存储"></a>1. 磁盘存储</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ada">磁盘存储：<br> <span class="hljs-number">1</span>. 磁盘数据存储：<br>      <span class="hljs-comment">-- 包括分区和格式化</span><br> <span class="hljs-number">2</span>. 磁盘数据的使用：<br>      - 挂载<br><br>存储类型：<br>  - 块存储<br>  - 文件系统存储<br>  - 对象存储<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="2-MBR-ZBR"><a href="#2-MBR-ZBR" class="headerlink" title="2. MBR &amp; ZBR"></a>2. MBR &amp; ZBR</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ada">MBR（Master Boot <span class="hljs-keyword">Record</span>）：<br>  - 作用：硬盘的第一个扇区（<span class="hljs-number">0</span>道<span class="hljs-number">0</span>头<span class="hljs-number">1</span>扇区），包含主引导程序和分区表。<br>  - 关键性：是计算机启动的关键，包含引导代码，能够加载操作系统，并告知硬盘分区信息。<br><br>ZBR（Zoned Bit Recording）：<br>  - 定义：一种物理优化硬盘存储空间的方法。<br>  - 特点：不再采用每个磁道扇区数固定的方式，而是依据磁道半径不同，将更多扇区分布在外部磁道，<br>    以获得更大存储空间；外部磁道数据传输速度快于内部磁道，因为单位时间扫过的扇区数更多。<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="3-磁盘的两种寻址方式"><a href="#3-磁盘的两种寻址方式" class="headerlink" title="3. 磁盘的两种寻址方式"></a>3. 磁盘的两种寻址方式</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ada">CHS（Cylinder-Head-Sector，柱面-磁头-扇区）：<br>  - 又称<span class="hljs-number">3</span>D模式，通过柱面号、磁头号和扇区号唯一确定一个扇区的位置。<br>  - 特性：<br>      - 采用<span class="hljs-number">24</span>位寻址：前<span class="hljs-number">10</span>位表示cylinder，中间<span class="hljs-number">8</span>位表示head，后<span class="hljs-number">6</span>位表示sector；<br>      - 最大寻址空间约<span class="hljs-number">8</span>GB（计算公式：<span class="hljs-number">2</span>^<span class="hljs-number">24</span> * <span class="hljs-number">512</span> / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span> ≈ <span class="hljs-number">8</span>G）；<br>      - 是硬盘最早采用的寻址模式之一。<br><br>LBA（Logical Block Addressing，逻辑块寻址）：<br>  - 定义：使用连续、线性的逻辑块号来定位数据，每个逻辑块通常为<span class="hljs-number">512</span>字节（可因系统或文件系统不同而变化）。<br>  - 特性：<br>      - 直接指定逻辑块号进行数据定位，并可转换成CHS格式完成具体寻址；<br>      - ATA-<span class="hljs-number">1</span>规范定义了<span class="hljs-number">28</span>位寻址模式（上限约<span class="hljs-number">128</span> GiB）；ATA-<span class="hljs-number">6</span>采用<span class="hljs-number">48</span>位寻址模式（上限可达<span class="hljs-number">128</span> Petabytes）；<br>      - 现代硬盘中，LBA已成为主流寻址方式，不受传统CHS限制。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="4-磁盘相关命令"><a href="#4-磁盘相关命令" class="headerlink" title="4. 磁盘相关命令"></a>4. 磁盘相关命令</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs ada">【文件系统查看工具 - df】：<br>  命令格式：df [OPTION]... [FILE]...<br>  常用选项：<br>    - -l|<span class="hljs-comment">--local          # 只显示本机文件系统</span><br>    - -h|<span class="hljs-comment">--human-readable # 以方便阅读的格式显示</span><br>    - -T|<span class="hljs-comment">--print-type     # 显示文件系统类型</span><br><br>【目录信息统计工具 - du】：<br>  命令格式：du [OPTION]... [FILE]...<br>             du [OPTION]... <span class="hljs-comment">--files0-from=F</span><br>  常用选项：<br>    - -s|<span class="hljs-comment">--summarize      # 只显示外层目录</span><br>    - -h|<span class="hljs-comment">--human-readable # 以方便阅读的格式显示</span><br><br>【文件定制工具 - dd】：<br>  命令格式：dd [OPERAND]... 或 dd OPTION<br>  常用示例：<br>    dd <span class="hljs-keyword">if</span>=/PATH/FROM/SRC <span class="hljs-keyword">of</span>=/PATH/TO/DEST bs=N count=N<br>  读取文件示例：<br>    - 对于大于<span class="hljs-number">2</span>K的二进制文件fileA，从第<span class="hljs-number">64</span>字节开始读取<span class="hljs-number">128</span> Bytes；<br>    - 对于fileB，将读取到的<span class="hljs-number">128</span> Bytes写入从第<span class="hljs-number">32</span>字节开始的位置（替换<span class="hljs-number">128</span> Bytes）：<br>      dd <span class="hljs-keyword">if</span>=fileA <span class="hljs-keyword">of</span>=fileB bs=<span class="hljs-number">1</span> count=<span class="hljs-number">128</span> skip=<span class="hljs-number">63</span> seek=<span class="hljs-number">31</span> conv=notrunc<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. 存储管理"></a>5. 存储管理</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ada">当获取一块物理磁盘时，在服务器中使用磁盘空间的基本步骤：<br> <span class="hljs-number">1</span>. 设备分区<br> <span class="hljs-number">2</span>. 创建文件系统<br> <span class="hljs-number">3</span>. 挂载新的文件系统<br><br>常见分区类型：<br>  - 主分区（引导分区）：最大容量&lt;=<span class="hljs-number">4</span>T，最多创建<span class="hljs-number">4</span>个；<br>  - 扩展分区：用于创建多个逻辑分区（数量不受限制），通常用于非引导分区。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="6-分区实现的方法"><a href="#6-分区实现的方法" class="headerlink" title="6. 分区实现的方法"></a>6. 分区实现的方法</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs ada">MBR &amp; GPT：<br>  - MBR：<br>      - 最多支持<span class="hljs-number">4</span>个主分区，或<span class="hljs-number">3</span>个主分区加<span class="hljs-number">1</span>个扩展分区（扩展分区下可创建多个逻辑分区）。<br>      - 使用<span class="hljs-number">32</span>位LBA，最大可寻址空间约<span class="hljs-number">2</span>TB（<span class="hljs-number">2</span>^<span class="hljs-number">32</span>扇区，每扇区<span class="hljs-number">512</span>字节）。<br>      - 分区结构：<br>          - <span class="hljs-number">446</span> bytes: boot loader（启动代码）<br>          - <span class="hljs-number">64</span> bytes: 分区表（每<span class="hljs-number">16</span> bytes描述一个分区）<br>          - <span class="hljs-number">2</span> bytes: 标识位<span class="hljs-number">55</span>AA<br>      - 说明：MBR分区表大小固定，仅能描述最多<span class="hljs-number">4</span>个分区。<br>  <br>  - GPT：<br>      - 支持最多<span class="hljs-number">128</span>个分区（在Windows中）；<br>      - 使用<span class="hljs-number">64</span>位LBA，理论上最大容量可达<span class="hljs-number">9.4</span>ZB（<span class="hljs-number">1</span>ZB=<span class="hljs-number">1024</span>^<span class="hljs-number">7</span>字节），远超MBR限制。<br><br>其他信息：<br>  - 查看磁盘标志位命令：hexdump -n <span class="hljs-number">512</span> -Cv /dev/nvme0n1 | tail -<span class="hljs-number">5</span><br>  - BIOS（文字界面）与EFI（图形界面，功能多）的区别；<br>  - 常见组合：BIOS+MBR 与 UEFI+GPT。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="7-分区表破坏实验"><a href="#7-分区表破坏实验" class="headerlink" title="7. 分区表破坏实验"></a>7. 分区表破坏实验</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">1. 备份MBR分区表：<br>   - 创建目录：<span class="hljs-built_in">mkdir</span> /data<br>   - 命令：<span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/nvme0n1 of=/data/dpt.img bs=1 count=64 skip=446<br>   - 查看备份文件（应为64 bytes）：ll /data/dpt.img<br>   - 检查硬盘前512字节：hexdump -vC -n 512 /dev/sda | <span class="hljs-built_in">tail</span> -n6<br><br>2. 破坏MBR分区表：<br>   - 命令：<span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=/dev/zero of=/dev/sda bs=1 count=64 seek=446<br>   - 注意：前446字节为系统启动区域，清零后系统无法启动。<br>   - 再次检查前512字节确认（应显示MBR信息已清零）。<br><br>3. 重启主机，系统启动失败。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="8-Linux系统修复方式"><a href="#8-Linux系统修复方式" class="headerlink" title="8. Linux系统修复方式"></a>8. Linux系统修复方式</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-number">1</span>. 救援模式：<br>   - 光盘救援模式：<br>       (<span class="hljs-number">1</span>) 重启Rocky主机，进入救援模式：<br>            - 方法<span class="hljs-number">1</span>：启动后按Esc键，进入临时启动调整页面，选择CD-ROM后按Enter（临时性调整）。<br>            - 方法<span class="hljs-number">2</span>：通过安全固件永久调整启动顺序，但后续需恢复原设置。<br>       (<span class="hljs-number">2</span>) 将启动方式调整为光盘启动（Shift + 将CD-ROM调整到第一位，然后F10保存）。<br>       (<span class="hljs-number">3</span>) 启动后选择Troubleshooting选项。<br>       (<span class="hljs-number">4</span>) 选择 <span class="hljs-string">&quot;Rescue a Rocky Linux system&quot;</span>。<br>       (<span class="hljs-number">5</span>) 选择 <span class="hljs-string">&quot;Skip to shell&quot;</span>。<br>       (<span class="hljs-number">6</span>) 分区表修复：从远端主机使用scp获取备份分区表（例如：scp root@<span class="hljs-number">10.0</span>.<span class="hljs-number">0.157</span>:~/dpt.img ./）。<br>       (<span class="hljs-number">7</span>) 恢复MBR分区表：dd <span class="hljs-keyword">if</span>=dpt.img <span class="hljs-keyword">of</span>=/dev/nvme0n1 bs=<span class="hljs-number">1</span> count=<span class="hljs-number">64</span> seek=<span class="hljs-number">446</span><br>       (<span class="hljs-number">8</span>) 关机；<br>       (<span class="hljs-number">9</span>) 恢复原BIOS启动顺序。<br><br><span class="hljs-number">2</span>. 根据平台环境进行其他修复操作。<br><span class="hljs-number">3</span>. 修复后重启系统。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="9-fdisk和lsblk"><a href="#9-fdisk和lsblk" class="headerlink" title="9. fdisk和lsblk"></a>9. fdisk和lsblk</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs bash">【fdisk】：<br>  - 用途：操作和管理分区（默认采用MBR分区方式）。<br>  - 命令格式：fdisk [options] &lt;disk&gt;<br>    常用选项：<br>      - -l 或 --list：显示分区列表<br>  - 示例：fdisk /dev/sda<br>      - p：输出分区列表<br>      - n：创建新分区<br>      - d：删除分区<br>      - w：保存并退出<br>      - q：不保存退出<br>  - 非交互式操作示例：<br>      <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&#x27;n\np\n\n\n+10G\nw&#x27;</span> | fdisk /dev/sda<br>      <span class="hljs-built_in">echo</span> -e <span class="hljs-string">&#x27;d\n\nd\n\nd\n\nw&#x27;</span> | fdisk /dev/sda<br><br>【gdisk】：<br>  - 用途：GPT分区管理工具（建议在未用fdisk操作过的盘上使用）。<br>  - 安装：yum install gdisk<br>  - 常用命令：<br>      - n：新建分区<br>      - c：修改分区名<br>      - o：创建新的分区表<br>      - w：保存退出<br>      - d：删除分区<br>      - q：退出<br><br>【lsblk】：<br>  - 用途：查看设备信息。<br>  - 命令格式：lsblk [options] [&lt;device&gt; ...]<br>    常用选项：<br>      - -f 或 --fs：显示文件系统信息<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="10-文件系统管理"><a href="#10-文件系统管理" class="headerlink" title="10. 文件系统管理"></a>10. 文件系统管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash">【mkfs】：<br>  - 格式化文件系统。<br>  - 命令格式：mkfs [options] [-t &lt;<span class="hljs-built_in">type</span>&gt;] [fs-options] &lt;device&gt; [&lt;size&gt;]<br>  - 示例：<br>      mkfs -t ext4  (等价于 mkfs.ext4)<br>      mkfs -t xfs   (等价于 mkfs.xfs)<br><br>【mke2fs】：<br>  - 专用于ext系列文件系统的管理工具。<br>  - 命令格式：mke2fs [OPTION]... DEVICE<br>    - 使用 -t 指定文件系统类型（ext2、ext3、ext4）。<br><br>【blkid】：<br>  - 查看块设备属性信息。<br>  - 命令格式：blkid [OPTION]... [DEVICE]<br>      - -U UUID：根据UUID查找设备<br>      - -L LABEL：根据LABEL查找设备<br><br>【磁盘标签管理】：<br>  - 添加标签：e2label /dev/sdb1 rock1-host1-ssd1<br>  - 删除标签：e2label /dev/sdb1 <span class="hljs-string">&quot;&quot;</span><br><br>【查找文件系统】：<br>  - findfs：适用于ext系列，例如：findfs UUID=<span class="hljs-string">&quot; &quot;</span><br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="11-挂载基础"><a href="#11-挂载基础" class="headerlink" title="11. 挂载基础"></a>11. 挂载基础</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">【挂载文件系统】：<br>  - 命令格式：mount 源文件系统（设备） 目标挂载点（必须是预先存在的空目录）<br><br>【卸载文件系统】：<br>  - 命令格式：umount [-f] [-l] [-n] 挂载点或设备<br><br>【挂载规则】：<br>  - 同一挂载点同时只能挂载一个设备。<br>  - 若同一挂载点挂载多个设备，只显示最后一个设备的数据，其它被隐藏。<br>  - 同一设备可同时挂载到多个挂载点，但只有最后一个生效。<br><br>【获取挂载信息】：<br>  - 查看文件系统信息：lsblk -f &lt;设备名&gt;<br>  - 查看所有挂载文件系统：<span class="hljs-built_in">df</span> 或 <span class="hljs-built_in">df</span> -Th<br>  - 查看详细挂载情况：mount | grep ...<br><br>【特殊场景】：<br>  - 查看正在访问文件系统的进程：lsof 挂载点 或 fuser -v 挂载点<br>  - 强制终止访问进程：fuser -km 挂载点<br><br>【持久挂载】：<br>  1. 编辑 /etc/fstab 文件，添加挂载信息，格式：<br>         &lt;设备&gt; &lt;挂载点&gt; &lt;文件系统类型&gt; &lt;挂载选项&gt; &lt;dump&gt; &lt;fsck&gt;<br>     - 设备可用UUID或设备名指定，挂载点必须存在。<br>  2. 保存后验证配置：mount -a 或 mount -o remount<br>  3. 重启系统后配置生效。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="12-交换分区"><a href="#12-交换分区" class="headerlink" title="12. 交换分区"></a>12. 交换分区</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">【场景与基础知识】：<br>  - 交换分区（Swap Partition）：用于虚拟内存管理，当物理内存不足时，<br>    操作系统将暂不使用的数据从RAM移动到交换分区以释放内存。<br>  - 应用场景：主要用于内存较低（2-16GB）的系统，但现代系统对swap使用已逐渐减少。<br><br>【创建Swap】：<br>  1. 创建一个swap文件（使用 mkswap 命令，并在挂载时指定为swap）；<br>  2. 或使用 fdisk 创建标识为 swap 的分区。<br><br>【管理Swap】：<br>  - 开启swap：swapon -a<br>  - 关闭swap：swapoff -a<br>      - 删除 /etc/fstab 中的 swap 行（例如使用 sed 命令）或注释掉。<br><br>【交换分区策略】：<br>  - 参数 /proc/sys/vm/swappiness 决定内核对swap的使用倾向：<br>      - 值越高，内核越倾向于使用swap；值越低，则更保留物理内存。<br>      - 当内存使用率达到 100 - swappiness 时，系统开始考虑使用swap。<br>      - 可设为0以最大限度减少swap使用，但不完全禁止。<br>  - 查看策略：<span class="hljs-built_in">cat</span> /proc/sys/vm/swappiness<br>  - 禁用示例：编辑 /etc/sysctl.conf（设置 vm.swappiness = 0）后执行 sysctl -p<br><br>【查看Swap空间】：<br>  - 使用 free -m 查看内存和swap的使用情况<br><br>【Buffer与Cache】：<br>  - Buffer：写缓存<br>  - Cache：读缓存<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="13-RAID（磁盘整列）"><a href="#13-RAID（磁盘整列）" class="headerlink" title="13. RAID（磁盘整列）"></a>13. RAID（磁盘整列）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">【RAID卡】：<br>  - RAID Controller（磁盘阵列控制器），也称为RAID卡，是专为存储阵列设计的硬件接口卡。<br>  - 作用：通过物理层或逻辑层实现数据冗余，提高数据的可靠性和性能。<br>  - 应用场景：适用于数据库服务器、在线交易处理系统、备份与恢复等高可靠性、高性能环境。<br><br>【RAID基础】：<br>  - 工作原理：在多个磁盘上分布数据，实现数据冗余和并行读写，从而提升传输速度和存储性能。<br>  - 简单来说，RAID将多个硬盘组合为一个逻辑硬盘，实现容错与加速。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="14-RAID类型与LVM"><a href="#14-RAID类型与LVM" class="headerlink" title="14. RAID类型与LVM"></a>14. RAID类型与LVM</h2><h3 id="14-1-LVM（Logical-Volume-Manager）"><a href="#14-1-LVM（Logical-Volume-Manager）" class="headerlink" title="14.1 LVM（Logical Volume Manager）"></a>14.1 LVM（Logical Volume Manager）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">- 定义：LVM是Linux系统下用于管理磁盘分区的一种机制，在硬盘分区和文件系统之间增加逻辑层，<br>  为文件系统屏蔽物理分区布局，提供一个抽象的卷组。<br>- 应用：Rocky Linux和Ubuntu等系统默认采用LVM管理，逻辑卷通常以 /dev/dm-# 形式显示。<br><br>【注意】：<br>  - dm（device mapper）将一个或多个块设备组织为逻辑设备，<br>    逻辑卷以软链接形式展示，如 /dev/mapper/VG_NAME-LV_NAME 或 /dev/VG_NAME/LV_NAME。<br><br>【使用流程】：<br>  <span class="hljs-number">1.</span> 准备磁盘<br>  <span class="hljs-number">2.</span> 创建物理卷（pvcreate）<br>  <span class="hljs-number">3.</span> 创建卷组（vgcreate）<br>  <span class="hljs-number">4.</span> 创建逻辑卷（lvcreate）<br>  <span class="hljs-number">5.</span> 格式化并挂载<br><br>【扩缩容】：<br>  - 增加物理磁盘后，可创建新PV加入VG并扩展LV；<br>  - 缩减LV操作风险较高，建议备份数据后进行。<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="14-2-命令操作"><a href="#14-2-命令操作" class="headerlink" title="14.2 命令操作"></a>14.2 命令操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">【物理卷操作】：<br>  - 查看：pvs（简要）、pvdisplay（详细）<br>  - 创建：pvcreate /dev/DEVICE<br>  - 删除：pvremove<br><br>【卷组操作】：<br>  - 查看：vgs（简要）、vgdisplay（详细）<br>  - 创建：vgcreate [-s Size] vgname pv1 [pv2...]<br>  - 删除：vgremove<br><br>【逻辑卷操作】：<br>  - 查看：lvs（简要）、lvdisplay（详细）、lvscan<br>  - 创建：lvcreate &#123;-L N[mMgGtT] | -l N&#125; -n NAME VolumeGroup<br>  - 删除：lvremove<br><br>【硬件RAID vs 软件LVM】：<br>  - RAID：从物理磁盘角度实现冗余；<br>  - LVM：从应用角度实现灵活存储管理。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="15-物理存储介质解读"><a href="#15-物理存储介质解读" class="headerlink" title="15. 物理存储介质解读"></a>15. 物理存储介质解读</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 定义：存储设备（如硬盘）构成存储系统的最低层单元。<br><br>【术语解析】：<br><span class="hljs-bullet">  -</span> PV（Physical Volume）：LVM管理的最底层，可为整块硬盘或硬盘分区，加入LVM前需进行特殊处理。<br><span class="hljs-bullet">  -</span> VG（Volume Group）：建立在一个或多个PV之上，形成一个管理单元，类似传统物理硬盘。<br><span class="hljs-bullet">  -</span> LV（Logical Volume）：建立在VG之上，类似传统分区，可在其上建立文件系统并挂载使用。<br><br>【细节说明】：<br><span class="hljs-bullet">  -</span> PE（Physical Extent）：PV中可分配的最小存储单元，默认为4MB，建立卷组时确定且不可更改，所有PV的PE大小必须一致。<br><span class="hljs-bullet">  -</span> LE（Logical Extent）：LV中最小分配单元，与卷组中的PE一一对应。<br><br>【关联关系】：<br><span class="hljs-bullet">  -</span> 每个PV被划分为多个PE，供LVM分配使用；<br><span class="hljs-bullet">  -</span> 每个LV被划分为多个LE，与VG中PE对应；<br><span class="hljs-bullet">  -</span> VG由多个PV构成，LV建立在VG上，未分配空间可用于扩展LV。<br><br>整体来看，PE、LE、PV、VG与LV构成了LVM的分层管理架构，实现了存储资源的灵活高效管理。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="16-LV-扩缩容"><a href="#16-LV-扩缩容" class="headerlink" title="16. LV 扩缩容"></a>16. LV 扩缩容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">【扩展逻辑卷】：<br>  - 前提：确保卷组中有足够未分配空间。<br>  - 扩展方式1：<br>      1. 扩展LV：lvextend -L [+]N[mMgGtT] /dev/VG_NAME/LV_NAME<br>      2. 扩展文件系统：<br>            - ext系列：resize2fs /dev/VG_NAME/LV_NAME<br>            - xfs：xfs_growfs MOUNTPOINT<br>  - 扩展方式2（一键扩展）：<br>      lvresize -r -l +100%FREE /dev/VG_NAME/LV_NAME<br><br>【缩减逻辑卷】（风险较高，建议备份后操作）：<br>  1. 取消挂载：umount /dev/VG_NAME/LV_NAME<br>  2. 文件系统检查：e2fsck -f /dev/VG_NAME/LV_NAME<br>  3. 缩减文件系统：resize2fs /dev/VG_NAME/LV_NAME N[mMgGtT]<br>  4. 缩减LV：lvreduce -L [-]N[mMgGtT] /dev/VG_NAME/LV_NAME<br>  5. 重新挂载：mount /dev/VG_NAME/LV_NAME mountpoint<br>  - 注：步骤3+4可合并为 lvreduce -L N[mMgGtT] -r /dev/VG_NAME/LV_NAME<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="17-如何转移或移除物理磁盘"><a href="#17-如何转移或移除物理磁盘" class="headerlink" title="17. 如何转移或移除物理磁盘"></a>17. 如何转移或移除物理磁盘</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">步骤：<br><span class="hljs-bullet"> 1.</span> 检查目标磁盘状态，确认是否有数据需要转移。<br><span class="hljs-bullet"> 2.</span> 将目标磁盘从卷组（VG）中移除（使用 vgreduce 命令）。<br><span class="hljs-bullet"> 3.</span> 迁移数据：例如使用 pvmove /dev/sdb1 将数据迁移到其他物理卷。<br><span class="hljs-bullet"> 4.</span> 根据需要，移除或重新配置目标磁盘。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="18-LVM快照"><a href="#18-LVM快照" class="headerlink" title="18. LVM快照"></a>18. LVM快照</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">逻辑卷快照：<br>  - 是LVM中的一项功能，允许用户对逻辑卷进行备份或创建特定时间点的副本。<br>  - 工作机制：基于写时复制（Copy-On-Write, COW），在创建时对原逻辑卷数据进行精确拷贝，但不实时复制所有数据。<br></code></pre></td></tr></table></figure>
+
+
+<hr>
+<h1 id="总结与注意事项"><a href="#总结与注意事项" class="headerlink" title="总结与注意事项"></a>总结与注意事项</h1><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 磁盘存储与分区管理：<br>  - 了解不同存储类型及寻址方式（CHS与LBA）对系统配置和性能优化至关重要。<br>  - 选择MBR或GPT应基于磁盘容量和系统支持情况。<br><br>- 分区操作与修复：<br>  - 定期备份分区表，避免因操作失误导致数据丢失。<br>  - 使用救援模式及工具（fdisk、gdisk、lsblk）在系统故障时进行快速修复。<br><br>- 文件系统与挂载：<br>  - 格式化、标签管理和挂载选项直接影响数据访问效率与系统性能。<br>  - 持久挂载配置应正确设置 /etc/fstab，确保系统重启后自动挂载。<br><br>- 交换分区、RAID与LVM：<br>  - 虽然现代系统对swap的依赖减少，但其配置（如swappiness）仍需关注。<br>  - RAID提供数据冗余与性能加速，LVM实现灵活存储管理，两者合理配置可大幅提升系统可靠性与效率。<br><br>- 操作风险提示：<br>  - 在进行分区、格式化、LV扩缩容等操作前，务必做好完整数据备份。<br></code></pre></td></tr></table></figure>
+
+
+<p>RAID（磁盘整列）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java">RAID卡:[程序]<br>    RAID Controller（磁盘阵列控制器），通常被称为磁盘阵列卡或RAID卡。RAID卡是一种专为存储阵<br>        列而设计的硬件接口卡，它通过物理层或逻辑层实现数据冗余，提高了数据的可靠性和性能。<br>    适用于需要高可靠性和高性能的存储环境，如数据库服务器、在线交易处理系统、备份和恢复等场景。特<br>         别适合需要高可用性和数据保护的环境，如关键任务系统。<br> RAID基础：<br>     RAID的工作原理是在多个磁盘上分配数据，并以标准化方式促进输入/输出操作的重叠。通过将数据分布<br>     在多个磁盘上，RAID技术可以实现数据冗余，提高容错能力，并在多个磁盘上并行读写数据，从而提升数据传<br>     输速度和存储性能。简单来说，RAID把多个硬盘组合成为一个逻辑硬盘。<br> <br>   <br>   <br><br><br></code></pre></td></tr></table></figure>
+
+
+<p><img src="/image/image_-3PZ7YOTVD.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/image/image_l8vyMLtCAP.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/image/image_NtaHy_Y62a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/image/image_D7lAmYgQMQ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/image/image_Nx4U0U1Ths.png" srcset="/img/loading.gif" lazyload></p>
+
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
