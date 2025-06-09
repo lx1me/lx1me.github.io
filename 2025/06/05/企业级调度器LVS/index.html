@@ -1,31 +1,18 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html>
 <head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <meta charset="utf-8">
   
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="企业级调度器LVS集群解决方案12345678910三轴扩展x轴扩展:也称水平扩展(Scale Out),通过复制或者克隆的方式，实现基于当前环境加倍的效果，能够把几乎任何系统或者业务环境扩展大无限的水平，是企业发展过程中通用的一种策略，尤其是项目后期。简单来说就是，一个不够多个来凑 或者 &quot;增加机器&quot;。y轴扩展：也称垂直扩展(Scale Up),通过配置升级或者资源增强的方式">
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="企业级调度器LVS集群解决方案12345678910三轴扩展x轴扩展:也称水平扩展(Scale Out),通过复制或者克隆的方式，实现基于当前环境加倍的效果，能够把几乎任何系统或者业务环境扩展大无限的水平，是企业发展过程中通用的一种策略，尤其是项目后期。简单来说就是，一个不够多个来凑 或者 &quot;增加机器&quot;。y轴扩展：也称垂直扩展(Scale Up),通过配置升级或者资源增强的方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://lx1me.github.io/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="企业级调度器LVS集群解决方案12345678910三轴扩展x轴扩展:也称水平扩展(Scale Out),通过复制或者克隆的方式，实现基于当前环境加倍的效果，能够把几乎任何系统或者业务环境扩展大无限的水平，是企业发展过程中通用的一种策略，尤其是项目后期。简单来说就是，一个不够多个来凑 或者 &quot;增加机器&quot;。y轴扩展：也称垂直扩展(Scale Up),通过配置升级或者资源增强的方式">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lx1me.github.io/.io//Users/30788/AppData/Roaming/Typora/typora-user-images/image-20250319095854790.png">
 <meta property="og:image" content="https://lx1me.github.io/.io//Users/30788/AppData/Roaming/Typora/typora-user-images/image-20250319101114064.png">
 <meta property="og:image" content="https://lx1me.github.io/.io//Users/30788/AppData/Roaming/Typora/typora-user-images/image-20250319105248228.png">
@@ -43,259 +30,77 @@
 <meta property="article:published_time" content="2025-06-05T01:52:55.108Z">
 <meta property="article:modified_time" content="2025-03-20T12:30:08.373Z">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lx1me.github.io/.io//Users/30788/AppData/Roaming/Typora/typora-user-images/image-20250319095854790.png">
   
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-  <title>Hexo</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+    <link rel="shortcut icon" href="/favicon.png">
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-
-
+  
+<link rel="stylesheet" href="/css/style.css">
 
   
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
     </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text=""></span>
-          
-        </div>
-
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
         
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-05 09:52" pubdate>
-          2025年6月5日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
+          <a class="main-nav-link" href="/">Home</a>
         
-          11k 字
+          <a class="main-nav-link" href="/archives">Archives</a>
         
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
+      </nav>
+      <nav id="sub-nav">
         
         
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-          89 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lx1me.github.io"></form>
       </div>
-
-      
     </div>
   </div>
-</div>
+</header>
 
-</div>
-
-  </header>
-
-  <main>
+      <div class="outer">
+        <section id="main"><article id="post-企业级调度器LVS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/" class="article-date">
+  <time class="dt-published" datetime="2025-06-05T01:52:55.108Z" itemprop="datePublished">2025-06-05</time>
+</a>
     
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="企业级调度器LVS"><a href="#企业级调度器LVS" class="headerlink" title="企业级调度器LVS"></a>企业级调度器LVS</h1><h2 id="集群解决方案"><a href="#集群解决方案" class="headerlink" title="集群解决方案"></a>集群解决方案</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">三轴扩展<br>x轴扩展:<br>也称水平扩展(Scale Out),通过复制或者克隆的方式，实现基于当前环境加倍的效果，能够把几乎任何系统或者业务环境扩展大无限的水平，是企业发展过程中通用的一种策略，尤其是项目后期。<br>简单来说就是，一个不够多个来凑 或者 <span class="hljs-string">&quot;增加机器&quot;</span>。<br>y轴扩展：<br>也称垂直扩展(Scale Up),通过配置升级或者资源增强的方式，实现基于当前环境加倍的效果，这种方式的扩展受资金承受能力和技术发展程度的限制，企业发展前期常见的方法，中后期限制较多。<br>简单来说就是，小个打不过换个高的来 或者 <span class="hljs-string">&quot;升级机器&quot;</span>。<br>z轴扩展:<br>也称拆分扩展，通过业务梳理和资源整合的方式，将业务环境中类似的或者共用的功能拆分并整合在一起，形成特有的业务属性，然后基于业务属性的情况，结合X轴和Y轴的方法满足业务需求，而且实现资源高效利用。<br>简单来说就是，化整为零各个击破 或者 <span class="hljs-string">&quot;独立部署&quot;</span>。<br></code></pre></td></tr></table></figure>
+        <h1 id="企业级调度器LVS"><a href="#企业级调度器LVS" class="headerlink" title="企业级调度器LVS"></a>企业级调度器LVS</h1><h2 id="集群解决方案"><a href="#集群解决方案" class="headerlink" title="集群解决方案"></a>集群解决方案</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">三轴扩展<br>x轴扩展:<br>也称水平扩展(Scale Out),通过复制或者克隆的方式，实现基于当前环境加倍的效果，能够把几乎任何系统或者业务环境扩展大无限的水平，是企业发展过程中通用的一种策略，尤其是项目后期。<br>简单来说就是，一个不够多个来凑 或者 <span class="hljs-string">&quot;增加机器&quot;</span>。<br>y轴扩展：<br>也称垂直扩展(Scale Up),通过配置升级或者资源增强的方式，实现基于当前环境加倍的效果，这种方式的扩展受资金承受能力和技术发展程度的限制，企业发展前期常见的方法，中后期限制较多。<br>简单来说就是，小个打不过换个高的来 或者 <span class="hljs-string">&quot;升级机器&quot;</span>。<br>z轴扩展:<br>也称拆分扩展，通过业务梳理和资源整合的方式，将业务环境中类似的或者共用的功能拆分并整合在一起，形成特有的业务属性，然后基于业务属性的情况，结合X轴和Y轴的方法满足业务需求，而且实现资源高效利用。<br>简单来说就是，化整为零各个击破 或者 <span class="hljs-string">&quot;独立部署&quot;</span>。<br></code></pre></td></tr></table></figure>
 
 <h4 id="集群类型"><a href="#集群类型" class="headerlink" title="集群类型"></a>集群类型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">三种分类：<br>高扩展(LB)：单个主机负载不足的时候，采取增加主机的方式来满足负载需求的解决方案。<br>高可用(HA)：集群中的某主机失效时候，避免业务中断，我们将其任务转交给其他主机的解决方案。<br>高性能(HPA)：通过某些技术，实现同样资源来承受更多用户请求负载的解决方案。<br><br></code></pre></td></tr></table></figure>
 
@@ -351,10 +156,10 @@
 
 <h2 id><a href="#" class="headerlink" title></a></h2><h4 id="五表五链"><a href="#五表五链" class="headerlink" title="五表五链"></a>五表五链</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs powershell">iptables防火墙规则很多，不好管理，它用五个表来划分管理范围，以便对数据包进行分组管理，具体如下：<br><br>security: 对数据包的mac信息进行过滤<br><span class="hljs-keyword">filter</span>：对主机接收的数据包实现过滤功能，它是iptables的默认规则。<br>nat: 对主机接收的数据包实现转换功能，端口映射，地址映射等,使用场景比较多表。<br>mangle: 用于对特定数据包的修改，报文拆开，修改，封装表<br>raw: 特殊场景下实现的自定义规则<br><br>  security表的主要作用是依据 SELinux（Security<span class="hljs-literal">-Enhanced</span> Linux）或其他基于 Linux 内核的强制访问控制（MAC）机制，对数据包进行过滤和标记。它可以根据安全上下文来决定是否允许数据包通过，从而提供比传统自主访问控制（DAC）更细粒度、更严格的访问控制，常用于增强系统安全性，防止恶意软件或非法用户对系统资源的非法访问。<br> 注意：此处的MAC和网卡的 MAC 地址是两个完全不同的概念，千万不要混淆。<br> <br>对于iptabls来说，<span class="hljs-number">5</span>个链：PREROUTING,INPUT,FORWARD,OUTPUT,POSTROUTING。<br>PREROUTING:数据包进入路由表之前 INPUT:通过路由表后目的地为本机<br>FORWARD:通过路由表后，目的地不为本机 OUTPUT:由本机产生，向外转发<br>POSTROUTIONG:发送到网卡接口之前<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319095854790.png" srcset="/img/loading.gif" lazyload alt="image-20250319095854790"></p>
+<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319095854790.png" alt="image-20250319095854790"></p>
 <h4 id="SNAT-和-DNAT"><a href="#SNAT-和-DNAT" class="headerlink" title="SNAT 和 DNAT"></a><strong>SNAT</strong> <strong>和</strong> <strong>DNAT</strong></h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">```<br><br>网络数据包，我们主要是根据**请求报文**中的数据地址转换划分为 SNAT 和 DNAT，而不是响应数据包。<br><br>![<span class="hljs-type">image</span>-<span class="hljs-number">20250319100630846</span>](C:\Users\<span class="hljs-number">30788</span>\AppData\Roaming\Typora\typora<span class="hljs-literal">-user-images</span>\image<span class="hljs-literal">-20250319100630846</span>.png)<br><br>```powershell<br>数据包在网络上上主机间传输的时候，它是这样子的结构形式来传输的。我们这里暂时只关心IP头部，对于一个互联网上的数据包来说，他的ip头部里面包含了，数据包的来源地址以及数据包的目标地址。<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319101114064.png" srcset="/img/loading.gif" lazyload alt="image-20250319101114064"></p>
+<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319101114064.png" alt="image-20250319101114064"></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">SNAT:源地址转换，应用场景：内网访问外网<br>源                  目标<br>SRC_IP:SRC_PORT <span class="hljs-literal">--</span>&gt; DEST_IP:DEST:PORT<br>外部公网IP：Port <span class="hljs-literal">--</span>&gt; DEST_IP:DEST:PORT <br><span class="hljs-comment"># 出去的数据包：经过NAT设备时候，原地址转换成公网IP地址，外部公网IP地址之间是存在路由的，可以自</span><br>动检索到。<br>源                    目标<br>DEST_IP:DEST:PORT <span class="hljs-literal">--</span>&gt; 外部公网IP：Port<br>DEST_IP:DEST:PORT <span class="hljs-literal">--</span>&gt; SRC_IP:SRC_PORT<br><br>DNAT:目标地址转换，应用场景：外网访问内网<br>源                  目标<br>SRC_IP:SRC_PORT <span class="hljs-literal">--</span>&gt; DEST_IP:DEST:PORT（公有地址）<br>SRC_IP:SRC_PORT <span class="hljs-literal">--</span>&gt; 私有DEST_IP:DEST:PORT（私有地址）<br><span class="hljs-comment"># 进来的数据包：经过NAT设备的时候，公网IP地址转换成私网IP地址，私网地址在同一个网段，线路可达。</span><br>私有DEST_IP:DEST:PORT（私有地址） <span class="hljs-literal">--</span>&gt; SRC_IP:SRC_PORT<br>DEST_IP:DEST:PORT（公有地址） <span class="hljs-literal">--</span>&gt; SRC_IP:SRC_PORT<br></code></pre></td></tr></table></figure>
 
 <h2 id="LVS基础"><a href="#LVS基础" class="headerlink" title="LVS基础"></a>LVS基础</h2><h4 id="LVS-Linux-Virtual-Server"><a href="#LVS-Linux-Virtual-Server" class="headerlink" title="LVS(Linux Virtual Server)"></a>LVS(Linux Virtual Server)</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">  LVS 基于IP负载均衡|内容请求分发等技术，整合了一些特有的理念和思想后的一套解决方案。普通的linux主机可以基于lvs提供的负载均衡技术，实现一个高扩展的linux的服务器集群。<br></code></pre></td></tr></table></figure>
@@ -365,15 +170,15 @@
 
 <h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">LVS 是根据监听到的前端请求报文中的目标 IP 和目标协议及端口号，将该请求转发到后台某台 RS 服务器上，由 RS 服务器完成对前端请求的响应，具体的监听规则及调度策略由使用者自行配置。<br>    LVS 是内核中的功能，工作在 PRE_ROUTING链 和 INPUT链 中间的位置上，截取发往 INPUT 链的请求与配置好的 LVS 监听及调度规则进行对比，如果命中，则会触发 LVS 调度，从而转发该请求<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319105248228.png" srcset="/img/loading.gif" lazyload alt="image-20250319105248228"></p>
+<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319105248228.png" alt="image-20250319105248228"></p>
 <h4 id="常见术语"><a href="#常见术语" class="headerlink" title="常见术语"></a><strong>常见术语</strong></h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs powershell">物理术语 - 用于描述主机的常见术语<br>DS：Director Server。<br>    指的是LVS集群中的负责调度(Dispatcher)或者负载均衡(Load Balancer)的主机，即部署LVS的主机。<br>    也称VS(Virtual Server)。<br>RS：Real Server。<br>    指的是这正相应用户主机的后端服务器主机。<br>    也称BS(Backend Server)。<br><br>逻辑术语 - 用户描述逻辑关系的常见术语<br>VIP：Virtual Server IP<br>    LVS主机上用于向外部用户提供服务的ip地址，作为用户请求的目标的IP地址。<br>    它是一个在物理主机上没有物理网卡的ip地址，一般用于LVS主机的外网ip。<br>DIP：Director Server IP<br>    LVS主机上和后端提供真正服务的主机通信的IP地址。<br>    它是一个独立的物理网卡上的地址，一般用于LVS主机的内网ip。<br>RIP：Real Server IP<br> 在LVS调度主机后端，真正响应用户请求的主机IP地址。<br> <br>CIP：Client IP<br>    发起请求的用户客户端IP地址。<br>    一般都是外网ip地址。<br></code></pre></td></tr></table></figure>
 
-<h5 id="这四者之间的访问关系如下：CIP-VIP-DIP-RIP"><a href="#这四者之间的访问关系如下：CIP-VIP-DIP-RIP" class="headerlink" title="这四者之间的访问关系如下：CIP &lt;–&gt; VIP &#x3D;&#x3D; DIP &lt;–&gt; RIP"></a>这四者之间的访问关系如下：CIP &lt;–&gt; VIP &#x3D;&#x3D; DIP &lt;–&gt; RIP</h5><p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319105609725.png" srcset="/img/loading.gif" lazyload alt="image-20250319105609725"></p>
+<h5 id="这四者之间的访问关系如下：CIP-VIP-DIP-RIP"><a href="#这四者之间的访问关系如下：CIP-VIP-DIP-RIP" class="headerlink" title="这四者之间的访问关系如下：CIP &lt;–&gt; VIP &#x3D;&#x3D; DIP &lt;–&gt; RIP"></a>这四者之间的访问关系如下：CIP &lt;–&gt; VIP &#x3D;&#x3D; DIP &lt;–&gt; RIP</h5><p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319105609725.png" alt="image-20250319105609725"></p>
 <h5 id="我们在课程中实践的时候，往往在LVS上配置两个网卡，一个对外，一个对内"><a href="#我们在课程中实践的时候，往往在LVS上配置两个网卡，一个对外，一个对内" class="headerlink" title="我们在课程中实践的时候，往往在LVS上配置两个网卡，一个对外，一个对内"></a>我们在课程中实践的时候，往往在LVS上配置两个网卡，一个对外，一个对内</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">为了达到不同网段的ip地址能够达到正常的通信，我们需要开启linux服务的ip转发功能<br>    方法一：在 /etc/sysctl.conf中开启功能<br>    net.ipv4.ip_forward = <span class="hljs-number">1</span><br>    方法二：直接修改ip_forward文件<br>    <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> &gt; /proc/sys/net/ipv4/ip_forward<br>注意：<br>    <span class="hljs-number">0</span> 代表禁用，<span class="hljs-number">1</span>代表开启。<br></code></pre></td></tr></table></figure>
 
 <h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><h5 id="用户访问流程"><a href="#用户访问流程" class="headerlink" title="用户访问流程"></a>用户访问流程</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">结合我们对LVS的集群结构与常见术语，我们可以简单的梳理一下，在LVS集群环境中，用户请求的处理流程。<br><span class="hljs-number">1</span> 用户在客户端发起访问服务的请求<br><span class="hljs-number">2</span> 经过层层的dns解析原理，获取服务的提供ip地址<span class="hljs-literal">--VIP</span><br><span class="hljs-number">3</span> 客户端向VIP所在的LVS主机(VS)发起服务请求<br><span class="hljs-number">4</span> LVS主机(VS)接收到用户请求，根据自身的配置，将用户请求转交到后端的某主机(RS)<br><span class="hljs-number">5</span> 用户请求经LVS的DIP网卡，进入到公司内网环境<br><span class="hljs-number">6</span> 根据数据包的结构，找到真正提供服务的后端主机(RS)<br><span class="hljs-number">7</span> 公司内部的后端主机，处理用户请求后，采用某种方式返回给客户端<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319110814720.png" srcset="/img/loading.gif" lazyload alt="image-20250319110814720"></p>
+<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319110814720.png" alt="image-20250319110814720"></p>
 <h4 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a><strong>软件环境</strong></h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">LVS软件 由<span class="hljs-number">2</span>部分程序组成：ipvs 和 ipvsadm。<br>ipvs(ip virtual server)<br>  LVS提供了一个支持多种IP负载均衡技术的IP虚拟服务器软件IPVS，这段代码工作在lvs主机的内核空间(netfilter的INPUT),它用于截获用户请求数据包，根据内部的调度策略实现数据包转交的功能。<br>    我们只需要在内核中开启此模块的应用即可<br><br>ipvsadm<br>ipvsadm是工作在用户空间的命令行工具，负责为ipvs的资源调度编写转交规则：<br>    <span class="hljs-number">1</span> 定义lvs集群的名称<br>    <span class="hljs-number">2</span> 定义该集群中处于后端提供真实服务的主机列表(Real Server)<br><br></code></pre></td></tr></table></figure>
 
 <h4 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ubuntu环境检测内核模块<br>查看内核模块关于ipvs的信息<br>[<span class="hljs-type">root</span>@<span class="hljs-type">bogon</span> <span class="hljs-type">boot</span>]<span class="hljs-variable">$</span> grep <span class="hljs-literal">-i</span> <span class="hljs-literal">-C</span> <span class="hljs-number">2</span> ipvs /boot/config<span class="hljs-literal">-5</span>.<span class="hljs-number">15.0</span><span class="hljs-literal">-133-generic</span><br>查看模块信息<br>[<span class="hljs-type">root</span>@<span class="hljs-type">bogon</span> <span class="hljs-type">boot</span>]<span class="hljs-variable">$</span> modinfo ip_vs<br><br>Rocky环境检测内核模块<br>查看内核模块关于ipvs的信息<br>[<span class="hljs-type">root</span>@<span class="hljs-type">bogon</span> <span class="hljs-type">boot</span>]<span class="hljs-variable">$</span> grep <span class="hljs-literal">-i</span> <span class="hljs-literal">-C</span> <span class="hljs-number">2</span> ipvs /boot/config<span class="hljs-literal">-5</span>.<span class="hljs-number">14.0</span><span class="hljs-literal">-427</span>.<span class="hljs-number">13.1</span>.el9_4.x86_64<br>查看模块信息<br>[<span class="hljs-type">root</span>@<span class="hljs-type">bogon</span> <span class="hljs-type">boot</span>]<span class="hljs-variable">$</span> modinfo ip_vs<br><br></code></pre></td></tr></table></figure>
@@ -386,7 +191,7 @@
 
 <h4 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a><strong>NAT</strong>模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">NAT：Network address translation （网络地址转换）<br>  当私网主机和公网主机通信的时候，数据包经过NAT网关时，他会将数据包IP报文首部的中的源IP或目的IP进行转换。<br>  NAT 模式本质上就是多目标的DNAT（如果记不起来，请自行参考 iptables 课程中的 NAT 网络部份），LVS 将请求报文中的目标地址和目标端口修改为后端的 RS 服务器的 RIP 和 PORT 进行转发<br> <br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319143523369.png" srcset="/img/loading.gif" lazyload alt="image-20250319143523369"></p>
+<p><img src="/.io//Users\30788\AppData\Roaming\Typora\typora-user-images\image-20250319143523369.png" alt="image-20250319143523369"></p>
 <h6 id="我们在实践的时候，往往需要再-LVS主机上，定制两个网卡，一个对外，一个对内。"><a href="#我们在实践的时候，往往需要再-LVS主机上，定制两个网卡，一个对外，一个对内。" class="headerlink" title="我们在实践的时候，往往需要再 LVS主机上，定制两个网卡，一个对外，一个对内。"></a>我们在实践的时候，往往需要再 LVS主机上，定制两个网卡，一个对外，一个对内。</h6><h6 id="LVS-和-RS-之间可以是路由器，也可以是交换机。"><a href="#LVS-和-RS-之间可以是路由器，也可以是交换机。" class="headerlink" title="LVS 和 RS 之间可以是路由器，也可以是交换机。"></a>LVS 和 RS 之间可以是路由器，也可以是交换机。</h6><h6 id="数据报文中的源和目标，1-2是请求包，3-4是响应包"><a href="#数据报文中的源和目标，1-2是请求包，3-4是响应包" class="headerlink" title="数据报文中的源和目标，1-2是请求包，3-4是响应包"></a>数据报文中的源和目标，1-2是请求包，3-4是响应包</h6><table>
 <thead>
 <tr>
@@ -418,7 +223,7 @@
 </tbody></table>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">基本工作流程<br><span class="hljs-number">1</span> 用户向具有公网ip地址的LVS主机地址(VIP)发起请求，(Src=CIP，Dst=VIP)<br><span class="hljs-number">2</span> LVS主机接收到数据包后，修改数据包的目标地址为后端RS1主机并转发出去，(Src=CIP，Dst=RIP1)<br><span class="hljs-number">3</span> 后端RS1主机处理完请求后，返回数据包给LVS主机，(Src=RIP1，Dst=CIP)<br><span class="hljs-number">4</span> LVS主机接收到数据包后，修改数据包的源地址为LVS的公网地址(VIP)并转发出去，(Src=VIP，Dst=CIP)<br>LVS本质上使用的类似于iptables里面的DNAT策略<br> - LVS工作于内核上，而不是iptables的五表五链上<br></code></pre></td></tr></table></figure>
 
-<h5 id="lvs和-iptables"><a href="#lvs和-iptables" class="headerlink" title="lvs和****iptables"></a><strong>lvs</strong>和****iptables</h5><p><img src="/.io//biji/image/image-20250319143852351.png" srcset="/img/loading.gif" lazyload alt="image-20250319143852351"></p>
+<h5 id="lvs和-iptables"><a href="#lvs和-iptables" class="headerlink" title="lvs和****iptables"></a><strong>lvs</strong>和****iptables</h5><p><img src="/.io//biji/image/image-20250319143852351.png" alt="image-20250319143852351"></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">lvs的NAT模式在iptables里面的流向<br>lvs工作于 PREROUTING链和INPUT链中间的位置，起到了一个关卡的功能，一旦发现符合lvs规则的请求，直接转发给后端的RS主机。也就是说，更改了正常的iptables数据流向。<br><br>iptables里面的DNAT的数据流向<br>数据流向到本地主机之后，流经PREROUTING链，然后发现DNAT规则，然后经过FORWARD链将数据包转发到后端的主机。<br></code></pre></td></tr></table></figure>
 
 <h5 id="为什么LVS流入的时候不经过forward链还需要开启端口转发"><a href="#为什么LVS流入的时候不经过forward链还需要开启端口转发" class="headerlink" title="为什么LVS流入的时候不经过forward链还需要开启端口转发"></a><strong>为什么</strong>LVS流入的时候不经过forward链还需要开启端口转发</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">关于ip_forward数据转发的功能<br>原则上来说，没有经过forward链的数据包是无需启用 ip_forward内核参数的。<br><br>根据我们对于 lvs和iptables的流入数据包的流向分析，发现 lvs的流入数据包没有经过forward链。所以原则上来说，是不需要打开ip_forward功能的。但是实际情况下，还是需要打开的。<br><br>lvs转发到后端真实主机之后，真实主机响应的数据包到达lvs之后的数据流向：<br>   数据流向到本地主机之后，<br>     流经PREROUTING链，然后发现DNAT规则，<br>       - 因为PREROUTING链是lvs主机上所有数据流的总入口<br>     经过FORWARD链将数据包转发<br>     流经POSTROUTING链，然后将数据包的源地址实现转换<br>     然后将数据包发送到互联网上<br>   所以后端真实主机的响应数据包必须原路返回<br>     所以，出网的网关地址必须是指定的<br></code></pre></td></tr></table></figure>
@@ -427,7 +232,7 @@
 
 <h4 id="DR模式"><a href="#DR模式" class="headerlink" title="DR模式"></a><strong>DR</strong>模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">DR：Direct Routing（直接路由）<br>  DR 模式是 LVS 的默认模式，应用广泛，通过为请求报文重新封装一个 MAC 首部进行转发，源 MAC 是 DIP 所在的接口的 MAC，目标MAC 是某挑选出的 RS 的 RIP 所在接口的 MAC 地址；源 IP/PORT，以及目标 IP/PORT 均保持不变，但源 MAC 和目标 MAC 会发生改变，DR 模式下，数据链路层之上的内容不会发生变化<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//biji\image\image-20250319145855201.png" srcset="/img/loading.gif" lazyload alt="image-20250319145855201"></p>
+<p><img src="/.io//biji\image\image-20250319145855201.png" alt="image-20250319145855201"></p>
 <h6 id="LVS-和-RS-之间只能是交换机。不许允许是路由器。"><a href="#LVS-和-RS-之间只能是交换机。不许允许是路由器。" class="headerlink" title="LVS 和 RS 之间只能是交换机。不许允许是路由器。"></a>LVS 和 RS 之间只能是交换机。不许允许是路由器。</h6><h6 id="数据报文中的源和目标，1-2-请求包，3-响应包"><a href="#数据报文中的源和目标，1-2-请求包，3-响应包" class="headerlink" title="数据报文中的源和目标，1-2 请求包，3 响应包"></a>数据报文中的源和目标，1-2 请求包，3 响应包</h6><table>
 <thead>
 <tr>
@@ -477,12 +282,12 @@
 
 <h5 id="如何向真正的vip发送请求"><a href="#如何向真正的vip发送请求" class="headerlink" title="如何向真正的vip发送请求"></a><strong>如何向真正的</strong>vip发送请求</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">如何确保前端路由器将目标 IP 为 VIP 的请求报文只发往 LVS 服务器<br>在前端网关的 ARP 表中做静态绑定 - 不推荐<br>    - 将 VIP 和 LVS 服务器上的 VIP 所在的网卡的 MAC 地址写死<br>在 RS 服务器上用 arptables 工具设置  arp 防火墙<br>    arptables <span class="hljs-literal">-A</span> <span class="hljs-keyword">IN</span> <span class="hljs-literal">-d</span> <span class="hljs-variable">$VIP</span> <span class="hljs-literal">-j</span> DROP<br>    arptables <span class="hljs-literal">-A</span> OUT <span class="hljs-literal">-s</span> <span class="hljs-variable">$VIP</span> <span class="hljs-literal">-j</span> mangle <span class="hljs-literal">--mangle-ip-s</span> <span class="hljs-variable">$RIP</span><br> <br>确保 RS 服务器上的 VIP 不对外发送ARP 广播，也不会响应 ARP 广播<br>    - 在 RS 服务器上修改内核参数关闭 ARP 广播和 ARP 应答<br>    /proc/sys/net/ipv4/conf/all/arp_ignore<br>    /proc/sys/net/ipv4/conf/all/arp_announce<br>    - lvs的控制节点主机不参与内核参数的修改<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//biji\image\image-20250319153503041.png" srcset="/img/loading.gif" lazyload alt="image-20250319153503041"></p>
+<p><img src="/.io//biji\image\image-20250319153503041.png" alt="image-20250319153503041"></p>
 <h5 id="DR-模式特点"><a href="#DR-模式特点" class="headerlink" title="DR 模式特点"></a>DR 模式特点</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs powershell">LVS 服务器 和 RS 服务器 上都配置有 VIP 地址<br> - 确保前端路由器将目标 IP 为 VIP 的请求报文只发往 LVS 服务器；<br> - 后端 RS 服务器上的 VIP 只用作封装响应报文。<br> 不可响应 ARP 广播，也不可主动对外发送 ARP 广播<br> <br>RS 的 RIP 可以使用私网地址，也可以是公网地址；<br> - RIP 与 DIP在同一 IP 网络；<br> - RIP 的网关不能指向 DIP，以确保响应报文不会经由 LVS 服务器<br> - RS 服务器和 LVS 服务器要在同一个物理网络（不能跨路由，因为路由会隔离 ARP 广播）<br> <br>LVS 服务器只处理请求报文，不处理响应报文。<br> - 相对于 NAT 模式其负载性能会大幅提升，响应由 RS 服务器自行完成<br> - 不支持端口映射（端口不能修改，数据链路层之上的内容不会发生变化）<br> - 无需开启 ip_forward<br>RS 服务器可以使用大多数 OS 系统（支持相关网络设置即可）<br></code></pre></td></tr></table></figure>
 
 <h4 id="TUN模式"><a href="#TUN模式" class="headerlink" title="TUN模式"></a><strong>TUN</strong>模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">TUN：IP tunneling（IP隧道）<br> TUN 模式不修改请求报文的IP首部（源 IP 为 CIP，目标 IP 为 VIP），而是在原 IP 报文之外再封装一个IP首部（源 IP 为 DIP，目标 IP 为 RIP），再将报文发往后端 RS，RS 直接响应客户端（源IP 是 VIP，目标 IP 是 CIP），TUN  模式与 DR 模式的区别是 TUN 模式下 LVS 服务器和后端 RS 可以不在同一个物理网络，可以跨公网<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//biji\image\image-20250319153725063.png" srcset="/img/loading.gif" lazyload alt="image-20250319153725063"></p>
+<p><img src="/.io//biji\image\image-20250319153725063.png" alt="image-20250319153725063"></p>
 <h6 id="LVS-和-RS-之间允许是路由器。"><a href="#LVS-和-RS-之间允许是路由器。" class="headerlink" title="LVS 和 RS 之间允许是路由器。"></a>LVS 和 RS 之间允许是路由器。</h6><p>数据报文中的源和目标：</p>
 <table>
 <thead>
@@ -510,16 +315,16 @@
 </tbody></table>
 <h5 id="工作流程-1"><a href="#工作流程-1" class="headerlink" title="工作流程"></a>工作流程</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">1</span> 用户向具有公网ip地址的LVS主机地址(VIP)发起请求，(Src=CIP，Dst=VIP)<br><span class="hljs-number">2</span> LVS主机接收到数据包后，将原数据包封装到ip隧道数据包中，转发到后端RS主机，(Src=DIP，Dst=RIP)<br><span class="hljs-number">3</span> 后端RS主机处理完请求后，返回数据包给客户端主机，(Src=VIP，Dst=CIP)<br></code></pre></td></tr></table></figure>
 
-<h5 id="数据包拆解"><a href="#数据包拆解" class="headerlink" title="数据包拆解"></a><strong>数据包拆解</strong></h5><h6 id="正常的数据包结构"><a href="#正常的数据包结构" class="headerlink" title="正常的数据包结构"></a>正常的数据包结构</h6><p><img src="/.io//biji\image\image-20250319154759524.png" srcset="/img/loading.gif" lazyload alt="image-20250319154759524"></p>
-<h6 id="TUN模式下的数据包"><a href="#TUN模式下的数据包" class="headerlink" title="TUN模式下的数据包"></a>TUN模式下的数据包</h6><p><img src="/.io//biji\image\image-20250319154823519.png" srcset="/img/loading.gif" lazyload alt="image-20250319154823519"></p>
-<h4 id="整体流程效果"><a href="#整体流程效果" class="headerlink" title="整体流程效果"></a>整体流程效果</h4><p><img src="/.io//biji\image\image-20250319154951278.png" srcset="/img/loading.gif" lazyload alt="image-20250319154951278"></p>
+<h5 id="数据包拆解"><a href="#数据包拆解" class="headerlink" title="数据包拆解"></a><strong>数据包拆解</strong></h5><h6 id="正常的数据包结构"><a href="#正常的数据包结构" class="headerlink" title="正常的数据包结构"></a>正常的数据包结构</h6><p><img src="/.io//biji\image\image-20250319154759524.png" alt="image-20250319154759524"></p>
+<h6 id="TUN模式下的数据包"><a href="#TUN模式下的数据包" class="headerlink" title="TUN模式下的数据包"></a>TUN模式下的数据包</h6><p><img src="/.io//biji\image\image-20250319154823519.png" alt="image-20250319154823519"></p>
+<h4 id="整体流程效果"><a href="#整体流程效果" class="headerlink" title="整体流程效果"></a>整体流程效果</h4><p><img src="/.io//biji\image\image-20250319154951278.png" alt="image-20250319154951278"></p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">数据包到达LVS主机之后<br>   对数据包进行二次封装处理<br>   通过 POSTROUTING 将数据包转发给 后端的真实主机<br>数据包到达RS主机之后<br>   拆解数据包，然后响应数据<br>   直接将数据返回给客户端主机<br><br>相较于 DR模型来说，它修改的是 更深层的ip报文，所以性能有些差。但是好处是可以跨网络。<br></code></pre></td></tr></table></figure>
 
 <h5 id="TUN-模式特点"><a href="#TUN-模式特点" class="headerlink" title="TUN 模式特点"></a>TUN 模式特点</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">- RIP 和 DIP 可以不处于同一物理网络中，RS 的网关一般不能指向 DIP，且 RIP 可以和公网通信；<br>- 集群节点可以跨互联网实现，DIP，VIP，RIP 都可以是公网地址；<br>- RS 服务器上的 tun 接口需要配置 VIP 地址，以便接收 LVS 服务器转发的数据包，以及作为响应报文的源 IP；<br>- LVS 服务器转发给 RS 服务器时需要使用隧道，隧道外层的数据报文中的源 IP  是 DIP，目标 IP 是<br>RIP；<br>- RS 服务器响应给客户端的报文中源 IP 是 VIP，目标 IP 是 CIP；<br>- LVS 服务器只处理请求报文，不处理响应报文，相对于 NAT 模式其负载性能会大幅提升，响应由 RS 服务器自行完成；<br>- 不支持端口映射；<br>- 无需开启 ip_forward；<br>- RS 服务器的操作系统必须支持隧道功能；<br></code></pre></td></tr></table></figure>
 
 <h4 id="FULLNAT模式"><a href="#FULLNAT模式" class="headerlink" title="FULLNAT模式"></a><strong>FULLNAT</strong>模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">FULL NAT：Full Network address translation （完全网络地址转换）<br><br>FULL NAT 模式不是 LVS 官方内置的工作模式，是由阿里巴巴公司开发的第三方模式，仅在 <span class="hljs-number">2.6</span>.<span class="hljs-number">32</span>版本的内核中存在过，目前主流的 LINUX 发行版并不支持该模式，相对于 NAT 模式而言，FULL NAT 在转发时，将请求报文中的源 IP 地址 源端口和目标 IP 地址目标端口都进行了替换，然后再向后端转发<br><br>FULL NAT 模式主要用于公有云环境中，在阿里云上，不建议将虚拟机设为流量穿透服务，虚拟机网关必须使用其自带的网关，在此情况下，无法修改后端 RS 服务器的网关，则无法使用 NAT 模式，所以需要使用 FULL NAT 模式来解决此类问题<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.io//biji\image\image-20250319155251888.png" srcset="/img/loading.gif" lazyload alt="image-20250319155251888"></p>
+<p><img src="/.io//biji\image\image-20250319155251888.png" alt="image-20250319155251888"></p>
 <h6 id="数据报文中的源和目标"><a href="#数据报文中的源和目标" class="headerlink" title="数据报文中的源和目标"></a>数据报文中的源和目标</h6><table>
 <thead>
 <tr>
@@ -611,350 +416,134 @@
 <p><strong>1.3.2.4.3.3</strong> <strong>部署<strong><strong>httpd</strong></strong>服务</strong></p>
 <p><strong>1.3.3.2.2.3</strong> <strong>定制<strong><strong>lvs-route</strong></strong>主机****ip</strong></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div></div>
-      <div>https://lx1me.github.io/2025/06/05/企业级调度器LVS/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>John Doe</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2025年6月5日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
       
     </div>
-    <div class="license-icon iconfont"></div>
+    <footer class="article-footer">
+      <a data-url="https://lx1me.github.io/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/" data-id="cmbof4mb1000820v6as3tcc8t" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%A0%A1%E5%9E%92%E6%9C%BA%20JumpServer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%20NoSQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%20Redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">June 2025</a></li></ul>
+    </div>
   </div>
 
 
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%A0%A1%E5%9E%92%E6%9C%BA%20JumpServer/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%20NoSQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%20Redis/" title="">
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/06/05/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%20Docker/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%20ZABBIX/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%A0%A1%E5%9E%92%E6%9C%BA%20JumpServer/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/05/%E4%BC%81%E4%B8%9A%E7%BA%A7%E8%B0%83%E5%BA%A6%E5%99%A8LVS/">(no title)</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
 
   
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+</aside>
+        
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
-</div>
+</footer>
 
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
     </div>
+    <nav id="mobile-nav">
   
+    <a href="/" class="mobile-nav-link">Home</a>
   
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+</nav>
+    
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
+<script src="/js/jquery-3.6.4.min.js"></script>
 
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
+<script src="/js/script.js"></script>
 
 
 
 
-  
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
 
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+  </div>
 </body>
 </html>
