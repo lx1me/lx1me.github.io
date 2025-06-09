@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="企业级 NoSQL 数据库 RedisNoSQL 数据库什么是 NoSQL12345数据库主要分为两大类：关系型数据库与 NoSQL 数据库。关系型数据库，是建立在关系模型基础上的数据库，其借助于集合代数等数学概念和方法来处理数据库中的数据。主流的 MySQL、Oracle、MS SQL Server 和 DB2 都属于这类传统数据库。NoSQL 数据库，全称为 Not Only SQL，意思就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2024/04/04/%E4%BC%81%E4%B8%9A%E7%BA%A7%20NoSQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%20Redis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="企业级 NoSQL 数据库 RedisNoSQL 数据库什么是 NoSQL12345数据库主要分为两大类：关系型数据库与 NoSQL 数据库。关系型数据库，是建立在关系模型基础上的数据库，其借助于集合代数等数学概念和方法来处理数据库中的数据。主流的 MySQL、Oracle、MS SQL Server 和 DB2 都属于这类传统数据库。NoSQL 数据库，全称为 Not Only SQL，意思就是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:\biji\image\image-20250331195955711.png">
+<meta property="og:image" content="e:\biji\image\image-20250331200116061.png">
+<meta property="og:image" content="e:\biji\image\image-20250331200133734.png">
+<meta property="og:image" content="e:\biji\image\image-20250331201524132.png">
+<meta property="og:image" content="e:\biji\image\image-20250331201544163.png">
+<meta property="og:image" content="e:\biji\image\image-20250402192923373.png">
+<meta property="og:image" content="e:\biji\image\image-20250403144145286.png">
+<meta property="og:image" content="e:\biji\image\image-20250403150503960.png">
+<meta property="og:image" content="e:\biji\image\image-20250403150507961.png">
+<meta property="og:image" content="e:\biji\image\image-20250403150805071.png">
+<meta property="og:image" content="e:\biji\image\image-20250403160351355.png">
+<meta property="og:image" content="e:\biji\image\image-20250403160414640.png">
+<meta property="og:image" content="e:\biji\image\image-20250408092030864.png">
+<meta property="og:image" content="e:\biji\image\image-20250408092223317.png">
+<meta property="og:image" content="e:\biji\image\image-20250408092613912.png">
+<meta property="og:image" content="e:\biji\image\image-20250408092629280.png">
+<meta property="og:image" content="e:\biji\image\image-20250408092647812.png">
+<meta property="og:image" content="e:\biji\image\image-20250408111540336.png">
+<meta property="og:image" content="e:\biji\image\image-20250408111555862.png">
+<meta property="article:published_time" content="2024-04-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T03:00:07.532Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="e:\biji\image\image-20250331195955711.png">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-04 00:00" pubdate>
+          2024年4月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          58 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="企业级-NoSQL-数据库-Redis"><a href="#企业级-NoSQL-数据库-Redis" class="headerlink" title="企业级 NoSQL 数据库 Redis"></a>企业级 NoSQL 数据库 Redis</h1><h2 id="NoSQL-数据库"><a href="#NoSQL-数据库" class="headerlink" title="NoSQL 数据库"></a>NoSQL 数据库</h2><h4 id="什么是-NoSQL"><a href="#什么是-NoSQL" class="headerlink" title="什么是 NoSQL"></a>什么是 NoSQL</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">数据库主要分为两大类：关系型数据库与 NoSQL 数据库。<br><br>关系型数据库，是建立在关系模型基础上的数据库，其借助于集合代数等数学概念和方法来处理数据库中的数据。主流的 MySQL、Oracle、MS SQL Server 和 DB2 都属于这类传统数据库。<br><br>NoSQL 数据库，全称为 Not Only SQL，意思就是适用关系型数据库的时候就使用关系型数据库，不适用的时候可以考虑使用更加合适的数据存储。NoSQL 是对不同于传统的关系型数据库的数据库管理系统的统称。<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="RDBMS和NOSQL对比"><a href="#RDBMS和NOSQL对比" class="headerlink" title="RDBMS和NOSQL对比"></a>RDBMS和NOSQL对比</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">RDBMS<br>高度组织化结构化数据<br>结构化查询语言（SQL）<br>数据和关系都存储在单独的表中。<br>数据操纵语言，数据定义语言<br>严格的一致性<br>基础事务<br>NoSQL<br>代表着不仅仅是SQL, 没有声明性查询语言<br>没有预定义的模式<br>最终一致性，而非ACID属性<br>非结构化和不可预知的数据<br>CAP定理<br>高性能，高可用性和可伸缩性<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="NoSQL的优点-缺点"><a href="#NoSQL的优点-缺点" class="headerlink" title="NoSQL的优点&#x2F;缺点"></a>NoSQL的优点&#x2F;缺点</h4><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>关系型数据库</th>
+<th>NoSQL 数据库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>特点</td>
+<td>- 数据关系模型基于关系模型，结构化存储，完整性约束 - 基于二维表及其之间的联系，需要连接、并、交、差、除等数据操作 - 采用结构化的查询语言（SQL）做数据读写 - 操作需要数据的一致性，需要事务甚至是强一致性</td>
+<td>- 非结构化的存储 - 基于多维关系模型 - 具有特有的使用场景</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>- 保持数据的一致性（事务处理） - 可以进行 join 等复杂查询 - 通用化，技术成熟</td>
+<td>- 高并发，大数据下读写能力较强 - 基本支持分布式，易于扩展，可伸缩 - 简单，弱结构化存储</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>- 数据读写必须经过 sql 解析，大量数据、高并发下读写性能不足 - 对数据做读写，或修改数据结构时需要加锁，影响并发操作 - 无法适应非结构化存储 - 扩展困难 - 昂贵、复杂</td>
+<td>- join 等复杂操作能力较弱 - 事务支持较弱 - 通用性差 - 无完整约束复杂业务场景支持较差</td>
+</tr>
+</tbody></table>
+<h4 id="CAP定理"><a href="#CAP定理" class="headerlink" title="CAP定理"></a>CAP定理</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs powershell">对于一个分布式计算系统，不可能同时满足以下三点:<br>C：Consistency<br>即一致性， 所有节点在同一时间具有相同的数据视图<br><br>A：Availability<br>即可用性，所有的节点都保持高可用性,要求服务在接收到客户端请求后，都能够给出响应<br><br>P：Partiton tolerance<br>分区是指系统中的节点由于网络故障无法相互通信，导致系统被分成多个孤立的子系统<br><br>遵循CAP原理，一个数据分布式系统不可能同时满足C和A和P这<span class="hljs-number">3</span>个条件。<br><br>在服务器之间的网络出现异常的情况下，一致性和可用性是不可能同时满足的，必须要放弃一个，来保证另一个。这也正是CAP定理所说的，在分布式系统中，P总是存在的。在P发生的前提下，C(一致性)和A（可用性）不能同时满足。这种情况在做架构设计的时候就要考虑到，要评估对业务的影响，进行权衡决定放弃哪一个。在通常的业务场景下，系统不可用是不能接受的，所以要优先保证可用性，暂时放弃一致性。<br><br>根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 <span class="hljs-built_in">CP</span> 原则和满足 AP 原则三大类：<br>CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。放弃分区容忍性，即不进行分区，不考虑由于网络不通或结点挂掉的问题，则可以实现一致性和可用性。那么系统将不是一个标准的分布式系统<br>比如:单一数据中心数据库,所有节点都位于同一个数据中心，并且节点之间的通信是高可靠的<br><span class="hljs-built_in">CP</span> - 满足一致性，分区容忍性的系统，通常性能不是特别高。 放弃可用性，追求强一致性和分区容错性<br>例如: Zookeeper,ETCD,Consul,MySQL的PXC等集群就是追求的强一致，再比如跨行转账，一次转账请求要等待双方银行系统都完成整个事务才算完成。<br>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。<br>放弃一致性，追求分区容忍性和可用性。这是很多分布式系统设计时的选择。<br>例如：MySQL主从复制，默认是异步机制就可以实现AP，但是用户接受所查询的到数据在一定时间内不是最新的.<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis (Remote Dictionary Server 远程字典服务)是一个遵循BSD MIT开源协议的高性能的NoSQL<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-特性"><a href="#Redis-特性" class="headerlink" title="Redis 特性"></a>Redis 特性</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">速度快: <span class="hljs-number">10</span>W QPS,基于内存,C语言实现<br>单线程：引号的”单线程“<br>     单线程为何如此快?<br>       纯内存<br>       非阻塞<br>       避免线程切换和竞态消耗<br>       基于Epoll实现IO多路复用<br>持久化：RDB，AOF<br>支持多种数据类型<br>支持多种编程语言<br>功能丰富: 支持Lua脚本,发布订阅,事务,pipeline等功能<br>简单: 代码短小精悍(单机核心代码只有<span class="hljs-number">23000</span>行左右),单线程开发容易,不依赖外部库,使用简单<br>主从复制<br>支持高可用和分布式<br></code></pre></td></tr></table></figure>
+
+<h4 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">一次只运行一条命令<br>避免执行长(慢)命令:keys *, flushall, flushdb, slow lua script, mutil/exec, operate bigvalue(collection)<br>其实不是单线程: 早期版本是单进程单线程,<span class="hljs-number">3.0</span> 版本后实际还有其它的线程, 实现特定功能,如: fysncfile descriptor,close file descriptor<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-对比-Memcached"><a href="#Redis-对比-Memcached" class="headerlink" title="Redis 对比 Memcached"></a>Redis 对比 Memcached</h4><table>
+<thead>
+<tr>
+<th>比较类别</th>
+<th>Redis</th>
+<th>Memcached</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>支持的数据结构</td>
+<td>哈希、列表、集合、有序集合</td>
+<td>纯 key-value</td>
+</tr>
+<tr>
+<td>持久化支持</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>高可用支持</td>
+<td>redis 支持集群功能，可以实现主动复制，读写分离。官方提供了 Sentinel 集群管理工具，能够实现主从服务监控，故障自动转移，这一切，对于客户端都是透明的，无需程序改动，也无需人工介入</td>
+<td>需要二次开发</td>
+</tr>
+<tr>
+<td>存储 value 容量</td>
+<td>最大 512M</td>
+<td>最大 1M</td>
+</tr>
+<tr>
+<td>内存分配</td>
+<td>临时申请空间，可能导致碎片</td>
+<td>预分配内存池的方式管理内存，能够省去内存分配时间</td>
+</tr>
+<tr>
+<td>虚拟内存使用</td>
+<td>有自己的 VM 机制，理论上能够存储比物理内存更多的数据，当数据超量时，会引发 swap，把冷数据刷到磁盘上</td>
+<td>所有的数据存储在物理内存里</td>
+</tr>
+<tr>
+<td>网络模型</td>
+<td>非阻塞 IO 复用模型，提供一些非 KV 存储之外的排序，聚合功能，在执行这些功能时，复杂的 CPU 计算，会阻塞整个 IO 调度</td>
+<td>非阻塞 IO 复用模型</td>
+</tr>
+<tr>
+<td>水平扩展的支持</td>
+<td>redis cluster 可以横向扩展</td>
+<td>暂无</td>
+</tr>
+<tr>
+<td>多线程</td>
+<td>Redis6.0 之前是只支持单线程</td>
+<td>Memcached 支持多线程，CPU 利用方面 Memcache 优于 Redis</td>
+</tr>
+<tr>
+<td>过期策略</td>
+<td>有专门线程，清除缓存数据</td>
+<td>懒淘汰机制：每次往缓存放入数据的时候，都会存一个时间，在读取的时候要和设置的时间做 TTL 比较来判断是否过期</td>
+</tr>
+<tr>
+<td>单机 QPS</td>
+<td>约 10W</td>
+<td>约 60W</td>
+</tr>
+<tr>
+<td>源代码可读性</td>
+<td>代码清爽简洁</td>
+<td>可能是考虑了太多的扩展性，多系统的兼容性，代码不清爽</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>复杂数据结构、有持久化、高可用需求、value 存储内容较大</td>
+<td>纯 KV，数据量非常大，并发量非常大的业务</td>
+</tr>
+</tbody></table>
+<h4 id="Redis-常见应用场景"><a href="#Redis-常见应用场景" class="headerlink" title="Redis 常见应用场景"></a>Redis 常见应用场景</h4><p><img src="E:\biji\image\image-20250331195955711.png" srcset="/img/loading.gif" lazyload alt="image-20250331195955711"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">缓存：缓存RDBMS中数据,比如网站的查询结果、商品信息、微博、新闻、消息<br>Session 共享：实现Web集群中的多服务器间的 session 共享<br>计数器：商品访问排行榜、浏览数、粉丝数、关注、点赞、评论等和次数相关的数值统计场景<br>社交：朋友圈、共同好友、可能认识他们等<br>地理位置: 基于地理信息系统GIS（Geographic Information System)实现摇一摇、附近的人、外卖等功能<br>消息队列：ELK等日志系统缓存、业务的订阅/发布系统<br></code></pre></td></tr></table></figure>
+
+<h3 id="缓存的实现流程"><a href="#缓存的实现流程" class="headerlink" title="缓存的实现流程"></a>缓存的实现流程</h3><h5 id="数据更新操作流程："><a href="#数据更新操作流程：" class="headerlink" title="数据更新操作流程："></a>数据更新操作流程：</h5><p><img src="E:\biji\image\image-20250331200116061.png" srcset="/img/loading.gif" lazyload alt="image-20250331200116061"></p>
+<h5 id="数据读操作流程："><a href="#数据读操作流程：" class="headerlink" title="数据读操作流程："></a>数据读操作流程：</h5><p><img src="E:\biji\image\image-20250331200133734.png" srcset="/img/loading.gif" lazyload alt="image-20250331200133734"></p>
+<h4 id="缓存穿透-缓存击穿和缓存雪崩"><a href="#缓存穿透-缓存击穿和缓存雪崩" class="headerlink" title="缓存穿透,缓存击穿和缓存雪崩"></a>缓存穿透,缓存击穿和缓存雪崩</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs powershell">缓存穿透 Cache Penetration<br>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，比如： 发起为id为 “<span class="hljs-literal">-1</span>” 的数据或id为特别大不存在的数据。<br>这时的用户很可能是攻击者，攻击会导致数据库压力过大。<br>解决方法：<br>接口层增加校验，如用户鉴权校验，id做基础校验，id&lt;=<span class="hljs-number">0</span>的直接拦截<br>从缓存取不到的数据，在数据库中也没有取到，这时也可以将key<span class="hljs-literal">-value</span>对写为key<span class="hljs-literal">-null</span>，缓存有效时间可以设置短点，如<span class="hljs-number">30</span>秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个id暴力攻击<br><br>缓存击穿 Cache breakdown<br>缓存击穿是指缓存中没有但数据库中有的数据，比如：热点数据的缓存时间到期后，这时由于并发用户特别多，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，造成过大压力<br>解决方法：<br>设置热点数据永远不过期。<br><br>缓存雪崩 Thunder Hurd Problem<br>缓存雪崩是指缓存中数据大批量到过期时间，而查询数据量巨大，引起数据库压力过大甚至down机。和缓存击穿不同的是，缓存击穿指并发查同一条数据，缓存雪崩是不同数据都过期了，很多数据都查不到从而查数据库。<br>解决方法：<br>缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生<br>如果缓存数据库是分布式部署，将热点数据均匀分布在不同搞得缓存数据库中<br>设置热点数据永远不过期<br></code></pre></td></tr></table></figure>
+
+<h4 id="缓存-crash"><a href="#缓存-crash" class="headerlink" title="缓存 crash"></a>缓存 crash</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis 缓存服务宕机，造成 缓存服务失效<br>解决方法：Redis高可用集群<br></code></pre></td></tr></table></figure>
+
+<h4 id="Pipeline-流水线"><a href="#Pipeline-流水线" class="headerlink" title="Pipeline 流水线"></a>Pipeline 流水线</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis 客户端执行一条命令分<span class="hljs-number">6</span>个过程：<br>发送命令－-〉网络传输－-〉 命令排队－-〉命令执行－-〉网络传输－-〉 返回结果<br>这个过程称为Round trip time(简称RTT, 往返时间)，mget,mset指令可以一次性的批量对多个数据的执<br>行操作,所以有效节约了RTT<br>但大部分命令（如hgetall）不支持批量操作，需要消耗N次RTT ，利用 Pipeline 技术可以解决这一问题<br><br></code></pre></td></tr></table></figure>
+
+<h5 id="未使用pipeline执行N条命令如下图"><a href="#未使用pipeline执行N条命令如下图" class="headerlink" title="未使用pipeline执行N条命令如下图"></a>未使用pipeline执行N条命令如下图</h5><p><img src="E:\biji\image\image-20250331201524132.png" srcset="/img/loading.gif" lazyload alt="image-20250331201524132"></p>
+<h5 id="使用了pipeline执行N条命令如下图"><a href="#使用了pipeline执行N条命令如下图" class="headerlink" title="使用了pipeline执行N条命令如下图"></a>使用了pipeline执行N条命令如下图</h5><p><img src="E:\biji\image\image-20250331201544163.png" srcset="/img/loading.gif" lazyload alt="image-20250331201544163"></p>
+<h5 id="两者性能对比"><a href="#两者性能对比" class="headerlink" title="两者性能对比"></a>两者性能对比</h5><table>
+<thead>
+<tr>
+<th>网络</th>
+<th>延迟</th>
+<th>非 Pipeline</th>
+<th>Pipeline</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本机</td>
+<td>0.17ms</td>
+<td>573ms</td>
+<td>134ms</td>
+</tr>
+<tr>
+<td>内网服务器</td>
+<td>0.41ms</td>
+<td>1610ms</td>
+<td>240ms</td>
+</tr>
+<tr>
+<td>异地机房</td>
+<td>7ms</td>
+<td>80000ms</td>
+<td>1104ms</td>
+</tr>
+</tbody></table>
+<h4 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">安装方法<br>包安装<br>源码编译<br>容器运行<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-持久化"><a href="#Redis-持久化" class="headerlink" title="Redis 持久化"></a>Redis 持久化</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis 是基于内存型的NoSQL, 和MySQL是不同的,使用内存进行数据保存<br>如果想实现数据的持久化,Redis也也可支持将内存数据保存到硬盘文件中<br>Redis支持两种数据持久化保存方法<br>RDB:Redis DataBase<br>AOF:AppendOnlyFile<br></code></pre></td></tr></table></figure>
+
+<h5 id="RDB-工作原理"><a href="#RDB-工作原理" class="headerlink" title="RDB 工作原理"></a>RDB 工作原理</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">是基于某个时间点的快照，注意RDB只保留当前最新版本的一个快照相当于MySQL中的完全备份<br>RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文件，通过该文件可以还原生成该 RDB 文件时数据库的状态。因为 RDB 文件是保存在磁盘中的，所以即便 Redis 服务进程甚至服务器宕机，只要磁盘中 RDB 文件存在，就能将数据恢复<br>RDB 支持save和bgsave两种命令实现数据文件的持久化<br>注意： save 指令使用主进程进行备份，而不生成新的子进程，但是也会生成临时文件temp-&lt;主进程PID&gt;.rdb文件<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250402192923373.png" srcset="/img/loading.gif" lazyload alt="image-20250402192923373"></p>
+<h6 id="save-执行过程会使用主进程进行快照，并生成临时文件temp-rdb文件"><a href="#save-执行过程会使用主进程进行快照，并生成临时文件temp-rdb文件" class="headerlink" title="save 执行过程会使用主进程进行快照，并生成临时文件temp-&lt;主进程PID&gt;.rdb文件"></a>save 执行过程会使用主进程进行快照，并生成临时文件temp-&lt;主进程PID&gt;.rdb文件</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">[<span class="hljs-number">1</span>]   Done                    redis<span class="hljs-literal">-cli</span> <span class="hljs-literal">-a</span> <span class="hljs-number">123456</span> save<br>total <span class="hljs-number">1492</span><br>drwxr<span class="hljs-literal">-xr-x</span> <span class="hljs-number">2</span> redis redis    <span class="hljs-number">4096</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> ./<br>drwxr<span class="hljs-literal">-xr-x</span> <span class="hljs-number">7</span> redis redis    <span class="hljs-number">4096</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">38</span> ../<br><span class="hljs-literal">-rw-r--r--</span> <span class="hljs-number">1</span> redis redis <span class="hljs-number">1477877</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> dump.rdb<br><span class="hljs-literal">-rw-r--r--</span> <span class="hljs-number">1</span> redis redis   <span class="hljs-number">40960</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> temp<span class="hljs-literal">-7391</span>.rdb<br><br></code></pre></td></tr></table></figure>
+
+<h6 id="RDB-bgsave-实现快照"><a href="#RDB-bgsave-实现快照" class="headerlink" title="RDB bgsave 实现快照"></a>RDB bgsave 实现快照</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">首先从redis 主进程先fork生成一个新的子进程,此子进程负责将Redis内存数据保存为一个临时文件tmp-<br>&lt;子进程pid&gt;.rdb<br>当数据保存完成后,再将此临时文件改名为RDB文件,如果有前一次保存的RDB文件则会被替换，最后关闭<br>此子进程<br>由于Redis只保留最后一个版本的RDB文件,如果想实现保存多个版本的数据,需要人为实现<br></code></pre></td></tr></table></figure>
+
+<h4 id="实现-RDB-方法"><a href="#实现-RDB-方法" class="headerlink" title="实现 RDB 方法"></a>实现 RDB 方法</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">save: 同步,不推荐使用，使用主进程完成快照，因此会阻塞其它命令执行<br>bgsave: 异步后台执行,不影响其它命令的执行，会开启独立的子进程，因此不会阻赛其它命令执行<br>配置文件实现自动保存: 在配置文件中制定规则,自动执行bgsave<br></code></pre></td></tr></table></figure>
+
+<h4 id="RDB-模式的优缺点"><a href="#RDB-模式的优缺点" class="headerlink" title="RDB 模式的优缺点"></a>RDB 模式的优缺点</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">优点:<br>RDB快照只保存某个时间点的数据，恢复的时候直接加载到内存即可，不用做其他处理，这种文件适合用于做灾备处理.可以通过自定义时间点执行redis指令bgsave或者save保存快照，实现多个版本的备份<br>比如: 可以在最近的<span class="hljs-number">24</span>小时内，每小时备份一次RDB文件，并且在每个月的每一天，也备份一个RDB文件。这样的话，即使遇上问题，也可以随时将数据集还原到指定的不同的版本。<br>RDB在大数据集时恢复的速度比AOF方式要快<br><br>缺点:<br>不能实时保存数据，可能会丢失自上一次执行RDB备份到当前的内存数据<br>如果需要尽量避免在服务器故障时丢失数据，那么RDB并不适合。虽然Redis允许设置不同的保存点（save point）来控制保存RDB文件的频率，但是，因为RDB文件需要保存整个数据集的状态，所以它可能并不是一个非常快速的操作。因此一般会超过<span class="hljs-number">5</span>分钟以上才保存一次RDB文件。在这种情况下，一旦发生故障停机，就可能会丢失较长时间的数据。<br>在数据集比较庞大时，fork()子进程可能会非常耗时，造成服务器在一定时间内停止处理客户端请求,如果数据集非常巨大，并且CPU时间非常紧张的话，那么这种停止时间甚至可能会长达整整一秒或更久。另外子进程完成生成RDB文件的时间也会花更长时间.<br></code></pre></td></tr></table></figure>
+
+<h4 id="AOF-工作原理"><a href="#AOF-工作原理" class="headerlink" title="AOF 工作原理"></a>AOF 工作原理</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">AOF 即 AppendOnlyFile，AOF 和 RDB 都采有COW机制<br>AOF 可以指定不同的保存策略,默认为每秒钟执行一次 fsync,按照操作的顺序地将变更命令追加至指定的AOF日志文件尾部<br>在第一次启用AOF功能时，会做一次完全备份，后续将执行增量性备份，相当于完全数据备份+增量变化<br>如果同时启用RDB和AOF,进行恢复时,默认AOF文件优先级高于RDB文件,即会使用AOF文件进行恢复<br>在第一次开启AOF功能时,会自动备份所有数据到AOF文件中,后续只会记录数据的更新指令<br>注意: AOF 模式默认是关闭的,第一次开启AOF后,并重启服务生效后,会因为AOF的优先级高于RDB,而AOF默认没有数据文件存在,从而导致所有数据丢失<br></code></pre></td></tr></table></figure>
+
+<h4 id="AOF-模式优缺点"><a href="#AOF-模式优缺点" class="headerlink" title="AOF 模式优缺点"></a>AOF 模式优缺点</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">优点:<br>数据安全性相对较高，根据所使用的fsync策略(fsync是同步内存中redis所有已经修改的文件到存储设备)，默认是appendfsync everysec，即每秒执行一次 fsync,在这种配置下，Redis 仍然可以保持良好的性能，并且就算发生故障停机，也最多只会丢失一秒钟的数据( fsync会在后台线程执行，所以主线程可以继续努力地处理命令请求)<br><br>由于该机制对日志文件的写入操作采用的是append模式，因此在写入过程中不需要seek, 即使出现宕机现象，也不会破坏日志文件中已经存在的内容。然而如果本次操作只是写入了一半数据就出现了系统崩溃问题，不用担心，在Redis下一次启动之前，可以通过 redis<span class="hljs-literal">-check-aof</span> 工具来解决数据一致性的问题<br><br>Redis可以在 AOF文件体积变得过大时，自动地在后台对AOF进行重写,重写后的新AOF文件包含了恢复当前数据集所需的最小命令集合。整个重写操作是绝对安全的，因为Redis在创建新 AOF文件的过程中，append模式不断的将修改数据追加到现有的 AOF文件里面，即使重写过程中发生停机，现有的 AOF文件也不会丢失。而一旦新AOF文件创建完毕，Redis就会从旧AOF文件切换到新AOF文件，并开始对新AOF文件进行追加操作。<br><br>AOF包含一个格式清晰、易于理解的日志文件用于记录所有的修改操作。事实上，也可以通过该文件完成数据的重建<br><br>AOF文件有序地保存了对数据库执行的所有写入操作，这些写入操作以Redis协议的格式保存，因此 AOF文件的内容非常容易被人读懂，对文件进行分析(parse)也很轻松。导出（export)AOF文件也非常简单:举个例子，如果不小心执行了FLUSHALL.命令，但只要AOF文件未被重写，那么只要停止服务器，移除 AOF文件末尾的FLUSHAL命令，并重启Redis ,就可以将数据集恢复到FLUSHALL执行之前的状态。<br><br>缺点:<br>即使有些操作是重复的也会全部记录，AOF 的文件大小一般要大于 RDB 格式的文件<br>AOF 在恢复大数据集时的速度比 RDB 的恢复速度要慢<br>如果 fsync 策略是appendfsync no, AOF保存到磁盘的速度甚至会可能会慢于RDB<br>bug 出现的可能性更多<br></code></pre></td></tr></table></figure>
+
+<h4 id="RDB和AOF-的选择"><a href="#RDB和AOF-的选择" class="headerlink" title="RDB和AOF 的选择"></a>RDB和AOF 的选择</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">如果主要充当缓存功能,或者可以承受较长时间,比如数分钟数据的丢失, 通常生产环境一般只需启用RDB即可,此也是默认值<br>如果一点数据都不能丢失,可以选择同时开启RDB和AOF<br>一般不建议只开启AOF<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">```<br><br>![<span class="hljs-type">image</span>-<span class="hljs-number">20250403102953994</span>](E:\biji\image\image<span class="hljs-literal">-20250403102953994</span>.png)<br><br><span class="hljs-comment">#### 字符串 string</span><br><br>```powershell<br><br><br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>set key value</td>
+<td>设置 key-value</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>get key</td>
+<td>获取 key-value</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>del key</td>
+<td>删除 key-value</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>setnx setxx</td>
+<td>根据 key 是否存在设置 key-value</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>Incr decr</td>
+<td>计数</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>mget mset</td>
+<td>批量操作 key-value</td>
+<td>o(n)</td>
+</tr>
+</tbody></table>
+<h4 id="列表-list"><a href="#列表-list" class="headerlink" title="列表 list"></a>列表 list</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis列表实际就是简单的字符串数组，按照插入顺序进行排序.<br>支持双向读写,可以添加一个元素到列表的头部（左边）或者尾部（右边），一个列表最多可以包含<br><span class="hljs-number">2</span>^<span class="hljs-number">32</span><span class="hljs-literal">-1</span>=<span class="hljs-number">4294967295</span>个元素<br>每个列表元素用下标来标识,下标 <span class="hljs-number">0</span> 表示列表的第一个元素，以 <span class="hljs-number">1</span> 表示列表的第二个元素，以此类推。<br>也可以使用负数下标，以 <span class="hljs-literal">-1</span> 表示列表的最后一个元素， <span class="hljs-literal">-2</span> 表示列表的倒数第二个元素，元素值可以重复，常用于存入日志等场景，此数据类型比较常用<br>列表特点<br>有序<br>value可重复<br>左右都可以操作<br></code></pre></td></tr></table></figure>
+
+<h4 id="集合-set"><a href="#集合-set" class="headerlink" title="集合 set"></a>集合 set</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set</span> 是一个无序的字符串合集<br>同一个集合中的每个元素是唯一无重复的<br>支持在两个不同的集合中对数据进行逻辑处理，常用于取交集,并集,统计等场景,例如: 实现共同的朋友<br>集合特点<br>无序<br>无重复<br>集合间操作<br></code></pre></td></tr></table></figure>
+
+<p>集合间操作</p>
+<p><img src="E:\biji\image\image-20250403144145286.png" srcset="/img/loading.gif" lazyload alt="image-20250403144145286"></p>
+<h4 id="有序集合-sorted-set"><a href="#有序集合-sorted-set" class="headerlink" title="有序集合 sorted set"></a>有序集合 sorted set</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis有序集合和Redis集合类似，是不包含相同字符串的合集。<br>它们的差别是，每个有序集合的成员都关联着一个双精度浮点型的评分<br>这个评分用于把有序集合中的成员按最低分到最高分排序。<br>有序集合的成员不能重复,但评分可以重复,一个有序集合中最多的成员数为 <span class="hljs-number">2</span>^<span class="hljs-number">32</span> - <span class="hljs-number">1</span>=<span class="hljs-number">4294967295</span>个，经常用于排行榜的场景<br><br>有序集合特点<br>有序<br>无重复元素<br>每个元素是由score和value组成<br>score 可以重复<br>value 不可以重复<br></code></pre></td></tr></table></figure>
+
+<h4 id="哈希-hash"><a href="#哈希-hash" class="headerlink" title="哈希 hash"></a>哈希 hash</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hash 即字典, 用于保存字符串字段field和字符串值value之间的映射，即key/value做为数据部分<br>hash特别适合用于存储对象场景.<br>一个hash最多可以包含<span class="hljs-number">2</span>^<span class="hljs-number">32</span><span class="hljs-literal">-1</span> 个key/value键值对<br>哈希特点<br>无序<br>K/V 对<br>适用于存放相关的数据<br></code></pre></td></tr></table></figure>
+
+<h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">消息队列: 把要传输的数据放在队列中,从而实现应用之间的数据交换<br>常用功能: 可以实现多个应用系统之间的解耦,异步,削峰/限流等<br>常用的消息队列应用: Kafka,RabbitMQ,Redis<br><br>消息队列分为两种<br>生产者/消费者模式: Producer/Consumer<br>发布者/订阅者模式: Publisher/Subscriber<br></code></pre></td></tr></table></figure>
+
+<h4 id="生产者消费者模式"><a href="#生产者消费者模式" class="headerlink" title="生产者消费者模式"></a>生产者消费者模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">生产者消费者模式下，多个消费者同时监听一个频道(redis用队列实现)，但是生产者产生的一个消息只能被最先抢到消息的一个消费者消费一次,队列中的消息由可以多个生产者写入，也可以有不同的消费者取出进行消费处理.此模式应用广泛<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250403150503960.png" srcset="/img/loading.gif" lazyload alt="image-20250403150503960"></p>
+<p><img src="E:\biji\image\image-20250403150507961.png" srcset="/img/loading.gif" lazyload alt="image-20250403150507961"></p>
+<h4 id="发布者订阅模式"><a href="#发布者订阅模式" class="headerlink" title="发布者订阅模式"></a>发布者订阅模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">在发布者订阅者Publisher/Subscriber模式下，发布者Publisher将消息发布到指定的频道channel，事先监听此channel的一个或多个订阅者Subscriber都会收到相同的消息。即一个消息可以由多个订阅者获取到. 对于社交应用中的群聊、群发、群公告等场景适用于此模式<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250403150805071.png" srcset="/img/loading.gif" lazyload alt="image-20250403150805071"></p>
+<h4 id="Redis-集群与高可用"><a href="#Redis-集群与高可用" class="headerlink" title="Redis 集群与高可用"></a>Redis 集群与高可用</h4><p><img src="E:\biji\image\image-20250403160351355.png" srcset="/img/loading.gif" lazyload alt="image-20250403160351355"></p>
+<h4 id="Redis-主从复制"><a href="#Redis-主从复制" class="headerlink" title="Redis 主从复制"></a>Redis 主从复制</h4><p><img src="E:\biji\image\image-20250403160414640.png" srcset="/img/loading.gif" lazyload alt="image-20250403160414640"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">主从复制架构<br>Redis和MySQL的主从模式类似，也支持主从模式（master/slave），可以实现Redis数据的跨主机的远程备份<br>常见客户端连接主从的架构:<br>程序APP先连接到高可用性 LB 集群提供的虚拟IP，再由LB调度将用户的请求至后端Redis 服务器来真正提供服务<br><br>主从复制的特点:<br>一个master可以有多个slave<br>一个slave只能有一个master<br>数据流向是从master到slave单向的<br>master 可读可写<br>slave 只读<br></code></pre></td></tr></table></figure>
+
+<h4 id="主从复制实现"><a href="#主从复制实现" class="headerlink" title="主从复制实现"></a>主从复制实现</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当master出现故障后,可以自动提升一个slave节点变成新的Mster,因此Redis Slave 需要设置和master相同的连接密码<br>此外当一个Slave提升为新的master时需要通过持久化实现数据的恢复<br>当配置Redis复制功能时，强烈建议打开主服务器的持久化功能。否则主节点Redis服务应该要避免自动启动。<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-Cluster"><a href="#Redis-Cluster" class="headerlink" title="Redis Cluster"></a>Redis Cluster</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">使用哨兵 Sentinel 只能解决Redis高可用问题，实现Redis的自动故障转移,但仍然无法解决Redis Master单节点的性能瓶颈问题<br>为了解决单机性能的瓶颈，提高Redis 服务整体性能，可以使用分布式集群的解决方案<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-Cluster-架构"><a href="#Redis-Cluster-架构" class="headerlink" title="Redis Cluster 架构"></a>Redis Cluster 架构</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis cluster 需要至少 <span class="hljs-number">3</span>个master节点才能实现,slave节点数量不限<br>Master节点必须要超过半数以上可用,否则集群将不可用,即数据访问和选举将无法实现<br>因此Master节点的数据一般为奇数<br>当然一般每个master都至少对应的有一个slave节点<br>如果有三个主节点采用哈希槽 hash slot 的方式来分配<span class="hljs-number">16384</span>个槽位 slot<br>此三个节点分别承担的slot 区间可以是如以下方式分配<br>节点M1 <span class="hljs-number">0</span>－<span class="hljs-number">5460</span><br>节点M2 <span class="hljs-number">5461</span>－<span class="hljs-number">10922</span><br>节点M3 <span class="hljs-number">10923</span>－<span class="hljs-number">16383</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250408092030864.png" srcset="/img/loading.gif" lazyload alt="image-20250408092030864"></p>
+<h4 id="数据分区"><a href="#数据分区" class="headerlink" title="数据分区"></a>数据分区</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">如果是单机存储的话，直接将数据存放在单机redis就行了。但是如果是集群存储，就需要考虑到数据分区了。<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250408092223317.png" srcset="/img/loading.gif" lazyload alt="image-20250408092223317"></p>
+<h5 id="虚拟槽分区"><a href="#虚拟槽分区" class="headerlink" title="虚拟槽分区"></a>虚拟槽分区</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">redis cluster设置有<span class="hljs-number">0</span>~<span class="hljs-number">16383</span>的槽，每个槽映射一个数据子集，通过hash函数，将数据存放在不同的槽位中，每个集群的节点保存一部分的槽。<br>每个key存储时，先经过算法函数CRC16(key)得到一个整数，然后整数与<span class="hljs-number">16384</span>取余，得到槽的数值，然后找到对应的节点，将数据存放入对应的槽中。<br></code></pre></td></tr></table></figure>
+
+<h4 id="集群扩容"><a href="#集群扩容" class="headerlink" title="集群扩容"></a>集群扩容</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当有新的节点准备好加入集群时，这个新的节点还是孤立节点，加入有两种方式。一个是通过集群节点<br>执行命令来和孤立节点握手，另一个则是使用脚本来添加节点。<br><span class="hljs-number">1</span>. cluster_node_ip:port: cluster meet ip port new_node_ip:port<br><span class="hljs-number">2</span>. redis<span class="hljs-literal">-trib</span>.rb <span class="hljs-built_in">add-node</span> new_node_ip:port cluster_node_ip:port<br>通常这个新的节点有两种身份，要么作为主节点，要么作为从节点：<br>主节点：分摊槽和数据<br>从节点：作故障转移备份<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250408092613912.png" srcset="/img/loading.gif" lazyload alt="image-20250408092613912"></p>
+<h4 id="槽的迁移"><a href="#槽的迁移" class="headerlink" title="槽的迁移"></a>槽的迁移</h4><p><img src="E:\biji\image\image-20250408092629280.png" srcset="/img/loading.gif" lazyload alt="image-20250408092629280"></p>
+<h4 id="集群缩容"><a href="#集群缩容" class="headerlink" title="集群缩容"></a>集群缩容</h4><p><img src="E:\biji\image\image-20250408092647812.png" srcset="/img/loading.gif" lazyload alt="image-20250408092647812"></p>
+<h4 id="下线节点的流程"><a href="#下线节点的流程" class="headerlink" title="下线节点的流程"></a>下线节点的流程</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">1</span>. 判断该节点是否持有槽，如果未持有槽就跳转到下一步，持有槽则先迁移槽到其他节点<br><span class="hljs-number">2</span>. 通知其他节点（cluster forget）忘记该下线节点<br><span class="hljs-number">3</span>. 关闭下线节点的服务<br><br>需要注意的是如果先下线主节点，再下线从节点，会进行故障转移，所以要先下线从节点。<br></code></pre></td></tr></table></figure>
+
+<h4 id="故障转移"><a href="#故障转移" class="headerlink" title="故障转移"></a>故障转移</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">集群同样具备了自动转移故障的功能，和哨兵有些类似，在进行客观下线之后，就开始准备让故障节点的从节点“上任”了。<br>首先是进行资格检查，只有具备资格的从节点才能参加选举：<br>故障节点的所有从节点检查和故障主节点之间的断线时间<br>超过cluster<span class="hljs-literal">-node-timeout</span> * cluster<span class="hljs-literal">-slave-validati-factor</span>(默认<span class="hljs-number">10</span>)则取消选举资格<br>然后是准备选举顺序，不同偏移量的节点，参与选举的顺位不同。offset最大的slave节点，选举顺位最<br>高，最优先选举。而offset较低的slave节点，要延迟选举。<br></code></pre></td></tr></table></figure>
+
+<h4 id="Redis-Cluster-部署架构说明"><a href="#Redis-Cluster-部署架构说明" class="headerlink" title="Redis Cluster 部署架构说明"></a>Redis Cluster 部署架构说明</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">注意: 建立Redis Cluster 的节点需要清空数据，另外网络中不要有Redis哨兵的主从，否则也可能会干扰集群的创建及扩缩容<br></code></pre></td></tr></table></figure>
+
+<h6 id="生产环境：6台服务器，分别是三组master-slave，适用于生产环境"><a href="#生产环境：6台服务器，分别是三组master-slave，适用于生产环境" class="headerlink" title="生产环境：6台服务器，分别是三组master&#x2F;slave，适用于生产环境"></a>生产环境：6台服务器，分别是三组master&#x2F;slave，适用于生产环境</h6><h4 id="集群扩容-1"><a href="#集群扩容-1" class="headerlink" title="集群扩容"></a>集群扩容</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当前客户量激增，现有的Redis cluster架构已经无法满足越来越高的并发访问请求，为解决此问题,新购置两台服务器，要求将其动态添加到现有集群，但不能影响业务的正常访问。<br>新版支持集群中有旧数据的情况进行扩容<br>注意: 生产环境一般建议master节点为奇数个,比如:<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,以防止脑裂现象<br></code></pre></td></tr></table></figure>
+
+<p><img src="E:\biji\image\image-20250408111540336.png" srcset="/img/loading.gif" lazyload alt="image-20250408111540336"></p>
+<p><img src="E:\biji\image\image-20250408111555862.png" srcset="/img/loading.gif" lazyload alt="image-20250408111555862"></p>
+
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

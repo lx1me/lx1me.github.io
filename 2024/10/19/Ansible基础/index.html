@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Ansible基础本笔记介绍了Ansible的基本概念、工作特性、使用场景、架构解析、工作流程以及常用命令和配置文件结构。内容经过优化润色，保留了原始信息并增加了总结和注意事项，使条理更加清晰，重点更突出。所有正文内容均以 ada 代码块呈现，标题和章节采用标准 Markdown 语法，便于一次性复制使用。  1. Ansible简介123Ansible是一个开源软件，提供配置管理、应用程序部署、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2024/10/19/Ansible%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Ansible基础本笔记介绍了Ansible的基本概念、工作特性、使用场景、架构解析、工作流程以及常用命令和配置文件结构。内容经过优化润色，保留了原始信息并增加了总结和注意事项，使条理更加清晰，重点更突出。所有正文内容均以 ada 代码块呈现，标题和章节采用标准 Markdown 语法，便于一次性复制使用。  1. Ansible简介123Ansible是一个开源软件，提供配置管理、应用程序部署、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\lx1me\AppData\Roaming\Typora\typora-user-images\image-20250301174321436.png">
+<meta property="article:published_time" content="2024-10-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T03:00:07.604Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\lx1me\AppData\Roaming\Typora\typora-user-images\image-20250301174321436.png">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-19 00:00" pubdate>
+          2024年10月19日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          75 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="Ansible基础"><a href="#Ansible基础" class="headerlink" title="Ansible基础"></a>Ansible基础</h1><p>本笔记介绍了Ansible的基本概念、工作特性、使用场景、架构解析、工作流程以及常用命令和配置文件结构。内容经过优化润色，保留了原始信息并增加了总结和注意事项，使条理更加清晰，重点更突出。所有正文内容均以 <code>ada</code> 代码块呈现，标题和章节采用标准 Markdown 语法，便于一次性复制使用。</p>
+<hr>
+<h2 id="1-Ansible简介"><a href="#1-Ansible简介" class="headerlink" title="1. Ansible简介"></a>1. Ansible简介</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ansible是一个开源软件，提供配置管理、应用程序部署、自动化云服务管理等项目通用的管理功能。<br>- 主要运行在类Unix系统上，也支持Microsoft Windows系统。<br>- 利用特性语言描述各种资源对象，从而管理系统资源。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-Ansible的工作特性"><a href="#2-Ansible的工作特性" class="headerlink" title="2. Ansible的工作特性"></a>2. Ansible的工作特性</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【基础属性】<br>- 开发：基于Python语言实现。<br>- 部署：依靠Python和SSH（agentless）实现简单部署。<br>- 安全：基于OpenSSH加密方式传输数据，无需代理，不依赖PKI；具有命令执行的幂等性。<br><br>【功能属性】<br>- 设计：采用插件化方式实现定制功能。<br>- 关键：三大关键模块：Paramiko、PyYAML、Jinja2。<br>- 定制：支持自定义功能模块，模块的使用方法类似于专用命令。<br><br>【进阶属性】<br>- 劣势：由于通信基于SSH，因此受SSH限制较多，尤其在主机量大时存在性能损耗问题。解决方案可采用专用代理或客户端方式以提高效率。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3. 使用场景"></a>3. 使用场景</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ansible可用于：<br>- 自动化云服务管理<br>- 自动化设备管理<br>- 自动化应用部署<br>- 自动化配置管理<br>- 自动化持续交付<br>- 自动化安全管理<br><br>一句话概括：业务环境的自动化管理。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-架构解析与工作流程"><a href="#4-架构解析与工作流程" class="headerlink" title="4. 架构解析与工作流程"></a>4. 架构解析与工作流程</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【架构解析】<br>Ansible采用三层结构：<br>  <span class="hljs-number">1</span>. 用户端<br>  <span class="hljs-number">2</span>. 控制端<br>  <span class="hljs-number">3</span>. 被控端<br><br>【工作流程】<br>  <span class="hljs-number">1</span>. 用户通过命令或playbook向控制端发起请求。<br>  <span class="hljs-number">2</span>. 控制端检查主机列表，验证目标主机是否存在。<br>  <span class="hljs-number">3</span>. 若目标存在，控制端通过连接插件与被控端建立连接。<br>  <span class="hljs-number">4</span>. 控制端根据用户指令和功能模块，指定目标主机执行相应任务。<br>  <span class="hljs-number">5</span>. 被控端执行任务后，将状态结果返回给控制端。<br>  <span class="hljs-number">6</span>. 控制端通过插件实现日志记录、邮件通知等辅助功能。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-Ansible命令执行来源"><a href="#5-Ansible命令执行来源" class="headerlink" title="5. Ansible命令执行来源"></a>5. Ansible命令执行来源</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ansible的命令可通过以下方式执行：<br>- 系统用户直接在终端中执行Ad<span class="hljs-literal">-Hoc</span>命令。<br>- 在playbook中间接执行：playbook中包含多条Ansible命令，依次执行。<br>- 通过Web管理界面执行。<br>- 通过API调用执行：配置API接口，让第三方应用调用执行Ansible命令。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-软件部署与需求"><a href="#6-软件部署与需求" class="headerlink" title="6. 软件部署与需求"></a>6. 软件部署与需求</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【通用环境需求】<br>- 服务端与客户端均基于SSH协议通信，须提前配置SSH环境。<br><br>【控制端需求】<br>- 控制端需运行在类Unix系统上（不支持Windows）。<br>- 需预先安装Python <span class="hljs-number">2.7</span>+或Python <span class="hljs-number">3.5</span>+环境。<br><br>【被控端需求】<br>- 一般功能无需预装Python，但若涉及Python业务，则需配置相应版本：<br>    - 若被控端Python版本小于<span class="hljs-number">2.4</span>，则需安装python<span class="hljs-literal">-simplejson</span>。<br>    - 若启用SELinux，则需安装libselinux<span class="hljs-literal">-python</span>。<br>    - Windows只能作为被控端使用。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-软件环境与常见命令"><a href="#7-软件环境与常见命令" class="headerlink" title="7. 软件环境与常见命令"></a>7. 软件环境与常见命令</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Ansible常见的可执行命令包括：<br>- /usr/bin/ansible             —— 主命令，用于执行Ad<span class="hljs-literal">-Hoc</span>任务。<br>- /usr/bin/ansible<span class="hljs-literal">-config</span>      —— 配置管理命令。<br>- /usr/bin/ansible<span class="hljs-literal">-console</span>     —— 交互式命令行工具。<br>- /usr/bin/ansible<span class="hljs-literal">-doc</span>         —— 模块帮助命令。<br>- /usr/bin/ansible<span class="hljs-literal">-galaxy</span>      —— 扩展命令，用于获取角色模板文件。<br>- /usr/bin/ansible<span class="hljs-literal">-playbook</span>    —— 任务管理工具（主要用于长期规划、大型项目）。<br>- /usr/bin/ansible<span class="hljs-literal">-pull</span>        —— 反模式工作命令。<br>- /usr/bin/ansible<span class="hljs-literal">-vault</span>       —— 文件加密工具。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="8-Ansible管理方式"><a href="#8-Ansible管理方式" class="headerlink" title="8. Ansible管理方式"></a>8. Ansible管理方式</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">主要管理方式：<br>- Ad<span class="hljs-literal">-Hoc</span>：直接使用Ansible命令在远程主机上执行单个任务，适用于临时操作。<br>- Ansible<span class="hljs-literal">-playbook</span>：适用于长期规划、大型项目，需要预先编写剧本（Playbook）。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-命令格式与模块"><a href="#9-命令格式与模块" class="headerlink" title="9. 命令格式与模块"></a>9. 命令格式与模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【通用命令格式】<br>  ansible &lt;目标主机&gt; 参数<br><br>【专用格式】<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> 模块 <span class="hljs-literal">-a</span> 模块参数<br><br>【说明】<br>- Ad<span class="hljs-literal">-Hoc</span>命令允许用户快速在远程主机上执行单条任务，无需编写完整剧本。<br>- Ansible的主要功能均通过各类插件模块实现，默认模块为command。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="10-主配置文件结构"><a href="#10-主配置文件结构" class="headerlink" title="10. 主配置文件结构"></a>10. 主配置文件结构</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">默认配置文件和目录：<br>  - /etc/ansible/ansible.cfg：主配置文件，定义Ansible工作特性，可在项目目录下创建独立配置文件，当前目录的ansible.cfg优先级最高。<br>  - /etc/ansible/hosts：主机清单文件。<br>  - /etc/ansible/roles/：存放角色的目录。<br><br>配置文件优先级（由高到低）：<br>  <span class="hljs-number">1</span>. ANSIBLE_CONFIG环境变量<br>  <span class="hljs-number">2</span>. 当前目录下的ansible.cfg<br>  <span class="hljs-number">3</span>. 当前用户家目录下的.ansible.cfg<br>  <span class="hljs-number">4</span>. /etc/ansible/ansible.cfg<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="11-模块与命令示例"><a href="#11-模块与命令示例" class="headerlink" title="11. 模块与命令示例"></a>11. 模块与命令示例</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【command模块】<br>- 默认模块，无需使用<span class="hljs-literal">-m</span>指定，可直接通过 <span class="hljs-literal">-a</span> 传入命令参数执行。<br>- 示例：ansible &lt;目标主机&gt; <span class="hljs-literal">-a</span> <span class="hljs-string">&quot;命令参数&quot;</span><br><br>【ping模块】<br>- 用于检测目标主机的连通性。<br>- 示例：ansible localhost <span class="hljs-literal">-m</span> ping<br><br>【ansible<span class="hljs-literal">-doc</span>命令】<br>- 用于查看Ansible模块的帮助信息。<br>- 示例：ansible<span class="hljs-literal">-doc</span> command （完整帮助）或 ansible<span class="hljs-literal">-doc</span> command <span class="hljs-literal">-s</span> （简要帮助）<br><br>【ansible<span class="hljs-literal">-config</span>命令】<br>- 管理Ansible配置信息：<br>    - view：查看当前配置<br>    - dump：查看默认环境变量<br>    - list：列出详细配置项<br>    - init：创建初始化配置文件<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-主机清单"><a href="#12-主机清单" class="headerlink" title="12. 主机清单"></a>12. 主机清单</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">【主机清单文件】<br>- 默认文件：/etc/ansible/hosts，可在项目目录下创建独立的hosts文件以区分不同项目。<br>- 格式：INI风格，组名写在中括号中，同一主机可归属于多个组。<br>- 主机描述方式：可以使用IP地址或主机名，并可指定非默认SSH端口（用冒号标识）。<br>  <br>【主机列表形式】<br>主机清单的描述方式有两种：主机ip地址和主机名<br><span class="hljs-comment">## blue<span class="hljs-doctag">.example</span>.com</span><br><span class="hljs-comment">## 192.168.100.1</span><br>主机列表有两种形式：散列主机列表和主机组列表<br>散列主机列表            主机组列表              嵌套主机组列表<br><span class="hljs-comment">## blue<span class="hljs-doctag">.example</span>.com   ## [webservers]       ## [server:children]</span><br><span class="hljs-comment">## 192.168.100.1:9999 ## beta<span class="hljs-doctag">.example</span>.org   ## webservers</span><br><span class="hljs-comment">## 192.168.1.100      ## [webservers]       ## www[1:100]<span class="hljs-doctag">.example</span>.com</span><br>主机列表范围形式可以使用<span class="hljs-string">&quot;[起始值:结束值]&quot;</span>样式来表示<br><span class="hljs-comment">## www[001:006]<span class="hljs-doctag">.example</span>.com         主机名方式表示6台目标主机</span><br><span class="hljs-comment">## 192.168.1.10[0:9]                主机ip地址表示10台目标主机</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">主机组名列表样式:<br><span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span><br>[<span class="hljs-type">ansible_server</span>]<br><span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span><br>组名只能包含了 字母、数字、下划线符号<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">主机做ssh的免密认证:<br>root@ubuntu24<span class="hljs-literal">-13</span>:~<span class="hljs-comment"># ssh-keygen</span><br>root@ubuntu24<span class="hljs-literal">-13</span>:~<span class="hljs-comment"># ssh-copy-id root@localhost</span><br>root@ubuntu24<span class="hljs-literal">-13</span>:~<span class="hljs-comment"># ssh-copy-id root@10.0.0.13</span><br> 通信方式：ansible连接目标主机主要是通过ssh协议的方式<br> 认证列表：ansible会将连接成功的主机列表信息，记录到ssh的认证列表<span class="hljs-string">&quot;.ssh/known_hosts&quot;</span>中<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">[<span class="hljs-type">root</span>@<span class="hljs-type">ubuntu13</span> ~]<span class="hljs-comment"># ansible 10.0.0.13 -a &quot;ls /root&quot;</span><br>Enter passphrase <span class="hljs-keyword">for</span> key <span class="hljs-string">&#x27;/root/.ssh/id_ed25519&#x27;</span>:<br>[<span class="hljs-type">WARNING</span>]: Platform linux on host <span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span> is <span class="hljs-keyword">using</span> the discovered Python interpreter at /usr/bin/python3.12, but<br>future installation of another Python interpreter could change the meaning of that path. See<br>https://docs.ansible.com/ansible<span class="hljs-literal">-core</span>/<span class="hljs-number">2.17</span>/reference_appendices/interpreter_discovery.html <span class="hljs-keyword">for</span> more information.<br><span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span> | CHANGED | rc=<span class="hljs-number">0</span> &gt;&gt;<br><span class="hljs-number">1</span>.sh<br>  这个警告信息来自 Ansible，它指出在目标主机（IP 地址为 <span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span>）上，Ansible 使用的是<br>位于 /usr/bin/python3.<span class="hljs-number">12</span> 的 Python 解释器。然而，警告中提到未来如果安装了另一个 Python 解<br>释器，这个路径的含义可能会改变，这可能会导致 Ansible 脚本执行时出现问题。<br>为了解决这个问题，我们可以采取指定 Python 解释器路径 的方法来解决<br>把之前的主机改成:<br><span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span> ansible_python_interpreter=/usr/bin/python3.<span class="hljs-number">12</span><br>[<span class="hljs-type">ansible_server</span>]<br><span class="hljs-number">10.0</span>.<span class="hljs-number">0.13</span> ansible_python_interpreter=/usr/bin/python3.<span class="hljs-number">12</span><br>    <br></code></pre></td></tr></table></figure>
+
+<h2 id="13-目标主机匹配"><a href="#13-目标主机匹配" class="headerlink" title="13.目标主机匹配"></a><strong>13.<strong>目标主机匹配</strong></strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">匹配规则;<br>  对于目标的匹配规则来说，他们的获取方式和表现样式主要有这么几种：<br>    匹配所有：all<br>    正则匹配：*(通配符)<br>    逻辑或：:(并集)，一般用于主机组<br>    逻辑与：:&amp;(交集)，一般用于主机组<br>    逻辑非：:!(补集)，一般用于主机组  <br></code></pre></td></tr></table></figure>
+
+<h2 id="14-命令执行流程"><a href="#14-命令执行流程" class="headerlink" title="14.命令执行流程"></a>14.命令执行流程</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">命令执行过程:<br>  <span class="hljs-number">1</span>. 加载ansible配置文件 <br>    默认加载的是 /etc/ansible/ansible.cfg <br>  <span class="hljs-number">2</span>. 加载指定模块：command<br>  <span class="hljs-number">3</span>. 获取目标主机，与主机列表进行匹配认证    /etc/ansible/hosts<br>  <span class="hljs-number">4</span>. ansible指挥目标主机执行命令<br>    <span class="hljs-number">4.1</span> 控制端生成临时执行文件        ~/.ansible/<span class="hljs-built_in">cp</span><br>    <span class="hljs-number">4.2</span> 通过连接插件，与目标主机建立连接     paramiko_ssh<br>    <span class="hljs-number">4.3</span> 通过插件功能将控制端的临时执行文件传输至目标主机的临时目录     ~/.ansible/tmp<br>      <span class="hljs-variable">$HOME</span>/.ansible/tmp/ansible<span class="hljs-literal">-tmp-</span>数字/XXX.PY文件<br>    <span class="hljs-number">4.4</span> 指挥目标主机给临时执行文件添加执行权限<br>    <span class="hljs-number">4.5</span> 目标主机执行临时文件并将结果返回给控制主机<br>    <span class="hljs-number">4.6</span> 目标主机删除临时执行py文件，然后断开连接<br>  <span class="hljs-number">5</span>. ansible控制端显示结果，并退出。  <br></code></pre></td></tr></table></figure>
+
+<h1 id="日常命令操作模块"><a href="#日常命令操作模块" class="headerlink" title="日常命令操作模块"></a><strong>日常命令操作模块</strong></h1><h2 id="command模块"><a href="#command模块" class="headerlink" title="command模块"></a><strong>command</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs powershell">command： ansible的默认模块，可以运行远程权限所有的shell命令<br>命令格式:<br>  Command模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> command <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;可执行命令&#x27;</span><br>  注意：<br>    由于ansible的默认模块就是command，所以远程执行命令的时候，一般会忽略<span class="hljs-literal">-m</span>选项，效果如下：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;可执行命令&#x27;</span><br>    可执行命令，就是我们平常在命令行输入的一些执行成功的命令,但是不允许是别名<br>    command不支持<span class="hljs-string">&quot;可执行命令&quot;</span>中的自定义变量和特殊符号(&lt; &gt; | ;&amp;等) <br>    <br>argv:           <span class="hljs-comment"># 以列表或者字符串格式输入命令</span><br><span class="hljs-built_in">chdir</span>:             <span class="hljs-comment"># 执行命令前，先切换工作路径.</span><br>creates:         <span class="hljs-comment"># 依赖存在对象的命令，若被创建的对象已存在，则不执行该命令</span><br>free_form:     <span class="hljs-comment"># 以自由格式输入参数，这是一个强制的选项</span><br>removes:            <span class="hljs-comment"># 依赖移除对象的命令，若被移除的对象存在，则执行该命令</span><br>stdin:           <span class="hljs-comment"># 设定标准输入作为参数.</span><br>warn:             <span class="hljs-comment"># 警告信息，需要ansible的配置文件的 command_warnings的属性值是yes.</span><br>command默认情况下，可执行命令中不允许出现命令别名 和管道符等特殊服务号<br>对于系统默认的环境变量，ansible可以正常执行，但是涉及到一些自定义变量和特殊符号就不行了<br></code></pre></td></tr></table></figure>
+
+<h2 id="shell模块"><a href="#shell模块" class="headerlink" title="shell模块"></a>shell模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">shell：command对于某些特殊的符号命令执行效果不好，专用的shell模块可以满足要求<br><br><span class="hljs-built_in">chdir</span>:               <span class="hljs-comment"># 同command</span><br>creates:               <span class="hljs-comment"># 同command</span><br>executable:           <span class="hljs-comment"># 设置执行命令的shell类型</span><br>free_form:             <span class="hljs-comment"># 同command</span><br>removes:               <span class="hljs-comment"># 同command</span><br>stdin:                 <span class="hljs-comment"># 同command</span><br>warn:                 <span class="hljs-comment"># 同command</span><br>命令格式<br>  Shell模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> shell <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;可执行命令&#x27;</span><br>  注意：<br>    可执行命令，就是我们平常在命令行输入的一些执行成功的命令<br>    shell支持<span class="hljs-string">&quot;可执行命令&quot;</span>中的所有效果<br>    shell在远程执行脚本的时候，必须远程主机存在，否则的话会报错<br>    <br></code></pre></td></tr></table></figure>
+
+<h2 id="scripts模块"><a href="#scripts模块" class="headerlink" title="scripts模块"></a>scripts模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">scripts：批量的系统命令可以写成一个脚本文件，然后基于scripts的方式来运行，类似scp+shell的功能。<br>        专门用于执行复杂脚本场景的功能模块<br>命令格式<br>script模块在ansible使用的时候，标准的写法是：<br>ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> script <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;可执行命令&#x27;</span><br>注意：<br> script就是不但可以执行目标主机上的脚本文件，而且还能执行目标主机不存在的控制端特有的脚本文件<br>  对于控制端的脚本文件执行的时候，必须使用executable<br>  此模块不具有幂等性<br>  <br>  命令执行成功的标志 CHANGED <br>  标准的输出信息在 stdout_lines      <br></code></pre></td></tr></table></figure>
+
+<h1 id="系统管理模块"><a href="#系统管理模块" class="headerlink" title="系统管理模块"></a><strong>系统管理模块</strong></h1><h2 id="hostname模块"><a href="#hostname模块" class="headerlink" title="hostname模块"></a>hostname模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">该模块可以获取主机名相关的信息<br>hostname模块在ansible使用的时候，标准的写法是：<br>ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> hostname <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;name=主机名&#x27;</span><br>注意：<br> 主机名的设置一定要规范<br> 这种方式更改的主机名，是立刻生效而且是永久生效的<br></code></pre></td></tr></table></figure>
+
+<h2 id="user模块"><a href="#user模块" class="headerlink" title="user模块"></a><strong>user</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">user模块，主要是用于对远程主机的用户进行干预操作<br>常见属性<br>    comment:               <span class="hljs-comment"># 用户的描述信息.</span><br>    <span class="hljs-built_in">group</span>:                 <span class="hljs-comment"># 设定用户的主组信息</span><br>    home:                 <span class="hljs-comment"># 设置用户家目录.</span><br>    password:             <span class="hljs-comment"># 设置登录密码</span><br>    shell:                 <span class="hljs-comment"># 设定用户的专用shell类型</span><br>    state:                 <span class="hljs-comment"># 设定用户的存活状态</span><br>    system:               <span class="hljs-comment"># 设定用户是否为系统用户</span><br>    uid:                   <span class="hljs-comment"># 设定用户uid</span><br>    remove <span class="hljs-comment"># 设定删除用户及家目录等数据,默认remove=no，推荐用yes</span><br>命令格式<br>  hostname模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> user <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>  注意：<br>    用户名的设置一定要提前做好规划<br>    在工作中，uid的值一定要提前做好规划，而且必须唯一。  <br></code></pre></td></tr></table></figure>
+
+<h2 id="group模块"><a href="#group模块" class="headerlink" title="group模块"></a><strong>group</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">该模块应用于用户组的管理<br>命令格式<br>  <span class="hljs-built_in">group</span>模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> <span class="hljs-built_in">group</span> <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>    注意：<br>    主机名的设置一定要规范，gid一定要唯一。  <br></code></pre></td></tr></table></figure>
+
+<h4 id="getent命令可以用来察看系统的数据库中的相关记录-经常使用getent查看用户账号"><a href="#getent命令可以用来察看系统的数据库中的相关记录-经常使用getent查看用户账号" class="headerlink" title="getent命令可以用来察看系统的数据库中的相关记录 经常使用getent查看用户账号"></a>getent命令可以用来察看系统的数据库中的相关记录 经常使用getent查看用户账号</h4><h2 id="cron模块"><a href="#cron模块" class="headerlink" title="cron模块"></a><strong>cron</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs powershell">cron模块主要做一些，类似于周期性任务相关的任务执行动作<br>常见属性<br>      day:               <span class="hljs-comment"># 设定天效果 ( 1-31, *, */2, etc )</span><br>      disabled:         <span class="hljs-comment"># 结合`state=present&#x27;实现禁用定时任务.</span><br>      hour:             <span class="hljs-comment">#设定时效果 ( 0-23, *, */2, etc )</span><br>      job:               <span class="hljs-comment"># 如果是env，内容是变量，如果是state=present，内容是定时任务.</span><br>      minute:           <span class="hljs-comment"># 设定分钟效果 ( 0-59, *, */2, etc )</span><br>      month:             <span class="hljs-comment"># 设定月效果 ( 1-12, *, */2, etc )</span><br>      name:               <span class="hljs-comment"># 如果有 env，则是变量名，如果有state=present则是定时任务名.</span><br>      weekday:           <span class="hljs-comment"># 周表示样式 ( 0-6 for Sunday-Saturday, *, etc )</span><br>注意：<br> 上面是常用的属性<br> name和job最好作为强制选项<br> <br> 命令格式<br>   cron模块在ansible使用的时候，标准的写法是：<br>   ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> cron <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>注意：<br>   job的命令一定要规范，最好使用绝对路径。<br>   state=absent 表示删除<br>   disabled=yes|no|true|false 表示禁用或启用  <br></code></pre></td></tr></table></figure>
+
+<h1 id="setup模块"><a href="#setup模块" class="headerlink" title="setup模块"></a><strong>setup</strong>模块</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">setup 主要是用来收集目标主机的属性信息的<br>常用参数<br>      fact_path:             <span class="hljs-comment"># 设定facts的文件路径</span><br>      <span class="hljs-keyword">filter</span>:               <span class="hljs-comment"># 指定过滤格式，可以正则形式.</span><br>注意：<br>  常用的属性，也就上面标红的两个。<br>  setup这个模块是通过调用ansible的facts组件来获取主机是所有属性信息的<br>命令格式<br>  setup模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> setup <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>注意：<br>  不加 <span class="hljs-literal">-a</span>的话，表示获取目标主机的所有属性信息<br>  过滤信息的规则一定要合理的设计。<br>  这个功能很重要，尤其是后期自动化管理的时候  <br></code></pre></td></tr></table></figure>
+
+<h2 id="selinux模块"><a href="#selinux模块" class="headerlink" title="selinux模块"></a><strong>selinux</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">selinux 模块用作对远程主机的 selinux 机制进行管理<br>常见参数<br>  configfile=/path/file <span class="hljs-comment">#selinux 配置文件路径，默认/etc/selinux/config</span><br>  policy=targeted|minimum|mls <span class="hljs-comment">#在state值不为 disabled 时必选</span><br>  state=disabled|enforcing|permissive <span class="hljs-comment">#具体设置</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="mount模块"><a href="#mount模块" class="headerlink" title="mount模块"></a><strong>mount</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">mount</span> 模块用于管理远程主机的挂载<br>常见参数<br>  src=/path/device <span class="hljs-comment">#要挂载的设备路径，可以是网络地址</span><br>  path=/path/point <span class="hljs-comment">#挂载点</span><br>  state=absent|mounted|present|unmounted|remounted  <span class="hljs-comment"># absent 取消挂载,并删除永久挂载中的配置</span><br>                   <span class="hljs-comment"># mounted 永久挂载,立即生效，挂载点不存在会自动创建</span><br>                   <span class="hljs-comment"># present 永久挂载，写配置文件，但不会立即生效</span><br>                   <span class="hljs-comment"># unmounted 临时取消挂载，不改变配置文件</span><br>                   <span class="hljs-comment"># remounted 重新挂载，但不会改变配置文件</span><br>  fstab=/path/file <span class="hljs-comment">#指定挂载配置文件路径，默认 /etc/fstab</span><br>  fstype=str <span class="hljs-comment">#设备文件系统 xfs|ext4|swap|iso9660...</span><br>  opts=str <span class="hljs-comment">#挂载选项</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="sysctl模块"><a href="#sysctl模块" class="headerlink" title="sysctl模块"></a><strong>sysctl</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">sysctl 模块用来修改远程主机上的内核参数<br>常见参数<br>  name=str <span class="hljs-comment">#参数名称</span><br>  val=str <span class="hljs-comment">#参数值</span><br>  reload=yes|no <span class="hljs-comment">#默认yes，调用 /sbin/sysctl -p 生效</span><br>  state=present|absent <span class="hljs-comment">#是否保存到文件，默认present</span><br>  sysctl_file=/path/file <span class="hljs-comment">#指定保存文件路径，默认 /etc/sysctl.conf</span><br>  sysctl_set=yes|no <span class="hljs-comment">#是否使用systctl -w 校验，默认no  </span><br></code></pre></td></tr></table></figure>
+
+<h1 id="文件管理模块"><a href="#文件管理模块" class="headerlink" title="文件管理模块"></a><strong>文件管理模块</strong></h1><h2 id="copy模块"><a href="#copy模块" class="headerlink" title="copy模块"></a><strong>copy</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">copy</span>模块主要涉及到文件的拷贝动作<br>常见参数<br>   backup:             <span class="hljs-comment"># 创建一个包含时间戳信息的备份文件</span><br>   dest:               <span class="hljs-comment"># 设置目标的路径(强制选项)，格式与src一致</span><br>   <span class="hljs-built_in">group</span>:             <span class="hljs-comment"># 设定文件属组信息.</span><br>   mode:             <span class="hljs-comment"># 设定文件属性信息.</span><br>   owner:             <span class="hljs-comment"># 设定文件属主信息.</span><br>   src:               <span class="hljs-comment"># 源文件的路径，平常使用的话，推荐使用相对路径，敏感文件推荐用绝对路径</span><br> <br>注意：<br> 常用的属性，也就上面标红的六个。<br> 备份的时候，使用默认的时间戳效果。<br> 如果源文件是目录的话，则必须携带/后缀<br> <br>命令格式<br>  <span class="hljs-built_in">copy</span>模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> <span class="hljs-built_in">copy</span> <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>注意：<br>    src源文件路径和dest目标文件的路径，最好格式一致<br></code></pre></td></tr></table></figure>
+
+<h2 id="fetch模块"><a href="#fetch模块" class="headerlink" title="fetch模块"></a><strong>fetch</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell">该模块的作用于<span class="hljs-built_in">copy</span>的作用正好相反，它是从远程主机拉取文件到本地目录<br>常见参数<br>      dest:                 <span class="hljs-comment"># 设定目标文件的地址(强制选项)</span><br>      flat:                 <span class="hljs-comment"># 允许拼接方式创建文件名</span><br>      src:                   <span class="hljs-comment"># 设定源文件的地址(强制选项)</span><br>注意：<br>   常用的属性，也就上面标红的三个。<br>   源文件和目标文件的格式最好一致。<br>   src 当前的版本，只支持抓取远程的单个文件<br>   dest 支持只能是本机的目录，抓取后的格式： <span class="hljs-string">&quot;/dest/&quot;</span> + <span class="hljs-string">&quot;目标主机/path/to/src&quot;</span><br>命令格式<br>  fetch模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> fetch <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h2 id="file模块"><a href="#file模块" class="headerlink" title="file模块"></a><strong>file</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell">file模块，用于管理远程主机的文件，操作远程文件的各种动作<br>常见参数<br>  mode:                 <span class="hljs-comment"># 设定文件权限属性.</span><br>  owner:                 <span class="hljs-comment"># 设定文件属主.</span><br>  path:                 <span class="hljs-comment"># 指定文件的路径(强制选项).之前版本可以用name和dest来代替</span><br>  src:                   <span class="hljs-comment"># 指定文件的源路径.</span><br>  state:                 <span class="hljs-comment"># 设定文件的状态，directory、file、absent、touch、link</span><br>命令格式<br>  file模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> file <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br> <br>注意：<br> 在创建相关文件的话，如果涉及到父目录，必须确保父目录存在，否则会失败  <br></code></pre></td></tr></table></figure>
+
+<h2 id="stat模块"><a href="#stat模块" class="headerlink" title="stat模块"></a><strong>stat</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">stat模块主要作用的场景是 文件状态查看等<br>常见参数<br>   path:                 <span class="hljs-comment"># 获取文件的路径，强制选项</span><br>命令格式<br>   stat模块在ansible使用的时候，标准的写法是：<br>   ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> stat <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;path=文件路径 属性1=值1 ... 属性n=值n&#x27;</span><br>注意：<br>   文件的路径一定要正确。  <br></code></pre></td></tr></table></figure>
+
+<h1 id="压缩包模块"><a href="#压缩包模块" class="headerlink" title="压缩包模块"></a><strong>压缩包模块</strong></h1><h2 id="Get-url模块"><a href="#Get-url模块" class="headerlink" title="Get_url模块"></a><strong>Get_url</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">用于将文件从http、https或ftp下载到被管理机节点上<br>常见参数：<br>   url: 下载文件的URL,支持HTTP，HTTPS或FTP协议<br>   dest: 下载到目标路径（绝对路径）<br>   force: 如果yes，dest不是目录，将每次下载文件，如果内容改变，替换文件，否则只有文件不存在时才下载<br>   checksum:  对目标文件在下载前进行摘要计算，只有文件内容正确，才会进行文件下载<br>命令格式<br>   get_url模块在ansible使用的时候，标准的写法是：<br>   ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> get_url <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;url=文件的http路径 属性1=值1 ... 属性n=值n&#x27;</span><br>注意：<br>   文件的url路径一定要正确。  <br></code></pre></td></tr></table></figure>
+
+<h2 id="archive模块"><a href="#archive模块" class="headerlink" title="archive模块"></a><strong>archive</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">archive模块，用于打包压缩保存在被管理节点<br>命令格式<br>  archive模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> archive <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h2 id="unarchive模块"><a href="#unarchive模块" class="headerlink" title="unarchive模块"></a><strong>unarchive</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">unarchive模块主要用于压缩包的解压功能<br>常见参数<br>   <span class="hljs-built_in">copy</span>：默认为yes，<br>         当<span class="hljs-built_in">copy</span>=yes，拷贝的文件是从ansible主机复制到远程主机上，<br>         如果设置为<span class="hljs-built_in">copy</span>=no，会在远程主机上寻找src源文件<br>   remote_src：和<span class="hljs-built_in">copy</span>功能一样且互斥，yes表示在远程主机，不在ansible主机，no表示文件在ansible主机上<br>   src：源路径，可以是ansible主机上或远程主机上的路径，如果是远程主机上的路径，则需要设置<span class="hljs-built_in">copy</span>=no<br>   dest：远程主机上的目标路径<br>   mode：设置解压缩后的文件权限<br>注意：<br>   有时候，会因为ansible版本的问题，导致无法远程解压，可以通过 <span class="hljs-built_in">copy</span> + shell方式来解决<br>命令格式<br>  unarchive模块在ansible使用的时候，标准的写法是：<br>     ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> unarchive <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h1 id="编辑模块"><a href="#编辑模块" class="headerlink" title="编辑模块"></a><strong>编辑模块</strong></h1><h2 id="Lineinfile模块"><a href="#Lineinfile模块" class="headerlink" title="Lineinfile模块"></a><strong>Lineinfile</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">   ansible在使用sed进行替换时，经常会遇到需要转义的问题，而且ansible在遇到特殊符号进行替换时，存在问题，无法正常进行替换 。其实在ansible自身提供了两个模块：lineinfile模块和replace模块，可以方便的进行替换<br>   一般在ansible当中去修改某个文件的单行进行替换的时候需要使用lineinfile模块<br>重要选项 <br>   regexp参数：使用正则表达式匹配对应的行，当替换文本时，如果有多行文本都能被匹配，则只有最后面被匹配到的那行文本才会被替换，当删除文本时，如果有多行文本都能被匹配，这么这些行都会被删除。<br>   如果想进行多行匹配进行替换需要使用replace模块<br>命令格式<br>  lineinfile模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> lineinfile <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h2 id="Replace模块"><a href="#Replace模块" class="headerlink" title="Replace模块"></a><strong>Replace</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Replace模块相较于lineinfile模块来说，更倾向于sed命令的操作，尤其是多行匹配进行替换操作<br>命令格式<br>  replace模块在ansible使用的时候，标准的写法是：<br>    ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> replace <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h1 id="软件模块"><a href="#软件模块" class="headerlink" title="软件模块"></a><strong>软件模块</strong></h1><h2 id="apt模块"><a href="#apt模块" class="headerlink" title="apt模块"></a><strong>apt</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs powershell">yum模块和apt模块分别用于 centos|redhat 和 ubuntu|debian 系统下的软件安装<br>  这两个模块的核心选项基本上都是一样的，常见的选项有<br>    name:                 <span class="hljs-comment"># 指定安装软件.</span><br>    state:                 <span class="hljs-comment"># 软件状态：安装(present|installed)</span><br>                           <span class="hljs-comment"># 移除(absent|removed)</span><br>                           <span class="hljs-comment"># 升级到最新版本latest</span><br>                           <span class="hljs-comment"># build-dep 安装依赖包</span><br>                           <span class="hljs-comment"># fix 修复</span><br> 注意：<br> 安装多个包，将包名之间使用逗号隔开即可<br> 特殊语法：所有包都升级到最新版本<br> ansible <span class="hljs-number">10.0</span>.<span class="hljs-number">0.16</span> <span class="hljs-literal">-m</span> apt <span class="hljs-literal">-a</span> <span class="hljs-string">&quot;name=* state=latest&quot;</span><br> 其他选项<br>   autoclean=yes|no <span class="hljs-comment">#清除本地安装包，只删除己卸载的软件的 deb包</span><br>   deb=/path/file.deb <span class="hljs-comment">#指定deb包，可以是本地的，也可以是网络的</span><br>   autoremove=yes|no <span class="hljs-comment">#卸载依赖包,默认no</span><br>   only_upgrade=yes|no <span class="hljs-comment">#仅更新，不安装</span><br>   update_cache=yes|no <span class="hljs-comment">#更新索引</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="apt-repository模块1"><a href="#apt-repository模块1" class="headerlink" title="apt_repository模块1"></a><strong>apt_repository</strong>模块1</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">这个模块，主要用于配置远程客户端主机上的软件源信息的<br>选项解读<br>  repo=str <span class="hljs-comment">#具体源</span><br>  filename=/path/file <span class="hljs-comment">#具体文件名，默认加到 /etc/apt/sources.list 中</span><br>  state=absent|present <span class="hljs-comment">#absent 删除,present 新增，默认 present</span><br>  update_cache=yes|no <span class="hljs-comment">#yes 更新源，相当于执行 apt-get update  </span><br></code></pre></td></tr></table></figure>
+
+<h2 id="yum模块"><a href="#yum模块" class="headerlink" title="yum模块"></a><strong>yum</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs powershell">命令格式<br>  yum|apt模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> yum|apt <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span><br> <br>注意：<br>   在安装本地包的时候，使用的是name属性，而且目标主机的本地必须有相应的包<br>   在安装本地包的时候，有时候可能会因为软件依赖的问题，我们可以基于disable_gpg_check=yes来忽略<br> 常见选项<br>   name=packagename <span class="hljs-comment">#指定包名 name1,name2</span><br>   state=absent|installed|latest|present|removed <span class="hljs-comment">#absent|removed 删除,installed|present 安装,latest 升级到最新版</span><br>    list=packagename|installed|updates|available|repos <span class="hljs-comment">#此选项与name选项互斥，</span><br>                               <span class="hljs-comment">#写具体包名是相当于执行 yum list --showduplicates packagename</span><br>    download_dir=/path <span class="hljs-comment">#指定下载目录</span><br>    download_only=yes|no <span class="hljs-comment">#只下载不安装，默认 no</span><br>    update_only=yes|no <span class="hljs-comment">#yes 仅更新,默认no</span><br>    use_backend=auto|yum|yum4|dnf <span class="hljs-comment">#指定真实执行的命令,默认 auto</span><br>    autoremove=yes|no <span class="hljs-comment">#卸载依赖，仅在卸载时生效，默认no</span><br>    disablerepo=repoid <span class="hljs-comment">#排除某些仓库 repoid1,repoid2</span><br>    enablerepo=repoid <span class="hljs-comment">#从指定仓库中安装 repoid1,repoid2</span><br>    validate_certs=yes|no <span class="hljs-comment">#是否对包进行校验，默认yes</span><br>    disable_gpg_check=yes|no <span class="hljs-comment">#是否不对包进行校验，默认no</span><br>    update_only=yes|no <span class="hljs-comment">#只更新不安装,默认no </span><br>    注意：yum 模块本身没有直接的选项来刷新缓存，但你可以通过执行 yum clean all 和 yum makecache 命令来达到这一目的。<br></code></pre></td></tr></table></figure>
+
+<h2 id="yum-repository模块"><a href="#yum-repository模块" class="headerlink" title="yum_repository模块"></a><strong>yum_repository</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">此模块用来对远程主机上的 yum 仓库配置进行管理<br>常见选项<br>name=repoid <span class="hljs-comment">#repoid</span><br>description=desc <span class="hljs-comment">#描述信息</span><br>baseurl=url <span class="hljs-comment">#仓库地址</span><br>enabled=yes|no <span class="hljs-comment">#是否启用</span><br>gpgcheck=yes|no <span class="hljs-comment">#是否启用gpgcheck，没有默认值，默认跟随 /etc/yum.conf 中的全局配置</span><br>gpgkey=/path/key <span class="hljs-comment">#gpgkey路径</span><br>state=absent|present <span class="hljs-comment">#absent删除， present安装，默认present</span><br>timeout=<span class="hljs-number">30</span> <span class="hljs-comment">#超时时长，默认30s</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="service模块"><a href="#service模块" class="headerlink" title="service模块"></a><strong>service</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">service模块的作用就是操作应用服务的<br>主要选项<br>    enabled:               <span class="hljs-comment"># 设置开机自启动</span><br>    name:                 <span class="hljs-comment"># 服务名称(强制选项).</span><br>    state:                 <span class="hljs-comment"># 设置服务的状态started|stopped|restarted|reloaded</span><br>命令格式<br>  service模块在ansible使用的时候，标准的写法是：<br>  ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> service <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 ... 属性n=值n&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h1 id="信息模块"><a href="#信息模块" class="headerlink" title="信息模块"></a><strong>信息模块</strong></h1><h2 id="Setup模块"><a href="#Setup模块" class="headerlink" title="Setup模块"></a><strong>Setup</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">setup 模块来收集主机的系统信息，这些 facts 信息可以直接以变量的形式使用<br>重要选项<br>    fact_path:             <span class="hljs-comment"># 设定facts的文件路径</span><br>    <span class="hljs-keyword">filter</span>:               <span class="hljs-comment"># 指定过滤格式，可以正则形式.</span><br>注意<br>   setup这个模块是通过调用ansible的facts组件来获取主机是所有属性信息的<br>   如果主机较多，会影响执行速度，可以使用`gather_facts: no` 来禁止 Ansible 收集 facts 信息<br> 命令格式<br>   setup模块在ansible使用的时候，标准的写法是：<br>          ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> setup <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;属性1=值1 属性2=值2 ... 属性n=值n&#x27;</span><br>注意：<br> 不加 <span class="hljs-literal">-a</span>的话，表示获取目标主机的所有属性信息<br> 过滤信息的规则一定要合理的设计。<br> 这个功能很重要，尤其是后期自动化管理的时候      <br></code></pre></td></tr></table></figure>
+
+<h2 id="debug模块"><a href="#debug模块" class="headerlink" title="debug模块"></a><strong>debug</strong>模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">debug模块的功能主要是我们调试环境时候，用到的一个模块，帮助我们获取一些更详细的信息<br>重要选项<br>    msg:                   <span class="hljs-comment"># 打印自定义消息</span><br>    var:                   <span class="hljs-comment"># 调试变量名称，与msg互斥</span><br>    verbosity:             <span class="hljs-comment"># 显示更详细信息</span><br>注意：<br> 这个功能在命令行模式下作用不大，但是在高级playbook方法中使用的场景作用很大。<br> 命令格式<br> debug模块在ansible使用的时候，标准的写法是：<br>     ansible &lt;目标主机&gt; <span class="hljs-literal">-m</span> debug <span class="hljs-literal">-a</span> <span class="hljs-string">&#x27;name=主机名&#x27;</span>  <br></code></pre></td></tr></table></figure>
+
+<h1 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a><strong>相关命令</strong></h1><h2 id="ansible-console"><a href="#ansible-console" class="headerlink" title="ansible-console"></a><strong>ansible-console</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ansible<span class="hljs-literal">-console</span>是让我们以可交互终端形式执行命令，我们可以直接输入该条命令就直接进入到可操作终端.<br>命令简介<br>  console提供了一些常见的应用命令，效果如下：<br>    设置并发数：forks n 例如：forks <span class="hljs-number">10</span><br>    切换主机组：<span class="hljs-built_in">cd</span> group_name 例如：<span class="hljs-built_in">cd</span> web<br>    列出当前组主机列表：list<br>    列出所有的内置命令：?或help<br>    退出：<span class="hljs-keyword">exit</span> <br></code></pre></td></tr></table></figure>
+
+<h2 id="ansible-playbook"><a href="#ansible-playbook" class="headerlink" title="ansible-playbook"></a><strong>ansible-playbook</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ansible<span class="hljs-literal">-playbook</span>命令是我们接触ansible的一个高级命令，而且使用频率仅次于ansible命令，工作中的很多高级动作的操作，都是通过ansible<span class="hljs-literal">-playbook</span>命令完成的，ansible<span class="hljs-literal">-playbook</span>操作的对象其实是一个yaml文件，这个文件中定义好了我们想要做的一切事情，ansible<span class="hljs-literal">-playbook</span> 执行 yaml 文件就相当于自动化的执行了大量的ansible命令。<br>常见的重要参数<br>     Options: <span class="hljs-comment"># 基本参数</span><br>       <span class="hljs-literal">-C</span>, <span class="hljs-literal">--check</span>         <span class="hljs-comment"># 检查文件执行效果，可以理解为语法检查</span><br>       <span class="hljs-literal">-l</span> SUBSET, <span class="hljs-literal">--limit</span>=SUBSET <span class="hljs-comment"># 限制目标主机</span><br>       <span class="hljs-literal">--list-hosts</span>         <span class="hljs-comment"># 列出可用主机</span><br>       <span class="hljs-literal">--list-tags</span>           <span class="hljs-comment"># 列出可用标签</span><br>       <span class="hljs-literal">--list-tasks</span>         <span class="hljs-comment"># 列出所有任务</span><br>       <span class="hljs-literal">--step</span>               <span class="hljs-comment"># 设定任务执行步骤，一步一步的执行，用于调试场景</span><br>       <span class="hljs-literal">--syntax-check</span> <span class="hljs-comment"># 语法检查</span><br>       <span class="hljs-literal">-t</span> TAGS, <span class="hljs-literal">--tags</span>=TAGS <span class="hljs-comment"># 设定标签</span><br>       Connection Options: <span class="hljs-comment"># 连接参数</span><br>       <span class="hljs-literal">-k</span>, <span class="hljs-literal">--ask-pass</span>     <span class="hljs-comment"># 设定连接密码</span><br>   <br>       Privilege Escalation Options: <span class="hljs-comment"># 提权选项</span><br>       <span class="hljs-literal">-b</span>, <span class="hljs-literal">--become</span>       <span class="hljs-comment"># 切换角色权限</span><br>       <span class="hljs-literal">-K</span>, <span class="hljs-literal">--ask-become-pass</span> <span class="hljs-comment"># 提权用户密码</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="ansible-vault"><a href="#ansible-vault" class="headerlink" title="ansible-vault"></a><strong>ansible-vault</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">yaml文件中有很多敏感的信息，不想丢失安全<br>生产中的某些敏感信息才会使用这种方式。<br>ansible<span class="hljs-literal">-vault</span> 命令的作用就是采用安全加密的方式来操作相关文件。<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="ansible-galaxy"><a href="#ansible-galaxy" class="headerlink" title="ansible-galaxy"></a><strong>ansible-galaxy</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">这个命令主要是罗列ansible的第三方共享资源的专用命令，它给我们提供了非常多的模板信息<br>常见的操作命令<br>    delete 删除 import 导入 info 查看信息 init 本地初始化 install 安装<br>    list 罗列 login 登录 remove 移除 search 搜索 setup 启动<br>命令格式<br>  列出所有已安装的galaxy 功能角色<br>    ansible<span class="hljs-literal">-galaxy</span> list &lt;username.role_name&gt;<br> 注意：<br> 如果不加username.role_name表示列出所有，如果指定表示只看指定的内容 <br>  <br>  下载 galaxy 功能角色<br>    ansible<span class="hljs-literal">-galaxy</span> install username.role_name<br> 注意：<br> 他会自动从互联网上下载我们想要的内容，包含大量yaml格式的文件<br> 下载的内容在 <span class="hljs-string">&quot;/etc/ansible/roles/功能角色名&quot;</span> 路径下，<br> 原因在于ansible的配置文件中的<span class="hljs-string">&quot;roles_path&quot;</span>属性决定的<br></code></pre></td></tr></table></figure>
+
+<h1 id="Playbook"><a href="#Playbook" class="headerlink" title="Playbook"></a><strong>Playbook</strong></h1><h2 id="playbook基础"><a href="#playbook基础" class="headerlink" title="playbook基础"></a><strong>playbook</strong>基础</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">playbook 其实就是一个自动化执行ansible命令的方式<br><br>playbook 是有一个一个的任务组合而成<br>playbook 中的指令都是基于ansible的命令演变过来的<br>playbook 的专用执行命令是 ansible<span class="hljs-literal">-playbook</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\lx1me\AppData\Roaming\Typora\typora-user-images\image-20250301174321436.png" srcset="/img/loading.gif" lazyload alt="image-20250301174321436"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ansible在执行playbook的时候，执行效果具有幂等性(即一个命令执行多次与执行一次效果一样)<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="YAML基础"><a href="#YAML基础" class="headerlink" title="YAML基础"></a><strong>YAML</strong>基础</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">YAML特点<br>  YAML由于是一种特殊的描述性语言，所以它<br>   可读性较好、表达能力强、扩展性好，易于实现<br>  YAML整合了多种语言的优势,所以它<br>   具有通用数据类型、执行方式好、与脚本语言的交互性好  <br></code></pre></td></tr></table></figure>
+
+<h2 id="三种常见的数据格式"><a href="#三种常见的数据格式" class="headerlink" title="三种常见的数据格式"></a><strong>三种常见的数据格式</strong></h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">XML (eXtensible Markup Language)<br>  XML 是一种标记语言，旨在传输和存储数据。主要用于数据交换和配置<br>JSON (JavaScript Object Notation)<br>  JSON 是一种轻量级的数据交换格式，易于人阅读和编写，同时也易于机器解析和生成。主要用来数据交换和配置，不支持注释。<br>YAML (YAML Ain<span class="hljs-string">&#x27;t Markup Language)</span><br><span class="hljs-string">  YAML 是一种人类可读的数据序列化标准，广泛用于配置文件和数据交换。YAML 的目标是简洁、易读，并且具有一致性。主要用来配置，大小写敏感，不支持tab。</span><br><span class="hljs-string"></span><br><span class="hljs-string">数据格式特点</span><br><span class="hljs-string">  大小写敏感</span><br><span class="hljs-string">  使用缩进表示层级关系</span><br><span class="hljs-string">  缩进时不允许使用Tab键，只允许使用空格。</span><br><span class="hljs-string">  缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</span><br><span class="hljs-string">    # 表示注释，从这个字符一直到行尾，都会被解析器忽略</span><br><span class="hljs-string">  文件内容分隔符&quot;---&quot;</span><br><span class="hljs-string">    简单来说，多个文件合并在一个文件中的的分隔符号，这属于yaml语法的问题，</span><br><span class="hljs-string">    但可能因为ansible的插件原因，不推荐将多个ansible playbook写到一个yaml文件中  </span><br><span class="hljs-string">  </span><br></code></pre></td></tr></table></figure>
+
+<h2 id="基本样式一：YAML-Maps"><a href="#基本样式一：YAML-Maps" class="headerlink" title="基本样式一：YAML Maps"></a>基本样式一：YAML Maps</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs powershell">它其实就是一个键值对，键和值中间使用<span class="hljs-string">&quot;冒号+空格&quot;</span>隔开。<br>        格式：<br>            键: 值<br>        示例：<br>            app: mysql<br>这种基本样式，还有一种变种形式，就是值的本身就是一个键值对，两层之间使用两个空格表示层级关系<br> 格式：<br>            键:<br>              值-键：值-值<br> 示例：<br>            metadata:<br>              name: mysql<br></code></pre></td></tr></table></figure>
+
+<h2 id="基本样式二：YAML-Lists"><a href="#基本样式二：YAML-Lists" class="headerlink" title="基本样式二：YAML Lists"></a>基本样式二：YAML Lists</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs powershell">其实这也是一种键值对，只不过它的值是一个列表形式。<br>    特点：<br>        <span class="hljs-number">1</span>、键和冒号为一行，值为下一行<br>        <span class="hljs-number">2</span>、键和值有层级关系，使用两个空格表示层级关系<br>        <span class="hljs-number">3</span>、列表多元素之间是同级关系，使用 - 表示<br>格式：<br>        键:<br>          - 值a1<br>            值a2<br>          - 值b1<br>            值b2<br>          ... <br>    示例：<br>        args:<br>         - <span class="hljs-built_in">sleep</span><br>         - <span class="hljs-string">&quot;1000&quot;</span><br>         - message<br>         <br></code></pre></td></tr></table></figure>
+
+<h2 id="playbook常见组件"><a href="#playbook常见组件" class="headerlink" title="playbook常见组件"></a><strong>playbook</strong>常见组件</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell">一个playbook 中由多个组件组成,其中所用到的常见组件类型如下:<br> Hosts   执行的远程主机列表<br> Tasks   任务集,由多个task的元素组成的列表实现,每个task是一个字典<br> Variables 内置变量或自定义变量在playbook中调用<br> Templates  模板，可替换模板文件中的变量并实现一些简单逻辑的文件<br> Handlers  和 notify 结合使用，由特定条件触发的操作，满足条件方才执行，否则不执行<br> tags 标签  指定某条任务执行，用于选择运行playbook中的部分代码。ansible具有幂等性，因此会<br>自动跳过没有变化的部分，即便如此，有些代码为测试其确实没有发生变化的时间依然会非常地长。此时，如果确信其没有变化，就可以通过tags跳过此些代码片断<br><br>个完整的代码块功能需最少元素需包括 name 和 task,一个name只能包括一个task<br></code></pre></td></tr></table></figure>
+
+<h2 id="hosts属性"><a href="#hosts属性" class="headerlink" title="hosts属性"></a><strong>hosts</strong>属性</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell">由于hosts的配置目的与ansible的主机列表文件目的一致，所以他们的编写方法也一样，主要有这么几种表<br>示样式：<br>单个主机：<br>    <span class="hljs-literal">-hosts</span>: <span class="hljs-number">192.168</span>.<span class="hljs-number">8.14</span><br>    <span class="hljs-literal">-hosts</span>: master.ansible.com<br>多个主机<br>    <span class="hljs-literal">-hosts</span>: <span class="hljs-number">192.168</span>.<span class="hljs-number">8</span>.*<br>    <span class="hljs-literal">-hosts</span>: *.ansible.com<br>特定主机<br>    <span class="hljs-literal">-hosts</span>: web:mysql<br>    <span class="hljs-literal">-hosts</span>: web:&amp;mysql<br>    <span class="hljs-literal">-hosts</span>: web:!mysql<br>注意:<br>    如果主机数量过多的话，我们可以通过 serial 属性来限制一次多少台主机来执行任务，从而减轻所有任务执行时候的并行压力。<br> serial: <span class="hljs-string">&quot;20%&quot;</span>   <span class="hljs-comment"># 每次只同时处理20%的主机</span><br> serial: <span class="hljs-string">&quot;2&quot;</span>   <span class="hljs-comment"># 每次只同时处理2台主机</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="remote-user属性"><a href="#remote-user属性" class="headerlink" title="remote_user属性"></a><strong>remote_user</strong>属性</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">指定这些ansible指令以什么样的身份到目标主机执行，这个属性就是remote_user。<br>   用户身份虽然简单，但是它不仅仅涉及到了登录用户，也涉及到了用户在执行命令时候的权限控制，即sudo的方式<br>   remote_user 的作用就类似于ansible命令中 <span class="hljs-string">&quot;-u 登录用户&quot;</span> + <span class="hljs-string">&quot;-k 登录密码&quot;</span> + <span class="hljs-string">&quot;-K 提权密码&quot;</span> 的效果<br>属性样式<br>  由于playbook是由大量的功能任务组成的，而这些功能任务有可能在不同的目标主机上以不同的用户什么来运行，所以在playbook中remote_user基于使用范围和目的的不同，有两种表现形式。<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="tasks属性"><a href="#tasks属性" class="headerlink" title="tasks属性"></a><strong>tasks</strong>属性</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell"> playbook文件的主要作用就是实现各种各样的功能，每一个功能都是有大量的ansible指令来组成，所<br>以对于playbook来说，每一个特定的ansible动作都是一个子功能任务，所以playbook的功能主体就是大<br>量的task列表。而且这些任务在执行的时候有一个非常重要的特性:幂等的。简单来说就是执行多次和执行一<br>次效果一样。<br> playbook在执行的时候，根据task列表中的顺序，逐个在hosts的目标主机上执行，默认情况下，任何一个任务中途发生错误，整个任务就自动中断。所以默认的task在执行的时候有一个隐患：在某些条件场景下的逻辑感不强。<br>我们后序有相应的属性来解决这种隐患：notify+handler<br><br>每一个具体的task主要有两部分组成：<br> task名称：通过name属性来设定该任务中的子命令的名称，建议详细一点点<br> task动作：ansible命令实现特定功能的模块及其使用方法<br> <br></code></pre></td></tr></table></figure>
+
+
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
