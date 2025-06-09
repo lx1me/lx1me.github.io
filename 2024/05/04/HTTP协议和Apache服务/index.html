@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="HTTP协议和Apache服务12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2024/05/04/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP协议和Apache服务12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_DKGmAVxCbg.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_DuaoRmlwbw.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_O2cw2NTwdE.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_JyFCsdwO8L.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_7XStQI3lSs.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_-rTNqcZqWX.png">
+<meta property="og:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_6HZ_xYzYkS.png">
+<meta property="article:published_time" content="2024-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T07:23:31.893Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lx1me.github.io/image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_DKGmAVxCbg.png">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-04 00:00" pubdate>
+          2024年5月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="HTTP协议和Apache服务"><a href="#HTTP协议和Apache服务" class="headerlink" title="HTTP协议和Apache服务"></a>HTTP协议和Apache服务</h1><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs ada">WEB 协议<br> Internet 因特网 | WWW 万维网 <br>HTTP 协议 <br>  核心特点：   <br>    请求-响应模型：客户端发送一个请求到服务器，服务器接收请求后返回一个响应。<br>    无状态协议：服务器不会保留任何关于之前客户端请求的信息。每个请求都是独立的。<br>    资源标识符：HTTP使用统一资源标识符（URI）来定位互联网上的资源。<br>    方法（动作）：HTTP定义了几种请求方法，对互联网的资源进行各种操作。<br>    状态码：服务器在响应中包含一个状态码，用于指示请求是否成功，以及请求失败的原因。<br>    消息头：HTTP请求和响应都包含头部字段，用于传递额外的信息<br>资源: (URL)<br>  第<span class="hljs-number">1</span>部分:(协议部分)http://  https://   <br>  第<span class="hljs-number">2</span>部分:(地址部分)域名  <br>  第<span class="hljs-number">3</span>部分:(文件部分) <br>  第<span class="hljs-number">4</span>部分:(选项参数部分) <br>URI&amp; URL<br>  URI:统一资源标识符，是一个用来唯一标识互联网上某一特定资源的字符串<br>  URL:统一资源定位符   <br>协议:<br>http/<span class="hljs-number">0.9</span> http/<span class="hljs-number">1.0</span> http/<span class="hljs-number">1.1</span> http/<span class="hljs-number">2</span> http/<span class="hljs-number">3</span>  <br>web技术:<br>  web前端页面:<br>  前端页面技术：HTML + CSS + JAVASCRIPT      <br> <br>静态资源和动态资源:<br>  动静资源的区别:<br>    客户端通过 URI 锚定服务端的一个唯一资源，WEB SERVER 服务将该资源返回给客户端，资源可以分为静态资源和动态资源两类，在 Web 服务中，静态资源和动态资源是根据其内容和 <span class="hljs-string">&quot;生成方式&quot;</span> 来定义的，它们在处理和提供方式上有一些显著的区别。<br>    在实际的 Web 应用中，通常会同时使用静态资源和动态资源，以充分利用它们各自的优势，例如，静态资源可以用于提供页面的基本框架、样式和脚本，而动态资源可以用于提供个性化的、与用户交互的内容。  <br>     <br>http的工作机制:<br>  浏览器访问网站的过程:<br>    <span class="hljs-number">1</span>. 在浏览器地址栏中输入网址<br>    <span class="hljs-number">2</span>. DNS 服务解析域名，客户端获得服务器 IP 地址<br>    <span class="hljs-number">3</span>. 浏览器用 TCP 的三次握手与服务器建立连接<br>    <span class="hljs-number">4</span>. 浏览器向服务器发送拼好的报文<br>    <span class="hljs-number">5</span>. 服务器收到报文后处理请求，同样拼好报文再发给浏览器<br>    <span class="hljs-number">6</span>. 浏览器解析报文，渲染输出页面     <br>  http的工作机制:<br>    HTTP 是一种允许浏览器向服务器获取资源的协议，是 WEB 的基础，通常由浏览器发起请求，用来获取不同类型的资源，比如 HTML 文件，CSS 文件，Javascript 文件，图片，视频，压缩包等。<br>    一次完整的 HTTP 事务包括 客户端发起 HTTP 请求，服务端响应请求两部份组成。一个页面通常有多个资源组成，浏览器打开一个页面，通常要发起多次请求，分别加载不同的资源。    <br>    步骤:<br>      <span class="hljs-number">1</span> 建立连接<br>        客户端（通常是浏览器）通过TCP/IP协议与服务器建立连接。这是HTTP通信的基础，确保数据能够在客户端和服务器之间可靠地传输。  <br>      <span class="hljs-number">2</span>. 发送请求<br>        一旦连接建立，客户端会向服务器发送一个HTTP请求。这个请求由多个部分组成，包括：<br>          请求行：包含<br>            请求方法（如GET、POST等）、<br>            请求URI（统一资源标识符，指定了要访问的资源的位置）<br>            HTTP版本号（表示请求所使用的HTTP协议版本）等。<br>          头部字段：使用key-value形式传递一些请求信息，如<br>            <span class="hljs-keyword">Accept</span>（客户端可以接受的响应内容类型）、<br>            User-Agent（客户端的浏览器信息）、<br>            Referer（客户端从哪个页面跳转而来）等。<br>          正文：可选部分，用于向服务器传递一些数据。例如，<br>            当客户端向服务器提交表单时，表单数据就可以放在请求的正文中。<br>      <span class="hljs-number">3</span>. 处理请求<br>        服务器接收到客户端的请求后，会解析请求行和头部字段，查找所请求的资源，并准备相应的响应。<br>      <span class="hljs-number">4</span>. 发送响应<br>        服务器将处理后的响应发送回客户端。响应也由多个部分组成，包括：<br>          状态行：包含HTTP版本号、状态码和状态短语。<br>          状态码是一个三位数字，用于表示服务器对请求的处理结果<br>           （如<span class="hljs-number">200</span>表示成功，<span class="hljs-number">404</span>表示未找到资源，<span class="hljs-number">500</span>表示服务器内部错误等）。<br>          状态短语是对状态码的简短描述。<br>         头部字段：使用key-value形式传递一些响应信息，如<br>           Content-<span class="hljs-keyword">Type</span>（响应内容的类型）、<br>           Content-Length（响应内容的长度）、<br>           Set-Cookie（服务器要求客户端保存一个Cookie等）。<br>         正文：响应的实际内容。<br>           例如，当客户端请求一个网页时，网页的HTML代码就可以放在响应的正文中。 <br>       <span class="hljs-number">5</span>. 关闭连接<br>         连接在请求和响应之后通常会被关闭，以释放系统资源。然而，在HTTP/<span class="hljs-number">1.1</span>中引入了持久连接（也称为连接重用），允许在同一个TCP连接上发送和接收多个HTTP请求和响应，从而提高了网络传输的效率。<br>  为了解决HTTP的无状态问题，引入了Cookie和Session机制<br>   如果客户端需要在多次请求之间保持状态，通常会使用一些机制，如Cookie或Session。<br>   Cookies 和 Sessions 都是用于在Web应用程序中管理用户状态的机制，它们的作用主要涉及用户身<br>份验证、跟踪会话信息以及存储用户偏好等方面。<br><br>Cookie和Session:<br>  Cookie:<br>    一种在客户端保存状态信息的机制。服务器可以通过Set-Cookie头部向客户端发送一个Cookie，客户端在下一次请求时将该Cookie发送回服务器。<br>    服务器可以根据Cookie的内容来识别客户端的身份，从而实现状态管理。   <br> <br>消息通信:<br>  同步和异步 - 消息的通信机制  <br>    同步和异步关注的是消息的通信机制，即调用者在等待一件事情的处理结果时，被调用者是否提供完成状态的通知<br>    - 同步：sychronous，<br>      被调用者并不提供事件的处理结果相关的通知消息，需要调用者主动询问事件是否处理完成<br>    - 异步：asynchronous，<br>      被调用者通过状态，通知或者回调机制主动通知发起调用者相关的运行状态<br>  阻塞和非阻塞 - 发起者在等待结果时的状态<br>    阻塞和非阻塞关注的是调用发起者在等待结果返回之前所处的状态<br>      - 阻塞：blocking，<br>        指IO操作需要彻底完成后才返回到用户空间，调用结果返回之前，调用者被挂起，干不了别的事情。<br>        示例：心脑血管阻塞的时候，你只能在手术台上等着他们做手术。<br>      - 非阻塞：nonblocking，<br>        指IO操作被调用后立即返回给用户一个状态值，而无需等到IO操作彻底完成，在最终的调用结果返回之前，调用者不会被挂起，可以去做别的事情。<br>        示例：关将军刮骨疗毒，同时下棋，等待手术完成后，知道了即可。  <br> <br>五中IO模型：<br>  阻塞 IO（blocking IO）   <br>  非阻塞 IO（non-blocking IO）<br>  多路复用 IO（IO multiplexing） (单用户,多任务的场景)<br>  信号驱动 IO（signal driven I/O， SIGIO）<br>  异步 IO（Asynchronous I/O）<br> <br> <br> <br> <br> <br></code></pre></td></tr></table></figure>
+
+
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_DKGmAVxCbg.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_DuaoRmlwbw.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_O2cw2NTwdE.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_JyFCsdwO8L.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs ada">Apache服务<br>  软件特点：<br>  apache2 特性   <br>    - 高度模块化：core + modules<br>    - DSO：Dynamic Shared Object 动态加载/卸载<br>    - MPM：multi-processing module 多路处理模块<br>  apache2 功能<br>    - 虚拟主机：IP，Port，FQDN<br>    - CGl：Common Gateway lnterface，通用网关接口<br>    - 反向代理、负载均衡、路径别名<br>    - 丰富的用户认证机制：basic，digest<br>    - 支持第三方模块<br>  工作模式：<br>    prefork 模型<br>    worker 模型<br>    event 模型<br>     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code></pre></td></tr></table></figure>
+
+
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_7XStQI3lSs.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_-rTNqcZqWX.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!<img src="/../image/HTTP%E5%8D%8F%E8%AE%AE%E5%92%8CApache%E6%9C%8D%E5%8A%A1/image_6HZ_xYzYkS.png" srcset="/img/loading.gif" lazyload></p>
+
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

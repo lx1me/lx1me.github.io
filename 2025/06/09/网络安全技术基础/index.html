@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="网络安全技术基础 title: 网络安全技术基础date: 2025-06-05categories: [网络安全]tags: [IDS, 防火墙, 网络攻击]description: 网络安全技术中的基本概念和防御机制概述1. 基本概念1.1 IDS：入侵检测系统 (Intrusion Detection Systems)1234- 特点：  - 不阻断网络访问，而是依据安全策略对网络和系统运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2025/06/09/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网络安全技术基础 title: 网络安全技术基础date: 2025-06-05categories: [网络安全]tags: [IDS, 防火墙, 网络攻击]description: 网络安全技术中的基本概念和防御机制概述1. 基本概念1.1 IDS：入侵检测系统 (Intrusion Detection Systems)1234- 特点：  - 不阻断网络访问，而是依据安全策略对网络和系统运行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T06:26:37.751Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-09 08:00" pubdate>
+          2025年6月9日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="网络安全技术基础"><a href="#网络安全技术基础" class="headerlink" title="网络安全技术基础"></a>网络安全技术基础</h1><hr>
+<h2 id="title-网络安全技术基础date-2025-06-05categories-网络安全-tags-IDS-防火墙-网络攻击-description-网络安全技术中的基本概念和防御机制概述"><a href="#title-网络安全技术基础date-2025-06-05categories-网络安全-tags-IDS-防火墙-网络攻击-description-网络安全技术中的基本概念和防御机制概述" class="headerlink" title="title: 网络安全技术基础date: 2025-06-05categories: [网络安全]tags: [IDS, 防火墙, 网络攻击]description: 网络安全技术中的基本概念和防御机制概述"></a>title: 网络安全技术基础<br>date: 2025-06-05<br>categories: [网络安全]<br>tags: [IDS, 防火墙, 网络攻击]<br>description: 网络安全技术中的基本概念和防御机制概述</h2><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><h3 id="1-1-IDS：入侵检测系统-Intrusion-Detection-Systems"><a href="#1-1-IDS：入侵检测系统-Intrusion-Detection-Systems" class="headerlink" title="1.1 IDS：入侵检测系统 (Intrusion Detection Systems)"></a>1.1 IDS：入侵检测系统 (Intrusion Detection Systems)</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 特点：<br>  - 不阻断网络访问，而是依据安全策略对网络和系统运行状况进行监控。<br>  - 尽可能发现各种攻击企图、攻击行为或攻击结果。<br>  - 保障机密性、完整性和可用性，是安全防护的重要监测手段。<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-IPS：入侵防御系统-Intrusion-Prevention-System"><a href="#1-2-IPS：入侵防御系统-Intrusion-Prevention-System" class="headerlink" title="1.2 IPS：入侵防御系统 (Intrusion Prevention System)"></a>1.2 IPS：入侵防御系统 (Intrusion Prevention System)</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 特点：<br>  - 以串行方式接入系统，能深度感知并检测经过的数据报文。<br>  - 根据预设安全策略对报文进行深度检测（协议分析、特征匹配、流量统计、事件关联等）。<br>  - 如发现网络攻击，立即采取措施（中断连接、丢弃报文、隔离文件、告警等），实现主动防御。<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-3-防火墙-Firewall"><a href="#1-3-防火墙-Firewall" class="headerlink" title="1.3 防火墙 (Firewall)"></a>1.3 防火墙 (Firewall)</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 功能与作用：<br>  - 在内部网络与外部网络、专用网络与公共网络、可信网络与不可信网络之间建立安全屏障。<br>  - 通过访问控制允许经许可的数据进出，同时阻断非法流量。<br>  - 支持规则配置，既可禁止本地网络向外发送数据，也可根据需要转发网络流量。<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-4-防水墙-Waterwall"><a href="#1-4-防水墙-Waterwall" class="headerlink" title="1.4 防水墙 (Waterwall)"></a>1.4 防水墙 (Waterwall)</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 功能与特点：<br>  - 防止内部信息泄漏，保护涉密信息、重要业务数据和技术专利。<br>  - 利用透明加解密、身份认证、访问控制和审计跟踪等技术手段实现安全保护。<br>  - 最大限度防止信息泄漏、破坏或违规外传，并完整记录操作日志以便日后审计。<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-5-网络解决方案的常见样式"><a href="#1-5-网络解决方案的常见样式" class="headerlink" title="1.5 网络解决方案的常见样式"></a>1.5 网络解决方案的常见样式</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-number">1</span>. 两层防火墙：内层防火墙限制极高，只允许特定网络访问。<br><span class="hljs-number">2</span>. 单层防火墙：一套防火墙配备三个网卡接口，但存在一定安全隐患。<br><span class="hljs-number">3</span>. 多层防火墙：在靠近互联网的外部部署更多防火墙，增强防护深度。<br><span class="hljs-number">4</span>. 禁止网络访问：完全封闭网络通信，适用于高安全性场景。<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-防火墙的分类与实现方式"><a href="#2-防火墙的分类与实现方式" class="headerlink" title="2. 防火墙的分类与实现方式"></a>2. 防火墙的分类与实现方式</h2><h3 id="2-1-按照保护范围划分"><a href="#2-1-按照保护范围划分" class="headerlink" title="2.1 按照保护范围划分"></a>2.1 按照保护范围划分</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 主机防火墙：<br>  - 针对单个主机进行防护，运行在终端设备上。<br>  - 能阻止未授权程序和数据的进出（Windows和Linux均内置防火墙）。<br><br>- 网络防火墙：<br>  - 部署在整个系统的主干网络上，过滤所有进出数据包。<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-2-按实现方式划分"><a href="#2-2-按实现方式划分" class="headerlink" title="2.2 按实现方式划分"></a>2.2 按实现方式划分</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 硬件防火墙：<br>  - 独立硬件设备，具备独立供电与部署。<br>  - 软件独立运行，专用硬件资源使其在功能和性能上均表现优异。<br>  - 常基于Linux内核二次开发，针对特定场景进行深度优化。<br><br>- 软件防火墙：<br>  - 以应用程序形式提供服务，运行于通用硬件平台并寄生于操作系统中。<br>  - 通过纯软件实现防护，灵活性较高，便于管理和更新。<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-按网络协议划分"><a href="#2-3-按网络协议划分" class="headerlink" title="2.3 按网络协议划分"></a>2.3 按网络协议划分</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 网络层防火墙：<br>  - 分析数据包的源地址、目标地址、端口号及协议，依据访问控制列表（ACL）执行规则。<br>  - 仅基于数据包头部信息过滤，无法解析应用层数据。<br><br>- 应用层防火墙：<br>  - 针对特定网络应用服务协议设计数据过滤逻辑。<br>  - 部署在内外部网络隔离点，作为中间转接控制数据通信。<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-4-按实现细节划分"><a href="#2-4-按实现细节划分" class="headerlink" title="2.4 按实现细节划分"></a>2.4 按实现细节划分</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 包过滤防火墙：<br>  - 根据用户定制关键字检查数据包的网络信息，不解析具体数据。<br>  - 应用层控制较弱，适用于基本过滤需求。<br><br>- 应用网关防火墙：<br>  - 检查数据包的具体数据信息（如IP、TCP报头），实现较为细致的控制。<br>  - 网络层控制较弱，但可针对特定应用场景进行配置。<br><br>- 状态检测防火墙：<br>  - 在包过滤基础上增加数据包状态检测，判断连接状态。<br>  - 能够动态控制连接，提供更强的安全性，但应用层控制依然有限。<br><br>- 复合型防火墙：<br>  - 综合网络层与应用层控制，并具备会话层控制能力。<br>  - 实现更全面的防护，适用于高安全性要求的环境。<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-Linux-防火墙基础知识"><a href="#3-Linux-防火墙基础知识" class="headerlink" title="3. Linux 防火墙基础知识"></a>3. Linux 防火墙基础知识</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 封装数据：<br>  - 应用数据从上层进入传输层，添加源/目标端口形成数据段（TCP/UDP首部），<br>    然后进入网络层，加上源/目标IP形成数据包，<br>    最后进入链路层，加上源/目标MAC地址构成数据帧，形成完整数据包。<br><br>- 解封装数据：<br>  - 数据到达目标主机后，按照封装的反向顺序逐层解包，最终还原出真实的应用内容。<br><br>- 数据包过滤：<br>  - 在数据传输过程中对数据包进行严格过滤，<br>    确保只有符合安全策略的流量能够通过。<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-防火墙工具"><a href="#4-防火墙工具" class="headerlink" title="4. 防火墙工具"></a>4. 防火墙工具</h2><h3 id="4-1-iptables"><a href="#4-1-iptables" class="headerlink" title="4.1 iptables"></a>4.1 iptables</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 由iptables软件包提供的命令行工具，运行于用户空间。<br>- 用于编写防火墙规则，规则传递给netfilter指导内核处理数据包。<br>- 默认安装于多数操作系统，如需扩展功能可开发专用模块。<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-2-xtables-nft-multi"><a href="#4-2-xtables-nft-multi" class="headerlink" title="4.2 xtables-nft-multi"></a>4.2 xtables-nft-multi</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 过渡工具，旨在帮助用户从传统iptables平滑迁移至nftables体系。<br>- 管理iptables、arptables及ebtables规则，基于nftables后端实现。<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-firewalld"><a href="#4-3-firewalld" class="headerlink" title="4.3 firewalld"></a>4.3 firewalld</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">- Linux中用于动态管理防火墙规则的系统守护进程。<br>- 支持定义网络区域（Zone）和接口安全等级，可实时更改规则而无需重启服务。<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-4-nftables"><a href="#4-4-nftables" class="headerlink" title="4.4 nftables"></a>4.4 nftables</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 新一代Linux防火墙技术，旨在取代传统iptables。<br>- 在性能、功能及易用性方面有显著提升，适合现代网络需求。<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-5-ufw-Uncomplicated-Firewall"><a href="#4-5-ufw-Uncomplicated-Firewall" class="headerlink" title="4.5 ufw (Uncomplicated Firewall)"></a>4.5 ufw (Uncomplicated Firewall)</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 主机级防火墙配置工具，Ubuntu默认提供。<br>- 简化iptables配置，兼顾易用性和灵活性。<br>- 核心原理：<br>  - 底层依然使用iptables，通过简单语法和默认配置进行管理。<br>  - 提供便捷的命令行接口，方便规则添加、删除和管理。<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-iptables命令格式与匹配条件"><a href="#5-iptables命令格式与匹配条件" class="headerlink" title="5. iptables命令格式与匹配条件"></a>5. iptables命令格式与匹配条件</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 命令格式：<br>  iptables -子命令 &lt;链&gt; &lt;规则策略&gt;<br><br>- 匹配条件（多条件默认“与”关系）：<br>  - [!] -s|<span class="hljs-comment">--source address[/mask][,...]    # 匹配源IP地址或网段（逗号分隔多个地址）</span><br>  - [!] -d|<span class="hljs-comment">--destination address[/mask][,...]  # 匹配目标IP地址或网段</span><br>  - [!] -p|<span class="hljs-comment">--protocol protocol                # 匹配具体协议（协议号或名称，0代表所有协议）</span><br>  - [!] -i|<span class="hljs-comment">--in-interface name                # 匹配数据包输入接口（适用于INPUT/FORWARD/PREROUTING链）</span><br>  - [!] -o|<span class="hljs-comment">--out-interface name               # 匹配数据包输出接口（适用于OUTPUT/FORWARD/POSTROUTING链）</span><br>- “!” 表示规则取反。<br></code></pre></td></tr></table></figure>
+
+<h2 id="6-网络防火墙与NAT技术"><a href="#6-网络防火墙与NAT技术" class="headerlink" title="6. 网络防火墙与NAT技术"></a>6. 网络防火墙与NAT技术</h2><h3 id="6-1-NAT原理解析"><a href="#6-1-NAT原理解析" class="headerlink" title="6.1 NAT原理解析"></a>6.1 NAT原理解析</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">- NAT (Network Address Translation) 网络地址转换：<br>  - 局域网内主机通常分配私有IP地址，这些地址在互联网中不可路由。<br>  - 当局域网主机访问互联网时，私有IP地址经NAT转换为公网IP，<br>    数据包出站进行源地址转换，入站进行目标地址转换，实现内外通信。<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-2-SNAT-实现源IP地址转换"><a href="#6-2-SNAT-实现源IP地址转换" class="headerlink" title="6.2 SNAT 实现源IP地址转换"></a>6.2 SNAT 实现源IP地址转换</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ada">- SNAT (Source NAT)：<br>  - 基于nat表，在POSTROUTING链上工作，将数据包的源IP转换为指定的公网IP。<br>- 配置示例：<br>  iptables -t nat -A POSTROUTING -s LocalNet ! -d LocalNet -j SNAT <span class="hljs-comment">--to-source ExtIP [--random]</span><br>  - <span class="hljs-comment">--to-source：指定转换后的IP或IP范围及端口（可选）。</span><br>  - <span class="hljs-comment">--random：基于hash算法实现端口映射随机化。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="6-3-MASQUERADE-实现源IP地址转换"><a href="#6-3-MASQUERADE-实现源IP地址转换" class="headerlink" title="6.3 MASQUERADE 实现源IP地址转换"></a>6.3 MASQUERADE 实现源IP地址转换</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ada">- MASQUERADE：<br>  - 用于出口设备IP可能变化（如拨号上网）的场景，<br>    自动获取网卡IP作为出口IP进行地址转换。<br>- 配置示例：<br>  iptables -t nat -A POSTROUTING -s LocalNet ! -d LocalNet -j MASQUERADE [<span class="hljs-comment">--to-ports port[-port]] [--random]</span><br>  - <span class="hljs-comment">--to-ports：指定端口范围（可选）。</span><br>  - <span class="hljs-comment">--random：随机化端口映射.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="6-4-DNAT-实现目标IP地址转换"><a href="#6-4-DNAT-实现目标IP地址转换" class="headerlink" title="6.4 DNAT 实现目标IP地址转换"></a>6.4 DNAT 实现目标IP地址转换</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ada">- DNAT (Destination NAT)：<br>  - 用于将内网私有IP地址转换为公网IP，使内网服务在公网可见。<br>  - 基于nat表，在PREROUTING链上工作。<br>- 配置示例：<br>  iptables -t nat -A PREROUTING -d ExtIP -p tcp|udp|icmp <span class="hljs-comment">--dport PORT -j DNAT --to-destination InterSeverIP[:PORT]</span><br>  - -d ExtIP：指定固定公网IP。<br>  - <span class="hljs-comment">--to-destination：转换为指定内网IP（及端口可选）。</span><br>- 注意：<br>  - DNAT规则仅能重定向到单台后端主机，无法实现负载均衡。<br>  - 防火墙作为内核模块，其监听端口可能不通过netstat或ss显示。<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-5-REDIRECT-实现本机端口转换"><a href="#6-5-REDIRECT-实现本机端口转换" class="headerlink" title="6.5 REDIRECT 实现本机端口转换"></a>6.5 REDIRECT 实现本机端口转换</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ada">- REDIRECT：<br>  - 将数据包重定向到同一主机的其他端口，无需开启内核ip_forward转发。<br>- 配置示例：<br>  iptables -t nat -A PREROUTING -d ExtIP -p tcp|udp <span class="hljs-comment">--dport PORT -j REDIRECT --to-ports PORT</span><br>  - <span class="hljs-comment">--to-ports：指定新的目标端口。</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="7-FORWARD链转发机制"><a href="#7-FORWARD链转发机制" class="headerlink" title="7. FORWARD链转发机制"></a>7. FORWARD链转发机制</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ada">- FORWARD链：<br>  - 处理需转发至其他主机的数据包（目的地址非本机）。<br>  - 通过规则决定数据包是否允许、拒绝或丢弃。<br>- 应用场景：<br>  - 路由器或网关设备：转发不同网络间的数据包。<br>  - 防火墙：通过规则允许或拒绝特定IP地址或端口范围的数据包。<br></code></pre></td></tr></table></figure>
+
+<h2 id="8-自定义链"><a href="#8-自定义链" class="headerlink" title="8. 自定义链"></a>8. 自定义链</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">- 除系统自带链外，iptables支持自定义链以便分组规则及重复调用。<br>- 添加自定义链后，需将其作为系统链的target关联，才能生效。<br></code></pre></td></tr></table></figure>
+
+<h2 id="9-firewalld"><a href="#9-firewalld" class="headerlink" title="9. firewalld"></a>9. firewalld</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">- firewalld是用于管理netfilter的用户空间工具，支持iptables、ip6tables及ebtables。<br>- 通过守护进程实现防火墙规则的动态配置与监控。<br>- 内置多个Zone，每个Zone对应一套防火墙规则，支持自定义修改。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="总结与要点"><a href="#总结与要点" class="headerlink" title="总结与要点"></a>总结与要点</h1><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ada">- IDS与IPS：<br>  - IDS主要用于监控与检测，不直接干预网络访问；<br>  - IPS则在检测到异常时采取主动防御措施，确保网络安全。<br><br>- 防火墙：<br>  - 作为网络安全的第一道防线，防火墙通过多种技术和策略过滤网络流量，<br>    分为主机防火墙和网络防火墙，硬件和软件实现各有优劣。<br>  - 依据网络协议和实现细节进一步细分，以适应不同安全需求。<br><br>- NAT技术：<br>  - NAT在实现私有IP与公网IP转换中起关键作用，<br>    包括SNAT、MASQUERADE、DNAT和REDIRECT等多种实现方式，各自适用于不同场景。<br><br>- FORWARD链与自定义链：<br>  - FORWARD链用于转发非本机目的地的数据包，是路由器和防火墙的重要组成部分。<br>  - 自定义链有助于规则管理和复用，提升配置灵活性。<br><br>- firewalld：<br>  - 提供现代化、动态化的防火墙管理，简化规则配置和监控，适用于多种Linux发行版。<br></code></pre></td></tr></table></figure>
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

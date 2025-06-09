@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="shelltitle12345678910111213141516171819普通变量：自定义变量名和变量值   表示方法：    变量名&#x3D;变量值    变量值中间不能有特殊符号    变量名&#x3D;&#x27;变量值&#x27;  完全当做变量    变量名&#x3D;&quot;变量值&quot;  可以解析里面的内容命令变量：自定义变量名，而变量值通过一条命令获取   key&#x3D;$(cmd)或key&#x3D;&#96;cmd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://lx1me.github.io/2024/09/29/shell/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="shelltitle12345678910111213141516171819普通变量：自定义变量名和变量值   表示方法：    变量名&#x3D;变量值    变量值中间不能有特殊符号    变量名&#x3D;&#x27;变量值&#x27;  完全当做变量    变量名&#x3D;&quot;变量值&quot;  可以解析里面的内容命令变量：自定义变量名，而变量值通过一条命令获取   key&#x3D;$(cmd)或key&#x3D;&#96;cmd">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T07:23:31.896Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记录">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>关于 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-29 00:00" pubdate>
+          2024年9月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Fluid</div>
+    <div class="about-intro">An elegant theme for Hexo</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://douban.com class="
+           hint--bottom hint--rounded"
+           aria-label="豆瓣"
+           target="_blank"
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><figure class="highlight bash"><figcaption><span>title</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>普通变量：自定义变量名和变量值<br>   表示方法：<br>    变量名=变量值    变量值中间不能有特殊符号<br>    变量名=<span class="hljs-string">&#x27;变量值&#x27;</span>  完全当做变量<br>    变量名=<span class="hljs-string">&quot;变量值&quot;</span>  可以解析里面的内容<br>命令变量：自定义变量名，而变量值通过一条命令获取<br>   key=$(cmd)或key=`cmd`<br>      [root@bogon ~]# num=`<span class="hljs-built_in">seq</span> 10`<br>      [root@bogon ~]# <span class="hljs-built_in">echo</span> <span class="hljs-variable">$num</span><br>      1 2 3 4 5 6 7 8 9 10<br> <br>   <br>       <br><br>        <br><br><br><br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><figcaption><span>title</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">env</span>              查看全局环境变量 配合grep进行查找<br><br>变量=值<br><span class="hljs-built_in">export</span> 变量=值    定义全局环境变量 <br>  <br></code></pre></td></tr></table></figure>
+
+
+<p>shell内置变量 特点：不需要去管理</p>
+<figure class="highlight bash"><figcaption><span>title</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">变量文件： .bashrc结尾        可以加入变量  <br>        删除环境变量：  先清理.bashrc中的变量<br>                      <span class="hljs-built_in">unset</span> name    <br>        /etc/profile 在执行的时候，会自动去加载 /etc/profile.d/*.sh 文件内容，默认情况下，该目录下的文件都是 普通文件，作用范围都是超级用户。<br>        对于一些特殊的 软件级别的应用来说，如果我们在该目录下创建一个脚本环境文件，比如/etc/profile.d/xxx.sh, 如果在普通用户下不生效的话，可以尝试，添加 +x 权限来试试。  <br>                      <br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">shell嵌套<br></code></pre></td></tr></table></figure>
+
+
+<p>&#x20;        &#x20;</p>
+<p>&#x20;     软件管理</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br> 程序如何去运行<br>1.编写程序<br>   -功能逻辑<br>2.调用底层库文件<br>   -posix文件集<br>3.调用底层系统的接口<br>  -ABI   <br> 程序编译：c语言为例<br>c程序源代码（获取代码）<br>1.预处理<br>2.编译（编译过程就是把预处理完的文件进行一系列的词法分析，语法分析，语义分析及优化后，最后生成的汇编<br>代码）<br>3.汇编（生成可执行文件 找到依赖库文件然后整合）（汇编是将汇编代码转变成机器码可以执行的命令，每一个汇编语句几乎都对应一条机器指令。汇编相对于<br>编译过程比较简单，根据汇编指令和机器指令的对照表一一翻译即可）<br>4.链接（通过调用链接器ld来链接程序运行需要的一大堆目标文件，以及所依赖的其它库文件，最后生成可执行文件）（系统级别 跟系统进行对接-） <br> 两种方式实现可执行文件和底层文件的关联<br>1.静态连接 （在程序编译时，将程序中使用的所有库文件（包括标准库和用户自定义库）中的代码和数据都 &quot;复制&quot;到最终的可执行文件中。<br> 这种方式的优点是程序在运行时不需要额外的库文件支持，但缺点是生成的可执行文件体积较大，且如果<br>库文件更新，需要重新编译整个程序。）（执行文件和库文件打包在一起）<br>2.动态链接（默认）（在程序编译时，不将库文件中的代码和数据复制到可执行文件中，而是在程序运行时 &quot;由操作系统动态加载&quot; 所需的库文件。<br> 这种方式的优点是减少了可执行文件的大小，且库文件更新后不需要重新编译整个程序，但缺点是程序运<br>行时需要依赖外部库文件。）（直接使用系统级别的库文件） <br> 库文件（共享库和给内核使用的专用库）（uname -r看系统架构）<br>内核库文件（内核模块文件通常以.ko(Kernel Object)或.o(Object)作为文件扩展名，并且位于/lib/modules/$(uname -r)/kernel/目录下的子目录中。加载和卸载内核模块可以使用insmod、rmmod、modprobe等命令进行。）<br>共享库文件（共享库文件在Linux上一般以.so（Shared Object）作为文件扩展名，它们被存储在/lib、/usr/lib或/usr/local/lib等目录下。动态链接器（Dynamic Linker/Loader）如ld.so（也称为ld-linux.so）在程序运行时负责将需要的共享库加载到内存中。）<br>如果我们将一个基础的库文件移除后，有可能导致所有的依赖该文件的命令都无法执行<br>命令：<br>软件使用问题：软件不运行：底层库问题<br>查看异常的执行文件查找 所依赖的库文件<br> ldd 二进制文件<br> ldconfig（加载配置文件中指定的库文件）<br> ldconfig -p（显示本机已经缓存的所有可用库文件名及文件路径映射关系） <br>  软件包管理<br> 软件包分类<br> 1.源码包（1.纯源码：编译过生成可执行文件2.源代码【编译过的】二进制文件携带系统架构信息）<br> 包含软件的源代码文件、编译指令和配置文件。<br><span class="hljs-code">    需要用户自行编译安装，过程相对复杂，但灵活性高，可以定制安装选项。</span><br><span class="hljs-code">    文件格式通常为.tar.gz、.tar.bz2等压缩格式。</span><br><span class="hljs-code">    注意：软件运行所有的文件都会在同一个包文件里面</span><br><span class="hljs-code"> 2.二进制包</span><br><span class="hljs-code"> 包含已经编译好的可执行文件、库文件、配置文件、帮助文件等，用户可以直接安装使用。</span><br><span class="hljs-code">    常见的二进制包格式有RPM包（Red Hat Package Manager）、DEB包（Debian Package）等。</span><br><span class="hljs-code">    注意：软件运行所有的文件分别放到相互依赖的多个包文件里面。</span><br><span class="hljs-code"> 包管理工具：yum|dnf apt</span><br><span class="hljs-code"> 查看包命令：</span><br><span class="hljs-code">  Centos系统中：</span><br><span class="hljs-code">    预览包内文件：rpm2cpio 包文件|cpio -itv</span><br><span class="hljs-code">    释放包内文件：rpm2cpio 包文件|cpio -idv &quot;.conf&quot;</span><br><span class="hljs-code">        </span><br><span class="hljs-code">ubuntu系统中：</span><br><span class="hljs-code">    预览包内文件：dpkg -c package.deb</span><br><span class="hljs-code">    释放包内文件：dpkg-deb -x package.deb 解压目录</span><br><span class="hljs-code">  仅下载不安装</span><br><span class="hljs-code">  Centos:</span><br><span class="hljs-code"> yum --downloadonly --downloaddir=./ xxx</span><br><span class="hljs-code"> Ubuntu:</span><br><span class="hljs-code">   apt-get install -d nginx</span><br><span class="hljs-code"> apt download xxx </span><br><span class="hljs-code">  二进制打包文件命名  </span><br><span class="hljs-code"> 命名示例：</span><br><span class="hljs-code"> httpd-2.4.57-15.el9.x86_64.rpm：</span><br><span class="hljs-code"> -----</span><br><span class="hljs-code">    httpd：软件包名。</span><br><span class="hljs-code">    2.4.57：包的版本号，格式为“主版本号.次版本号.修正号”。</span><br><span class="hljs-code">    15：二进制包发布的次数，表示这是第几次编译生成的。</span><br><span class="hljs-code">    el9：软件发行商，表示此包是由Red Hat公司发布，适合在RHEL|Centos|Rocky 9.x上使用。</span><br><span class="hljs-code">            EL是Red Hat Enterprise Linux（EL）的缩写</span><br><span class="hljs-code">    x86_64：表示此包使用的硬件平台。</span><br><span class="hljs-code">    rpm：RPM包的扩展名，表明这是编译好的二进制包，可以直接使用rpm命令安装。    </span><br><span class="hljs-code">  包分类：</span><br><span class="hljs-code"> 软件包为了管理和使用的便利，会将一个大的软件分类，放在不同的子包中。</span><br><span class="hljs-code">- Application-VERSION-ARCH.rpm: 主包</span><br><span class="hljs-code">- Application-core-VERSION-ARCH.rpm 核心功能包</span><br><span class="hljs-code">- Application-devel-VERSION-ARCH.rpm 开发子包</span><br><span class="hljs-code">- Application-utils-VERSION-ARHC.rpm 其它子包</span><br><span class="hljs-code">- Application-libs-VERSION-ARHC.rpm 其它子包</span><br><span class="hljs-code">包依赖：</span><br><span class="hljs-code">软件包之间可能存在依赖关系，甚至循环依赖，即：A包依赖B包，B包依赖C包，C包依赖A包，安装软件</span><br><span class="hljs-code">包时，会因为缺少依赖的包，而导致安装包失败。</span><br><span class="hljs-code"> 关于这些包的依赖关系，我们可以在不同的平台上，借助各自的软件包管理器来实现自动处理。 </span><br><span class="hljs-code"> 关于Rocky和ubuntu安装软件的注意事项：</span><br><span class="hljs-code">rocky安装软件</span><br><span class="hljs-code">    仅仅是安装软件，如果存在对应的服务需要手动去开启；</span><br><span class="hljs-code">    systemctl start 服务名</span><br><span class="hljs-code">ububtu安装软件</span><br><span class="hljs-code">不仅仅是安装软件，如果存在对应的服务会自动开启；</span><br><span class="hljs-code">（查看服务）systemctl status 服务名 </span><br><span class="hljs-code">获取软件包</span><br><span class="hljs-code">  1.光盘方式</span><br><span class="hljs-code">  2.线上方式</span><br><span class="hljs-code">    Community Enterprise Linux Repository：支持最新的内核和硬件相关包</span><br><span class="hljs-code">   http://www.elrepo.org</span><br><span class="hljs-code"> 包管理器rpm</span><br><span class="hljs-code">  命令格式</span><br><span class="hljs-code"> rpm &#123;-i|--install&#125; [install-options] PACKAGE_FILE…</span><br><span class="hljs-code">常用选项</span><br><span class="hljs-code"> -q # 检查安装软件</span><br><span class="hljs-code"> -ivh # 安装软件</span><br><span class="hljs-code"> -evh # 卸载软件</span><br><span class="hljs-code"> （卸载注意） 当包卸载时，对应的配置文件不会删除(前提是该文件被改动过)， 以FILENAME.rpmsave形式保留 </span><br><span class="hljs-code"> --root #在光盘救援模式下，安装软件到操作系统的所在位置路径，</span><br><span class="hljs-code">   #假如系统位置/mnt/sysimage，则在光盘下安装 使用如下命令</span><br><span class="hljs-code">   #rpm -ivh /path/to/file.rpm -root=/mnt/sysimage</span><br><span class="hljs-code"> --nodeps   #忽略依赖关系</span><br><span class="hljs-code"> --replacefiles      #忽略软件包之间的冲突的文件 </span><br><span class="hljs-code">  包查询：</span><br><span class="hljs-code">   命令格式：</span><br><span class="hljs-code">  rpm &#123;-q|--query&#125; [select-options] [query-options]</span><br><span class="hljs-code">    常用选项</span><br><span class="hljs-code">    -i #information</span><br><span class="hljs-code">    -l #查看指定的程序包安装后生成的所有文件</span><br><span class="hljs-code">    -f   #查看指定的文件由哪个程序包安装生成</span><br><span class="hljs-code">    -d #查询程序的文档</span><br><span class="hljs-code">     常用组合：-qi、-qf、-ql、-qa </span><br><span class="hljs-code">  包校验：</span><br><span class="hljs-code">  rpm --rebuilddb（重建数据库） </span><br><span class="hljs-code"> yum</span><br><span class="hljs-code"> 架构模式</span><br><span class="hljs-code"> yum/dnf 是基于C/S 模式</span><br><span class="hljs-code">    - yum 服务器存放rpm包和相关包的元数据库</span><br><span class="hljs-code">    - yum 客户端访问yum服务器进行安装或查询等 </span><br><span class="hljs-code">yum实现过程</span><br><span class="hljs-code">   先在yum服务器上创建 yum repository（仓库），在仓库中事先存储了众多rpm包，以及包的相关的元数据文件（放置于特定目录repodata下），当yum客户端利用yum/dnf工具进行安装包时，会自动下载repodata中的元数据，查询元数据是否存在相关的包及依赖关系，自动从仓库中找到相关包下载并安装。</span><br><span class="hljs-code">   如何下载软件:</span><br><span class="hljs-code">   1.指定服务器  </span><br><span class="hljs-code">   2.获取软件源信息（yum makecache）将服务端的软件属性信息拉到本地，在本地进行保存；</span><br><span class="hljs-code">        如果不想用了删除 --清理软件源信息（yum clean all）</span><br><span class="hljs-code">   3.查看|安装|卸载|检索软件等操作</span><br><span class="hljs-code">  客户端环境配置</span><br><span class="hljs-code">   yum客户端配置环境：</span><br><span class="hljs-code">   通用配置 --yum软件（/etc/yum.conf #为所有仓库提供公共配置）</span><br><span class="hljs-code">   专用配置 --特定软件源（/etc/yum.repos.d/*.repo #为每个仓库的提供配置文件）</span><br><span class="hljs-code">   定制软件源：</span><br><span class="hljs-code">     Rocky9.4上配置aliyun的repo源</span><br><span class="hljs-code">      [root@rocky9 yum.repos.d]# cat aliyun-baseos.repo </span><br><span class="hljs-code">          [aliyun-baseos]</span><br><span class="hljs-code">          name=aliyun baseos</span><br><span class="hljs-code">          baseurl=https://mirrors.aliyun.com/rockylinux/9.4/BaseOS/x86_64/os/</span><br><span class="hljs-code">          gpgcheck=0</span><br><span class="hljs-code"></span><br>   更新软件源<br><span class="hljs-code">     [root@rocky9 yum.repos.d]# yum makecache</span><br><span class="hljs-code">   查看源</span><br><span class="hljs-code">     [root@rocky9 yum.repos.d]# yum repolist</span><br><span class="hljs-code">   查看源信息</span><br><span class="hljs-code">     [root@rocky9 yum.repos.d]# yum repolist -v</span><br><span class="hljs-code">   查看指定源信息</span><br><span class="hljs-code">     [root@rocky9 yum.repos.d]# yum repolist --repoid=aliyun-baseos -v</span><br><span class="hljs-code">  本地repo源</span><br><span class="hljs-code">    定制专属的本地镜像源信息</span><br><span class="hljs-code">        [root@rocky9 yum.repos.d]# cat cdrom.repo </span><br><span class="hljs-code">         [cdrom-appstream]</span><br><span class="hljs-code">         name=cdrom appstream</span><br><span class="hljs-code">         baseurl=file:///mnt/AppStream/</span><br><span class="hljs-code">         gpgcheck=0</span><br><span class="hljs-code">         [cdrom-baseos]</span><br><span class="hljs-code">         name=cdrom baseos</span><br><span class="hljs-code">         baseurl=file:///mnt/BaseOS/</span><br><span class="hljs-code">         gpgcheck=0</span><br><span class="hljs-code">   yum命令</span><br><span class="hljs-code">    命令格式：</span><br><span class="hljs-code">   yum [options] COMMAND</span><br><span class="hljs-code">   常用子命令</span><br><span class="hljs-code">    autoremove               #卸载包，同时卸载依赖</span><br><span class="hljs-code">    clean                     #清除本地缓存</span><br><span class="hljs-code">    install                   #包安装</span><br><span class="hljs-code">    list                     #列出所有包</span><br><span class="hljs-code">    makecache                 #重建缓存</span><br><span class="hljs-code">    search                   #包搜索，包括包名和描述</span><br><span class="hljs-code">    yum list --installed  #查看所有已安装软件</span><br><span class="hljs-code">     --downloaddir path|--destdir path #指定下载目录,如果下载目录不存在，则自动创建</span><br><span class="hljs-code">     yum localinstall|install [options] rpmfile1 [...] #安装本地RPM包 </span><br><span class="hljs-code"> 软件组管理</span><br><span class="hljs-code">  常用：</span><br><span class="hljs-code">    yum grouplist [options] #列出所有包组</span><br><span class="hljs-code">    yum groupinstall [options] group1 [...] #包组安装</span><br><span class="hljs-code">    yum groupremove [options] group1 [...] #包组卸载 </span><br><span class="hljs-code"> 自建yum仓库</span><br><span class="hljs-code">   步骤：</span><br><span class="hljs-code">   1. 在 yum server 机上搭建 web 服务（nginx|apache），保证其它机器能能过web服务访问本机</span><br><span class="hljs-code">   2. 在 yum server 机上搭建 yum 仓库服务（获取软件；软件源数据信息）</span><br><span class="hljs-code">   3. 在 client 机上将yum 的 repos 源指向 yum server 机</span><br><span class="hljs-code">   4. 测试</span><br><span class="hljs-code">   </span><br><span class="hljs-code">   </span><br><span class="hljs-code">  </span><br><span class="hljs-code"> </span><br></code></pre></td></tr></table></figure>
+
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
