@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="运算符&#x20;+- *&#x2F;%的用法  输出    结论:1.整数参与计算结果只能是整数 &#x20;       2.如果有在计算时有小数参与结果有可能不精确 练习：录入一个三位数 拆分成个位，十位，百位 公式: 个位：数值%10 十位:  数值&#x2F;10%10 百位:  数值&#x2F;100%10 &#x20; 千位:  数值&#x2F;1000%10 ………   数字进行运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://lx1me.github.io/2025/06/09/%E8%BF%90%E7%AE%97%E7%AC%A6-/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="运算符&#x20;+- *&#x2F;%的用法  输出    结论:1.整数参与计算结果只能是整数 &#x20;       2.如果有在计算时有小数参与结果有可能不精确 练习：录入一个三位数 拆分成个位，十位，百位 公式: 个位：数值%10 十位:  数值&#x2F;10%10 百位:  数值&#x2F;100%10 &#x20; 千位:  数值&#x2F;1000%10 ………   数字进行运">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_XS2ISyv_SB.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_EiXHMnCd6Q.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_om2w_GnRIb.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_Gr3P0mOGxq.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_l081vAAIav.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_xqPJKauaOM.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_RZOiPe_rDi.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_6t_Wf70kX4.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_sgJQusV92X.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_ol8mrzCe8W.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_t5R3zy2gx1.png">
+<meta property="article:published_time" content="2025-06-09T05:40:03.024Z">
+<meta property="article:modified_time" content="2025-06-09T05:42:41.937Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lx1me.github.io/image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_XS2ISyv_SB.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-09 13:40" pubdate>
+          2025年6月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          682 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="运算符-x20"><a href="#运算符-x20" class="headerlink" title="运算符&#x20;"></a>运算符&#x20;</h1><p>+- *&#x2F;%的用法</p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_XS2ISyv_SB.png" srcset="/img/loading.gif" lazyload></p>
+<p>输出</p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_EiXHMnCd6Q.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_om2w_GnRIb.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_Gr3P0mOGxq.png" srcset="/img/loading.gif" lazyload></p>
+<p>结论:1.整数参与计算结果只能是整数</p>
+<p>&#x20;       2.如果有在计算时有小数参与结果有可能不精确</p>
+<p>练习：录入一个三位数 拆分成个位，十位，百位</p>
+<p>公式:</p>
+<p>个位：数值%10</p>
+<p>十位:  数值&#x2F;10%10</p>
+<p>百位:  数值&#x2F;100%10 &#x20;</p>
+<p>千位:  数值&#x2F;1000%10</p>
+<p>………</p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_l081vAAIav.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_xqPJKauaOM.png" srcset="/img/loading.gif" lazyload></p>
+<p>数字进行运算时,数据类型不一样不能运算,要转成一样的,才能运算.</p>
+<p>类型转换的分类:</p>
+<p>①隐式转换 ·取值范围小的数值→取值范围大的数值(程序自动实现转换)</p>
+<p>取值范围排序: byte→short→int→long→float→double</p>
+<p>byte,short,char先提升为int,在计算</p>
+<p>例:int a&#x3D;10:</p>
+<p>&#x20;   double b&#x3D;a; <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="此时double范围大所以b=10.0 小数类型">[1]</span></a></sup></p>
+<p>②强制转换<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="可能会发生数据错乱">[2]</span></a></sup>·取值范围大的数值→取值范围小的数值</p>
+<p>代码格式;目标数据类型 变量名&#x3D;(目标数据类型)<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="想转谁就在括号里写谁">[3]</span></a></sup>被强制转换的数据</p>
+<p>例:double a&#x3D;12.3;</p>
+<p>&#x20;    nit b&#x3D;(int) a;</p>
+<h2 id="自增自减运算符"><a href="#自增自减运算符" class="headerlink" title="自增自减运算符"></a>自增自减运算符</h2><p>＋＋(变量值加一)</p>
+<p>－－(变量值减一)</p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_RZOiPe_rDi.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_6t_Wf70kX4.png" srcset="/img/loading.gif" lazyload></p>
+<p>不管是先++，还是后++。单独写在一行的时候，运算结果是一模一样的。</p>
+<p>赋值运算符 &#x3D;</p>
+<h1 id="扩展赋值运算符"><a href="#扩展赋值运算符" class="headerlink" title="扩展赋值运算符"></a>扩展赋值运算符</h1><p>+&#x3D;、-&#x3D;、 *&#x3D;、&#x2F;&#x3D;、%&#x3D;;(就是把左边跟右边进行运算，把最终的结果赋值给左边，对右边没有任何影响)</p>
+<h1 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h1><p>&amp;：逻辑与（而且）</p>
+<p>两边都为真，结果才是真，只要有一个为假，那么结果就是假。</p>
+<p>|：逻辑或（或者）</p>
+<p>两边都为假，结果才是假，只要有一个为真，那么结果就是真。</p>
+<p>应用场景:用户登录比较用户名和密码的对错(&amp;)</p>
+<p>^:(异或)</p>
+<p>如果两边相同,结果为false,如果两边不同,结果为true.</p>
+<p>!;(取反)</p>
+<p>一次用一个</p>
+<h1 id="短路逻辑运算符"><a href="#短路逻辑运算符" class="headerlink" title="短路逻辑运算符"></a>短路逻辑运算符</h1><p>&amp;&amp;:(和&amp;运算结果一样)</p>
+<p>||:(和|运算结果一样)</p>
+<p>当左边不能确定整个表达式的结果，右边才会执行。</p>
+<p>当左边能确定整个表达式的结果，那么右边就不会执行了。从而提高了代码的运行效率。</p>
+<h2 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h2><p>格式:关系表达式 ？ 表达式1 ：表达式2 ；</p>
+<p>代码规则:①计算关系表达式的值。</p>
+<p>&#x20;              ②如果关系表达式的值为真，那么执行表达式1。</p>
+<p>&#x20;               ③如果关系表达式的值为假，那么执行表达式2。</p>
+<p>三元运算符的最终结果一定要被使用，要么赋值给一个变量，要么直接打印出来。</p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_sgJQusV92X.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_ol8mrzCe8W.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h1><p><img src="/../image/%E8%BF%90%E7%AE%97%E7%AC%A6-/image_t5R3zy2gx1.png" srcset="/img/loading.gif" lazyload></p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>此时double范围大所以b&#x3D;10.0 小数类型
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>可能会发生数据错乱
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>想转谁就在括号里写谁
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://lx1me.github.io/2025/06/09/运算符-/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/09/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/09/%E6%96%B9%E6%B3%95/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="判断与循环流程控制语句的分类①顺序结构②判断和选择结构 (if,Switch)③循环结构(for,while,do,while) 顺序结构没有特定的语法结构,都是按先后顺序依次执行,大多数代码都是这样的.   判断语句if语句格式:类型①if (关系表达式) { &#x20;    语句体; } 执行流程:先计算表达式的值,如果成立就执行语句体,否则不执行.最后继续执行之后的代码   注意事项:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://lx1me.github.io/2025/06/09/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="判断与循环流程控制语句的分类①顺序结构②判断和选择结构 (if,Switch)③循环结构(for,while,do,while) 顺序结构没有特定的语法结构,都是按先后顺序依次执行,大多数代码都是这样的.   判断语句if语句格式:类型①if (关系表达式) { &#x20;    语句体; } 执行流程:先计算表达式的值,如果成立就执行语句体,否则不执行.最后继续执行之后的代码   注意事项:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_dbJujtcie7.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_zT9wjxqICB.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_N33DWHLBgM.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_GjHXLaVb8L.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_vQyawDAe0M.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_WRDKl94CZI.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_CVU6pNYLD5.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_s0Mma-CFZT.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_Jz-sku8HHw.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_WcUPxkQKJL.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_CxoGOxBPnb.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_MOv-gx8M7T.png">
+<meta property="og:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_IMcEzHiPY3.png">
+<meta property="article:published_time" content="2025-06-09T05:40:02.990Z">
+<meta property="article:modified_time" content="2025-06-09T05:42:41.911Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lx1me.github.io/image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_dbJujtcie7.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/gradient.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lx1me.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-09 13:40" pubdate>
+          2025年6月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="判断与循环"><a href="#判断与循环" class="headerlink" title="判断与循环"></a>判断与循环</h1><h2 id="流程控制语句的分类"><a href="#流程控制语句的分类" class="headerlink" title="流程控制语句的分类"></a>流程控制语句的分类</h2><p>①顺序结构②判断和选择结构 (if,Switch)③循环结构(for,while,do,while)</p>
+<h2 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h2><p>没有特定的语法结构,都是按先后顺序依次执行,大多数代码都是这样的.</p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_dbJujtcie7.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_zT9wjxqICB.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h2><h3 id="if语句格式"><a href="#if语句格式" class="headerlink" title="if语句格式:"></a>if语句格式:</h3><p>类型①if (关系表达式) {</p>
+<p>&#x20;    语句体;</p>
+<p>}</p>
+<p>执行流程:先计算表达式的值,如果成立就执行语句体,否则不执行.最后继续执行之后的代码</p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_N33DWHLBgM.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_GjHXLaVb8L.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意事项:</p>
+<p>如果要对一个布尔变量进行判断,不要直接写&#x3D;&#x3D;,直接把变量写在小括号里.</p>
+<p>类型② if (关系表达式) {</p>
+<p>语句体1; &#x20;</p>
+<p>} else {</p>
+<p>语句体2; &#x20;</p>
+<p>}</p>
+<p>执行流程:先计算表达式的值,如果成立就执行语句体1,否则执行语句体2.最后继续执行之后的代码</p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_vQyawDAe0M.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_WRDKl94CZI.png" srcset="/img/loading.gif" lazyload></p>
+<p>类型③</p>
+<p>if (关系表达式1) {</p>
+<p>语句体1; &#x20;</p>
+<p>} else if (关系表达式2) {</p>
+<p>语句体2; &#x20;</p>
+<p>}&#x20;</p>
+<p>…</p>
+<p>else {</p>
+<p>语句体n+1;</p>
+<p>}</p>
+<p>执行流程:先计算表达式的值,如果成立就执行语句体1,如果不成立就关系表达式2, 接着如果成立就执行语句体2,如果不成立就关系表达式3,一直循环.最后继续执行之后的代码</p>
+<h2 id="Switch语句"><a href="#Switch语句" class="headerlink" title="Switch语句"></a>Switch语句</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs 纯文本">switch (表达式) &#123;<br>  case 1:<br>    语句体1;<br>    break;<br>  case 2:<br>    语句体2;<br>    break;<br>  ...<br>  default:<br>    语句体n+1;<br>    break;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>执行流程:先计算表达式的值,然后和case依次比较,如果有对应的值就会执行相应的语句,如果在执行过程中遇到break就会结束.最后如果都不匹配就会执行default语句然后结束程序.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs 纯文本">public class Main &#123;<br>    public static void main(String[] args) &#123;<br>        Scanner sc = new Scanner(System.in);<br>        System.out.println(&quot;请输入一个整数表示星期&quot;);<br>        int week = sc.nextInt();<br>        switch (week)&#123;<br>            case 1:<br>                System.out.println(&quot;跑步&quot;);<br>                break;<br>            case 2:<br>                System.out.println(&quot;游泳&quot;);<br>                break;<br>            case 3:<br>                System.out.println(&quot;慢走&quot;);<br>                break;<br>            case 4:<br>                System.out.println(&quot;动感单车&quot;);<br>                break;<br>            case 5:<br>                System.out.println(&quot;拳击&quot;);<br>                break;<br>            case 6:<br>                System.out.println(&quot;爬山&quot;);<br>                break;<br>            case 7:<br>                System.out.println(&quot;好好吃一顿&quot;);<br>                break;<br>            default:<br>                System.out.println(&quot;输入错误，没有这个星期&quot;);<br>                break;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_CVU6pNYLD5.png" srcset="/img/loading.gif" lazyload></p>
+<p>注:1.default可以放在任意位置也可以省略不写.</p>
+<p>不写break会引发case穿透现象</p>
+<h3 id="Switch和if的使用场景"><a href="#Switch和if的使用场景" class="headerlink" title="Switch和if的使用场景"></a>Switch和if的使用场景</h3><p>当我们需要对一个范围进行判断的时候，用if的第三种格式</p>
+<p>当我们把有限个数据列举出来，选择其中一个执行的时候，用switch语句</p>
+<p>比如：</p>
+<p>①小明的考试成绩，如果用switch，那么需要写100个case，太麻烦了，所以用if简单。</p>
+<p>②如果是星期，月份，客服电话中0~9的功能选择就可以用switch</p>
+<h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><h3 id="for的循环结构"><a href="#for的循环结构" class="headerlink" title="for的循环结构"></a>for的循环结构</h3><p>在满足循环条件的情况下,反复执行一段代码,当反复执行这一段代码时应在适当时刻将判断条件改为false,将此循环结束,否则循环会一直下去成为死循环.</p>
+<p>格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 纯文本">for (初始化语句;条件判断语句;条件控制语句) &#123;<br>  循环体语句;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p><strong>格式解释：</strong></p>
+<p>初始化语句： 用于表示循环开启时的起始状态，简单说就是循环开始的时候什么样</p>
+<p>条件判断语句：用于表示循环反复执行的条件，简单说就是判断循环是否能一直执行下去</p>
+<p>条件控制语句：用于表示循环执行中每次变化的内容，简单说就是控制循环是否能执行下去</p>
+<p>循环体语句： 用于表示循环反复执行的内容，简单说就是循环    反复执行的事情</p>
+<p>执行流程:先执行初始化语句,执行条件判断语句，看其结果是true还是false,如果是false，循环结束,如果是true，继续执行,执行循环体语句,执行条件控制语句,再执行条件判断语句…..一直循环.</p>
+<p>for循环书写的技巧</p>
+<p>①确定循环的条件</p>
+<p>②确定循环的结束条件</p>
+<p>③确定循环需要重复执行的代码</p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_s0Mma-CFZT.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_Jz-sku8HHw.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs 纯文本">初始化语句;<br>while(条件判断语句)&#123;<br>  循环体;<br>  条件控制语句;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_WcUPxkQKJL.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_CxoGOxBPnb.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="do…while循环"><a href="#do…while循环" class="headerlink" title="do…while循环"></a>do…while循环</h3><p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs 纯文本">初始化语句;<br>do&#123;<br>    循环体;<br>    条件控制语句;<br>&#125;while(条件判断语句);<br></code></pre></td></tr></table></figure>
+
+
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_MOv-gx8M7T.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/../image/%E5%88%A4%E6%96%AD%E4%B8%8E%E5%BE%AA%E7%8E%AF/image_IMcEzHiPY3.png" srcset="/img/loading.gif" lazyload></p>
+<p>三种格式的区别:</p>
+<ul>
+<li>for和while循环，是先判断，再执行。</li>
+<li>do…while是先执行，再判断。</li>
+<li>当知道循环次数或者循环范围的时候，用for循环。</li>
+<li>当不知道循环次数，也不知道循环范围，但是知道循环的结束条件时，用while循环。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://lx1me.github.io/2025/06/09/判断与循环/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/09/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/09/JAVA/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/runtime.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

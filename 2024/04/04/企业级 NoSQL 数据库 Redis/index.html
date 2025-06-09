@@ -26,32 +26,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="企业级 NoSQL 数据库 RedisNoSQL 数据库什么是 NoSQL12345数据库主要分为两大类：关系型数据库与 NoSQL 数据库。关系型数据库，是建立在关系模型基础上的数据库，其借助于集合代数等数学概念和方法来处理数据库中的数据。主流的 MySQL、Oracle、MS SQL Server 和 DB2 都属于这类传统数据库。NoSQL 数据库，全称为 Not Only SQL，意思就是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250331195955711.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250331200116061.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250331200133734.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250331201524132.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250331201544163.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250402192923373.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403144145286.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403150503960.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403150507961.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403150805071.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403160351355.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250403160414640.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408092030864.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408092223317.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408092613912.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408092629280.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408092647812.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408111540336.png">
-<meta property="og:image" content="https://lx1me.github.io/image/image-20250408111555862.png">
 <meta property="article:published_time" content="2024-04-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-09T03:58:34.098Z">
+<meta property="article:modified_time" content="2025-06-09T05:09:53.760Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="随笔">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lx1me.github.io/image/image-20250331195955711.png">
   
   
   
@@ -249,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.9k 字
+          7.2k 字
         
       </span>
     
@@ -260,7 +240,7 @@
         
         
         
-          58 分钟
+          61 分钟
         
       </span>
     
@@ -450,19 +430,19 @@
 <td>纯 KV，数据量非常大，并发量非常大的业务</td>
 </tr>
 </tbody></table>
-<h4 id="Redis-常见应用场景"><a href="#Redis-常见应用场景" class="headerlink" title="Redis 常见应用场景"></a>Redis 常见应用场景</h4><p>!!!!<img src="/../image/image-20250331195955711.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="Redis-常见应用场景"><a href="#Redis-常见应用场景" class="headerlink" title="Redis 常见应用场景"></a>Redis 常见应用场景</h4><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250331195955711.png)</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">缓存：缓存RDBMS中数据,比如网站的查询结果、商品信息、微博、新闻、消息<br>Session 共享：实现Web集群中的多服务器间的 session 共享<br>计数器：商品访问排行榜、浏览数、粉丝数、关注、点赞、评论等和次数相关的数值统计场景<br>社交：朋友圈、共同好友、可能认识他们等<br>地理位置: 基于地理信息系统GIS（Geographic Information System)实现摇一摇、附近的人、外卖等功能<br>消息队列：ELK等日志系统缓存、业务的订阅/发布系统<br></code></pre></td></tr></table></figure>
 
-<h3 id="缓存的实现流程"><a href="#缓存的实现流程" class="headerlink" title="缓存的实现流程"></a>缓存的实现流程</h3><h5 id="数据更新操作流程："><a href="#数据更新操作流程：" class="headerlink" title="数据更新操作流程："></a>数据更新操作流程：</h5><p>!!!!<img src="/../image/image-20250331200116061.png" srcset="/img/loading.gif" lazyload></p>
-<h5 id="数据读操作流程："><a href="#数据读操作流程：" class="headerlink" title="数据读操作流程："></a>数据读操作流程：</h5><p>!!!!<img src="/../image/image-20250331200133734.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="缓存的实现流程"><a href="#缓存的实现流程" class="headerlink" title="缓存的实现流程"></a>缓存的实现流程</h3><h5 id="数据更新操作流程："><a href="#数据更新操作流程：" class="headerlink" title="数据更新操作流程："></a>数据更新操作流程：</h5><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250331200116061.png)</p>
+<h5 id="数据读操作流程："><a href="#数据读操作流程：" class="headerlink" title="数据读操作流程："></a>数据读操作流程：</h5><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250331200133734.png)</p>
 <h4 id="缓存穿透-缓存击穿和缓存雪崩"><a href="#缓存穿透-缓存击穿和缓存雪崩" class="headerlink" title="缓存穿透,缓存击穿和缓存雪崩"></a>缓存穿透,缓存击穿和缓存雪崩</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs powershell">缓存穿透 Cache Penetration<br>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，比如： 发起为id为 “<span class="hljs-literal">-1</span>” 的数据或id为特别大不存在的数据。<br>这时的用户很可能是攻击者，攻击会导致数据库压力过大。<br>解决方法：<br>接口层增加校验，如用户鉴权校验，id做基础校验，id&lt;=<span class="hljs-number">0</span>的直接拦截<br>从缓存取不到的数据，在数据库中也没有取到，这时也可以将key<span class="hljs-literal">-value</span>对写为key<span class="hljs-literal">-null</span>，缓存有效时间可以设置短点，如<span class="hljs-number">30</span>秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个id暴力攻击<br><br>缓存击穿 Cache breakdown<br>缓存击穿是指缓存中没有但数据库中有的数据，比如：热点数据的缓存时间到期后，这时由于并发用户特别多，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，造成过大压力<br>解决方法：<br>设置热点数据永远不过期。<br><br>缓存雪崩 Thunder Hurd Problem<br>缓存雪崩是指缓存中数据大批量到过期时间，而查询数据量巨大，引起数据库压力过大甚至down机。和缓存击穿不同的是，缓存击穿指并发查同一条数据，缓存雪崩是不同数据都过期了，很多数据都查不到从而查数据库。<br>解决方法：<br>缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生<br>如果缓存数据库是分布式部署，将热点数据均匀分布在不同搞得缓存数据库中<br>设置热点数据永远不过期<br></code></pre></td></tr></table></figure>
 
 <h4 id="缓存-crash"><a href="#缓存-crash" class="headerlink" title="缓存 crash"></a>缓存 crash</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis 缓存服务宕机，造成 缓存服务失效<br>解决方法：Redis高可用集群<br></code></pre></td></tr></table></figure>
 
 <h4 id="Pipeline-流水线"><a href="#Pipeline-流水线" class="headerlink" title="Pipeline 流水线"></a>Pipeline 流水线</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis 客户端执行一条命令分<span class="hljs-number">6</span>个过程：<br>发送命令－-〉网络传输－-〉 命令排队－-〉命令执行－-〉网络传输－-〉 返回结果<br>这个过程称为Round trip time(简称RTT, 往返时间)，mget,mset指令可以一次性的批量对多个数据的执<br>行操作,所以有效节约了RTT<br>但大部分命令（如hgetall）不支持批量操作，需要消耗N次RTT ，利用 Pipeline 技术可以解决这一问题<br><br></code></pre></td></tr></table></figure>
 
-<h5 id="未使用pipeline执行N条命令如下图"><a href="#未使用pipeline执行N条命令如下图" class="headerlink" title="未使用pipeline执行N条命令如下图"></a>未使用pipeline执行N条命令如下图</h5><p>!!!!<img src="/../image/image-20250331201524132.png" srcset="/img/loading.gif" lazyload></p>
-<h5 id="使用了pipeline执行N条命令如下图"><a href="#使用了pipeline执行N条命令如下图" class="headerlink" title="使用了pipeline执行N条命令如下图"></a>使用了pipeline执行N条命令如下图</h5><p>!!!!<img src="/../image/image-20250331201544163.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="未使用pipeline执行N条命令如下图"><a href="#未使用pipeline执行N条命令如下图" class="headerlink" title="未使用pipeline执行N条命令如下图"></a>未使用pipeline执行N条命令如下图</h5><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250331201524132.png)</p>
+<h5 id="使用了pipeline执行N条命令如下图"><a href="#使用了pipeline执行N条命令如下图" class="headerlink" title="使用了pipeline执行N条命令如下图"></a>使用了pipeline执行N条命令如下图</h5><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250331201544163.png)</p>
 <h5 id="两者性能对比"><a href="#两者性能对比" class="headerlink" title="两者性能对比"></a>两者性能对比</h5><table>
 <thead>
 <tr>
@@ -497,7 +477,7 @@
 
 <h5 id="RDB-工作原理"><a href="#RDB-工作原理" class="headerlink" title="RDB 工作原理"></a>RDB 工作原理</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">是基于某个时间点的快照，注意RDB只保留当前最新版本的一个快照相当于MySQL中的完全备份<br>RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文件，通过该文件可以还原生成该 RDB 文件时数据库的状态。因为 RDB 文件是保存在磁盘中的，所以即便 Redis 服务进程甚至服务器宕机，只要磁盘中 RDB 文件存在，就能将数据恢复<br>RDB 支持save和bgsave两种命令实现数据文件的持久化<br>注意： save 指令使用主进程进行备份，而不生成新的子进程，但是也会生成临时文件temp-&lt;主进程PID&gt;.rdb文件<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250402192923373.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250402192923373.png)</p>
 <h6 id="save-执行过程会使用主进程进行快照，并生成临时文件temp-rdb文件"><a href="#save-执行过程会使用主进程进行快照，并生成临时文件temp-rdb文件" class="headerlink" title="save 执行过程会使用主进程进行快照，并生成临时文件temp-&lt;主进程PID&gt;.rdb文件"></a>save 执行过程会使用主进程进行快照，并生成临时文件temp-&lt;主进程PID&gt;.rdb文件</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">[<span class="hljs-number">1</span>]   Done                    redis<span class="hljs-literal">-cli</span> <span class="hljs-literal">-a</span> <span class="hljs-number">123456</span> save<br>total <span class="hljs-number">1492</span><br>drwxr<span class="hljs-literal">-xr-x</span> <span class="hljs-number">2</span> redis redis    <span class="hljs-number">4096</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> ./<br>drwxr<span class="hljs-literal">-xr-x</span> <span class="hljs-number">7</span> redis redis    <span class="hljs-number">4096</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">38</span> ../<br><span class="hljs-literal">-rw-r--r--</span> <span class="hljs-number">1</span> redis redis <span class="hljs-number">1477877</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> dump.rdb<br><span class="hljs-literal">-rw-r--r--</span> <span class="hljs-number">1</span> redis redis   <span class="hljs-number">40960</span> Apr  <span class="hljs-number">2</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span> temp<span class="hljs-literal">-7391</span>.rdb<br><br></code></pre></td></tr></table></figure>
 
 <h6 id="RDB-bgsave-实现快照"><a href="#RDB-bgsave-实现快照" class="headerlink" title="RDB bgsave 实现快照"></a>RDB bgsave 实现快照</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">首先从redis 主进程先fork生成一个新的子进程,此子进程负责将Redis内存数据保存为一个临时文件tmp-<br>&lt;子进程pid&gt;.rdb<br>当数据保存完成后,再将此临时文件改名为RDB文件,如果有前一次保存的RDB文件则会被替换，最后关闭<br>此子进程<br>由于Redis只保留最后一个版本的RDB文件,如果想实现保存多个版本的数据,需要人为实现<br></code></pre></td></tr></table></figure>
@@ -512,7 +492,7 @@
 
 <h4 id="RDB和AOF-的选择"><a href="#RDB和AOF-的选择" class="headerlink" title="RDB和AOF 的选择"></a>RDB和AOF 的选择</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">如果主要充当缓存功能,或者可以承受较长时间,比如数分钟数据的丢失, 通常生产环境一般只需启用RDB即可,此也是默认值<br>如果一点数据都不能丢失,可以选择同时开启RDB和AOF<br>一般不建议只开启AOF<br></code></pre></td></tr></table></figure>
 
-<h4 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">```<br><br>!!!!![](../image/image<span class="hljs-literal">-20250403102953994</span>.png)<br><br><span class="hljs-comment">#### 字符串 string</span><br><br>```powershell<br><br><br></code></pre></td></tr></table></figure>
+<h4 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">```<br><br>!!!!![](../image/企业级 NoSQL 数据库 Redis/image<span class="hljs-literal">-20250403102953994</span>.png)<br><br><span class="hljs-comment">#### 字符串 string</span><br><br>```powershell<br><br><br></code></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -558,7 +538,7 @@
 <h4 id="集合-set"><a href="#集合-set" class="headerlink" title="集合 set"></a>集合 set</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set</span> 是一个无序的字符串合集<br>同一个集合中的每个元素是唯一无重复的<br>支持在两个不同的集合中对数据进行逻辑处理，常用于取交集,并集,统计等场景,例如: 实现共同的朋友<br>集合特点<br>无序<br>无重复<br>集合间操作<br></code></pre></td></tr></table></figure>
 
 <p>集合间操作</p>
-<p>!!!!<img src="/../image/image-20250403144145286.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403144145286.png)</p>
 <h4 id="有序集合-sorted-set"><a href="#有序集合-sorted-set" class="headerlink" title="有序集合 sorted set"></a>有序集合 sorted set</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis有序集合和Redis集合类似，是不包含相同字符串的合集。<br>它们的差别是，每个有序集合的成员都关联着一个双精度浮点型的评分<br>这个评分用于把有序集合中的成员按最低分到最高分排序。<br>有序集合的成员不能重复,但评分可以重复,一个有序集合中最多的成员数为 <span class="hljs-number">2</span>^<span class="hljs-number">32</span> - <span class="hljs-number">1</span>=<span class="hljs-number">4294967295</span>个，经常用于排行榜的场景<br><br>有序集合特点<br>有序<br>无重复元素<br>每个元素是由score和value组成<br>score 可以重复<br>value 不可以重复<br></code></pre></td></tr></table></figure>
 
 <h4 id="哈希-hash"><a href="#哈希-hash" class="headerlink" title="哈希 hash"></a>哈希 hash</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hash 即字典, 用于保存字符串字段field和字符串值value之间的映射，即key/value做为数据部分<br>hash特别适合用于存储对象场景.<br>一个hash最多可以包含<span class="hljs-number">2</span>^<span class="hljs-number">32</span><span class="hljs-literal">-1</span> 个key/value键值对<br>哈希特点<br>无序<br>K/V 对<br>适用于存放相关的数据<br></code></pre></td></tr></table></figure>
@@ -567,13 +547,13 @@
 
 <h4 id="生产者消费者模式"><a href="#生产者消费者模式" class="headerlink" title="生产者消费者模式"></a>生产者消费者模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">生产者消费者模式下，多个消费者同时监听一个频道(redis用队列实现)，但是生产者产生的一个消息只能被最先抢到消息的一个消费者消费一次,队列中的消息由可以多个生产者写入，也可以有不同的消费者取出进行消费处理.此模式应用广泛<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250403150503960.png" srcset="/img/loading.gif" lazyload></p>
-<p>!!!!<img src="/../image/image-20250403150507961.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403150503960.png)</p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403150507961.png)</p>
 <h4 id="发布者订阅模式"><a href="#发布者订阅模式" class="headerlink" title="发布者订阅模式"></a>发布者订阅模式</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">在发布者订阅者Publisher/Subscriber模式下，发布者Publisher将消息发布到指定的频道channel，事先监听此channel的一个或多个订阅者Subscriber都会收到相同的消息。即一个消息可以由多个订阅者获取到. 对于社交应用中的群聊、群发、群公告等场景适用于此模式<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250403150805071.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="Redis-集群与高可用"><a href="#Redis-集群与高可用" class="headerlink" title="Redis 集群与高可用"></a>Redis 集群与高可用</h4><p>!!!!<img src="/../image/image-20250403160351355.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="Redis-主从复制"><a href="#Redis-主从复制" class="headerlink" title="Redis 主从复制"></a>Redis 主从复制</h4><p>!!!!<img src="/../image/image-20250403160414640.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403150805071.png)</p>
+<h4 id="Redis-集群与高可用"><a href="#Redis-集群与高可用" class="headerlink" title="Redis 集群与高可用"></a>Redis 集群与高可用</h4><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403160351355.png)</p>
+<h4 id="Redis-主从复制"><a href="#Redis-主从复制" class="headerlink" title="Redis 主从复制"></a>Redis 主从复制</h4><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250403160414640.png)</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">主从复制架构<br>Redis和MySQL的主从模式类似，也支持主从模式（master/slave），可以实现Redis数据的跨主机的远程备份<br>常见客户端连接主从的架构:<br>程序APP先连接到高可用性 LB 集群提供的虚拟IP，再由LB调度将用户的请求至后端Redis 服务器来真正提供服务<br><br>主从复制的特点:<br>一个master可以有多个slave<br>一个slave只能有一个master<br>数据流向是从master到slave单向的<br>master 可读可写<br>slave 只读<br></code></pre></td></tr></table></figure>
 
 <h4 id="主从复制实现"><a href="#主从复制实现" class="headerlink" title="主从复制实现"></a>主从复制实现</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当master出现故障后,可以自动提升一个slave节点变成新的Mster,因此Redis Slave 需要设置和master相同的连接密码<br>此外当一个Slave提升为新的master时需要通过持久化实现数据的恢复<br>当配置Redis复制功能时，强烈建议打开主服务器的持久化功能。否则主节点Redis服务应该要避免自动启动。<br></code></pre></td></tr></table></figure>
@@ -582,17 +562,17 @@
 
 <h4 id="Redis-Cluster-架构"><a href="#Redis-Cluster-架构" class="headerlink" title="Redis Cluster 架构"></a>Redis Cluster 架构</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs powershell">Redis cluster 需要至少 <span class="hljs-number">3</span>个master节点才能实现,slave节点数量不限<br>Master节点必须要超过半数以上可用,否则集群将不可用,即数据访问和选举将无法实现<br>因此Master节点的数据一般为奇数<br>当然一般每个master都至少对应的有一个slave节点<br>如果有三个主节点采用哈希槽 hash slot 的方式来分配<span class="hljs-number">16384</span>个槽位 slot<br>此三个节点分别承担的slot 区间可以是如以下方式分配<br>节点M1 <span class="hljs-number">0</span>－<span class="hljs-number">5460</span><br>节点M2 <span class="hljs-number">5461</span>－<span class="hljs-number">10922</span><br>节点M3 <span class="hljs-number">10923</span>－<span class="hljs-number">16383</span><br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250408092030864.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408092030864.png)</p>
 <h4 id="数据分区"><a href="#数据分区" class="headerlink" title="数据分区"></a>数据分区</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">如果是单机存储的话，直接将数据存放在单机redis就行了。但是如果是集群存储，就需要考虑到数据分区了。<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250408092223317.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408092223317.png)</p>
 <h5 id="虚拟槽分区"><a href="#虚拟槽分区" class="headerlink" title="虚拟槽分区"></a>虚拟槽分区</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">redis cluster设置有<span class="hljs-number">0</span>~<span class="hljs-number">16383</span>的槽，每个槽映射一个数据子集，通过hash函数，将数据存放在不同的槽位中，每个集群的节点保存一部分的槽。<br>每个key存储时，先经过算法函数CRC16(key)得到一个整数，然后整数与<span class="hljs-number">16384</span>取余，得到槽的数值，然后找到对应的节点，将数据存放入对应的槽中。<br></code></pre></td></tr></table></figure>
 
 <h4 id="集群扩容"><a href="#集群扩容" class="headerlink" title="集群扩容"></a>集群扩容</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当有新的节点准备好加入集群时，这个新的节点还是孤立节点，加入有两种方式。一个是通过集群节点<br>执行命令来和孤立节点握手，另一个则是使用脚本来添加节点。<br><span class="hljs-number">1</span>. cluster_node_ip:port: cluster meet ip port new_node_ip:port<br><span class="hljs-number">2</span>. redis<span class="hljs-literal">-trib</span>.rb <span class="hljs-built_in">add-node</span> new_node_ip:port cluster_node_ip:port<br>通常这个新的节点有两种身份，要么作为主节点，要么作为从节点：<br>主节点：分摊槽和数据<br>从节点：作故障转移备份<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250408092613912.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="槽的迁移"><a href="#槽的迁移" class="headerlink" title="槽的迁移"></a>槽的迁移</h4><p>!!!!<img src="/../image/image-20250408092629280.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="集群缩容"><a href="#集群缩容" class="headerlink" title="集群缩容"></a>集群缩容</h4><p>!!!!<img src="/../image/image-20250408092647812.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408092613912.png)</p>
+<h4 id="槽的迁移"><a href="#槽的迁移" class="headerlink" title="槽的迁移"></a>槽的迁移</h4><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408092629280.png)</p>
+<h4 id="集群缩容"><a href="#集群缩容" class="headerlink" title="集群缩容"></a>集群缩容</h4><p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408092647812.png)</p>
 <h4 id="下线节点的流程"><a href="#下线节点的流程" class="headerlink" title="下线节点的流程"></a>下线节点的流程</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-number">1</span>. 判断该节点是否持有槽，如果未持有槽就跳转到下一步，持有槽则先迁移槽到其他节点<br><span class="hljs-number">2</span>. 通知其他节点（cluster forget）忘记该下线节点<br><span class="hljs-number">3</span>. 关闭下线节点的服务<br><br>需要注意的是如果先下线主节点，再下线从节点，会进行故障转移，所以要先下线从节点。<br></code></pre></td></tr></table></figure>
 
 <h4 id="故障转移"><a href="#故障转移" class="headerlink" title="故障转移"></a>故障转移</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">集群同样具备了自动转移故障的功能，和哨兵有些类似，在进行客观下线之后，就开始准备让故障节点的从节点“上任”了。<br>首先是进行资格检查，只有具备资格的从节点才能参加选举：<br>故障节点的所有从节点检查和故障主节点之间的断线时间<br>超过cluster<span class="hljs-literal">-node-timeout</span> * cluster<span class="hljs-literal">-slave-validati-factor</span>(默认<span class="hljs-number">10</span>)则取消选举资格<br>然后是准备选举顺序，不同偏移量的节点，参与选举的顺位不同。offset最大的slave节点，选举顺位最<br>高，最优先选举。而offset较低的slave节点，要延迟选举。<br></code></pre></td></tr></table></figure>
@@ -601,8 +581,8 @@
 
 <h6 id="生产环境：6台服务器，分别是三组master-slave，适用于生产环境"><a href="#生产环境：6台服务器，分别是三组master-slave，适用于生产环境" class="headerlink" title="生产环境：6台服务器，分别是三组master&#x2F;slave，适用于生产环境"></a>生产环境：6台服务器，分别是三组master&#x2F;slave，适用于生产环境</h6><h4 id="集群扩容-1"><a href="#集群扩容-1" class="headerlink" title="集群扩容"></a>集群扩容</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">当前客户量激增，现有的Redis cluster架构已经无法满足越来越高的并发访问请求，为解决此问题,新购置两台服务器，要求将其动态添加到现有集群，但不能影响业务的正常访问。<br>新版支持集群中有旧数据的情况进行扩容<br>注意: 生产环境一般建议master节点为奇数个,比如:<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,以防止脑裂现象<br></code></pre></td></tr></table></figure>
 
-<p>!!!!<img src="/../image/image-20250408111540336.png" srcset="/img/loading.gif" lazyload></p>
-<p>!!!!<img src="/../image/image-20250408111555862.png" srcset="/img/loading.gif" lazyload></p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408111540336.png)</p>
+<p>!!!!![](..&#x2F;image&#x2F;企业级 NoSQL 数据库 Redis&#x2F;image-20250408111555862.png)</p>
 
   </div>
 
