@@ -1740,7 +1740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1749520335767),
+    lastupdate: new Date(1749522369665),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2527,7 +2527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2023/07/10/API（3）/">
+  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2023/07/18/循环高级/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hexo">
   </span>
@@ -2545,19 +2545,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/10/API%EF%BC%883%EF%BC%89/"  itemprop="url">
-        API（3）
+      <a href="/2023/07/18/%E5%BE%AA%E7%8E%AF%E9%AB%98%E7%BA%A7/"  itemprop="url">
+        循环高级
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        API（3）Date类&#x20;Date概述java.util.Date`类 表示特定的瞬间，精确到毫秒。
-继续查阅Date类的描述，发现Date拥有多个构造函数，只是部分已经过时，我们重点看以下两个构造函数
+        循环高级1.无限循环for格式
+for(;;)&#123;    System.out.println(&quot;循环执行一直在打印内容&quot;);&#125;
 
-public Date()：从运行程序的此时此刻到时间原点经历的毫秒值,转换成Date对象，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。
-public Dat...
+
+注:
+初始化语句可以空着不写，表示循环之前不定义任何的控制变量。
+条件判断语句可以空着不写，如果不写，默认表示true，循环一直进行。
+条件控制语句可以空着不写，表示每次循环体执行完毕后，控制变量不做任何变化。
+while...
       
     
   </div>
@@ -2565,7 +2569,7 @@ public Dat...
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-10T00:00:00+08:00">2023-07-10</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-18T00:00:00+08:00">2023-07-18</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/Java/">Java</a>
@@ -2578,7 +2582,7 @@ public Dat...
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/10/API%EF%BC%883%EF%BC%89/' itemprop="url">
+          <a class='readmore' href='/2023/07/18/%E5%BE%AA%E7%8E%AF%E9%AB%98%E7%BA%A7/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2698,7 +2702,17 @@ public Dat...
           <li><a class="flat-box"
             title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
             active-action="action-categoriesE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(16)</div></a></li>
+            ><div class='name'>其他</div><div class='badge'>(11)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%AE%89%E5%85%A8/" href="/categories/%E5%AE%89%E5%85%A8/"
+            active-action="action-categoriesE5AE89E585A8"
+            ><div class='name'>安全</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"
+            active-action="action-categoriesE695B0E68DAEE5BA93"
+            ><div class='name'>数据库</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E8%BF%90%E7%BB%B4/" href="/categories/%E8%BF%90%E7%BB%B4/"

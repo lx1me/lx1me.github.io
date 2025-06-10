@@ -1740,7 +1740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1749520335767),
+    lastupdate: new Date(1749522369665),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2527,7 +2527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/06/30/Linux防火墙/">
+  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/06/09/高可用集群Keepalived/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hexo">
   </span>
@@ -2545,15 +2545,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/06/30/Linux%E9%98%B2%E7%81%AB%E5%A2%99/"  itemprop="url">
-        Linux防火墙
+      <a href="/2024/06/09/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/"  itemprop="url">
+        高可用集群Keepalived
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        Linux防火墙网络安全技术基础:  IDS：Intrusion Detection Systems （入侵检测系统）     其特点是不阻断任何网络访问，而是依照一定的安全策略，通过软，硬件，对网络，系统的运行状况进行监控，尽可能发现各种攻击企图，攻击行为或攻击结果，以保证网络系统资源的机密性，完整性和可用性。  IPS： Intrusion Prevention System （入侵防御...
+        高可用集群Keepalived集群简介!!!!
+
+
+
+类型
+解析
+
+
+
+高扩展集群
+在当前业务环境集群中，所有的主机节点都处于正常的工作活动状态，它们共同承担起用户的请求带来的工作负载压力，保证用户的正常访问。
+
+
+高可用集群
+将核心业务使用多台 (一般是 2 台) 主机共同工作，支撑并保障核心业务的正常运行，尤其是业务的对外不间断的对外提供服务。核心特点就是 “冗余”，它存在的目的就是为了...
       
     
   </div>
@@ -2561,7 +2575,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2024-06-30T00:00:00+08:00">2024-06-30</time>
+        <time itemprop="dateCreated datePublished" datetime="2024-06-09T00:00:00+08:00">2024-06-09</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
@@ -2574,7 +2588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/2024/06/30/Linux%E9%98%B2%E7%81%AB%E5%A2%99/' itemprop="url">
+          <a class='readmore' href='/2024/06/09/%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4Keepalived/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2694,7 +2708,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
             active-action="action-categoriesE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(16)</div></a></li>
+            ><div class='name'>其他</div><div class='badge'>(11)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%AE%89%E5%85%A8/" href="/categories/%E5%AE%89%E5%85%A8/"
+            active-action="action-categoriesE5AE89E585A8"
+            ><div class='name'>安全</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"
+            active-action="action-categoriesE695B0E68DAEE5BA93"
+            ><div class='name'>数据库</div><div class='badge'>(3)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E8%BF%90%E7%BB%B4/" href="/categories/%E8%BF%90%E7%BB%B4/"
