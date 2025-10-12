@@ -1740,7 +1740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1751855086248),
+    lastupdate: new Date(1760244893038),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2867,7 +2867,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/05/27/MySQL 数据库-1/">
+  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/05/27/Nginx/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hexo">
   </span>
@@ -2885,15 +2885,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/05/27/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/"  itemprop="url">
-        MySQL 数据库-1
+      <a href="/2024/05/27/Nginx/"  itemprop="url">
+        Nginx
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        MySQL 数据库-1MySQL 架构和性能优化mysql的查询过程1 客户端发送查询请求：  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。2 服务器接收并处理连接：  MySQL服务器通过连接器接收客户端的连接请求，并进行身份认证和权限验证。  如果验证成功，服务器为客户端分配一个独立的线程来处理后续的查询请求。3 查询缓存（MySQL 8.0后已...
+        NginxNginx的结构:(web程序)  在Nginx中，Master进程和Worker进程分别承担不同的角色，共同协作以提供高性能的服务Master进程和Worker进程:  Master进程：    负责管理Worker进程的生命周期。    处理来自管理员的信号。    负责配置文件的加载和重新加载。    启动、停止Worker进程，管理共享资源（如缓存）。        - 启...
       
     
   </div>
@@ -2904,17 +2904,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <time itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+          <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
+              <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url"><span itemprop="name">运维</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2024/05/27/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/' itemprop="url">
+          <a class='readmore' href='/2024/05/27/Nginx/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3056,7 +3056,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/05/27/Nginx/">
+  <link itemprop="mainEntityOfPage" href="https://lx1me.github.io/2024/05/27/MySQL 数据库-1/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Hexo">
   </span>
@@ -3074,15 +3074,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/05/27/Nginx/"  itemprop="url">
-        Nginx
+      <a href="/2024/05/27/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/"  itemprop="url">
+        MySQL 数据库-1
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        NginxNginx的结构:(web程序)  在Nginx中，Master进程和Worker进程分别承担不同的角色，共同协作以提供高性能的服务Master进程和Worker进程:  Master进程：    负责管理Worker进程的生命周期。    处理来自管理员的信号。    负责配置文件的加载和重新加载。    启动、停止Worker进程，管理共享资源（如缓存）。        - 启...
+        MySQL 数据库-1MySQL 架构和性能优化mysql的查询过程1 客户端发送查询请求：  用户通过客户端（如命令行工具、数据库管理工具等）发送SQL查询语句到MySQL服务器。2 服务器接收并处理连接：  MySQL服务器通过连接器接收客户端的连接请求，并进行身份认证和权限验证。  如果验证成功，服务器为客户端分配一个独立的线程来处理后续的查询请求。3 查询缓存（MySQL 8.0后已...
       
     
   </div>
@@ -3093,17 +3093,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <time itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url"><span itemprop="name">运维</span></a>
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2024/05/27/Nginx/' itemprop="url">
+          <a class='readmore' href='/2024/05/27/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93-1/' itemprop="url">
             阅读全文
           </a>
         </div>
